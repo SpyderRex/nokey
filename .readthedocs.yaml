@@ -1,0 +1,16 @@
+version: 2
+
+# Build configuration
+sphinx:
+  configuration: docs/source/conf.py
+
+python:
+  version: 3.12
+
+# Requirements file
+requirements_file: requirements.txt
+
+# Documentation versions
+documentation_versions:
+  latest: main
+
