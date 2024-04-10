@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nokey.animals.dog_api &mdash; nokey 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            nokey
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">nokey</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nokey</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">nokey.animals.dog_api</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for nokey.animals.dog_api</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">..</span> <span class="n">helperFuncs</span> <span class="kn">import</span> <span class="nn">make_request</span> <span class="k">as</span> <span class="nn">mr</span>
+
+<div class="viewcode-block" id="DogAPI">
+<a class="viewcode-back" href="../../../nokey.animals.html#nokey.animals.dog_api.DogAPI">[docs]</a>
+<span class="k">class</span> <span class="nc">DogAPI</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to interact with the Dog API.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">    - base_url: The base URL for the API.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://dog.ceo/api/&quot;</span>
+        
+<div class="viewcode-block" id="DogAPI.get_docs_url">
+<a class="viewcode-back" href="../../../nokey.animals.html#nokey.animals.dog_api.DogAPI.get_docs_url">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_docs_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the URL for the Dog API documentation.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - string: The URL for the Dog API documentation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;https://dog.ceo/dog-api/documentation/&quot;</span></div>
+
+        
+<div class="viewcode-block" id="DogAPI.get_all_dog_breeds">
+<a class="viewcode-back" href="../../../nokey.animals.html#nokey.animals.dog_api.DogAPI.get_all_dog_breeds">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_all_dog_breeds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of all the dog breeds in the Dog API.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Returns a dictionary containing a list of all the dog breeds in the Dog API.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;breeds/list/all&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="DogAPI.get_random_dog_image">
+<a class="viewcode-back" href="../../../nokey.animals.html#nokey.animals.dog_api.DogAPI.get_random_dog_image">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_random_dog_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the URL for a random dog image.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing the URL for a random dog image.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;breeds/image/random&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="DogAPI.get_dog_images_by_breed">
+<a class="viewcode-back" href="../../../nokey.animals.html#nokey.animals.dog_api.DogAPI.get_dog_images_by_breed">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_dog_images_by_breed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">breed</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns an array of URLs for images of dogs of the specified breed.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - breed (str): The breed of the dog.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing a list of URLs of images for the specified dog breed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;breed/</span><span class="si">{</span><span class="n">breed</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">/images&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="DogAPI.get_all_subBreeds">
+<a class="viewcode-back" href="../../../nokey.animals.html#nokey.animals.dog_api.DogAPI.get_all_subBreeds">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_all_subBreeds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">breed</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of all sub-breeds for the specified dog breed.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - breed (str): The breed of the dog.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing a list of all sub-breeds for the specified dog breed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;breed/</span><span class="si">{</span><span class="n">breed</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">/list&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="DogAPI.get_random_dog_image_by_breed">
+<a class="viewcode-back" href="../../../nokey.animals.html#nokey.animals.dog_api.DogAPI.get_random_dog_image_by_breed">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_random_dog_image_by_breed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">breed</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the URL for a random dog image of the specified breed.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - breed (str): The breed of the dog.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary the URL for a random dog image of the specified breed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;breed/</span><span class="si">{</span><span class="n">breed</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">/images/random&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+</div>
+
+  
+   
+        
+    
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Spyder Rex.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

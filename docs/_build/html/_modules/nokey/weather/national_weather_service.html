@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nokey.weather.national_weather_service &mdash; nokey 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            nokey
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">nokey</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nokey</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">nokey.weather.national_weather_service</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for nokey.weather.national_weather_service</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">..</span> <span class="n">helperFuncs</span> <span class="kn">import</span> <span class="nn">make_request</span> <span class="k">as</span> <span class="nn">mr</span>
+
+
+<div class="viewcode-block" id="NationalWeatherService">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService">[docs]</a>
+<span class="k">class</span> <span class="nc">NationalWeatherService</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to interact with the National Weather Service API.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">    - base_url: The base URL of the National Weather Service API.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.weather.gov/&quot;</span>
+        
+<div class="viewcode-block" id="NationalWeatherService.get_docs_url">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_docs_url">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_docs_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns URL for API docs.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - string: URL for API documentation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;https://www.weather.gov/documentation/services-web-api&quot;</span>       </div>
+
+    
+<div class="viewcode-block" id="NationalWeatherService.get_alerts">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_alerts">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_alerts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a collection of weather alerts.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Inforation on weather alerts</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;alerts&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_active_alerts">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_active_alerts">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_active_alerts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a collection of currently active weather alerts.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Inforation on currently active weather alerts</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;alerts/active&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_active_alerts_count">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_active_alerts_count">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_active_alerts_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the count of currently active weather alerts broken down by various categories.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Count of currently active weather alerts broke down by categories.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;alerts/active/count&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_active_alerts_by_zone">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_active_alerts_by_zone">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_active_alerts_by_zone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zoneID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns active alerts for the given NWS public zone or county.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - zoneID (str): NWS public zone/county identifier</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Information of active alerts in the zone specified by zoneID.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;alerts/active/zone/</span><span class="si">{</span><span class="n">zoneID</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="NationalWeatherService.get_active_alerts_by_area">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_active_alerts_by_area">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_active_alerts_by_area</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">area</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns active alerts for the given area (state or marine area).</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - area (str): State or marine area ID</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Information of active alerts in the area specified.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;alerts/active/area/</span><span class="si">{</span><span class="n">area</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="NationalWeatherService.get_active_alerts_by_region">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_active_alerts_by_region">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_active_alerts_by_region</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">region</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns active alerts for the given marine region ID. Available values : AL, AT, GL, GM, PA, PI.&quot;</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - region (str): Marine region ID. Available values : AL, AT, GL, GM, PA, PI.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Information of active alerts in the area specified.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;alerts/active/region/</span><span class="si">{</span><span class="n">region</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_alert_types">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_alert_types">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_alert_types</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of alerts types.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of alert types.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;alerts/types&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_alert_by_id">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_alert_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_alert_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a specific alert record.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - ID (str): Alert identifier.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about a specific alert.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;alerts/</span><span class="si">{</span><span class="n">ID</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_cwsu_metadata">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_cwsu_metadata">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_cwsu_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cwsuID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns metadata about a Center Weather Service Unit.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - cwsuID (str): NWS CWSU ID. Available values : ZAB, ZAN, ZAU, ZBW, ZDC, ZDV, ZFA, ZFW, ZHU, ZID, ZJX, ZKC, ZLA, ZLC, ZMA, ZME, ZMP, ZNY, ZOA, ZOB, ZSE, ZTL.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Metadata about a cwsu.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;aviation/cwsus/</span><span class="si">{</span><span class="n">cwsuID</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_cwsu_advisories">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_cwsu_advisories">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_cwsu_advisories</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cwsuID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Center Weather Advisories from a CWSU.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - cwsuID (str): NWS CWSU ID. Available values : ZAB, ZAN, ZAU, ZBW, ZDC, ZDV, ZFA, ZFW, ZHU, ZID, ZJX, ZKC, ZLA, ZLC, ZMA, ZME, ZMP, ZNY, ZOA, ZOB, ZSE, ZTL.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing list of  Center Weather Advisories from a CWSU.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;aviation/cwsus/</span><span class="si">{</span><span class="n">cwsuID</span><span class="si">}</span><span class="s2">/cwas&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="NationalWeatherService.get_cwsu_advisories_by_date_and_seq">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_cwsu_advisories_by_date_and_seq">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_cwsu_advisories_by_date_and_seq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cwsuID</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">sequence</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Center Weather Advisories from a CWSU.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - cwsuID (str): NWS CWSU ID. Available values : ZAB, ZAN, ZAU, ZBW, ZDC, ZDV, ZFA, ZFW, ZHU, ZID, ZJX, ZKC, ZLA, ZLC, ZMA, ZME, ZMP, ZNY, ZOA, ZOB, ZSE, ZTL.</span>
+<span class="sd">        - date (str): (YYYY-MM-DD format) Date of advisory.</span>
+<span class="sd">        - sequence (int): Sequence number</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing list of Center Weather Advisories from a CWSU.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;aviation/cwsus/</span><span class="si">{</span><span class="n">cwsuID</span><span class="si">}</span><span class="s2">/cwas/</span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">sequence</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+
+<span class="c1"># DON&#39;T YET KNOW HOW THIS WORKS. ARGS ARE QUERIES, NOT PATHS      </span>
+<span class="c1">#    def get_sigmets(self, start_time, end_time, date, atsu, sequence):</span>
+<span class="c1">#        &quot;&quot;&quot;</span>
+<span class="c1">#        Returns a list of SIGMET/AIRMETs.</span>
+<span class="c1">#</span>
+<span class="c1">#        Args:</span>
+<span class="c1">#        - start_time (str): Start time.</span>
+<span class="c1">#        - end_time (str): End time.</span>
+<span class="c1">#        - date (str): (YYYY-MM-DD format) Date</span>
+<span class="c1">#        - atsu (str): ATSU identifier</span>
+<span class="c1">#        - sequence (str): SIGMET sequence number</span>
+<span class="c1">#</span>
+<span class="c1">#        Returns:</span>
+<span class="c1">#        - dict: Metadata about a cwsu.</span>
+<span class="c1">#        &quot;&quot;&quot;</span>
+<span class="c1">#        endpoint = f&quot;aviation/sigmet?{start_time}?{end_time}?{date}?{atsu}?{sequence}&quot;</span>
+<span class="c1">#        return mr.make_request(self.base_url+endpoint)</span>
+
+<div class="viewcode-block" id="NationalWeatherService.get_sigmets_by_atsu">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_sigmets_by_atsu">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_sigmets_by_atsu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">atsu</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of SIGMET/AIRMETs for the specified ATSU.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - atsu (str): ATSU identifier.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing list of SIGMET/AIRMETs for the specified ATSU.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;aviation/sigmets/</span><span class="si">{</span><span class="n">atsu</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NationalWeatherService.get_sigmets_by_atsu_and_date">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_sigmets_by_atsu_and_date">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_sigmets_by_atsu_and_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">atsu</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of SIGMET/AIRMETs for the specified ATSU for the specified date.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - atsu (str): ATSU identifier.</span>
+<span class="sd">        - date (str): Date (YYYY-MM-DD format)</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing list of SIGMET/AIRMETs for the specified ATSU and specified date.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;aviation/sigmets/</span><span class="si">{</span><span class="n">atsu</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_specific_sigmet">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_specific_sigmet">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_specific_sigmet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">atsu</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of SIGMET/AIRMETs for the specified ATSU for the specified date.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - atsu (str): ATSU identifier.</span>
+<span class="sd">        - date (str): Date (YYYY-MM-DD format)</span>
+<span class="sd">        - time (str): Time (HHMM format). This time is always specified in UTC (Zulu) time.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing a specific SIGMET/AIRMET.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;aviation/sigmets/</span><span class="si">{</span><span class="n">atsu</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">time</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_glossary">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_glossary">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_glossary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns glossary terms.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of glossary terms and definitions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;glossary&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_raw_data_by_gridpoints">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_raw_data_by_gridpoints">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_raw_data_by_gridpoints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wfo</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns raw numerical forecast data for a 2.5km grid area.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - wfo (str): Forecast office ID. Available values : AKQ, ALY, BGM, BOX, BTV, BUF, CAE, CAR, CHS, CLE, CTP, GSP, GYX, ILM, ILN, LWX, MHX, OKX, PBZ, PHI, RAH, RLX, RNK, ABQ, AMA, BMX, BRO, CRP, EPZ, EWX, FFC, FWD, HGX, HUN, JAN, JAX, KEY, LCH, LIX, LUB, LZK, MAF, MEG, MFL, MLB, MOB, MRX, OHX, OUN, SHV, SJT, SJU, TAE, TBW, TSA, ABR, APX, ARX, BIS, BOU, CYS, DDC, DLH, DMX, DTX, DVN, EAX, FGF, FSD, GID, GJT, GLD, GRB, GRR, ICT, ILX, IND, IWX, JKL, LBF, LMK, LOT, LSX, MKX, MPX, MQT, OAX, PAH, PUB, RIW, SGF, TOP, UNR, BOI, BYZ, EKA, FGZ, GGW, HNX, LKN, LOX, MFR, MSO, MTR, OTX, PDT, PIH, PQR, PSR, REV, SEW, SGX, SLC, STO, TFX, TWC, VEF, AER, AFC, AFG, AJK, ALU, GUM, HPA, HFO, PPG, STU, NH1, NH2, ONA, ONP</span>
+<span class="sd">        - x (int): Forecast grid X coordinate.</span>
+<span class="sd">        - y (int): Forecast grid Y coordinate.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing the raw numerical forcast data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;gridpoints/</span><span class="si">{</span><span class="n">wfo</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_textual_forecast_by_gridpoints">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_textual_forecast_by_gridpoints">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_textual_forecast_by_gridpoints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wfo</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a textual forecast for a 2.5km grid area.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - wfo (str): Forecast office ID. Available values : AKQ, ALY, BGM, BOX, BTV, BUF, CAE, CAR, CHS, CLE, CTP, GSP, GYX, ILM, ILN, LWX, MHX, OKX, PBZ, PHI, RAH, RLX, RNK, ABQ, AMA, BMX, BRO, CRP, EPZ, EWX, FFC, FWD, HGX, HUN, JAN, JAX, KEY, LCH, LIX, LUB, LZK, MAF, MEG, MFL, MLB, MOB, MRX, OHX, OUN, SHV, SJT, SJU, TAE, TBW, TSA, ABR, APX, ARX, BIS, BOU, CYS, DDC, DLH, DMX, DTX, DVN, EAX, FGF, FSD, GID, GJT, GLD, GRB, GRR, ICT, ILX, IND, IWX, JKL, LBF, LMK, LOT, LSX, MKX, MPX, MQT, OAX, PAH, PUB, RIW, SGF, TOP, UNR, BOI, BYZ, EKA, FGZ, GGW, HNX, LKN, LOX, MFR, MSO, MTR, OTX, PDT, PIH, PQR, PSR, REV, SEW, SGX, SLC, STO, TFX, TWC, VEF, AER, AFC, AFG, AJK, ALU, GUM, HPA, HFO, PPG, STU, NH1, NH2, ONA, ONP</span>
+<span class="sd">        - x (int): Forecast grid X coordinate.</span>
+<span class="sd">        - y (int): Forecast grid Y coordinate.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing the textual forcast data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;gridpoints/</span><span class="si">{</span><span class="n">wfo</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">/forecast&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_textual_hourly_forecast_by_gridpoints">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_textual_hourly_forecast_by_gridpoints">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_textual_hourly_forecast_by_gridpoints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wfo</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a textual hourly forecast for a 2.5km grid area.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - wfo (str): Forecast office ID. Available values : AKQ, ALY, BGM, BOX, BTV, BUF, CAE, CAR, CHS, CLE, CTP, GSP, GYX, ILM, ILN, LWX, MHX, OKX, PBZ, PHI, RAH, RLX, RNK, ABQ, AMA, BMX, BRO, CRP, EPZ, EWX, FFC, FWD, HGX, HUN, JAN, JAX, KEY, LCH, LIX, LUB, LZK, MAF, MEG, MFL, MLB, MOB, MRX, OHX, OUN, SHV, SJT, SJU, TAE, TBW, TSA, ABR, APX, ARX, BIS, BOU, CYS, DDC, DLH, DMX, DTX, DVN, EAX, FGF, FSD, GID, GJT, GLD, GRB, GRR, ICT, ILX, IND, IWX, JKL, LBF, LMK, LOT, LSX, MKX, MPX, MQT, OAX, PAH, PUB, RIW, SGF, TOP, UNR, BOI, BYZ, EKA, FGZ, GGW, HNX, LKN, LOX, MFR, MSO, MTR, OTX, PDT, PIH, PQR, PSR, REV, SEW, SGX, SLC, STO, TFX, TWC, VEF, AER, AFC, AFG, AJK, ALU, GUM, HPA, HFO, PPG, STU, NH1, NH2, ONA, ONP</span>
+<span class="sd">        - x (int): Forecast grid X coordinate.</span>
+<span class="sd">        - y (int): Forecast grid Y coordinate.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing the textual hourly forcast data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;gridpoints/</span><span class="si">{</span><span class="n">wfo</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">/forecast/hourly&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_observation_stations_by_gridpoints">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_observation_stations_by_gridpoints">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_observation_stations_by_gridpoints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wfo</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of observation stations usable for a given 2.5km grid area.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - wfo (str): Forecast office ID. Available values : AKQ, ALY, BGM, BOX, BTV, BUF, CAE, CAR, CHS, CLE, CTP, GSP, GYX, ILM, ILN, LWX, MHX, OKX, PBZ, PHI, RAH, RLX, RNK, ABQ, AMA, BMX, BRO, CRP, EPZ, EWX, FFC, FWD, HGX, HUN, JAN, JAX, KEY, LCH, LIX, LUB, LZK, MAF, MEG, MFL, MLB, MOB, MRX, OHX, OUN, SHV, SJT, SJU, TAE, TBW, TSA, ABR, APX, ARX, BIS, BOU, CYS, DDC, DLH, DMX, DTX, DVN, EAX, FGF, FSD, GID, GJT, GLD, GRB, GRR, ICT, ILX, IND, IWX, JKL, LBF, LMK, LOT, LSX, MKX, MPX, MQT, OAX, PAH, PUB, RIW, SGF, TOP, UNR, BOI, BYZ, EKA, FGZ, GGW, HNX, LKN, LOX, MFR, MSO, MTR, OTX, PDT, PIH, PQR, PSR, REV, SEW, SGX, SLC, STO, TFX, TWC, VEF, AER, AFC, AFG, AJK, ALU, GUM, HPA, HFO, PPG, STU, NH1, NH2, ONA, ONP</span>
+<span class="sd">        - x (int): Forecast grid X coordinate.</span>
+<span class="sd">        - y (int): Forecast grid Y coordinate.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing a list of observation stations usable for a given 2.5km grid area.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;gridpoints/</span><span class="si">{</span><span class="n">wfo</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">/stations&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_observations_by_station">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_observations_by_station">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_observations_by_station</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stationID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of observations for a given station.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - stationID (str): Observation station ID.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing list of observations for a given station.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;stations/</span><span class="si">{</span><span class="n">stationID</span><span class="si">}</span><span class="s2">/observations&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_station_observation_by_time">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_station_observation_by_time">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_station_observation_by_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stationID</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a single observation.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - stationID (str): Observation station ID.</span>
+<span class="sd">        - time (str): Timestamp of requested observation.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing single observation for a given station at a given time.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;stations/</span><span class="si">{</span><span class="n">stationID</span><span class="si">}</span><span class="s2">/observations/</span><span class="si">{</span><span class="n">time</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_tafs_by_station">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_tafs_by_station">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_tafs_by_station</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stationID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns Terminal Aerodrome Forecasts for the specified airport station.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - stationID (str): Observation station ID.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing TAFS for given station.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;stations/</span><span class="si">{</span><span class="n">stationID</span><span class="si">}</span><span class="s2">/tafs&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_taf_by_date_time">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_taf_by_date_time">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_taf_by_date_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stationID</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a single Terminal Aerodrome Forecast..</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - stationID (str): Observation station ID.</span>
+<span class="sd">        - date (str): Date (YYYY-MM-DD format)</span>
+<span class="sd">        - time (str) Time (HHMM format). This time is always specified in UTC (Zulu) time.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing TAF.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;stations/</span><span class="si">{</span><span class="n">stationID</span><span class="si">}</span><span class="s2">/tafs/</span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">time</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_stations">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_stations">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_stations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of observation stations.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of observation stations.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;stations&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_station_metadata">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_station_metadata">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_station_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stationID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns metadata about a given observation station.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - stationID (str): Observation station ID.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing metadata for given station.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;stations/</span><span class="si">{</span><span class="n">stationID</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_NWS_office_metadata">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_NWS_office_metadata">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_NWS_office_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">officeID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns metadata about a NWS forecast office.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - officeID (str): NWS office ID.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing metadata for given NWS office.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;offices/</span><span class="si">{</span><span class="n">officeID</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_NWS_office_headline_by_headline_id">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_NWS_office_headline_by_headline_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_NWS_office_headline_by_headline_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">officeID</span><span class="p">,</span> <span class="n">headlineID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a specific news headline for a given NWS office.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - officeID (str): NWS office ID.</span>
+<span class="sd">        - headlineID (str): Headline record ID.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing headline for given NWS office and given headline ID.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;offices/</span><span class="si">{</span><span class="n">officeID</span><span class="si">}</span><span class="s2">/headlines/</span><span class="si">{</span><span class="n">headlineID</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_NWS_office_headlines">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_NWS_office_headlines">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_NWS_office_headlines</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">officeID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of news headlines for a given NWS office.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - officeID (str): NWS office ID.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing headlines for given NWS office.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;offices/</span><span class="si">{</span><span class="n">officeID</span><span class="si">}</span><span class="s2">/headlines&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+
+<span class="c1"># HAVEN&#39;T FIGURED THIS ONE OUT, HOW TO PASS POINT ARG AS LAT AND LONG      </span>
+<span class="c1">#    def get_metadata_by_point(self, point):</span>
+<span class="c1">#        &quot;&quot;&quot;</span>
+<span class="c1">#        Returns metadata about a given latitude/longitude point.</span>
+<span class="c1">#</span>
+<span class="c1">#        Args:</span>
+<span class="c1">#        - point (str): Point(latitude,longitude)</span>
+<span class="c1">#        </span>
+<span class="c1">#        Returns:</span>
+<span class="c1">#        - dict: Dictionary containing metadata for given point.</span>
+<span class="c1">#        &quot;&quot;&quot;</span>
+<span class="c1">#        endpoint = f&quot;points/{point}&quot;</span>
+<span class="c1">#        return mr.make_request(self.base_url+endpoint)</span>
+
+<div class="viewcode-block" id="NationalWeatherService.get_radar_servers">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_radar_servers">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_radar_servers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of radar servers.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of radar servers.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;radar/servers&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_radar_server_metadata_by_id">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_radar_server_metadata_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_radar_server_metadata_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">serverID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns metadata about a given radar server.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - serverID (str): Radar server ID.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing metadata for given radar server.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;radar/servers/</span><span class="si">{</span><span class="n">serverID</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_radar_stations">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_radar_stations">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_radar_stations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of radar stations.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of radar stations.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;radar/stations&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_radar_station_metadata_by_id">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_radar_station_metadata_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_radar_station_metadata_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stationID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns metadata about a given radar station.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - stationID (str): Radar station ID.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing metadata for given radar station.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;radar/stations/</span><span class="si">{</span><span class="n">stationID</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_radar_station_alarms_metadata_by_id">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_radar_station_alarms_metadata_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_radar_station_alarms_metadata_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stationID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns metadata about a given radar station alarms.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - stationID (str): Radar station ID.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing metadata for given radar station alarms.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;radar/stations/</span><span class="si">{</span><span class="n">stationID</span><span class="si">}</span><span class="s2">/alarms&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_radar_queue_metadata">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_radar_queue_metadata">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_radar_queue_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns metadata about a given radar queue.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - host (str): LDM host.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing metadata for given radar queue.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;radar/queues/</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_radar_wind_profiler_metadata">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_radar_wind_profiler_metadata">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_radar_wind_profiler_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stationID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns metadata about a given radar wind profiler.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - stationID (str): Profiler station ID.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing metadata for given radar wind profiler.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;radar/profilers/</span><span class="si">{</span><span class="n">stationID</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_text_products">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_text_products">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_text_products</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of text products.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of text products.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;products&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_text_product_locations">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_text_product_locations">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_text_product_locations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of valid text product issuance locations.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of valid text product issuance locations.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;products/locations&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_text_product_types">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_text_product_types">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_text_product_types</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of valid text product types and codes.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of valid text product types and codes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;products/types&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_text_product_by_id">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_text_product_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_text_product_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">productID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a specific text product.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - productID (str): Text product ID.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing specific text product.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;products/</span><span class="si">{</span><span class="n">productID</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_text_products_by_type">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_text_products_by_type">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_text_products_by_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of text products of a given type.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - typeID (str): Text product type ID.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing list of text products of given type.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;products/types/</span><span class="si">{</span><span class="n">typeID</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_text_product_locations_by_type">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_text_product_locations_by_type">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_text_product_locations_by_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of valid text product issuance locations for a given product type.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - typeID (str): Text product type ID.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing list of valid text product issuance locations for a given type.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;products/types/</span><span class="si">{</span><span class="n">typeID</span><span class="si">}</span><span class="s2">/locations&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_text_product_types_by_location">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_text_product_types_by_location">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_text_product_types_by_location</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locationID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of valid text product types for a given issuance location.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - locationID (str): Location ID.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing list of valid text product types for a given location.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;products/locations/</span><span class="si">{</span><span class="n">locationID</span><span class="si">}</span><span class="s2">/types&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_text_products_by_type_and_location">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_text_products_by_type_and_location">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_text_products_by_type_and_location</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeID</span><span class="p">,</span> <span class="n">locationID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of text products of a given type for a given issuance location.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - typeID (str): Text product type ID.</span>
+<span class="sd">        - locationID (str): Location ID.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing list of text product of a given type for a given issuance location.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;products/types/</span><span class="si">{</span><span class="n">typeID</span><span class="si">}</span><span class="s2">/locations/</span><span class="si">{</span><span class="n">locationID</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_zones">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_zones">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_zones</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of zones.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of zones.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;zones&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+
+<span class="c1"># HAVEN&#39;T FIGURED THIS ONE OUT. PARAMETER IS A QUERY, NOT PATH  </span>
+<div class="viewcode-block" id="NationalWeatherService.get_zones_by_type">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_zones_by_type">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_zones_by_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Type</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of valid text product types for a given issuance location.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - Type (str): Zone type. Available values : land, marine, forecast, public, coastal, offshore, fire, county.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing list of valid text product types for a given location.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;zones/</span><span class="si">{</span><span class="n">Type</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NationalWeatherService.get_zone_metadata">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_zone_metadata">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_zone_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">zoneID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns metadata about a given zone.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - Type (str): Zone type. Available values : land, marine, forecast, public, coastal, offshore, fire, county.</span>
+<span class="sd">        - zoneID (str): NWS public zone/county identifier.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing metadata about a given zone.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;zones/</span><span class="si">{</span><span class="n">Type</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">zoneID</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_zone_forecast">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_zone_forecast">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_zone_forecast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">zoneID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the current zone forecast for a given zone.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - Type (str): Zone type. Available values : land, marine, forecast, public, coastal, offshore, fire, county.</span>
+<span class="sd">        - zoneID (str): NWS public zone/county identifier.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing zone forecast for a given zone.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;zones/</span><span class="si">{</span><span class="n">Type</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">zoneID</span><span class="si">}</span><span class="s2">/forecast&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_zone_observations">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_zone_observations">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_zone_observations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zoneID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of observations for a given zone.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - zoneID (str): NWS public zone/county identifier.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing a list of observations for a given zkne.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;zones/forecast/</span><span class="si">{</span><span class="n">zoneID</span><span class="si">}</span><span class="s2">/observations&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NationalWeatherService.get_observation_stations_by_zone">
+<a class="viewcode-back" href="../../../nokey.weather.html#nokey.weather.national_weather_service.NationalWeatherService.get_observation_stations_by_zone">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_observation_stations_by_zone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zoneID</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of observation stations for a given zone.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        - zoneID (str): NWS public zone/county identifier.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Dictionary containing a list of observation stations for a given zkne.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;zones/forecast/</span><span class="si">{</span><span class="n">zoneID</span><span class="si">}</span><span class="s2">/stations&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+</div>
+
+    
+    
+    
+    
+  
+       
+       
+        
+        
+     
+      
+      
+      
+        
+    
+    
+      
+      
+      
+   
+   
+   
+   
+        
+ 
+      
+      
+      
+        
+        
+        
+    
+       
+     
+     
+     
+        
+    
+       
+        
+        
+   
+        
+        
+    
+    
+    
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Spyder Rex.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
