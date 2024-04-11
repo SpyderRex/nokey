@@ -65,3 +65,6 @@ As the project grows, we envision expanding the collection of keyless APIs to co
 
 # License
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+# Documentation
+Check out the docs[https://nokey.readthedocs.io/en/latest/]
