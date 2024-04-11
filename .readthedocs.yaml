@@ -8,7 +8,7 @@ python:
   version: 3.12
 
 # Requirements file
-requirements_file: requirements.txt
+requirements_file: docs/requirements.txt
 
 # Documentation versions
 documentation_versions:
