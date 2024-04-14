@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.geolocation package &mdash; nokey 0.0.1 documentation</title>
+  <title>nokey.geolocation package &mdash; nokey 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,14 +15,14 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/documentation_options.js?v=01f34227"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="nokey.helperFuncs package" href="nokey.helperFuncs.html" />
-    <link rel="prev" title="nokey.food package" href="nokey.food.html" /> 
+    <link rel="prev" title="nokey.games package" href="nokey.games.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,12 +51,16 @@
 <li class="toctree-l3 current"><a class="reference internal" href="nokey.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="nokey.animals.html">nokey.animals package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.country_info.html">nokey.country_info package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.developer_tools.html">nokey.developer_tools package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.education.html">nokey.education package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.finance.html">nokey.finance package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.food.html">nokey.food package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.games.html">nokey.games package</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">nokey.geolocation package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.helperFuncs.html">nokey.helperFuncs package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.inspiration.html">nokey.inspiration package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.jokes.html">nokey.jokes package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.language.html">nokey.language package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.random.html">nokey.random package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.science.html">nokey.science package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.spaceflight.html">nokey.spaceflight package</a></li>
@@ -111,6 +115,16 @@
 <p>Attributes:
 - base_url: The base URL of IP API.</p>
 <dl class="py method">
+<dt class="sig sig-object py" id="nokey.geolocation.ip_api.IP_API.get_docs_url">
+<span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/geolocation/ip_api.html#IP_API.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.geolocation.ip_api.IP_API.get_docs_url" title="Link to this definition"></a></dt>
+<dd><p>Returns URL for API docs.</p>
+<p>Args:
+- None</p>
+<p>Returns:
+- string: URL for API documentation.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="nokey.geolocation.ip_api.IP_API.get_location_info_by_ip_address">
 <span class="sig-name descname"><span class="pre">get_location_info_by_ip_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/geolocation/ip_api.html#IP_API.get_location_info_by_ip_address"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.geolocation.ip_api.IP_API.get_location_info_by_ip_address" title="Link to this definition"></a></dt>
 <dd><p>Returns geolocation info (country, state, coordinates, etc.) by IP address.</p>
@@ -120,14 +134,49 @@
 - dict: Location information based on given IP address or domain name.</p>
 </dd></dl>
 
+</dd></dl>
+
+</section>
+<section id="module-nokey.geolocation.zippopotamus">
+<span id="nokey-geolocation-zippopotamus-module"></span><h2>nokey.geolocation.zippopotamus module<a class="headerlink" href="#module-nokey.geolocation.zippopotamus" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nokey.geolocation.zippopotamus.Zippopotomus">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.geolocation.zippopotamus.</span></span><span class="sig-name descname"><span class="pre">Zippopotomus</span></span><a class="reference internal" href="_modules/nokey/geolocation/zippopotamus.html#Zippopotomus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.geolocation.zippopotamus.Zippopotomus" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to interact with the Zippopotomus API.</p>
+<p>Attributes:
+- base_url: The basee URL of the API.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="nokey.geolocation.ip_api.IP_API.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/geolocation/ip_api.html#IP_API.get_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.geolocation.ip_api.IP_API.get_url" title="Link to this definition"></a></dt>
-<dd><p>Returns URL for API docs.</p>
+<dt class="sig sig-object py" id="nokey.geolocation.zippopotamus.Zippopotomus.get_docs_url">
+<span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/geolocation/zippopotamus.html#Zippopotomus.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.geolocation.zippopotamus.Zippopotomus.get_docs_url" title="Link to this definition"></a></dt>
+<dd><p>Returns the URL for the Zippopotomus API documentation.</p>
 <p>Args:
 - None</p>
 <p>Returns:
-- string: URL for API documentation.</p>
+- string: The URL for the API docs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.geolocation.zippopotamus.Zippopotomus.get_info_by_zipcode">
+<span class="sig-name descname"><span class="pre">get_info_by_zipcode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zipcode</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/geolocation/zippopotamus.html#Zippopotomus.get_info_by_zipcode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.geolocation.zippopotamus.Zippopotomus.get_info_by_zipcode" title="Link to this definition"></a></dt>
+<dd><p>Returns information on a given zipcode in a given country.</p>
+<p>Args:
+- country (str): The country code as defined in the API docs. See docs for supported countries.
+- zipcode (int): The zipcode in question. See docs for range and format of zipcodes by country.</p>
+<p>Returns:
+- dict: A dictionary containing information about the given zipcode in the given country.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.geolocation.zippopotamus.Zippopotomus.get_zipcode_by_city">
+<span class="sig-name descname"><span class="pre">get_zipcode_by_city</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">city</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/geolocation/zippopotamus.html#Zippopotomus.get_zipcode_by_city"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.geolocation.zippopotamus.Zippopotomus.get_zipcode_by_city" title="Link to this definition"></a></dt>
+<dd><p>Returns the zipcode(s) of the city matching the parameters.</p>
+<p>Args:
+- country (str): The country code as defined in the API docs.
+- state (str): The state code.
+- city (str): The city in question.</p>
+<p>Returns:
+- dict: A dictionary containing the zipcode of the given location.</p>
 </dd></dl>
 
 </dd></dl>
@@ -142,7 +191,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="nokey.food.html" class="btn btn-neutral float-left" title="nokey.food package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nokey.games.html" class="btn btn-neutral float-left" title="nokey.games package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="nokey.helperFuncs.html" class="btn btn-neutral float-right" title="nokey.helperFuncs package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

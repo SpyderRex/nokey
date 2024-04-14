@@ -11,7 +11,7 @@ class IP_API:
     def __init__(self):
         self.base_url = "http://ip-api.com/json/" 
         
-    def get_url(self):
+    def get_docs_url(self):
         """
         Returns URL for API docs.
         

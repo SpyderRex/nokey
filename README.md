@@ -5,7 +5,7 @@ nokey is a Python package designed to provide easy access to various APIs that d
 ## Features
 
 - Access a growing collection of keyless APIs conveniently from one place.
-- Organized into submodules based on categories such as country information, finance, geolocation, spaceflight, education, food, random data, jokes, animals, science, and weather.
+- Organized into submodules based on categories such as country information, finance, geolocation, spaceflight, education, food, random data, jokes, animals, science, and weather, developer tools, language, and games.
 - Easily installable via pip, making it accessible to all Python developers.
 
 ## Installation
@@ -33,6 +33,16 @@ dog_image_url = dog.get_random_dog_image()
 print(dog_image_url)
 ```
 
+Also, to print out a list of the APIs supported by nokey, simply run the following script:
+
+```python
+from nokey.helperFuncs import get_api_list
+
+api_list = get_api_list()
+
+prrint(api_list)
+```
+
 ## Contributing
 We welcome contributions to expand the range of APIs available in nokey. Whether you want to add a new submodule or enhance an existing one, your contributions are valuable. To contribute, please fork the repository, make your changes, and submit a pull request.
 
@@ -43,6 +53,7 @@ RestCountries
 Wallstreet Bets
 ## Geolocation
 IP API
+Zippopotomus
 ## Spaceflight
 Spaceflight News
 ## Education
@@ -59,6 +70,15 @@ DogAPI
 Nobel Prize API
 ## Weather
 National Weather Service API
+## Inspiration
+Dictum
+## Games
+Free To Game
+## Language
+Free Dictionary
+Developer Tools
+URl Shortener ...
+... and many more on the way.
 
 # Future Roadmap
 As the project grows, we envision expanding the collection of keyless APIs to cover a wide range of categories. Your feedback and contributions will play a crucial role in shaping the future of nokey.

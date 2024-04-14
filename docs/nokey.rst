@@ -9,12 +9,16 @@ Subpackages
 
    nokey.animals
    nokey.country_info
+   nokey.developer_tools
    nokey.education
    nokey.finance
    nokey.food
+   nokey.games
    nokey.geolocation
    nokey.helperFuncs
+   nokey.inspiration
    nokey.jokes
+   nokey.language
    nokey.random
    nokey.science
    nokey.spaceflight

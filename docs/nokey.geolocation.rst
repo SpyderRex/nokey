@@ -12,6 +12,14 @@ nokey.geolocation.ip\_api module
    :undoc-members:
    :show-inheritance:
 
+nokey.geolocation.zippopotamus module
+-------------------------------------
+
+.. automodule:: nokey.geolocation.zippopotamus
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 
