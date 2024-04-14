@@ -11,7 +11,7 @@ class RestCountries:
     def __init__(self):
         self.base_url = "https://restcountries.com/v3.1/"
         
-    def get_url(self):
+    def get_docs_url(self):
         """
         Returns url for API docs.
         

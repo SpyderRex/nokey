@@ -6,10 +6,22 @@ class WallstreetBets:
     A class to interact with the Wallstreet Bets API.
     
     Attributes:
-    - base_url: The base URL of the WallStreet Bets API.
+    - base_url: The base URL of the Wallstreet Bets API.
     """
     def __init__(self):
-        self.base_url = "https://tradestie.com/api/v1/apps/reddit"        
+        self.base_url = "https://tradestie.com/api/v1/apps/reddit"
+
+    def get_docs_url(self):
+        """
+        Returns the URL for the Wallstreet Bets API documentation.
+        
+        Args:
+        - None
+        
+        Returns:
+        -string: The URL for the API docs.
+        """
+        return "https://tradestie.com/apps/reddit/api/"       
     
     def get_stock_sentiment_from_reddit(self):
         """
