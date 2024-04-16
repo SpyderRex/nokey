@@ -38,9 +38,9 @@ Also, to print out a list of the APIs supported by nokey, simply run the followi
 ```python
 from nokey.helperFuncs import get_api_list
 
-api_list = get_api_list()
+api_list = get_api_list.get_api_list()
 
-prrint(api_list)
+print(api_list)
 ```
 
 ## Contributing
