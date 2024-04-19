@@ -76,8 +76,9 @@ Dictum
 Free To Game
 ## Language
 Free Dictionary
-Developer Tools
-URl Shortener ...
+## Developer Tools
+URL Shortener ...
+
 ... and many more on the way.
 
 # Future Roadmap
