@@ -72,7 +72,7 @@ Fruityvice
 ## random
 RandomUserGenerator
 
-##jokes
+## jokes
 JokeAPI
 
 ## animals
