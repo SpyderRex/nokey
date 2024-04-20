@@ -56,7 +56,7 @@ RestCountries
 Wallstreet Bets
 
 ## geolocation
-IP API
+IP API\n
 Zippopotomus
 
 ## spaceflight
@@ -84,9 +84,9 @@ Nobel Prize API
 National Weather Service API
 
 ## developer_tools
-URL Shortener
-URLHaus
-APIsGuru
+URL Shortener\n
+URLHaus\n
+APIsGuru\n
 Microlink
 
 ## inspiration
