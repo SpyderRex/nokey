@@ -57,6 +57,7 @@ Wallstreet Bets
 
 ## geolocation
 IP API
+
 Zippopotomus
 
 ## spaceflight
@@ -85,8 +86,11 @@ National Weather Service API
 
 ## developer_tools
 URL Shortener
+
 URLHaus
+
 APIsGuru
+
 Microlink
 
 ## inspiration
