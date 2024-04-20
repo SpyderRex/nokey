@@ -6,9 +6,11 @@ class Zippopotomus:
     
     Attributes:
     - base_url: The basee URL of the API.
+    - about: A short description of the API.
     """
     def __init__(self):
         self.base_url = "http://api.zippopotam.us/"
+        self.about = "Zippopotamus is an open source project that is focused on converting zip codes into valid geographical locations."
         
     def get_docs_url(self):
         """

@@ -7,9 +7,11 @@ class NationalWeatherService:
     
     Attributes:
     - base_url: The base URL of the National Weather Service API.
+    - about: A short description of the API.
     """
     def __init__(self):
         self.base_url = "https://api.weather.gov/"
+        self.about = "The National Weather Service (NWS) API allows developers access to critical forecasts, alerts, and observations, along with other weather data."
         
     def get_docs_url(self):
         """

@@ -6,9 +6,11 @@ class FreeDictionary:
     
     Attributes:
     - base_url: The base URL of the Free Dictionary API.
+    - about: A short description of the API.
     """
     def __init__(self):
         self.base_url = "https://api.dictionaryapi.dev/api/v2/entries/en/"
+        self.about = "The Free Dictionary API is a powerful tool that allows you to access the vast array of dictionary data."
         
     def get_docs_url(self):
         """

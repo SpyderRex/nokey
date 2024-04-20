@@ -6,9 +6,11 @@ class DogAPI:
     
     Attributes:
     - base_url: The base URL for the API.
+    - about: A short description of the API.
     """
     def __init__(self):
         self.base_url = "https://dog.ceo/api/"
+        self.about = "The Dog API returns URLs for dog images, either at random or by breed."
         
     def get_docs_url(self):
         """

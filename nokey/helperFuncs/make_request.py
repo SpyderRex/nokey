@@ -33,3 +33,31 @@ def make_request(url, headers=None, payload=None):
     except Exception as err:
         # Handle any other unexpected errors
         return {"error": f"An unexpected error occurred: {err}"}
+
+def make_request_with_params(url, params):
+    """
+    Make a request to an API if the API call requires params.
+    
+    Args:
+    - url (str): The base url of the API.
+    - params (dict): The params to be included in the request.
+    
+    Returns:
+    - dict: A dictionary containing either the response data or an error message.
+    """
+    try:
+        response = requests.get(url, params)
+        return response.json()
+    except HTTPError as http_err:
+        # Handle HTTP error
+        return {"error": f"HTTP error occurred: {http_err}"}
+    except Timeout:
+        # Handle timeout error
+        return {"error": "Request timed out."}
+    except RequestException as req_err:
+        # Handle other request exceptions
+        return {"error": f"Request exception occurred: {req_err}"}
+    except Exception as err:
+        # Handle any other unexpected errors
+        return {"error": f"An unexpected error occurred: {err}"}
+        

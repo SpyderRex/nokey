@@ -6,9 +6,11 @@ class Dictum:
     
     Attributes:
     - base_url: The base URL of the API.
+    - about: A short description of the API.
     """
     def __init__(self):
         self.base_url = "https://api.fisenko.net/v1/"
+        self.about = "Dictum API provides a programmatic way to access the most inspiring expressions of humanity."
         
     def get_docs_url(self):
         """

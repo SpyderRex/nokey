@@ -6,9 +6,11 @@ class FreeToGame:
     
     Attributes:
     - base_url: The base URL of the Free To Game API.
+    - about: A short description of the API.
     """
     def __init__(self):
         self.base_url = "https://www.freetogame.com/api/"
+        self.about = "The Free To Game API is a way to access programmatically the best free-to-play games and free MMO games."
         
     def get_docs_url(self):
         """

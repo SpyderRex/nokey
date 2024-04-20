@@ -6,9 +6,11 @@ class UrlShortener:
     
     Attributes:
     - base_url: The base URL of the URL Shortener API.
+    - about: A short description of the API.
     """
     def __init__(self):
         self.base_url = "https://is.gd/create.php?"
+        self.about = "This URL Shortener API (from is.gd) is a URL shortener service."
         
     def get_docs_url(self):
         """

@@ -8,6 +8,7 @@ Subpackages
    :maxdepth: 4
 
    nokey.animals
+   nokey.calendar
    nokey.country_info
    nokey.developer_tools
    nokey.education
@@ -15,6 +16,7 @@ Subpackages
    nokey.food
    nokey.games
    nokey.geolocation
+   nokey.government
    nokey.helperFuncs
    nokey.inspiration
    nokey.jokes

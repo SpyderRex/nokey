@@ -1,19 +1,21 @@
 from .. helperFuncs import make_request as mr
 
-class UniversityNamesAndDomains:
+class UniversityDomainsAndNames:
     """
-    A class to interact with the University Names and Domains API.
+    A class to interact with the University Domains and Names API.
     
     Attributes:
-    - base_url: The base url for the University Names and Domains API.
+    - base_url: The base url for the University Domains and Names API.
+    - about: A short description of the API.
     """
     
     def __init__(self):
         self.base_url = "http://universities.hipolabs.com/search?"
+        self.about = "This API accesses a list of universities and their domain names."
         
     def get_docs_url(self):
         """
-        Returns the url for the University Names and Domains API documentation.
+        Returns the url for the University Domains and Names API documentation.
         
         Args:
         - None

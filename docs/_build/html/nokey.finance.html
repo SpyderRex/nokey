@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.finance package &mdash; nokey 0.1.0 documentation</title>
+  <title>nokey.finance package &mdash; nokey 0.2.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,14 +15,12 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=01f34227"></script>
+        <script src="_static/documentation_options.js?v=938c9ccc"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="nokey.food package" href="nokey.food.html" />
-    <link rel="prev" title="nokey.education package" href="nokey.education.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,36 +42,23 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nokey</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="nokey.html">nokey package</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="nokey.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="nokey.animals.html">nokey.animals package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.country_info.html">nokey.country_info package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.developer_tools.html">nokey.developer_tools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.education.html">nokey.education package</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">nokey.finance package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.food.html">nokey.food package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.games.html">nokey.games package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.geolocation.html">nokey.geolocation package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.helperFuncs.html">nokey.helperFuncs package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.inspiration.html">nokey.inspiration package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.jokes.html">nokey.jokes package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.language.html">nokey.language package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.random.html">nokey.random package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.science.html">nokey.science package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.spaceflight.html">nokey.spaceflight package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.weather.html">nokey.weather package</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="nokey.html#module-nokey">Module contents</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">nokey.finance package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-nokey.finance.wall_street_bets">nokey.finance.wall_street_bets module</a><ul>
+<li><a class="reference internal" href="#nokey.finance.wall_street_bets.WallstreetBets"><code class="docutils literal notranslate"><span class="pre">WallstreetBets</span></code></a><ul>
+<li><a class="reference internal" href="#nokey.finance.wall_street_bets.WallstreetBets.get_docs_url"><code class="docutils literal notranslate"><span class="pre">WallstreetBets.get_docs_url()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.finance.wall_street_bets.WallstreetBets.get_stock_sentiment_from_reddit"><code class="docutils literal notranslate"><span class="pre">WallstreetBets.get_stock_sentiment_from_reddit()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li><a class="reference internal" href="#module-nokey.finance">Module contents</a></li>
 </ul>
-
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
@@ -88,8 +73,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">nokey</a></li>
-          <li class="breadcrumb-item"><a href="nokey.html">nokey package</a></li>
       <li class="breadcrumb-item active">nokey.finance package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/nokey.finance.rst.txt" rel="nofollow"> View page source</a>
@@ -113,7 +96,8 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class to interact with the Wallstreet Bets API.</p>
 <p>Attributes:
-- base_url: The base URL of the Wallstreet Bets API.</p>
+- base_url: The base URL of the Wallstreet Bets API.
+- about: A short description of the API.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.finance.wall_street_bets.WallstreetBets.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance/wall_street_bets.html#WallstreetBets.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance.wall_street_bets.WallstreetBets.get_docs_url" title="Link to this definition"></a></dt>
@@ -145,10 +129,7 @@
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="nokey.education.html" class="btn btn-neutral float-left" title="nokey.education package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="nokey.food.html" class="btn btn-neutral float-right" title="nokey.food package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

@@ -3,15 +3,18 @@ nokey_apis = {
     "finance": ["Wallstreet Bets"],
     "geolocation": ["IP API", "Zippopotomus"],
     "spaceflight": ["Spaceflight News"],
-    "education": ["University Names and Domains"],
+    "education": ["University Domains and Names"],
     "food": ["Fruityvice"],
     "random": ["RandomUserGenerator"],
     "jokes": ["JokeAPI"],
     "animals": ["DogAPI"],
     "science": ["Nobel Prize API"],
     "weather": ["National Weather Service API"],
-    "developer_tools": ["URL Shortener"],
+    "developer_tools": ["URL Shortener", "URLHaus", "APIsGuru", "Microlink"],
     "inspiration": ["Dictum"],
     "language": ["Free Dictionary"],
-    "games": ["Free To Game"]
+    "games": ["Free To Game", "Open Trivia Database"],
+    "activities": ["Bored API"],
+    "calendar": ["Nager.Date"],
+    "government": ["Federal Register"]
 }

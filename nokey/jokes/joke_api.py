@@ -6,9 +6,11 @@ class JokeAPI:
     
     Attributes:
     - base_url: Base URL for interacting with the API.
+    - about: A short description of the API.
     """
     def __init__(self):
         self.base_url = "https://v2.jokeapi.dev/joke/"
+        self.about = "JokeAPI is a REST API that serves uniformly and well formatted jokes. It can be used without any API token, membership, registration or payment. It supports a variety of filters that can be applied to get just the right jokes you need."
         
     def get_docs_url(self):
         """

@@ -4,6 +4,30 @@ nokey.developer\_tools package
 Submodules
 ----------
 
+nokey.developer\_tools.apis\_guru module
+----------------------------------------
+
+.. automodule:: nokey.developer_tools.apis_guru
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+nokey.developer\_tools.microlink module
+---------------------------------------
+
+.. automodule:: nokey.developer_tools.microlink
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+nokey.developer\_tools.url\_haus module
+---------------------------------------
+
+.. automodule:: nokey.developer_tools.url_haus
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 nokey.developer\_tools.url\_shortener module
 --------------------------------------------
 

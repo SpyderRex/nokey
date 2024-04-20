@@ -7,9 +7,11 @@ class IP_API:
     
     Attributes:
     - base_url: The base URL of IP API.
+    - about: A short description of the API.
     """
     def __init__(self):
         self.base_url = "http://ip-api.com/json/" 
+        self.about = "The IP API is a fast, reliable, and free IP geolocation API."
         
     def get_docs_url(self):
         """

@@ -7,9 +7,11 @@ class RestCountries:
     
     Attributes:
     - base_url: The base URL of the RestCountries API.
+    - about: A short description of the API.
     """
     def __init__(self):
         self.base_url = "https://restcountries.com/v3.1/"
+        self.about = "REST Countries API is a simple REST API from RapidAPI that provides information about countries in the world In JSON format."
         
     def get_docs_url(self):
         """

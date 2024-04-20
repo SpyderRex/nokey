@@ -7,9 +7,11 @@ class WallstreetBets:
     
     Attributes:
     - base_url: The base URL of the Wallstreet Bets API.
+    - about: A short description of the API.
     """
     def __init__(self):
         self.base_url = "https://tradestie.com/api/v1/apps/reddit"
+        self.about = "This API gets the top 50 stocks discussed on the Reddit subreddit, Wallstreetbets"
 
     def get_docs_url(self):
         """

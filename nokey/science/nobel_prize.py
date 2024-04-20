@@ -6,9 +6,11 @@ class NobelPrizeAPI:
     
     Attributes:
     - base_url: The base url for the Nobel Prize API.
+    - about: A short description of the API.
     """
     def __init__(self):
         self.base_url = "https://api.nobelprize.org/2.1/"
+        self.about = "The Nobel Prize API returns all information about Laureates and Nobel Prizes."
         
     def get_docs_url(self):
         """

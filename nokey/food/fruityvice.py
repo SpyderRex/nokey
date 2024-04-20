@@ -6,10 +6,12 @@ class Fruityvice:
     
     Attributes:
     - base_url: The base url of the Fruityvice API.
+    - about: A short description of the API.
     """
     
     def __init__(self):
         self.base_url = "https://www.fruityvice.com/api/fruit/"
+        self.about = "Fruityvice is an API that provides information on fruits and their nutritional value."
         
     def get_docs_url(self):
         """

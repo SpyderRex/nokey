@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nokey.government package &mdash; nokey 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            nokey
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">nokey.government package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-nokey.government.federal_register">nokey.government.federal_register module</a><ul>
+<li><a class="reference internal" href="#nokey.government.federal_register.FederalRegister"><code class="docutils literal notranslate"><span class="pre">FederalRegister</span></code></a><ul>
+<li><a class="reference internal" href="#nokey.government.federal_register.FederalRegister.get_agencies_details"><code class="docutils literal notranslate"><span class="pre">FederalRegister.get_agencies_details()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.government.federal_register.FederalRegister.get_agency_by_slug"><code class="docutils literal notranslate"><span class="pre">FederalRegister.get_agency_by_slug()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.government.federal_register.FederalRegister.get_current_public_inspection_documents"><code class="docutils literal notranslate"><span class="pre">FederalRegister.get_current_public_inspection_documents()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.government.federal_register.FederalRegister.get_docs_url"><code class="docutils literal notranslate"><span class="pre">FederalRegister.get_docs_url()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.government.federal_register.FederalRegister.get_document_counts_by_facet"><code class="docutils literal notranslate"><span class="pre">FederalRegister.get_document_counts_by_facet()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.government.federal_register.FederalRegister.get_document_toc_by_date"><code class="docutils literal notranslate"><span class="pre">FederalRegister.get_document_toc_by_date()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.government.federal_register.FederalRegister.get_fed_reg_document"><code class="docutils literal notranslate"><span class="pre">FederalRegister.get_fed_reg_document()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.government.federal_register.FederalRegister.get_image_variants_by_id"><code class="docutils literal notranslate"><span class="pre">FederalRegister.get_image_variants_by_id()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.government.federal_register.FederalRegister.get_multiple_fed_reg_documents"><code class="docutils literal notranslate"><span class="pre">FederalRegister.get_multiple_fed_reg_documents()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.government.federal_register.FederalRegister.get_multiple_public_inspection_documents"><code class="docutils literal notranslate"><span class="pre">FederalRegister.get_multiple_public_inspection_documents()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.government.federal_register.FederalRegister.get_public_inspection_document"><code class="docutils literal notranslate"><span class="pre">FederalRegister.get_public_inspection_document()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.government.federal_register.FederalRegister.get_suggested_search_by_slug"><code class="docutils literal notranslate"><span class="pre">FederalRegister.get_suggested_search_by_slug()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.government.federal_register.FederalRegister.get_suggested_searches_by_section"><code class="docutils literal notranslate"><span class="pre">FederalRegister.get_suggested_searches_by_section()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.government.federal_register.FederalRegister.search_all_documents"><code class="docutils literal notranslate"><span class="pre">FederalRegister.search_all_documents()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.government.federal_register.FederalRegister.search_all_public_inspection_documents"><code class="docutils literal notranslate"><span class="pre">FederalRegister.search_all_public_inspection_documents()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-nokey.government">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nokey</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">nokey.government package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/nokey.government.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="nokey-government-package">
+<h1>nokey.government package<a class="headerlink" href="#nokey-government-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-nokey.government.federal_register">
+<span id="nokey-government-federal-register-module"></span><h2>nokey.government.federal_register module<a class="headerlink" href="#module-nokey.government.federal_register" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nokey.government.federal_register.FederalRegister">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.government.federal_register.</span></span><span class="sig-name descname"><span class="pre">FederalRegister</span></span><a class="reference internal" href="_modules/nokey/government/federal_register.html#FederalRegister"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.government.federal_register.FederalRegister" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class for interacting with the Federal Register API.</p>
+<p>Attributes:
+base_url: The base URL of the API.
+about: A short description of the API.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.government.federal_register.FederalRegister.get_agencies_details">
+<span class="sig-name descname"><span class="pre">get_agencies_details</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/government/federal_register.html#FederalRegister.get_agencies_details"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.government.federal_register.FederalRegister.get_agencies_details" title="Link to this definition"></a></dt>
+<dd><p>Returns all agency details.</p>
+<p>Args:
+- None</p>
+<p>Returns:
+- dict: A dictionary containing all agency details.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.government.federal_register.FederalRegister.get_agency_by_slug">
+<span class="sig-name descname"><span class="pre">get_agency_by_slug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slug</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/government/federal_register.html#FederalRegister.get_agency_by_slug"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.government.federal_register.FederalRegister.get_agency_by_slug" title="Link to this definition"></a></dt>
+<dd><p>Returns a particular agency’s details.</p>
+<p>Args:
+- slug (str): The Federal Register slug for the agency. See Federal Register API docs for extensive list of possible values.</p>
+<p>Returns:
+- dict: A dictionary containing a particular agency’s details.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.government.federal_register.FederalRegister.get_current_public_inspection_documents">
+<span class="sig-name descname"><span class="pre">get_current_public_inspection_documents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/government/federal_register.html#FederalRegister.get_current_public_inspection_documents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.government.federal_register.FederalRegister.get_current_public_inspection_documents" title="Link to this definition"></a></dt>
+<dd><p>Returns all the public inspection documents that are currently on public inspection.</p>
+<p>Args:
+- None</p>
+<p>Returns:
+- dict: A dictionary containing all the public inspection documents that are currently on public inspection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.government.federal_register.FederalRegister.get_docs_url">
+<span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/government/federal_register.html#FederalRegister.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.government.federal_register.FederalRegister.get_docs_url" title="Link to this definition"></a></dt>
+<dd><p>Returns the URL for the Federal Register API documentation.</p>
+<p>Args:
+- None</p>
+<p>Returns:
+- string: The URL for the API docs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.government.federal_register.FederalRegister.get_document_counts_by_facet">
+<span class="sig-name descname"><span class="pre">get_document_counts_by_facet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">facet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_term</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/government/federal_register.html#FederalRegister.get_document_counts_by_facet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.government.federal_register.FederalRegister.get_document_counts_by_facet" title="Link to this definition"></a></dt>
+<dd><p>Returns counts of matching Federal Register documents grouped by a facet.</p>
+<p>Args:
+- facet (str): The facet by which to group the documents. Supported values are daily, weekly, monthly, quarterly, yearly, agency, topic, section, type, and subtype.
+- search_term (str): Option search query term. Defaults to None.
+- doc_type (str): Additional optional search by document type. Supported values are rule (final rule), prorule (proposed rule), notice (notice), and presdocu (presidential document)</p>
+<p>Returns:
+- dict: Returns a dictionary of document counts for the given parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.government.federal_register.FederalRegister.get_document_toc_by_date">
+<span class="sig-name descname"><span class="pre">get_document_toc_by_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pub_date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/government/federal_register.html#FederalRegister.get_document_toc_by_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.government.federal_register.FederalRegister.get_document_toc_by_date" title="Link to this definition"></a></dt>
+<dd><p>Returns the document table of contents based on print edition.</p>
+<p>Args:
+- pub_date (str): The exact publication date (YYYY-MM-DD).</p>
+<p>Returns:
+- dict: A dictionary containing the document table of contents that matches the given date.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.government.federal_register.FederalRegister.get_fed_reg_document">
+<span class="sig-name descname"><span class="pre">get_fed_reg_document</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">document_num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/government/federal_register.html#FederalRegister.get_fed_reg_document"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.government.federal_register.FederalRegister.get_fed_reg_document" title="Link to this definition"></a></dt>
+<dd><p>Returns a Federal Register document of the given number.</p>
+<p>Args:
+- document_num (str): The unique number for the document.</p>
+<p>Returns:
+- dict: A dictionary containing the document matching the given number.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.government.federal_register.FederalRegister.get_image_variants_by_id">
+<span class="sig-name descname"><span class="pre">get_image_variants_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/government/federal_register.html#FederalRegister.get_image_variants_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.government.federal_register.FederalRegister.get_image_variants_by_id" title="Link to this definition"></a></dt>
+<dd><p>Returns the available image variants and their metadata for a single image identifier.</p>
+<p>Args:
+- image_id (str): The Federal Register image identifier.</p>
+<p>Returns:
+- dict: A dictionary containing the available image variants and their metadata for a single image identifier.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.government.federal_register.FederalRegister.get_multiple_fed_reg_documents">
+<span class="sig-name descname"><span class="pre">get_multiple_fed_reg_documents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">document_nums</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/government/federal_register.html#FederalRegister.get_multiple_fed_reg_documents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.government.federal_register.FederalRegister.get_multiple_fed_reg_documents" title="Link to this definition"></a></dt>
+<dd><p>Returns multiple Federal Register documents of the given numbers.</p>
+<p>Args:
+- document_nums (str): A string of unspaced, comma-separated document numbers.</p>
+<p>Returns:
+- dict: A dictionary containing the documents matching the given numbers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.government.federal_register.FederalRegister.get_multiple_public_inspection_documents">
+<span class="sig-name descname"><span class="pre">get_multiple_public_inspection_documents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">document_nums</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/government/federal_register.html#FederalRegister.get_multiple_public_inspection_documents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.government.federal_register.FederalRegister.get_multiple_public_inspection_documents" title="Link to this definition"></a></dt>
+<dd><p>Returns the public inspection documents matching the given numbers.</p>
+<p>Args:
+- document_nums (str): The numbers matching the public inspection documents, separated by commas, no spaces.</p>
+<p>Returns:
+- dict: A dictionary containing the public inspection documents matching the given numbers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.government.federal_register.FederalRegister.get_public_inspection_document">
+<span class="sig-name descname"><span class="pre">get_public_inspection_document</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">document_num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/government/federal_register.html#FederalRegister.get_public_inspection_document"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.government.federal_register.FederalRegister.get_public_inspection_document" title="Link to this definition"></a></dt>
+<dd><p>Returns a single public inspection document matching the given number.</p>
+<p>Args:
+- document_num (str): The number matching the public inspection document.</p>
+<p>Returns:
+- dict: A dictionary containing a single public inspection document matching the given number.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.government.federal_register.FederalRegister.get_suggested_search_by_slug">
+<span class="sig-name descname"><span class="pre">get_suggested_search_by_slug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slug</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/government/federal_register.html#FederalRegister.get_suggested_search_by_slug"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.government.federal_register.FederalRegister.get_suggested_search_by_slug" title="Link to this definition"></a></dt>
+<dd><p>Returns a particular suggested search.</p>
+<p>Args:
+- slug (str): The Federal Register slug for the suggested search. See Federal Register API docs for extensive list of possible values.</p>
+<p>Returns:
+- dict: A dictionary containing a particular suggested search.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.government.federal_register.FederalRegister.get_suggested_searches_by_section">
+<span class="sig-name descname"><span class="pre">get_suggested_searches_by_section</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">section</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/government/federal_register.html#FederalRegister.get_suggested_searches_by_section"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.government.federal_register.FederalRegister.get_suggested_searches_by_section" title="Link to this definition"></a></dt>
+<dd><p>Returns all suggested searches or limit by FederalRegister.gov section.</p>
+<p>Args:
+- section (str): The Federal Register slug for the section. Supported values are business-and-industry, environment, health-and-public-welfare, money, science-and-technology, and world.</p>
+<p>Returns:
+- dict: A dictionary containing all the suggested searches or limit by Federal.Register.gov section.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.government.federal_register.FederalRegister.search_all_documents">
+<span class="sig-name descname"><span class="pre">search_all_documents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_term</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">per_page</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/government/federal_register.html#FederalRegister.search_all_documents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.government.federal_register.FederalRegister.search_all_documents" title="Link to this definition"></a></dt>
+<dd><p>Returns the Federal Register documents published since 1994 matching the given parameters.</p>
+<p>Args:
+- search_term (str): The term by which to search the documents.
+- per_page (int): The number of documents to return at once; default is 20; 1000 maximum.
+- doc_type (str): Additional optional search by document type. Supported values are rule (final rule), prorule (proposed rule), notice (notice), and presdocu (presidential document)</p>
+<p>Returns:
+- dict: A dictionary containing the documents published since 1994 matching the given values.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.government.federal_register.FederalRegister.search_all_public_inspection_documents">
+<span class="sig-name descname"><span class="pre">search_all_public_inspection_documents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pub_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">per_page</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_term</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/government/federal_register.html#FederalRegister.search_all_public_inspection_documents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.government.federal_register.FederalRegister.search_all_public_inspection_documents" title="Link to this definition"></a></dt>
+<dd><p>Returns the Federal Register documents published since 1994 matching the given parameters.</p>
+<p>Args:
+- pub_date (str): Public inspection issue date (YYYY-MM-DD).
+- per_page (int): The number of documents to return at once; default is 20; 1000 maximum.
+- search_term (str): The term by which to search the documents.
+- doc_type (str): Additional optional search by document type. Supported values are rule (final rule), prorule (proposed rule), notice (notice), and presdocu (presidential document)</p>
+<p>Returns:
+- dict: A dictionary containing the documents published since 1994 matching the given values.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-nokey.government">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-nokey.government" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Spyder Rex.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

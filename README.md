@@ -43,43 +43,70 @@ api_list = get_api_list.get_api_list()
 print(api_list)
 ```
 
+Each API class has an "about" attribute that returns a short description of the API. To get the URL for the API documentation of any API, simply call the get_docs_url() method for the API class.
+
 ## Contributing
 We welcome contributions to expand the range of APIs available in nokey. Whether you want to add a new submodule or enhance an existing one, your contributions are valuable. To contribute, please fork the repository, make your changes, and submit a pull request.
 
-Supported APIs
-## Country Info
+# Supported APIs
+## country_info
 RestCountries
-## Finance
+
+## finance
 Wallstreet Bets
-## Geolocation
+
+## geolocation
 IP API
 Zippopotomus
-## Spaceflight
-Spaceflight News
-## Education
-University Names and Domains
-## Food
-Fruityvice
-## Random
-RandomUserGenerator
-## Jokes
-JokeAPI
-## Animals
-DogAPI
-## Science
-Nobel Prize API
-## Weather
-National Weather Service API
-## Inspiration
-Dictum
-## Games
-Free To Game
-## Language
-Free Dictionary
-## Developer Tools
-URL Shortener ...
 
-... and many more on the way.
+## spaceflight
+Spaceflight News
+
+## education
+University Domains and Names
+
+## food
+Fruityvice
+
+## random
+RandomUserGenerator
+
+##jokes
+JokeAPI
+
+## animals
+DogAPI
+
+## science
+Nobel Prize API
+
+## weather
+National Weather Service API
+
+## developer_tools
+URL Shortener
+URLHaus
+APIsGuru
+Microlink
+
+## inspiration
+Dictum
+
+## language
+Free Dictionary
+
+## games
+Free To Game
+Open Trivia Database
+
+## activities
+Bored API
+
+## calendar
+Nager.Date
+
+## government
+Federal Register
 
 # Future Roadmap
 As the project grows, we envision expanding the collection of keyless APIs to cover a wide range of categories. Your feedback and contributions will play a crucial role in shaping the future of nokey.
@@ -88,4 +115,7 @@ As the project grows, we envision expanding the collection of keyless APIs to co
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 # Documentation
-Check out the [docs](https://nokey.readthedocs.io/en/latest/)
+Check out the [docs](https://nokey.readthedocs.io/en/latest/).
+
+# Disclaimer:
+Be sure to read the API documentation if you plan to use any of the APIs for development. This package is for accessing keyless, free, open source APIs and I am not responsible for the content of the APIs themselves.

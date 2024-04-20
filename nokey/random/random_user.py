@@ -6,9 +6,11 @@ class RandomUserGenerator:
     
     Attributes:
     - base_url: The base url of the API.
+    - about: A short description of the API.
     """
     def __init__(self):
         self.base_url = "https://randomuser.me/api/"
+        self.about = "The Random User Generator API is a free, open-source API for generating random user data, like Lorem Ipsum for people."
         
     def get_docs_url(self):
         """

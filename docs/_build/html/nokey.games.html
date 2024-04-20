@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.games package &mdash; nokey 0.1.0 documentation</title>
+  <title>nokey.games package &mdash; nokey 0.2.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,14 +15,12 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=01f34227"></script>
+        <script src="_static/documentation_options.js?v=938c9ccc"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="nokey.geolocation package" href="nokey.geolocation.html" />
-    <link rel="prev" title="nokey.food package" href="nokey.food.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,36 +42,37 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nokey</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="nokey.html">nokey package</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="nokey.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="nokey.animals.html">nokey.animals package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.country_info.html">nokey.country_info package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.developer_tools.html">nokey.developer_tools package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.education.html">nokey.education package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.finance.html">nokey.finance package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.food.html">nokey.food package</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">nokey.games package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.geolocation.html">nokey.geolocation package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.helperFuncs.html">nokey.helperFuncs package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.inspiration.html">nokey.inspiration package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.jokes.html">nokey.jokes package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.language.html">nokey.language package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.random.html">nokey.random package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.science.html">nokey.science package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.spaceflight.html">nokey.spaceflight package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nokey.weather.html">nokey.weather package</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="nokey.html#module-nokey">Module contents</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">nokey.games package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-nokey.games.free_to_game">nokey.games.free_to_game module</a><ul>
+<li><a class="reference internal" href="#nokey.games.free_to_game.FreeToGame"><code class="docutils literal notranslate"><span class="pre">FreeToGame</span></code></a><ul>
+<li><a class="reference internal" href="#nokey.games.free_to_game.FreeToGame.filter_games"><code class="docutils literal notranslate"><span class="pre">FreeToGame.filter_games()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.games.free_to_game.FreeToGame.get_all_live_games"><code class="docutils literal notranslate"><span class="pre">FreeToGame.get_all_live_games()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.games.free_to_game.FreeToGame.get_docs_url"><code class="docutils literal notranslate"><span class="pre">FreeToGame.get_docs_url()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.games.free_to_game.FreeToGame.get_game_by_id"><code class="docutils literal notranslate"><span class="pre">FreeToGame.get_game_by_id()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.games.free_to_game.FreeToGame.get_games_by_category"><code class="docutils literal notranslate"><span class="pre">FreeToGame.get_games_by_category()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.games.free_to_game.FreeToGame.get_games_by_platform"><code class="docutils literal notranslate"><span class="pre">FreeToGame.get_games_by_platform()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.games.free_to_game.FreeToGame.get_games_by_platform_and_category"><code class="docutils literal notranslate"><span class="pre">FreeToGame.get_games_by_platform_and_category()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li><a class="reference internal" href="#module-nokey.games.open_trivia_db">nokey.games.open_trivia_db module</a><ul>
+<li><a class="reference internal" href="#nokey.games.open_trivia_db.OpenTriviaDB"><code class="docutils literal notranslate"><span class="pre">OpenTriviaDB</span></code></a><ul>
+<li><a class="reference internal" href="#nokey.games.open_trivia_db.OpenTriviaDB.get_docs_url"><code class="docutils literal notranslate"><span class="pre">OpenTriviaDB.get_docs_url()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.games.open_trivia_db.OpenTriviaDB.get_random_trivia_questions"><code class="docutils literal notranslate"><span class="pre">OpenTriviaDB.get_random_trivia_questions()</span></code></a></li>
+<li><a class="reference internal" href="#nokey.games.open_trivia_db.OpenTriviaDB.get_specified_trivia_questions"><code class="docutils literal notranslate"><span class="pre">OpenTriviaDB.get_specified_trivia_questions()</span></code></a></li>
 </ul>
-
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-nokey.games">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
@@ -88,8 +87,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">nokey</a></li>
-          <li class="breadcrumb-item"><a href="nokey.html">nokey package</a></li>
       <li class="breadcrumb-item active">nokey.games package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/nokey.games.rst.txt" rel="nofollow"> View page source</a>
@@ -113,7 +110,8 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class to interact with the Free To Game API.</p>
 <p>Attributes:
-- base_url: The base URL of the Free To Game API.</p>
+- base_url: The base URL of the Free To Game API.
+- about: A short description of the API.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.free_to_game.FreeToGame.filter_games">
 <span class="sig-name descname"><span class="pre">filter_games</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/free_to_game.html#FreeToGame.filter_games"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.free_to_game.FreeToGame.filter_games" title="Link to this definition"></a></dt>
@@ -193,6 +191,50 @@
 </dd></dl>
 
 </section>
+<section id="module-nokey.games.open_trivia_db">
+<span id="nokey-games-open-trivia-db-module"></span><h2>nokey.games.open_trivia_db module<a class="headerlink" href="#module-nokey.games.open_trivia_db" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nokey.games.open_trivia_db.OpenTriviaDB">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.games.open_trivia_db.</span></span><span class="sig-name descname"><span class="pre">OpenTriviaDB</span></span><a class="reference internal" href="_modules/nokey/games/open_trivia_db.html#OpenTriviaDB"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.open_trivia_db.OpenTriviaDB" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class for interacting with the Open Trivia Database API.</p>
+<p>Attributes:
+- base_url: The base URL of the API.
+- about: A short description of the API.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.games.open_trivia_db.OpenTriviaDB.get_docs_url">
+<span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/open_trivia_db.html#OpenTriviaDB.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.open_trivia_db.OpenTriviaDB.get_docs_url" title="Link to this definition"></a></dt>
+<dd><p>Returns the URL for the Open Trivia Database API documentation.</p>
+<p>Args:
+- None</p>
+<p>Returns:
+- string: The URL for the API docs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.games.open_trivia_db.OpenTriviaDB.get_random_trivia_questions">
+<span class="sig-name descname"><span class="pre">get_random_trivia_questions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/open_trivia_db.html#OpenTriviaDB.get_random_trivia_questions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.open_trivia_db.OpenTriviaDB.get_random_trivia_questions" title="Link to this definition"></a></dt>
+<dd><p>Returns the specified amount of random trivia questions of various difficulties and subjects, and the answers to those questions.</p>
+<p>Args:
+- amount (int): The number of trivia desired.</p>
+<p>Returns:
+- dict: A dictionary containing the specified amount of trivia questions along with relevant data and the answers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.games.open_trivia_db.OpenTriviaDB.get_specified_trivia_questions">
+<span class="sig-name descname"><span class="pre">get_specified_trivia_questions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difficulty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/open_trivia_db.html#OpenTriviaDB.get_specified_trivia_questions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.open_trivia_db.OpenTriviaDB.get_specified_trivia_questions" title="Link to this definition"></a></dt>
+<dd><p>Returns the specified amount of trivial questions matching the given parameters, along with relevant data and answers to the questions.</p>
+<p>Args:
+- amount (int): The number of trivia questions to return.
+- category (int): The category of trivia questions desired. Defaults to None, in which case any categories will be returned.
+- difficulty (str): The difficulty level of the trivia questions. Defaults to None, in which case each question can be any difficulty level. Supported values are easy, medium, and hard.
+- q_type (str): The type of questions. Defaults to None, in which case the types are random. Supported values are boolean (True or False) and multiple (Multiple Choice).</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="module-nokey.games">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-nokey.games" title="Link to this heading"></a></h2>
 </section>
@@ -201,10 +243,7 @@
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="nokey.food.html" class="btn btn-neutral float-left" title="nokey.food package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="nokey.geolocation.html" class="btn btn-neutral float-right" title="nokey.geolocation package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
