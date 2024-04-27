@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.science.nobel_prize &mdash; nokey 0.2.0 documentation</title>
+  <title>nokey.science_and_nature.nobel_prize &mdash; nokey 0.3.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../_static/documentation_options.js?v=e259d695"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -41,8 +41,11 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"></div>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">nokey</a></li>
+</ul>
+
         </div>
       </div>
     </nav>
@@ -58,7 +61,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
-      <li class="breadcrumb-item active">nokey.science.nobel_prize</li>
+      <li class="breadcrumb-item active">nokey.science_and_nature.nobel_prize</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -67,11 +70,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for nokey.science.nobel_prize</h1><div class="highlight"><pre>
+  <h1>Source code for nokey.science_and_nature.nobel_prize</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">..</span> <span class="n">helperFuncs</span> <span class="kn">import</span> <span class="nn">make_request</span> <span class="k">as</span> <span class="nn">mr</span>
 
 <div class="viewcode-block" id="NobelPrizeAPI">
-<a class="viewcode-back" href="../../../nokey.science.html#nokey.science.nobel_prize.NobelPrizeAPI">[docs]</a>
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.nobel_prize.NobelPrizeAPI">[docs]</a>
 <span class="k">class</span> <span class="nc">NobelPrizeAPI</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class to interact with the Nobel Prize API.</span>
@@ -85,7 +88,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">about</span> <span class="o">=</span> <span class="s2">&quot;The Nobel Prize API returns all information about Laureates and Nobel Prizes.&quot;</span>
         
 <div class="viewcode-block" id="NobelPrizeAPI.get_docs_url">
-<a class="viewcode-back" href="../../../nokey.science.html#nokey.science.nobel_prize.NobelPrizeAPI.get_docs_url">[docs]</a>
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.nobel_prize.NobelPrizeAPI.get_docs_url">[docs]</a>
     <span class="k">def</span> <span class="nf">get_docs_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the URL for the Nobel Prize API documentation.</span>
@@ -100,7 +103,7 @@
 
         
 <div class="viewcode-block" id="NobelPrizeAPI.get_nobel_prize_laureates">
-<a class="viewcode-back" href="../../../nokey.science.html#nokey.science.nobel_prize.NobelPrizeAPI.get_nobel_prize_laureates">[docs]</a>
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.nobel_prize.NobelPrizeAPI.get_nobel_prize_laureates">[docs]</a>
     <span class="k">def</span> <span class="nf">get_nobel_prize_laureates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a list of Nobel Prize laureates with information about the winners.</span>
@@ -116,7 +119,7 @@
 
         
 <div class="viewcode-block" id="NobelPrizeAPI.get_all_nobel_prizes">
-<a class="viewcode-back" href="../../../nokey.science.html#nokey.science.nobel_prize.NobelPrizeAPI.get_all_nobel_prizes">[docs]</a>
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.nobel_prize.NobelPrizeAPI.get_all_nobel_prizes">[docs]</a>
     <span class="k">def</span> <span class="nf">get_all_nobel_prizes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a list of all the Nobel Prizes award along with information about the specific prize and winners.</span>
@@ -132,7 +135,7 @@
 
         
 <div class="viewcode-block" id="NobelPrizeAPI.get_one_nobel_prize">
-<a class="viewcode-back" href="../../../nokey.science.html#nokey.science.nobel_prize.NobelPrizeAPI.get_one_nobel_prize">[docs]</a>
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.nobel_prize.NobelPrizeAPI.get_one_nobel_prize">[docs]</a>
     <span class="k">def</span> <span class="nf">get_one_nobel_prize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a specific Nobel Prize and information about the specific prize and winners.</span>
@@ -149,7 +152,7 @@
 
         
 <div class="viewcode-block" id="NobelPrizeAPI.get_nobel_laureate_by_id">
-<a class="viewcode-back" href="../../../nokey.science.html#nokey.science.nobel_prize.NobelPrizeAPI.get_nobel_laureate_by_id">[docs]</a>
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.nobel_prize.NobelPrizeAPI.get_nobel_laureate_by_id">[docs]</a>
     <span class="k">def</span> <span class="nf">get_nobel_laureate_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">laureateID</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a specific Nobel Prize and information about the specific prize and winners.</span>

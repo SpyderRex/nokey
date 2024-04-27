@@ -12,6 +12,14 @@ nokey.developer\_tools.apis\_guru module
    :undoc-members:
    :show-inheritance:
 
+nokey.developer\_tools.filter\_lists module
+-------------------------------------------
+
+.. automodule:: nokey.developer_tools.filter_lists
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 nokey.developer\_tools.microlink module
 ---------------------------------------
 

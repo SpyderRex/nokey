@@ -1,6 +1,6 @@
 nokey_apis = {
     "country_info": ["RestCountries"],
-    "finance": ["Wallstreet Bets"],
+    "finance_and_crypto": ["Wallstreet Bets", "Exchange API", "Coinmap"],
     "geolocation": ["IP API", "Zippopotomus"],
     "spaceflight": ["Spaceflight News"],
     "education": ["University Domains and Names"],
@@ -8,13 +8,16 @@ nokey_apis = {
     "random": ["RandomUserGenerator"],
     "jokes": ["JokeAPI"],
     "animals": ["DogAPI"],
-    "science": ["Nobel Prize API"],
+    "science_and_nature": ["Nobel Prize API", "Integrative Taxonomic Information System"],
     "weather": ["National Weather Service API"],
-    "developer_tools": ["URL Shortener", "URLHaus", "APIsGuru", "Microlink"],
+    "developer_tools": ["URL Shortener", "URLHaus", "APIsGuru", "Microlink", "FilterLists"],
     "inspiration": ["Dictum"],
     "language": ["Free Dictionary"],
     "games": ["Free To Game", "Open Trivia Database"],
     "activities": ["Bored API"],
     "calendar": ["Nager.Date"],
-    "government": ["Federal Register"]
+    "government": ["Federal Register"],
+    "art_and_images": ["Lorem Picsum"],
+    "tv_and_film": ["Star Trek API"],
+    "books": ["Gutendex"]
 }

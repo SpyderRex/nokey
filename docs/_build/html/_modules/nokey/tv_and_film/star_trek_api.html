@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nokey.tv_and_film.star_trek_api &mdash; nokey 0.3.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=e259d695"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            nokey
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">nokey</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nokey</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">nokey.tv_and_film.star_trek_api</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for nokey.tv_and_film.star_trek_api</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">..</span> <span class="n">helperFuncs</span> <span class="kn">import</span> <span class="nn">make_request</span> <span class="k">as</span> <span class="nn">mr</span>
+
+<div class="viewcode-block" id="STAPI">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI">[docs]</a>
+<span class="k">class</span> <span class="nc">STAPI</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class for interacting with the Star Trek API.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">    - base_url: The base URL of the API.</span>
+<span class="sd">    - about: A short description of the API.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://stapi.co/api/&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">about</span> <span class="o">=</span> <span class="s2">&quot;STAPI (Star Trek API) is an API for accessing information about all things Star Trek.&quot;</span>
+        
+<div class="viewcode-block" id="STAPI.get_docs_url">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_docs_url">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_docs_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the URL for the Star Trek API.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - str: The URL for the API.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;https://editor.swagger.io/?url=https://stapi.co/api/v1/rest/common/download/stapi.yaml&quot;</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_animal_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_animal_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_animal_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek animal matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the animal.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the animal.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/animal?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_animals">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_animals">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_animals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of animals of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of animals per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of animals.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/animal/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_astronomical_object_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_astronomical_object_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_astronomical_object_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek astronomical object matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the astronomical object.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the astronomical object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/astronomicalObject?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_astronomical_objects">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_astronomical_objects">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_astronomical_objects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of astronomical objects of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of objects per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of astronomical objects.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/astronomicalObject/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_book_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_book_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_book_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek book matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the book.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the book.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/book?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_books">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_books">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_books</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek books of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of books per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of books.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/book/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_book_collection_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_book_collection_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_book_collection_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek book collection matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the book collection.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the book collection.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/bookCollection?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_book_collections">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_book_collections">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_book_collections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek book collections of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of book collections per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of book collections.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/bookCollection/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_book_series_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_book_series_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_book_series_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek book series matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the book series.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the book series.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/bookSeries?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_book_series">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_book_series">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_book_series</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek book series of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of book series per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of book series.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/bookSeries/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_character_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_character_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_character_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek character matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the character.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the character.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/character?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_characters">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_characters">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_characters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek characters of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of characters per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of characters.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/character/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_comic_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_comic_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_comic_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek comic matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the comic.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the comic.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/comics?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_comics">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_comics">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_comics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek comics of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of comics per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of comics.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/comics/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_comic_collection_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_comic_collection_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_comic_collection_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek comic collection matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the comic collection.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the comic collection.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/comicCollection?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_comic_collections">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_comic_collections">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_comic_collections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek comic collections of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of comic collections per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of comic collections.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/comicCollection/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_comic_series_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_comic_series_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_comic_series_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek comic series matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the comic series.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the comic series.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/comicSeries?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_comic_series">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_comic_series">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_comic_series</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek comic series of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of comic series per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of comic series.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/comicSeries/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_comic_strip_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_comic_strip_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_comic_strip_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek comic strip matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the comic strip.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the comic strip.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/comicStrip?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_comic_strips">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_comic_strips">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_comic_strips</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek comic strips of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of comic strips per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of comic strips.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/comicStrip/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_company_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_company_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_company_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek company matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the company.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the company.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/company?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_companies">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_companies">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_companies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek companies of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of companies per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of companies.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/company/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_conflict_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_conflict_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_conflict_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek conflict matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the conflict.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the conflict.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/conflict?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_conflicts">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_conflicts">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_conflicts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek conflicts of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of conflicts per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of conflicts.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/conflict/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_data_version">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_data_version">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_data_version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the data version of the API.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing the data version of the API.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;v1/rest/common/dataVersion&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_element_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_element_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_element_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek element matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the element.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the element.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/element?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_elements">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_elements">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_elements</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek elements of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of elements per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of elements.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/element/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_episode_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_episode_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_episode_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek episode matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the episode.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the episode.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/episode?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_episodes">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_episodes">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_episodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek episodes of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of eposodes per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of episodes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/episode/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_food_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_food_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_food_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek food matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the food.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the food.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/food?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_foods">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_foods">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_foods</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek foods of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of foods per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of foods.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/food/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_literature_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_literature_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_literature_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about Star Trek literature matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the literature.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the literature.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/literature?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_literature">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_literature">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_literature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek literature of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of literature per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of literature.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/literature/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_location_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_location_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_location_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek location matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the location.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the location.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/location?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_locations">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_locations">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_locations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek locations of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of locations per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of locations.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/location/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_magazine_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_magazine_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_magazine_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek magazine matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the magazine.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the magazine.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/magazine?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_magazines">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_magazines">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_magazines</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek magazines of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of magazines per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of magazines.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/magazine/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_magazine_series_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_magazine_series_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_magazine_series_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek magazine series matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the magazine series.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the magazine series.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/magazineSeries?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_magazine_series">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_magazine_series">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_magazine_series</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek magazine series of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of magazine series per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of magazine series.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/magazineSeries/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_material_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_material_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_material_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek material matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the material.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the material.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/material?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_materials">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_materials">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_materials</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek materials of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of materials per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of materials.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/material/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_medical_condition_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_medical_condition_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_medical_condition_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek medical condition matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the medical condition.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the medical condition.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/medicalCondition?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_medical_conditions">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_medical_conditions">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_medical_conditions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek medical conditions of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of medical conditions per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of medical conditions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/medicalCondition/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_movie_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_movie_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_movie_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek movie matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the movie.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the movie.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/movie?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_movies">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_movies">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_movies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek movies of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of movies per page. Defaults to 50 (although at this time there are only 14 entries).</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of movies.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/movie/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_occupation_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_occupation_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_occupation_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek occupation matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the occupation.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the occupation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/occupation?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_occupations">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_occupations">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_occupations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek occupations of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of occupations per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of occupations.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/occupation/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_organization_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_organization_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_organization_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek organization matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the organization.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the organization.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/organization?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_organizations">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_organizations">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_organizations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek organizations of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of organizations per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of organizations.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/organization/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_performer_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_performer_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_performer_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek performer matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the performer.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the performer.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/performer?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_performers">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_performers">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_performers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek performers of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of performers per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of performers.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/performer/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_season_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_season_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_season_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek season matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the season.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the season.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/season?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_seasons">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_seasons">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_seasons</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek seasons of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of seasons per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of seasons.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/season/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_series_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_series_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_series_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek series matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the series.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the series.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/series?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_series">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_series">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_series</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek series of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of series per page. Defaults to 50 (although at this time there are only 12 entries).</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of series.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/series/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_soundtrack_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_soundtrack_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_soundtrack_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek soundtrack.matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the soundtrack.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the soundtrack.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/soundtrack?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_soundtracks">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_soundtracks">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_soundtracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek soundtracks of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of soundtracks per page. Defaults to 50 (although at this time there are only 12 entries).</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of soundtracks.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/soundtrack/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_spacecraft_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_spacecraft_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_spacecraft_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek spacecraft matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the spacecraft.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the spacecraft.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/spacecraft?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_spacecrafts">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_spacecrafts">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_spacecrafts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek spacecrafts of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of spacecrafts per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of spacecrafts.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/spacecraft/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_spacecraft_class_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_spacecraft_class_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_spacecraft_class_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek spacecraft class matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the spacecraft class.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the spacecraft class.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/spacecraftClass?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_spacecraft_classes">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_spacecraft_classes">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_spacecraft_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek spacecraft classes of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of spacecraft classes per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of spacecraft classes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/spacecraftClass/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_species_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_species_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_species_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek species matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the species.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the species.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/species?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_species">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_species">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_species</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek species of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of species per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of species.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/species/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_staff_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_staff_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_staff_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek staff matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the staff.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the staff.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/staff?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_staff">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_staff">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_staff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek staff of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of staff per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of staff.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/staff/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_technology_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_technology_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_technology_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek technology matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the technology.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the technology.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/technology?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_technologies">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_technologies">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_technologies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek technologies of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of technologies per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of technologies.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/technology/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_title_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_title_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_title_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek titles matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the title.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the title.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/title?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_titles">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_titles">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_titles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek titles of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of titles per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of titles.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/title/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_trading_card_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_trading_card_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_trading_card_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek trading card matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the trading card.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the trading card.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/tradingCard?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_trading_cards">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_trading_cards">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_trading_cards</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek trading cards of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of trading cards per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of trading cards.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/tradingCard/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_trading_card_deck_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_trading_card_deck_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_trading_card_deck_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek trading card deck matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the trading card deck.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the trading card deck.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/tradingCardDeck?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_trading_card_decks">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_trading_card_decks">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_trading_card_decks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek trading card decks of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of trading card decks per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of trading card decks.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/tradingCardDeck/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_trading_card_set_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_trading_card_set_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_trading_card_set_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek trading card set matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the trading card set.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the trading card set.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/tradingCardSet?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_trading_card_sets">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_trading_card_sets">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_trading_card_sets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek trading card sets of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of trading card sets per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of trading card sets.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/tradingCardSet/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_video_game_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_video_game_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_video_game_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek video game matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the video game.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the video game.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/videoGame?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_video_games">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_video_games">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_video_games</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek video games of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of video games per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of video games.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v1/rest/videoGame/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_video_release_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_video_release_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_video_release_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek video release matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the video release.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the video release.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/videoRelease?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_video_releases">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_video_releases">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_video_releases</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek video releases of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of video releases per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of video releases.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/videoRelease/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_weapon_by_id">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_weapon_by_id">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_weapon_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a Star Trek weapon matching the unique id.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - uid (str): The unique identifier for the weapon.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the weapon.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/weapon?uid=</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="STAPI.get_weapons">
+<a class="viewcode-back" href="../../../nokey.tv_and_film.html#nokey.tv_and_film.star_trek_api.STAPI.get_weapons">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_weapons</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pageNumber</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pageSize</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of Star Trek weapons of the specified page number and page size.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - pageNumber (int): The page number of the list. Defaults to 0, the first page.</span>
+<span class="sd">        - pageSize (int): The number of weapons per page. Defaults to 50.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of weapons.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/rest/weapon/search?pageNumber=</span><span class="si">{</span><span class="n">pageNumber</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">pageSize</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+</div>
+
+       
+        
+        
+    
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+     
+     
+     
+        
+    
+    
+ 
+ 
+ 
+   
+   
+   
+   
+   
+   
+     
+   
+   
+ 
+ 
+ 
+   
+  
+   
+ 
+  
+   
+   
+  
+    
+   
+  
+  
+   
+  
+   
+        
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Spyder Rex.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

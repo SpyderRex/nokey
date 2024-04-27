@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nokey.science_and_nature package &mdash; nokey 0.3.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=4621528c"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="nokey.spaceflight package" href="nokey.spaceflight.html" />
+    <link rel="prev" title="nokey.random package" href="nokey.random.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            nokey
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nokey</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nokey.html">nokey package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="nokey.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="nokey.animals.html">nokey.animals package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.books_and_literature.html">nokey.books_and_literature package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.calendar.html">nokey.calendar package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.country_info.html">nokey.country_info package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.developer_tools.html">nokey.developer_tools package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.education.html">nokey.education package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.finance_and_crypto.html">nokey.finance_and_crypto package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.food.html">nokey.food package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.games.html">nokey.games package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.geolocation.html">nokey.geolocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.government.html">nokey.government package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.helperFuncs.html">nokey.helperFuncs package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.inspiration.html">nokey.inspiration package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.jokes.html">nokey.jokes package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.language.html">nokey.language package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.random.html">nokey.random package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">nokey.science_and_nature package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.spaceflight.html">nokey.spaceflight package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.tv_and_film.html">nokey.tv_and_film package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.weather.html">nokey.weather package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nokey.html#module-nokey">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nokey</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">nokey</a></li>
+          <li class="breadcrumb-item"><a href="nokey.html">nokey package</a></li>
+      <li class="breadcrumb-item active">nokey.science_and_nature package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/nokey.science_and_nature.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="nokey-science-and-nature-package">
+<h1>nokey.science_and_nature package<a class="headerlink" href="#nokey-science-and-nature-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-nokey.science_and_nature.integrated_taxonomic_information_system">
+<span id="nokey-science-and-nature-integrated-taxonomic-information-system-module"></span><h2>nokey.science_and_nature.integrated_taxonomic_information_system module<a class="headerlink" href="#module-nokey.science_and_nature.integrated_taxonomic_information_system" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.science_and_nature.integrated_taxonomic_information_system.</span></span><span class="sig-name descname"><span class="pre">ITIS</span></span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class for interacting with the Integrated Taxonomic Integration System API.</p>
+<p>Attributes:
+- base_url: The base URL of the API.
+- about: A short description of the API.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_ITIS_terms">
+<span class="sig-name descname"><span class="pre">get_ITIS_terms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_ITIS_terms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_ITIS_terms" title="Link to this definition"></a></dt>
+<dd><p>Gets a list of ITIS Terms as used by the Resource Catalog Input Tool from a common or scientific name match, or an empty result set if there is no match.</p>
+<p>Args:
+- search_key (str): The common or scientific name.
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the search key.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_ITIS_terms_from_common_name">
+<span class="sig-name descname"><span class="pre">get_ITIS_terms_from_common_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_ITIS_terms_from_common_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_ITIS_terms_from_common_name" title="Link to this definition"></a></dt>
+<dd><p>Gets a list of ITIS Terms as used by the Resource Catalog Input Tool from a common name match, or an empty result set if there is no match.</p>
+<p>Args:
+- search_key (str): The common name.
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the search key.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_ITIS_terms_from_scientific_name">
+<span class="sig-name descname"><span class="pre">get_ITIS_terms_from_scientific_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_ITIS_terms_from_scientific_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_ITIS_terms_from_scientific_name" title="Link to this definition"></a></dt>
+<dd><p>Gets a list of ITIS Terms as used by the Resource Catalog Input Tool from a scientific name match, or an empty result set if there is no match.</p>
+<p>Args:
+- search_key (str): The scientific name.
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the search key.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_LSID_from_TSN">
+<span class="sig-name descname"><span class="pre">get_LSID_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_LSID_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_LSID_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Gets the unique LSID for the TSN, or an empty result if there is no match.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_TSN_from_LSID">
+<span class="sig-name descname"><span class="pre">get_TSN_from_LSID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_TSN_from_LSID"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_TSN_from_LSID" title="Link to this definition"></a></dt>
+<dd><p>Gets the TSN corresponding to the LSID, or an empty result if there is no match.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_TSNs_by_vernacular_language">
+<span class="sig-name descname"><span class="pre">get_TSNs_by_vernacular_language</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">language</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_TSNs_by_vernacular_language"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_TSNs_by_vernacular_language" title="Link to this definition"></a></dt>
+<dd><p>Provide a listing of Taxonomic Serial Numbers (TSNs) with vernaculars entered in the requested language.</p>
+<p>Args:
+- language (str): The desired language. Supported values are Afrikaans, Arabic, Australian, Bengali, Chinese, Djuka, Dutch, eng, English, Fijan, French, Galibi, German, Greek, Hausa, Hawaiian, Hindi, Icelandic, Iglulik Inuit, Italian, Japanese, Javanese, Khmer, Korean, Lao, Malagasy, Manyika, Native American, Ndau, Northern Sotho, Portuguese, Romanian, Shona, Spanish, Swati, unspecified, Xhosa, Zulu.
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the language.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_accepted_names_from_TSN">
+<span class="sig-name descname"><span class="pre">get_accepted_names_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_accepted_names_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_accepted_names_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of accepted names for the TSN. This can return more than one result if the TSN is for a synonym.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_any_match_count">
+<span class="sig-name descname"><span class="pre">get_any_match_count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_any_match_count"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_any_match_count" title="Link to this definition"></a></dt>
+<dd><p>Returns a count of the matches found by comparing the search key to the ITIS common names, scientific names, and TSNs..</p>
+<p>Args:
+- search_key (str or int): The name (common or scientific) or Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the count matching the search key.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_comment_detail_from_TSN">
+<span class="sig-name descname"><span class="pre">get_comment_detail_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_comment_detail_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_comment_detail_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns the list of comments for the TSN. This can return more than result if multiple comments are entered.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_common_names_from_TSN">
+<span class="sig-name descname"><span class="pre">get_common_names_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_common_names_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_common_names_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of common names for the TSN.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_core_metadata_from_TSN">
+<span class="sig-name descname"><span class="pre">get_core_metadata_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_core_metadata_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_core_metadata_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns the set of core metadata for the TSN. This contains credibility rating, taxonomic usage, unacceptability reason, coverage, and currency data.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_coverage_from_TSN">
+<span class="sig-name descname"><span class="pre">get_coverage_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_coverage_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_coverage_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns the taxon coverage information for the TSN. This information is  available for Genus and above (rank_id &gt; 190) only.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_credibility_rating_from_TSN">
+<span class="sig-name descname"><span class="pre">get_credibility_rating_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_credibility_rating_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_credibility_rating_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns the credibility rating for the TSN.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_credibility_ratings">
+<span class="sig-name descname"><span class="pre">get_credibility_ratings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_credibility_ratings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_credibility_ratings" title="Link to this definition"></a></dt>
+<dd><p>Provides a list of all the unique valid credibility rating values contained in the database.</p>
+<p>Args:
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the credibility rating values.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_currency_from_TSN">
+<span class="sig-name descname"><span class="pre">get_currency_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_currency_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_currency_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns the taxon currency information for the TSN. This information is  available for Genus and above (rank_id &gt; 190) only.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_date_data_from_TSN">
+<span class="sig-name descname"><span class="pre">get_date_data_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_date_data_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_date_data_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns the initial time stamp and last update date for the TSN.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_description" title="Link to this definition"></a></dt>
+<dd><p>Provides a description of the web service and the ITIS database.</p>
+<p>Args:
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing a description of the ITIS database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_docs_url">
+<span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_docs_url" title="Link to this definition"></a></dt>
+<dd><p>Returns the URL for the ITIS API documentation.</p>
+<p>Args:
+- None</p>
+<p>Returns:
+- string: The URL for the API docs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_experts_from_TSN">
+<span class="sig-name descname"><span class="pre">get_experts_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_experts_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_experts_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of the expert information for the TSN.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_full_hierarchy_from_TSN">
+<span class="sig-name descname"><span class="pre">get_full_hierarchy_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_full_hierarchy_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_full_hierarchy_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns the Taxonomic Hierarchy from the kingdom to the requested scientific name, and the immediate children of the scientific name.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_full_record_from_LSID">
+<span class="sig-name descname"><span class="pre">get_full_record_from_LSID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_full_record_from_LSID"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_full_record_from_LSID" title="Link to this definition"></a></dt>
+<dd><p>Returns the full ITIS record for the TSN in the LSID, found by comparing the TSN in the search key to the TSN field. Returns an empty result set if there is no match or the TSN is invalid.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_full_record_from_TSN">
+<span class="sig-name descname"><span class="pre">get_full_record_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_full_record_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_full_record_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns the full ITIS record for a TSN found by comparing the search key to the TSN field, or an empty result set if there is no match.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_geographic_divisions_from_TSN">
+<span class="sig-name descname"><span class="pre">get_geographic_divisions_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_geographic_divisions_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_geographic_divisions_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of the geographic divisions for the TSN.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_geographic_values">
+<span class="sig-name descname"><span class="pre">get_geographic_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_geographic_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_geographic_values" title="Link to this definition"></a></dt>
+<dd><p>Provides a list of all the geographic values contained in the database.</p>
+<p>Args:
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the geographic values contained in the database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_global_species_completeness_from_TSN">
+<span class="sig-name descname"><span class="pre">get_global_species_completeness_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_global_species_completeness_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_global_species_completeness_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns the taxon completenes rating for the TSN.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_hierarchy_down_from_TSN">
+<span class="sig-name descname"><span class="pre">get_hierarchy_down_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_hierarchy_down_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_hierarchy_down_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of all the valid/accepted scientific names contained within a particular valid/accepted scientific name and their TSNs, limited to immediate children only. The result set will be found by comparing the search key to the parent TSN field.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_hierarchy_up_from_TSN">
+<span class="sig-name descname"><span class="pre">get_hierarchy_up_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_hierarchy_up_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_hierarchy_up_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns the parent of the TSN (i.e. the parent of the current scientific name in the taxonomic hierarchy) found by comparing the search key to the ITIS TSN field.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_jurisdiction_values">
+<span class="sig-name descname"><span class="pre">get_jurisdiction_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_jurisdiction_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_jurisdiction_values" title="Link to this definition"></a></dt>
+<dd><p>Provides a list of all the jurisdiction values contained in the database.</p>
+<p>Args:
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the jurisdiction values contained in the database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_jurisdictional_origin_from_TSN">
+<span class="sig-name descname"><span class="pre">get_jurisdictional_origin_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_jurisdictional_origin_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_jurisdictional_origin_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of the jurisdiction and origin values for the TSN.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_jurisdictional_origin_values">
+<span class="sig-name descname"><span class="pre">get_jurisdictional_origin_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_jurisdictional_origin_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_jurisdictional_origin_values" title="Link to this definition"></a></dt>
+<dd><p>Provides a list of all the origin values contained in the database.</p>
+<p>Args:
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the origin values contained in the database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_kingdom_name_from_TSN">
+<span class="sig-name descname"><span class="pre">get_kingdom_name_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_kingdom_name_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_kingdom_name_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns the kingdom name for the TSN.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_kingdom_names">
+<span class="sig-name descname"><span class="pre">get_kingdom_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_kingdom_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_kingdom_names" title="Link to this definition"></a></dt>
+<dd><p>Provides a list of all the unique kingdom names contained in the database, their kingdom IDs and their TSNs.</p>
+<p>Args:
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the kingdom names contained in the database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_last_change_date">
+<span class="sig-name descname"><span class="pre">get_last_change_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_last_change_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_last_change_date" title="Link to this definition"></a></dt>
+<dd><p>Provides the date the ITIS database was last updated.</p>
+<p>Args:
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the date the database was last updated.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_other_sources_from_TSN">
+<span class="sig-name descname"><span class="pre">get_other_sources_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_other_sources_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_other_sources_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of the other sources used for the TSN.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_parent_TSN_from_TSN">
+<span class="sig-name descname"><span class="pre">get_parent_TSN_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_parent_TSN_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_parent_TSN_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns the parent TSN for the entered TSN.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_publications_from_TSN">
+<span class="sig-name descname"><span class="pre">get_publications_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_publications_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_publications_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of the pulications used for the TSN.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_rank_names">
+<span class="sig-name descname"><span class="pre">get_rank_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_rank_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_rank_names" title="Link to this definition"></a></dt>
+<dd><p>Provides a list of all the unique rank names contained in the database and their kingdom and rank ID values.</p>
+<p>Args:
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing a list of all the unique rank names contained in the database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_record_from_LSID">
+<span class="sig-name descname"><span class="pre">get_record_from_LSID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_record_from_LSID"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_record_from_LSID" title="Link to this definition"></a></dt>
+<dd><p>Gets the partial ITIS record for the TSN in the LSID, found by comparing the TSN in the search key to the TSN field. Returns an empty result set if there is no match or the TSN is invalid.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_review_year_from_TSN">
+<span class="sig-name descname"><span class="pre">get_review_year_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_review_year_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_review_year_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns the review year for the TSN.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_scientific_name_from_TSN">
+<span class="sig-name descname"><span class="pre">get_scientific_name_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_scientific_name_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_scientific_name_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns the scientific name for the TSN. Also returns the component parts (names and indicators) of the scientific name.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_synonym_names_from_TSN">
+<span class="sig-name descname"><span class="pre">get_synonym_names_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_synonym_names_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_synonym_names_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of the synonyms (if any) for the TSN.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_taxon_authorship_from_TSN">
+<span class="sig-name descname"><span class="pre">get_taxon_authorship_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_taxon_authorship_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_taxon_authorship_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns the author information for the TSN.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_taxonomic_rank_name_from_TSN">
+<span class="sig-name descname"><span class="pre">get_taxonomic_rank_name_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_taxonomic_rank_name_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_taxonomic_rank_name_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns the kingdom and rank information for the TSN.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_taxonomic_usage_from_TSN">
+<span class="sig-name descname"><span class="pre">get_taxonomic_usage_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_taxonomic_usage_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_taxonomic_usage_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns the usage information for the TSN.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_unacceptability_reason_from_TSN">
+<span class="sig-name descname"><span class="pre">get_unacceptability_reason_from_TSN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tsn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_unacceptability_reason_from_TSN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_unacceptability_reason_from_TSN" title="Link to this definition"></a></dt>
+<dd><p>Returns the unacceptability reason, if any, for the TSN.</p>
+<p>Args:
+- tsn (int): The Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the TSN.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_vernacular_languages">
+<span class="sig-name descname"><span class="pre">get_vernacular_languages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.get_vernacular_languages"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_vernacular_languages" title="Link to this definition"></a></dt>
+<dd><p>Provides a list of the unique languages used in the vernacular table.</p>
+<p>Args:
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing a list of all the unique languages used in the vernacular table.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.search_by_common_name">
+<span class="sig-name descname"><span class="pre">search_by_common_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.search_by_common_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.search_by_common_name" title="Link to this definition"></a></dt>
+<dd><p>Returns matches found by comparing the search key to the ITIS common names.</p>
+<p>Args:
+- search_key (str): The common name.
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the search key.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.search_by_common_name_begins_with">
+<span class="sig-name descname"><span class="pre">search_by_common_name_begins_with</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.search_by_common_name_begins_with"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.search_by_common_name_begins_with" title="Link to this definition"></a></dt>
+<dd><p>Return matches found by comparing the search key to the beginning of the ITIS common names.</p>
+<p>Args:
+- search_key (str): The beginning of the name to be searched.
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the search key.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.search_by_common_name_ends_with">
+<span class="sig-name descname"><span class="pre">search_by_common_name_ends_with</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.search_by_common_name_ends_with"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.search_by_common_name_ends_with" title="Link to this definition"></a></dt>
+<dd><p>Return matches found by comparing the search key to the end of the ITIS common names.</p>
+<p>Args:
+- search_key (str): The end of the name to be searched.
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the search key.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.search_by_scientific_name">
+<span class="sig-name descname"><span class="pre">search_by_scientific_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.search_by_scientific_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.search_by_scientific_name" title="Link to this definition"></a></dt>
+<dd><p>Returns matches found by comparing the search key to the ITIS scientific names.</p>
+<p>Args:
+- search_key (str): The scientific name.
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the search key.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.search_for_any_match">
+<span class="sig-name descname"><span class="pre">search_for_any_match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.search_for_any_match"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.search_for_any_match" title="Link to this definition"></a></dt>
+<dd><p>Returns matches found by comparing the search key to the ITIS common names, scientific names, and TSNs.</p>
+<p>Args:
+- search_key (str or int): The name (common or scientific) or Taxonomic Serial Number (TSN).
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the search key.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.search_for_any_match_paged">
+<span class="sig-name descname"><span class="pre">search_for_any_match_paged</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">page_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">page_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/integrated_taxonomic_information_system.html#ITIS.search_for_any_match_paged"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.search_for_any_match_paged" title="Link to this definition"></a></dt>
+<dd><p>Returns matches found by comparing the search key to the ITIS common names, scientific names, and TSNs.</p>
+<p>Args:
+- search_key (str or int): The name (common or scientific) or Taxonomic Serial Number (TSN).
+- page_size (int): Number of matches returned per page. Defaults to 50.
+- page_num (int): The page number to return (pagination). Defaults to the first page.
+- ascend (boolean): Whether to sort pages in ascending or descending alphabetical order. Default is True.
+- data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</p>
+<p>Returns:
+- dict or string (xml): A dictionary or XML string containing the data matching the search key.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-nokey.science_and_nature.nobel_prize">
+<span id="nokey-science-and-nature-nobel-prize-module"></span><h2>nokey.science_and_nature.nobel_prize module<a class="headerlink" href="#module-nokey.science_and_nature.nobel_prize" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nokey.science_and_nature.nobel_prize.NobelPrizeAPI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.science_and_nature.nobel_prize.</span></span><span class="sig-name descname"><span class="pre">NobelPrizeAPI</span></span><a class="reference internal" href="_modules/nokey/science_and_nature/nobel_prize.html#NobelPrizeAPI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.nobel_prize.NobelPrizeAPI" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to interact with the Nobel Prize API.</p>
+<p>Attributes:
+- base_url: The base url for the Nobel Prize API.
+- about: A short description of the API.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.nobel_prize.NobelPrizeAPI.get_all_nobel_prizes">
+<span class="sig-name descname"><span class="pre">get_all_nobel_prizes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/nobel_prize.html#NobelPrizeAPI.get_all_nobel_prizes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.nobel_prize.NobelPrizeAPI.get_all_nobel_prizes" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of all the Nobel Prizes award along with information about the specific prize and winners.</p>
+<p>Args:
+- None</p>
+<p>Returns
+- dict: A dictionary containing a list of Nobel Prizes awarded and relevant information about the prize.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.nobel_prize.NobelPrizeAPI.get_docs_url">
+<span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/nobel_prize.html#NobelPrizeAPI.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.nobel_prize.NobelPrizeAPI.get_docs_url" title="Link to this definition"></a></dt>
+<dd><p>Returns the URL for the Nobel Prize API documentation.</p>
+<p>Args:
+- None</p>
+<p>Returns:
+- string: The URL for the Nobel Prize API docs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.nobel_prize.NobelPrizeAPI.get_nobel_laureate_by_id">
+<span class="sig-name descname"><span class="pre">get_nobel_laureate_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">laureateID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/nobel_prize.html#NobelPrizeAPI.get_nobel_laureate_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.nobel_prize.NobelPrizeAPI.get_nobel_laureate_by_id" title="Link to this definition"></a></dt>
+<dd><p>Returns a specific Nobel Prize and information about the specific prize and winners.</p>
+<p>Args:
+- laureateID (int): A unique identifier for a specific Nobel laureate.</p>
+<p>Returns
+- dict: A dictionary containing a specific Nobel Prize awarded and relevant information about the prize.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.nobel_prize.NobelPrizeAPI.get_nobel_prize_laureates">
+<span class="sig-name descname"><span class="pre">get_nobel_prize_laureates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/nobel_prize.html#NobelPrizeAPI.get_nobel_prize_laureates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.nobel_prize.NobelPrizeAPI.get_nobel_prize_laureates" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of Nobel Prize laureates with information about the winners.</p>
+<p>Args:
+- None</p>
+<p>Returns
+- dict: A dictionary containing a list of Nobel Prize laureates and relevant information about the winners.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.science_and_nature.nobel_prize.NobelPrizeAPI.get_one_nobel_prize">
+<span class="sig-name descname"><span class="pre">get_one_nobel_prize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/science_and_nature/nobel_prize.html#NobelPrizeAPI.get_one_nobel_prize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.science_and_nature.nobel_prize.NobelPrizeAPI.get_one_nobel_prize" title="Link to this definition"></a></dt>
+<dd><p>Returns a specific Nobel Prize and information about the specific prize and winners.</p>
+<p>Args:
+- category (str): The category of the prize awarded. Possible values are che (chemistry), eco (economic sciences), lit (literature), pea (peace), phy (physics), and med (medicine). Any other strings passed for category will return all the pieces for specified year.
+- year (int): The year the prize was awarded.</p>
+<p>Returns
+- dict: A dictionary containing a specific Nobel Prize awarded and relevant information about the prize.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-nokey.science_and_nature">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-nokey.science_and_nature" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nokey.random.html" class="btn btn-neutral float-left" title="nokey.random package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nokey.spaceflight.html" class="btn btn-neutral float-right" title="nokey.spaceflight package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Spyder Rex.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

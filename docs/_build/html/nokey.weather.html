@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.weather package &mdash; nokey 0.2.0 documentation</title>
+  <title>nokey.weather package &mdash; nokey 0.3.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,12 +15,13 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="_static/documentation_options.js?v=4621528c"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="nokey.tv_and_film package" href="nokey.tv_and_film.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,71 +43,40 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">nokey.weather package</a><ul>
-<li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-nokey.weather.national_weather_service">nokey.weather.national_weather_service module</a><ul>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService</span></code></a><ul>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_NWS_office_headline_by_headline_id"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_NWS_office_headline_by_headline_id()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_NWS_office_headlines"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_NWS_office_headlines()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_NWS_office_metadata"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_NWS_office_metadata()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_active_alerts"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_active_alerts()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_active_alerts_by_area"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_active_alerts_by_area()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_active_alerts_by_region"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_active_alerts_by_region()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_active_alerts_by_zone"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_active_alerts_by_zone()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_active_alerts_count"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_active_alerts_count()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_alert_by_id"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_alert_by_id()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_alert_types"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_alert_types()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_alerts"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_alerts()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_cwsu_advisories"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_cwsu_advisories()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_cwsu_advisories_by_date_and_seq"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_cwsu_advisories_by_date_and_seq()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_cwsu_metadata"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_cwsu_metadata()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_docs_url"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_docs_url()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_glossary"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_glossary()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_observation_stations_by_gridpoints"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_observation_stations_by_gridpoints()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_observation_stations_by_zone"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_observation_stations_by_zone()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_observations_by_station"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_observations_by_station()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_radar_queue_metadata"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_radar_queue_metadata()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_radar_server_metadata_by_id"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_radar_server_metadata_by_id()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_radar_servers"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_radar_servers()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_radar_station_alarms_metadata_by_id"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_radar_station_alarms_metadata_by_id()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_radar_station_metadata_by_id"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_radar_station_metadata_by_id()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_radar_stations"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_radar_stations()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_radar_wind_profiler_metadata"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_radar_wind_profiler_metadata()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_raw_data_by_gridpoints"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_raw_data_by_gridpoints()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_sigmets_by_atsu"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_sigmets_by_atsu()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_sigmets_by_atsu_and_date"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_sigmets_by_atsu_and_date()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_specific_sigmet"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_specific_sigmet()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_station_metadata"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_station_metadata()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_station_observation_by_time"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_station_observation_by_time()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_stations"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_stations()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_taf_by_date_time"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_taf_by_date_time()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_tafs_by_station"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_tafs_by_station()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_text_product_by_id"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_text_product_by_id()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_text_product_locations"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_text_product_locations()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_text_product_locations_by_type"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_text_product_locations_by_type()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_text_product_types"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_text_product_types()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_text_product_types_by_location"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_text_product_types_by_location()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_text_products"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_text_products()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_text_products_by_type"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_text_products_by_type()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_text_products_by_type_and_location"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_text_products_by_type_and_location()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_textual_forecast_by_gridpoints"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_textual_forecast_by_gridpoints()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_textual_hourly_forecast_by_gridpoints"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_textual_hourly_forecast_by_gridpoints()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_zone_forecast"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_zone_forecast()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_zone_metadata"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_zone_metadata()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_zone_observations"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_zone_observations()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_zones"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_zones()</span></code></a></li>
-<li><a class="reference internal" href="#nokey.weather.national_weather_service.NationalWeatherService.get_zones_by_type"><code class="docutils literal notranslate"><span class="pre">NationalWeatherService.get_zones_by_type()</span></code></a></li>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nokey</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="nokey.html">nokey package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="nokey.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="nokey.animals.html">nokey.animals package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.books_and_literature.html">nokey.books_and_literature package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.calendar.html">nokey.calendar package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.country_info.html">nokey.country_info package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.developer_tools.html">nokey.developer_tools package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.education.html">nokey.education package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.finance_and_crypto.html">nokey.finance_and_crypto package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.food.html">nokey.food package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.games.html">nokey.games package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.geolocation.html">nokey.geolocation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.government.html">nokey.government package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.helperFuncs.html">nokey.helperFuncs package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.inspiration.html">nokey.inspiration package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.jokes.html">nokey.jokes package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.language.html">nokey.language package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.random.html">nokey.random package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.science_and_nature.html">nokey.science_and_nature package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.spaceflight.html">nokey.spaceflight package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.tv_and_film.html">nokey.tv_and_film package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">nokey.weather package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nokey.html#module-nokey">Module contents</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-nokey.weather">Module contents</a></li>
 </ul>
-</li>
-</ul>
-</div>
+
         </div>
       </div>
     </nav>
@@ -121,6 +91,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">nokey</a></li>
+          <li class="breadcrumb-item"><a href="nokey.html">nokey package</a></li>
       <li class="breadcrumb-item active">nokey.weather package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/nokey.weather.rst.txt" rel="nofollow"> View page source</a>
@@ -677,7 +649,9 @@
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nokey.tv_and_film.html" class="btn btn-neutral float-left" title="nokey.tv_and_film package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 

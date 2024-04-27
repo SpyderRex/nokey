@@ -8,11 +8,12 @@ Subpackages
    :maxdepth: 4
 
    nokey.animals
+   nokey.books_and_literature
    nokey.calendar
    nokey.country_info
    nokey.developer_tools
    nokey.education
-   nokey.finance
+   nokey.finance_and_crypto
    nokey.food
    nokey.games
    nokey.geolocation
@@ -22,8 +23,9 @@ Subpackages
    nokey.jokes
    nokey.language
    nokey.random
-   nokey.science
+   nokey.science_and_nature
    nokey.spaceflight
+   nokey.tv_and_film
    nokey.weather
 
 Module contents

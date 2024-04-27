@@ -52,8 +52,12 @@ We welcome contributions to expand the range of APIs available in nokey. Whether
 ## country_info
 RestCountries
 
-## finance
+## finance_and_crypto
 Wallstreet Bets
+
+Exchange API
+
+Coinmap
 
 ## geolocation
 IP API
@@ -78,8 +82,10 @@ JokeAPI
 ## animals
 DogAPI
 
-## science
+## science_and_nature
 Nobel Prize API
+
+Integrated Taxonomic Information System
 
 ## weather
 National Weather Service API
@@ -93,6 +99,8 @@ APIsGuru
 
 Microlink
 
+FilterLists
+
 ## inspiration
 Dictum
 
@@ -101,6 +109,7 @@ Free Dictionary
 
 ## games
 Free To Game
+
 Open Trivia Database
 
 ## activities
@@ -111,6 +120,12 @@ Nager.Date
 
 ## government
 Federal Register
+
+## tv_and_film
+Star Trek API
+
+## books_and_literature
+Gutendex
 
 # Future Roadmap
 As the project grows, we envision expanding the collection of keyless APIs to cover a wide range of categories. Your feedback and contributions will play a crucial role in shaping the future of nokey.

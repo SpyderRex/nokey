@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nokey.science_and_nature.integrated_taxonomic_information_system &mdash; nokey 0.3.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=e259d695"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            nokey
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">nokey</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nokey</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">nokey.science_and_nature.integrated_taxonomic_information_system</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for nokey.science_and_nature.integrated_taxonomic_information_system</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">xmltodict</span>
+
+<span class="kn">from</span> <span class="nn">..</span> <span class="n">helperFuncs</span> <span class="kn">import</span> <span class="nn">make_request</span> <span class="k">as</span> <span class="nn">mr</span>
+
+<div class="viewcode-block" id="ITIS">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS">[docs]</a>
+<span class="k">class</span> <span class="nc">ITIS</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">    A class for interacting with the Integrated Taxonomic Integration System API.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">    - base_url: The base URL of the API.</span>
+<span class="sd">    - about: A short description of the API.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;http://www.itis.gov/ITISWebService/services/ITISService/&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">about</span> <span class="o">=</span> <span class="s2">&quot;The ITIS program is driven by a mission: communicate a comprehensive taxonomy of global species that enables biodiversity information to be discovered, indexed, and connected across all human endeavors.&quot;</span>
+        
+<div class="viewcode-block" id="ITIS.get_docs_url">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_docs_url">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_docs_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the URL for the ITIS API documentation.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - string: The URL for the API docs.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;https://www.itis.gov/ws_description.html&quot;</span></div>
+
+        
+    <span class="c1">#SEARCH FUNCTIONS</span>
+<div class="viewcode-block" id="ITIS.search_for_any_match">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.search_for_any_match">[docs]</a>
+    <span class="k">def</span> <span class="nf">search_for_any_match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">search_key</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns matches found by comparing the search key to the ITIS common names, scientific names, and TSNs.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - search_key (str or int): The name (common or scientific) or Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the search key.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;searchForAnyMatch?srchKey=</span><span class="si">{</span><span class="n">search_key</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.search_for_any_match_paged">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.search_for_any_match_paged">[docs]</a>
+    <span class="k">def</span> <span class="nf">search_for_any_match_paged</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">search_key</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">page_num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ascend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns matches found by comparing the search key to the ITIS common names, scientific names, and TSNs.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - search_key (str or int): The name (common or scientific) or Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - page_size (int): Number of matches returned per page. Defaults to 50.</span>
+<span class="sd">        - page_num (int): The page number to return (pagination). Defaults to the first page.</span>
+<span class="sd">        - ascend (boolean): Whether to sort pages in ascending or descending alphabetical order. Default is True.</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">           </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the search key.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;searchForAnyMatchPaged?srchKey=</span><span class="si">{</span><span class="n">search_key</span><span class="si">}</span><span class="s2">&amp;pageSize=</span><span class="si">{</span><span class="n">page_size</span><span class="si">}</span><span class="s2">&amp;pageNum=</span><span class="si">{</span><span class="n">page_num</span><span class="si">}</span><span class="s2">&amp;ascend=</span><span class="si">{</span><span class="n">ascend</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_any_match_count">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_any_match_count">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_any_match_count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">search_key</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a count of the matches found by comparing the search key to the ITIS common names, scientific names, and TSNs..</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - search_key (str or int): The name (common or scientific) or Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the count matching the search key.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getAnyMatchCount?srchKey=</span><span class="si">{</span><span class="n">search_key</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.search_by_common_name">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.search_by_common_name">[docs]</a>
+    <span class="k">def</span> <span class="nf">search_by_common_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">search_key</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns matches found by comparing the search key to the ITIS common names.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - search_key (str): The common name.</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the search key.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;searchByCommonName?srchKey=</span><span class="si">{</span><span class="n">search_key</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.search_by_common_name_begins_with">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.search_by_common_name_begins_with">[docs]</a>
+    <span class="k">def</span> <span class="nf">search_by_common_name_begins_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">search_key</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return matches found by comparing the search key to the beginning of the ITIS common names.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - search_key (str): The beginning of the name to be searched.</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the search key.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;searchByCommonNameBeginsWith?srchKey=</span><span class="si">{</span><span class="n">search_key</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.search_by_common_name_ends_with">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.search_by_common_name_ends_with">[docs]</a>
+    <span class="k">def</span> <span class="nf">search_by_common_name_ends_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">search_key</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return matches found by comparing the search key to the end of the ITIS common names.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - search_key (str): The end of the name to be searched.</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the search key.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;searchByCommonNameEndsWith?srchKey=</span><span class="si">{</span><span class="n">search_key</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.search_by_scientific_name">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.search_by_scientific_name">[docs]</a>
+    <span class="k">def</span> <span class="nf">search_by_scientific_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">search_key</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns matches found by comparing the search key to the ITIS scientific names.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - search_key (str): The scientific name.</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the search key.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;searchByScientificName?srchKey=</span><span class="si">{</span><span class="n">search_key</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_ITIS_terms">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_ITIS_terms">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_ITIS_terms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">search_key</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets a list of ITIS Terms as used by the Resource Catalog Input Tool from a common or scientific name match, or an empty result set if there is no match.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - search_key (str): The common or scientific name.</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the search key.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getITISTerms?srchKey=</span><span class="si">{</span><span class="n">search_key</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_ITIS_terms_from_common_name">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_ITIS_terms_from_common_name">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_ITIS_terms_from_common_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">search_key</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets a list of ITIS Terms as used by the Resource Catalog Input Tool from a common name match, or an empty result set if there is no match.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - search_key (str): The common name.</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the search key.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getITISTermsFromCommonName?srchKey=</span><span class="si">{</span><span class="n">search_key</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_ITIS_terms_from_scientific_name">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_ITIS_terms_from_scientific_name">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_ITIS_terms_from_scientific_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">search_key</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets a list of ITIS Terms as used by the Resource Catalog Input Tool from a scientific name match, or an empty result set if there is no match.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - search_key (str): The scientific name.</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the search key.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getITISTermsFromScientificName?srchKey=</span><span class="si">{</span><span class="n">search_key</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_TSNs_by_vernacular_language">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_TSNs_by_vernacular_language">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_TSNs_by_vernacular_language</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">language</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provide a listing of Taxonomic Serial Numbers (TSNs) with vernaculars entered in the requested language.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - language (str): The desired language. Supported values are Afrikaans, Arabic, Australian, Bengali, Chinese, Djuka, Dutch, eng, English, Fijan, French, Galibi, German, Greek, Hausa, Hawaiian, Hindi, Icelandic, Iglulik Inuit, Italian, Japanese, Javanese, Khmer, Korean, Lao, Malagasy, Manyika, Native American, Ndau, Northern Sotho, Portuguese, Romanian, Shona, Spanish, Swati, unspecified, Xhosa, Zulu.</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the language.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getTsnByVernacularLanguage?language=</span><span class="si">{</span><span class="n">language</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+         
+    <span class="c1">#FUNCTIONS TO RETRIEVE INFORMATION BY TSN</span>
+<div class="viewcode-block" id="ITIS.get_accepted_names_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_accepted_names_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_accepted_names_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of accepted names for the TSN. This can return more than one result if the TSN is for a synonym.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getAcceptedNamesFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_comment_detail_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_comment_detail_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_comment_detail_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the list of comments for the TSN. This can return more than result if multiple comments are entered.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getCommentDetailFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_common_names_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_common_names_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_common_names_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of common names for the TSN.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getCommonNamesFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_core_metadata_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_core_metadata_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_core_metadata_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the set of core metadata for the TSN. This contains credibility rating, taxonomic usage, unacceptability reason, coverage, and currency data.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getCoreMetadataFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_coverage_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_coverage_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_coverage_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the taxon coverage information for the TSN. This information is  available for Genus and above (rank_id &gt; 190) only.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getCoverageFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_credibility_rating_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_credibility_rating_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_credibility_rating_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the credibility rating for the TSN.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getCredibilityRatingFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_currency_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_currency_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_currency_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the taxon currency information for the TSN. This information is  available for Genus and above (rank_id &gt; 190) only.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getCurrencyFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_date_data_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_date_data_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_date_data_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the initial time stamp and last update date for the TSN.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getDateDataFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_experts_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_experts_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_experts_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of the expert information for the TSN.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getExpertsFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_full_record_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_full_record_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_full_record_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the full ITIS record for a TSN found by comparing the search key to the TSN field, or an empty result set if there is no match.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getFullRecordFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_geographic_divisions_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_geographic_divisions_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_geographic_divisions_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of the geographic divisions for the TSN.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getGeographicDivisionsFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_global_species_completeness_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_global_species_completeness_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_global_species_completeness_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the taxon completenes rating for the TSN.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getGlobalSpeciesCompletenessFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_jurisdictional_origin_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_jurisdictional_origin_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_jurisdictional_origin_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of the jurisdiction and origin values for the TSN.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getJurisdictionalOriginFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_kingdom_name_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_kingdom_name_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_kingdom_name_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the kingdom name for the TSN.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getKingdomNameFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_other_sources_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_other_sources_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_other_sources_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of the other sources used for the TSN.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getOtherSourcesFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_parent_TSN_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_parent_TSN_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_parent_TSN_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the parent TSN for the entered TSN.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getParentTSNFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_publications_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_publications_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_publications_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of the pulications used for the TSN.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getPublicationsFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_review_year_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_review_year_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_review_year_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the review year for the TSN.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getReviewYearFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_scientific_name_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_scientific_name_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_scientific_name_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the scientific name for the TSN. Also returns the component parts (names and indicators) of the scientific name.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getScientificNameFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_synonym_names_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_synonym_names_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_synonym_names_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of the synonyms (if any) for the TSN.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getSynonymNamesFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_taxon_authorship_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_taxon_authorship_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_taxon_authorship_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the author information for the TSN.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getTaxonAuthorshipFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_taxonomic_rank_name_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_taxonomic_rank_name_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_taxonomic_rank_name_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the kingdom and rank information for the TSN.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getTaxonomicRankNameFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_taxonomic_usage_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_taxonomic_usage_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_taxonomic_usage_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the usage information for the TSN.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getTaxonomicUsageFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_unacceptability_reason_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_unacceptability_reason_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_unacceptability_reason_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the unacceptability reason, if any, for the TSN.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getUnacceptabilityReasonFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+            
+    <span class="c1"># HIERARCHY FUNCTIONS</span>
+<div class="viewcode-block" id="ITIS.get_full_hierarchy_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_full_hierarchy_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_full_hierarchy_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the Taxonomic Hierarchy from the kingdom to the requested scientific name, and the immediate children of the scientific name.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getFullHierarchyFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_hierarchy_down_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_hierarchy_down_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_hierarchy_down_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of all the valid/accepted scientific names contained within a particular valid/accepted scientific name and their TSNs, limited to immediate children only. The result set will be found by comparing the search key to the parent TSN field.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getHierarchyDownFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_hierarchy_up_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_hierarchy_up_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_hierarchy_up_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the parent of the TSN (i.e. the parent of the current scientific name in the taxonomic hierarchy) found by comparing the search key to the ITIS TSN field.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getHierarchyUpFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+            
+    <span class="c1"># LIFE SCIENCE IDENTIFIER (LSID) FUNCTIONS</span>
+<div class="viewcode-block" id="ITIS.get_full_record_from_LSID">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_full_record_from_LSID">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_full_record_from_LSID</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the full ITIS record for the TSN in the LSID, found by comparing the TSN in the search key to the TSN field. Returns an empty result set if there is no match or the TSN is invalid.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getFullRecordFromLSID?lsid=urn:lsid:itis.gov:itis_tsn:</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_LSID_from_TSN">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_LSID_from_TSN">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_LSID_from_TSN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the unique LSID for the TSN, or an empty result if there is no match.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getLSIDFromTSN?tsn=</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_record_from_LSID">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_record_from_LSID">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_record_from_LSID</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the partial ITIS record for the TSN in the LSID, found by comparing the TSN in the search key to the TSN field. Returns an empty result set if there is no match or the TSN is invalid.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getRecordFromLSID?lsid=urn:lsid:itis.gov:itis_tsn:</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_TSN_from_LSID">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_TSN_from_LSID">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_TSN_from_LSID</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsn</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the TSN corresponding to the LSID, or an empty result if there is no match.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - tsn (int): The Taxonomic Serial Number (TSN).</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the data matching the TSN.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;getTSNFromLSID?lsid=urn:lsid:itis.gov:itis_tsn:</span><span class="si">{</span><span class="n">tsn</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+            
+    <span class="c1"># META-INFORMATION FUNCTIONS</span>
+<div class="viewcode-block" id="ITIS.get_credibility_ratings">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_credibility_ratings">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_credibility_ratings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides a list of all the unique valid credibility rating values contained in the database.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the credibility rating values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;getCredibilityRatings&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_description">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_description">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_description</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides a description of the web service and the ITIS database.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing a description of the ITIS database.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;getDescription&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_geographic_values">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_geographic_values">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_geographic_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides a list of all the geographic values contained in the database.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the geographic values contained in the database.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;getGeographicValues&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_jurisdiction_values">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_jurisdiction_values">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_jurisdiction_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides a list of all the jurisdiction values contained in the database.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the jurisdiction values contained in the database.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;getJurisdictionValues&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_jurisdictional_origin_values">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_jurisdictional_origin_values">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_jurisdictional_origin_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides a list of all the origin values contained in the database.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the origin values contained in the database.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;getJurisdictionalOriginValues&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_kingdom_names">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_kingdom_names">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_kingdom_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides a list of all the unique kingdom names contained in the database, their kingdom IDs and their TSNs.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the kingdom names contained in the database.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;getKingdomNames&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_last_change_date">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_last_change_date">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_last_change_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides the date the ITIS database was last updated.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing the date the database was last updated.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;getLastChangeDate&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_rank_names">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_rank_names">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_rank_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides a list of all the unique rank names contained in the database and their kingdom and rank ID values.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing a list of all the unique rank names contained in the database.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;getRankNames&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+
+            
+<div class="viewcode-block" id="ITIS.get_vernacular_languages">
+<a class="viewcode-back" href="../../../nokey.science_and_nature.html#nokey.science_and_nature.integrated_taxonomic_information_system.ITIS.get_vernacular_languages">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_vernacular_languages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides a list of the unique languages used in the vernacular table.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - data_format (str): The desired format for returned data. Defaults to json, but other option is xml.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict or string (xml): A dictionary or XML string containing a list of all the unique languages used in the vernacular table.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;getVernacularLanguages&quot;</span>
+        <span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_format</span> <span class="o">==</span> <span class="s2">&quot;xml&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_for_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Error: Format must be either json or xml.&quot;</span></div>
+</div>
+
+          
+          
+          
+          
+          
+          
+          
+          
+    
+          
+    
+            
+            
+            
+            
+            
+            
+    
+           
+            
+            
+       
+    
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+          
+          
+           
+            
+    
+       
+       
+          
+          
+          
+          
+          
+            
+    
+            
+    
+            
+    
+         
+         
+           
+         
+           
+          
+          
+        
+          
+          
+    
+    
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Spyder Rex.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
