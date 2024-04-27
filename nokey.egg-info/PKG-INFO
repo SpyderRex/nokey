@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: nokey
-Version: 0.3.1
+Version: 0.3.2
 Summary: A python package for accessing APIs that require no key.
 Author-email: Spyder Rex <billyjohnsonauthor@gmail.com>
 Project-URL: Homepage, https://github.com/SpyderRex/nokey
