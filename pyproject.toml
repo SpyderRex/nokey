@@ -1,6 +1,6 @@
 [project]
 name = "nokey"
-version = "0.3.2"
+version = "0.3.3"
 authors = [
   { name="Spyder Rex", email="billyjohnsonauthor@gmail.com" },
 ]
@@ -12,13 +12,12 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-
+dependencies = [
+	"requests",
+	"xmltodict==0.13.0"
+]
 [project.urls]
 Homepage = "https://github.com/SpyderRex/nokey"
 Issues = "https://github.com/Spyder/nokey/issues"
 
-[tool.poetry.dependencies]
-python = ">=3.8,<4.0"
-requests = "^2.31.0"
-xmltodict = "^0.13.0"
 

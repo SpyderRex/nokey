@@ -5,6 +5,7 @@ nokey/__init__.py
 nokey.egg-info/PKG-INFO
 nokey.egg-info/SOURCES.txt
 nokey.egg-info/dependency_links.txt
+nokey.egg-info/requires.txt
 nokey.egg-info/top_level.txt
 nokey/activities/bored_api.py
 nokey/animals/__init__.py
