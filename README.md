@@ -36,9 +36,9 @@ print(dog_image_url)
 Also, to print out a list of the APIs supported by nokey, simply run the following script:
 
 ```python
-from nokey.helperFuncs import get_api_list
+from nokey.helperFuncs.get_api_list import get_api_list
 
-api_list = get_api_list.get_api_list()
+api_list = get_api_list()
 
 print(api_list)
 ```
@@ -120,6 +120,8 @@ Nager.Date
 
 ## government
 Federal Register
+
+USA Spending
 
 ## tv_and_film
 Star Trek API

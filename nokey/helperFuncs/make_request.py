@@ -86,5 +86,61 @@ def make_request_for_content(url):
     except Exception as err:
         # Handle any other unexpected errors
         return {"error": f"An unexpected error occurred: {err}"}
+        
+def make_request_with_post_and_data(url, data):
+    """
+    Make a request to an API if the API using the POST method.
+    
+    Args:
+    - url (str): The url of the API.
+    - data (dict): The data to be included in the request.
+    
+    Returns:
+    - dict: A dictionary containing either the response data or an error message.
+    """
+    try:
+        response = requests.post(url, data=data)
+        return response.json()
+    except HTTPError as http_err:
+        # Handle HTTP error
+        return {"error": f"HTTP error occurred: {http_err}"}
+    except Timeout:
+        # Handle timeout error
+        return {"error": "Request timed out."}
+    except RequestException as req_err:
+        # Handle other request exceptions
+        return {"error": f"Request exception occurred: {req_err}"}
+    except Exception as err:
+        # Handle any other unexpected errors
+        return {"error": f"An unexpected error occurred: {err}"}
+        
+def make_request_with_post_and_json(url, json):
+    """
+    Make a request to an API if the API using the POST method.
+    
+    Args:
+    - url (str): The url of the API.
+    - data (dict): The data to be included in the request.
+    
+    Returns:
+    - dict: A dictionary containing either the response data or an error message.
+    """
+    try:
+        response = requests.post(url, json=json)
+        return response.json()
+    except HTTPError as http_err:
+        # Handle HTTP error
+        return {"error": f"HTTP error occurred: {http_err}"}
+    except Timeout:
+        # Handle timeout error
+        return {"error": "Request timed out."}
+    except RequestException as req_err:
+        # Handle other request exceptions
+        return {"error": f"Request exception occurred: {req_err}"}
+    except Exception as err:
+        # Handle any other unexpected errors
+        return {"error": f"An unexpected error occurred: {err}"}
+   
+        
       
         

@@ -16,7 +16,7 @@ nokey_apis = {
     "games": ["Free To Game", "Open Trivia Database"],
     "activities": ["Bored API"],
     "calendar": ["Nager.Date"],
-    "government": ["Federal Register"],
+    "government": ["Federal Register", "USA Spending"],
     "art_and_images": ["Lorem Picsum"],
     "tv_and_film": ["Star Trek API"],
     "books": ["Gutendex"]

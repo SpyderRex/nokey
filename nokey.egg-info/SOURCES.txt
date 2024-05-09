@@ -39,6 +39,7 @@ nokey/geolocation/ip_api.py
 nokey/geolocation/zippopotamus.py
 nokey/government/__init__.py
 nokey/government/federal_register.py
+nokey/government/usa_spending.py
 nokey/helperFuncs/__init__.py
 nokey/helperFuncs/get_api_list.py
 nokey/helperFuncs/make_request.py

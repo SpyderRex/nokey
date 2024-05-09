@@ -12,6 +12,14 @@ nokey.government.federal\_register module
    :undoc-members:
    :show-inheritance:
 
+nokey.government.usa\_spending module
+-------------------------------------
+
+.. automodule:: nokey.government.usa_spending
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 
