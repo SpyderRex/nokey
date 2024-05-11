@@ -17,7 +17,7 @@ nokey_apis = {
     "activities": ["Bored API"],
     "calendar": ["Nager.Date"],
     "government": ["Federal Register", "USA Spending"],
-    "art_and_images": ["Lorem Picsum"],
+    "art_and_images": ["Lorem Picsum", "Art Institute of Chicago"],
     "tv_and_film": ["Star Trek API"],
     "books": ["Gutendex"]
 }

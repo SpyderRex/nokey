@@ -129,6 +129,11 @@ Star Trek API
 ## books_and_literature
 Gutendex
 
+## art_and_images
+Lorum Picsum
+
+Art Institute of Chicago
+
 # Future Roadmap
 As the project grows, we envision expanding the collection of keyless APIs to cover a wide range of categories. Your feedback and contributions will play a crucial role in shaping the future of nokey.
 

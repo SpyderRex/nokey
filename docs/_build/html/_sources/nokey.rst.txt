@@ -8,6 +8,7 @@ Subpackages
    :maxdepth: 4
 
    nokey.animals
+   nokey.art_and_images
    nokey.books_and_literature
    nokey.calendar
    nokey.country_info
