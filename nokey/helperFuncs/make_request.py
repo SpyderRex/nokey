@@ -23,7 +23,7 @@ def make_request(url, headers=None, payload=None):
         return response.json()  # Return JSON response
     except HTTPError as http_err:
         # Handle HTTP error
-        return {"error": f"HTTP error occurred: {http_err}"}
+        return {"error": f"HTTP error occurred: {http_err}", "message": response.json()["message"] if "message" in response.json() else None}
     except Timeout:
         # Handle timeout error
         return {"error": "Request timed out."}
@@ -50,7 +50,7 @@ def make_request_with_params(url, params):
         return response.json()
     except HTTPError as http_err:
         # Handle HTTP error
-        return {"error": f"HTTP error occurred: {http_err}"}
+        return {"error": f"HTTP error occurred: {http_err}", "message": response.json()["message"] if "message" in response.json() else None}
     except Timeout:
         # Handle timeout error
         return {"error": "Request timed out."}
@@ -103,7 +103,7 @@ def make_request_with_post_and_data(url, data):
         return response.json()
     except HTTPError as http_err:
         # Handle HTTP error
-        return {"error": f"HTTP error occurred: {http_err}"}
+        return {"error": f"HTTP error occurred: {http_err}", "message": response.json()["message"] if "message" in response.json() else None}
     except Timeout:
         # Handle timeout error
         return {"error": "Request timed out."}
@@ -130,7 +130,7 @@ def make_request_with_post_and_json(url, json):
         return response.json()
     except HTTPError as http_err:
         # Handle HTTP error
-        return {"error": f"HTTP error occurred: {http_err}"}
+        return {"error": f"HTTP error occurred: {http_err}", "message": response.json()["message"] if "message" in response.json() else None}
     except Timeout:
         # Handle timeout error
         return {"error": "Request timed out."}

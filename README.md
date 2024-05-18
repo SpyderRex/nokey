@@ -112,6 +112,8 @@ Free To Game
 
 Open Trivia Database
 
+Shadify
+
 ## activities
 Bored API
 
@@ -133,6 +135,9 @@ Gutendex
 Lorum Picsum
 
 Art Institute of Chicago
+
+## health
+Open Disease
 
 # Future Roadmap
 As the project grows, we envision expanding the collection of keyless APIs to cover a wide range of categories. Your feedback and contributions will play a crucial role in shaping the future of nokey.

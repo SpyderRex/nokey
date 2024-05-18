@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nokey.health.open_disease &mdash; nokey 0.6.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=8fa8b3e9"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            nokey
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">nokey</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nokey</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">nokey.health.open_disease</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for nokey.health.open_disease</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">..</span> <span class="n">helperFuncs</span> <span class="kn">import</span> <span class="nn">make_request</span> <span class="k">as</span> <span class="nn">mr</span>
+
+<div class="viewcode-block" id="OpenDisease">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease">[docs]</a>
+<span class="k">class</span> <span class="nc">OpenDisease</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class for interacting with the Open Disease API.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">    - base_url: The base URL for the API.</span>
+<span class="sd">    - about: A short description of the API.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://disease.sh/v3/&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">about</span> <span class="o">=</span> <span class="s2">&quot;Open Disease is a Third Party API for reliable global disease information, serving COVID and influenza data (Note: None of the data in this API seems to be up to date)&quot;</span>
+        
+<div class="viewcode-block" id="OpenDisease.get_docs_url">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_docs_url">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_docs_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the URL for the Open Disease API documentation.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - string: The URL for the API docs.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;https://disease.sh/docs/&quot;</span></div>
+
+        
+    <span class="c1"># COVID WORLDOMETERS</span>
+<div class="viewcode-block" id="OpenDisease.get_worldometers_global_covid_data">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_worldometers_global_covid_data">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_worldometers_global_covid_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">allow_null</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns global COVID-19 totals for today, yesterday and two days ago.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - day (int): Which day&#39;s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.</span>
+<span class="sd">        - allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing global COVID-19 totals.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/all?allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/all?yesterday=true&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/all?twoDaysAgo=true&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of day must be 0, 1, or 2, for today, yesterday, or the day before yesterday, respectively.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span></div>
+
+            
+<div class="viewcode-block" id="OpenDisease.get_worldometers_covid_data_for_all_states">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_all_states">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_worldometers_covid_data_for_all_states</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">allow_null</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns COVID-19 totals for the states.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - sort (str): Provided a key (e.g. cases, todayCases, deaths, active), result will be sorted from greatest to least. See docs for possible fields to sort by. Default is None.</span>
+<span class="sd">        - day (int): Which day&#39;s data to return. Supported values are 0 for today and 1 for yesterday. Default is 0, today.</span>
+<span class="sd">        - allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing state COVID-19 totals.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">sort</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/states?sort=</span><span class="si">{</span><span class="n">sort</span><span class="si">}</span><span class="s2">&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/states?sort=</span><span class="si">{</span><span class="n">sort</span><span class="si">}</span><span class="s2">&amp;yesterday=true&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of day must be 0 or 1, for today or yesterday, respectively.&quot;</span><span class="p">)</span>
+                <span class="n">exit</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/states?allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/states?yesterday=true&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of day must be 0 or 1, for today or yesterday, respectively.&quot;</span><span class="p">)</span>
+                <span class="n">exit</span><span class="p">()</span></div>
+
+                
+<div class="viewcode-block" id="OpenDisease.get_worldometers_covid_data_for_specific_states">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_specific_states">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_worldometers_covid_data_for_specific_states</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">states</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">allow_null</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns COVID-19 totals for the specified state(s).</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - states (str): State name or comma separated non-spaced names, spelled correctly.</span>
+<span class="sd">        - day (int): Which day&#39;s data to return. Supported values are 0 for today and 1 for yesterday. Default is 0, today.</span>
+<span class="sd">        - allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing COVID-19 totals for specified state(s).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/states/</span><span class="si">{</span><span class="n">states</span><span class="si">}</span><span class="s2">?allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/states/</span><span class="si">{</span><span class="n">states</span><span class="si">}</span><span class="s2">?yesterday=true&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of day must be 0 or 1, for today or yesterday, respectively.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span></div>
+
+            
+<div class="viewcode-block" id="OpenDisease.get_worldometers_covid_data_for_all_continents">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_all_continents">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_worldometers_covid_data_for_all_continents</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">allow_null</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns COVID-19 totals for all the continents.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - sort (str): Provided a key (e.g. cases, todayCases, deaths, active), result will be sorted from greatest to least. See docs for possible fields to sort by. Default is None.</span>
+<span class="sd">        - day (int): Which day&#39;s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.</span>
+<span class="sd">        - allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing COVID-19 totals for the continents.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">sort</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/continents?sort=</span><span class="si">{</span><span class="n">sort</span><span class="si">}</span><span class="s2">&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/continents?sort=</span><span class="si">{</span><span class="n">sort</span><span class="si">}</span><span class="s2">&amp;yesterday=true&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/continents?twoDaysAgo=true&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>     
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of day must be 0, 1, or 2, for today, yesterday, or the day before yesterday, respectively.&quot;</span><span class="p">)</span>
+                <span class="n">exit</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/continents?allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/continents?yesterday=true&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/continents?twoDaysAgo=true&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of day must be 0, 1, or 2, for today, yesterday, or the day before yesterday, respectively.&quot;</span><span class="p">)</span>
+                <span class="n">exit</span><span class="p">()</span></div>
+
+                
+<div class="viewcode-block" id="OpenDisease.get_worldometers_covid_data_for_specific_continent">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_specific_continent">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_worldometers_covid_data_for_specific_continent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">continent</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">allow_null</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns COVID-19 totals for the specified continent.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - continent (str): Name of the continent, spelled correctly.</span>
+<span class="sd">        - day (int): Which day&#39;s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.</span>
+<span class="sd">        - strict (bool): Setting to false gives you the ability to fuzzy search continents (i.e. Oman vs. rOMANia). Default is True.</span>
+<span class="sd">        - allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing COVID-19 totals for specified continent.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/continents/</span><span class="si">{</span><span class="n">continent</span><span class="si">}</span><span class="s2">?strict=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">strict</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/continents/</span><span class="si">{</span><span class="n">continent</span><span class="si">}</span><span class="s2">?yesterday=true&amp;strict=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">strict</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/continents</span><span class="si">{</span><span class="n">continent</span><span class="si">}</span><span class="s2">?twoDaysAgo=true&amp;strict=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">strict</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of day must be 0, 1, or 2, for today, yesterday, or the day before yesterday, respectively.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span></div>
+
+            
+<div class="viewcode-block" id="OpenDisease.get_worldometers_covid_data_for_all_countries">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_all_countries">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_worldometers_covid_data_for_all_countries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">allow_null</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns COVID-19 totals for all the countries.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - sort (str): Provided a key (e.g. cases, todayCases, deaths, active), result will be sorted from greatest to least. See docs for possible fields to sort by. Default is None.</span>
+<span class="sd">        - day (int): Which day&#39;s data to return. Supported values are 0 for today and 1 for yesterday. Default is 0, today.</span>
+<span class="sd">        - allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing COVID-19 totals for the countries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">sort</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/countries?sort=</span><span class="si">{</span><span class="n">sort</span><span class="si">}</span><span class="s2">&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/countries?sort=</span><span class="si">{</span><span class="n">sort</span><span class="si">}</span><span class="s2">&amp;yesterday=true&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/countries?twoDaysAgo=true&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of day must be 0, 1, or 2, for today, yesterday, or the day before yesterday, respectively.&quot;</span><span class="p">)</span>
+                <span class="n">exit</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/countries?allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/countries?yesterday=true&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/countries?twoDaysAgo=true&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of day must be 0, 1, or 2, for today, yesterday, or the day before yesterday, respectively.&quot;</span><span class="p">)</span>
+                <span class="n">exit</span><span class="p">()</span></div>
+
+                
+<div class="viewcode-block" id="OpenDisease.get_worldometers_covid_data_for_specific_country">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_specific_country">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_worldometers_covid_data_for_specific_country</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">country</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">allow_null</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns COVID-19 totals for the specified country.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - country (str): A country name, iso2, iso3, or country ID code</span>
+<span class="sd">        - day (int): Which day&#39;s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.</span>
+<span class="sd">        - strict (bool): Setting to false gives you the ability to fuzzy search countries (i.e. Oman vs. rOMANia). Default is True.</span>
+<span class="sd">        - allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing COVID-19 totals for specified country.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/countries/</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">?strict=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">strict</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/countries/</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">?yesterday=true&amp;strict=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">strict</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/countries</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">?twoDaysAgo=true&amp;strict=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">strict</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of day must be 0, 1, or 2, for today, yesterday, or the day before yesterday, respectively.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span></div>
+
+            
+<div class="viewcode-block" id="OpenDisease.get_worldometers_covid_data_for_specific_countries">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_specific_countries">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_worldometers_covid_data_for_specific_countries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">countries</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">allow_null</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns COVID-19 totals for the specified countries.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - countries (str): Multiple country names, iso2s, iso3s, or country ID codes, separated by commas, non spaces.</span>
+<span class="sd">        - day (int): Which day&#39;s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.</span>
+<span class="sd">        - strict (bool): Setting to false gives you the ability to fuzzy search countries (i.e. Oman vs. rOMANia). Default is True.</span>
+<span class="sd">        - allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing COVID-19 totals for specified countries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/countries/</span><span class="si">{</span><span class="n">countries</span><span class="si">}</span><span class="s2">?strict=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">strict</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/countries/</span><span class="si">{</span><span class="n">countries</span><span class="si">}</span><span class="s2">?yesterday=true&amp;strict=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">strict</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/countries</span><span class="si">{</span><span class="n">countries</span><span class="si">}</span><span class="s2">?twoDaysAgo=true&amp;strict=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">strict</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of day must be 0, 1, or 2, for today, yesterday, or the day before yesterday, respectively.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span></div>
+
+            
+            
+    <span class="c1"># JHUCSSE (Johns Hopkins University) COVID data</span>
+    <span class="c1"># This data doesn&#39;t seem to be current. It seems to end at 3/9/23.</span>
+<div class="viewcode-block" id="OpenDisease.get_jhu_global_time_series_covid_data">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_jhu_global_time_series_covid_data">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_jhu_global_time_series_covid_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">last_days</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns COVID-19 time series data for all countries and all their provences.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/historical?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="OpenDisease.get_jhu_global_accumulated_covid_data">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_jhu_global_accumulated_covid_data">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_jhu_global_accumulated_covid_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">last_days</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns global accumulated COVID-19 time series data for all countries and all their provences.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing global accumulated COVID-19 time series data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/historical/all?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="OpenDisease.get_jhu_time_series_covid_data_for_country">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_jhu_time_series_covid_data_for_country">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_jhu_time_series_covid_data_for_country</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">country</span><span class="p">,</span> <span class="n">last_days</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns COVID-19 time series data for a specific country.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - country (str): A country name, iso2, iso3, or country ID code.</span>
+<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/historical/</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="OpenDisease.get_jhu_time_series_covid_data_for_countries">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_jhu_time_series_covid_data_for_countries">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_jhu_time_series_covid_data_for_countries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">countries</span><span class="p">,</span> <span class="n">last_days</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns COVID-19 time series data for a specific countries.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - country (str): Multiple country names, iso2s, iso3s, or country ID codes, in comma separated no spaced string.</span>
+<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/historical/</span><span class="si">{</span><span class="n">countries</span><span class="si">}</span><span class="s2">?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="OpenDisease.get_jhu_time_series_covid_data_for_province">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_jhu_time_series_covid_data_for_province">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_jhu_time_series_covid_data_for_province</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">province</span><span class="p">,</span> <span class="n">country</span><span class="p">,</span> <span class="n">last_days</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns COVID-19 time series data for a specific province in a country.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - country (str): A country name, iso2, iso3, or country ID code.</span>
+<span class="sd">        - province (str): Province name. All available names can be found in the /v3/covid-19/historical/{query} endpoint.</span>
+<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/historical/</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">province</span><span class="si">}</span><span class="s2">?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="OpenDisease.get_jhu_time_series_covid_data_for_provinces">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_jhu_time_series_covid_data_for_provinces">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_jhu_time_series_covid_data_for_provinces</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">provinces</span><span class="p">,</span> <span class="n">country</span><span class="p">,</span> <span class="n">last_days</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns COVID-19 time series data for a specific set of provinces in a country.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - country (str): A country name, iso2, iso3, or country ID code.</span>
+<span class="sd">        - province (str): Provinces spelled correctly separated by &#39;,&#39; or &#39;|&#39; delimiters, never both in the same query.</span>
+<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/historical/</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">provinces</span><span class="si">}</span><span class="s2">?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="OpenDisease.get_all_us_states_jhu">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_all_us_states_jhu">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_all_us_states_jhu</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns all possible US States and provinces to query the /historical/usacounties/{state} endpoint with.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - list: A list containing all US states and provinces.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;covid-19/historical/usacounties&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="OpenDisease.get_jhu_time_series_covid_data_for_state">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_jhu_time_series_covid_data_for_state">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_jhu_time_series_covid_data_for_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">last_days</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns COVID-19 time series data for all counties in a specific state.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - state (str): US state name, validated in the array returned from the /v3/covid-19/historical/usacounties endpoint.</span>
+<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/historical/usacounties/</span><span class="si">{</span><span class="n">state</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+    <span class="c1"># NEW YORK TIMES (NYT) COVID DATA (This doesn&#39;t seem up to date. Last date seems to be 2/23/23)</span>
+<div class="viewcode-block" id="OpenDisease.get_nyt_time_series_covid_data_for_all_states">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_nyt_time_series_covid_data_for_all_states">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_nyt_time_series_covid_data_for_all_states</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">last_days</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns COVID-19 time series data for all states, with an entry for each day since the pandemic began.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/nyt/states/?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="OpenDisease.get_nyt_time_series_covid_data_for_specific_states">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_nyt_time_series_covid_data_for_specific_states">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_nyt_time_series_covid_data_for_specific_states</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">states</span><span class="p">,</span> <span class="n">last_days</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns COVID-19 time series data for specific state(s), with an entry for each day since the pandemic began.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - states (str): State name(s), separated by commas (e.g. &#39;Illinois, California&#39;).</span>
+<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/nyt/states/</span><span class="si">{</span><span class="n">states</span><span class="si">}</span><span class="s2">?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="OpenDisease.get_nyt_time_series_covid_data_for_all_us_counties">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_nyt_time_series_covid_data_for_all_us_counties">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_nyt_time_series_covid_data_for_all_us_counties</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">last_days</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns COVID-19 time series data for all available US counties, with an entry for each day since the pandemic began.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/nyt/counties/?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="OpenDisease.get_nyt_time_series_covid_data_for_specific_us_counties">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_nyt_time_series_covid_data_for_specific_us_counties">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_nyt_time_series_covid_data_for_specific_us_counties</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">counties</span><span class="p">,</span> <span class="n">last_days</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns COVID-19 time series data for specific state(s), with an entry for each day since the pandemic began.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - states (str): County name(s), separated by commas (e.g. &#39;Alameda, Humboldt&#39;).</span>
+<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/nyt/counties/</span><span class="si">{</span><span class="n">counties</span><span class="si">}</span><span class="s2">?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="OpenDisease.get_nyt_time_series_covid_data_for_entire_usa">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_nyt_time_series_covid_data_for_entire_usa">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_nyt_time_series_covid_data_for_entire_usa</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns COVID-19 time series data for entire USA, with an entry for each day since the pandemic began.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;covid-19/nyt/usa&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+        
+    <span class="c1"># APPLE COVID-19 DATA (COVID-19 related mobility trend data from Apple). This data is also not current. It goes up to 4/12/22.</span>
+<div class="viewcode-block" id="OpenDisease.get_all_countries_apple">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_all_countries_apple">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_all_countries_apple</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of supported country names.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - list: A list containing supported country names.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;covid-19/apple/countries&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="OpenDisease.get_apple_supported_subregions_for_country">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_apple_supported_subregions_for_country">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_apple_supported_subregions_for_country</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">country</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of supported subregions in a country where data is available.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - country (str): A valid country name from the /v3/covid-19/apple/countries endpoint</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of supported subregions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/apple/countries/</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="OpenDisease.get_apple_mobility_data_for_subregions">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_apple_mobility_data_for_subregions">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_apple_mobility_data_for_subregions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">country</span><span class="p">,</span> <span class="n">subregions</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of mobility data entries for subregion(s) every day since January 13th. Each entry has driving, transit, and walking data with an associated number of percentage change since January 13th. </span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - country (str): A valid country name from the /v3/covid-19/apple/countries endpoint.</span>
+<span class="sd">        - subregions (str): Valid subregion(s) from the /v3/covid-19/apple/countries/{country} endpoint, separated by with commas.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of mobility data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/apple/countries/</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">subregions</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+        
+    <span class="c1"># GOVERNMENT COVID-19 DATA. (Data not current. It stops at 12/1/23)</span>
+<div class="viewcode-block" id="OpenDisease.get_all_countries_gov">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_all_countries_gov">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_all_countries_gov</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of supported country names for government specific data.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - list: A list containing supported country names.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;covid-19/gov&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="OpenDisease.get_gov_covid_data_for_country">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_gov_covid_data_for_country">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_gov_covid_data_for_country</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">country</span><span class="p">,</span> <span class="n">allow_null</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns government supported data for a specific country.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - country (str): A valid country name from the /v3/covid-19/gov endpoint.</span>
+<span class="sd">        - allow_null (bool): By default, if a value is missing, it is returned as 0. This allows nulls to be returned.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a list of supported subregions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/gov/</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">?allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+        
+    <span class="c1"># VACCINE TRIAL DATA (RAPS - Regulatory Affairs Professional Society) (The dates of the data are current, but the data itself is not)</span>
+    <span class="c1">#This endpoint doesn&#39;t seem to be working.</span>
+<span class="c1">#    def get_raps_covid_vaccine_trial_data(self):</span>
+<span class="c1">#        &quot;&quot;&quot;</span>
+<span class="c1">#        Returns vaccine trial data from RAPS.</span>
+<span class="c1">#        </span>
+<span class="c1">#        Args:</span>
+<span class="c1">#        - None</span>
+<span class="c1">#        </span>
+<span class="c1">#        Returns:</span>
+<span class="c1">#        - dict: A dictionary containing vaccine trial data.</span>
+<span class="c1">#        &quot;&quot;&quot;</span>
+<span class="c1">#        endpoint = &quot;covid-19/vaccine&quot;</span>
+<span class="c1">#        return mr.make_request(self.base_url+endpoint)</span>
+
+<div class="viewcode-block" id="OpenDisease.get_raps_total_covid_vaccines_administered">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_raps_total_covid_vaccines_administered">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_raps_total_covid_vaccines_administered</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">last_days</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">full_data</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns total global COVID-19 vaccine doses administered. Sourced from https://covid.ourworldindata.org.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - last_data (int, str): Number of days to return. Use &#39;all&#39; for the full data set (e.g. 15, all, 24</span>
+<span class="sd">        - full_data (bool): Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true). </span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing vaccine administration data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/vaccine/coverage?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&amp;fullData=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">full_data</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="OpenDisease.get_raps_covid_vaccines_administered_for_all_countries">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_raps_covid_vaccines_administered_for_all_countries">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_raps_covid_vaccines_administered_for_all_countries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">last_days</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">full_data</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns Get COVID-19 vaccine doses administered for all countries that have reported rolling out vaccination. Sourced from https://covid.ourworldindata.org/</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - last_data (int, str): Number of days to return. Use &#39;all&#39; for the full data set (e.g. 15, all, 24</span>
+<span class="sd">        - full_data (bool): Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true). </span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing vaccine administration data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/vaccine/coverage/countries?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&amp;fullData=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">full_data</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="OpenDisease.get_raps_covid_vaccines_administered_for_country">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_raps_covid_vaccines_administered_for_country">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_raps_covid_vaccines_administered_for_country</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">country</span><span class="p">,</span> <span class="n">last_days</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">full_data</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns Get COVID-19 vaccine doses administered for any country that has reported rolling out vaccination. Sourced from https://covid.ourworldindata.org/</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - country (str): A valid country name, iso2, iso3.</span>
+<span class="sd">        - last_data (int, str): Number of days to return. Use &#39;all&#39; for the full data set (e.g. 15, all, 24</span>
+<span class="sd">        - full_data (bool): Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true). </span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing vaccine administration data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/vaccine/coverage/countries/</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&amp;fullData=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">full_data</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="OpenDisease.get_raps_covid_vaccines_administered_for_all_states">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_raps_covid_vaccines_administered_for_all_states">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_raps_covid_vaccines_administered_for_all_states</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">last_days</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">full_data</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns Get COVID-19 vaccine doses administered for all states that have reported rolling out vaccination. Sourced from https://covid.ourworldindata.org/</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - last_data (int, str): Number of days to return. Use &#39;all&#39; for the full data set (e.g. 15, all, 24</span>
+<span class="sd">        - full_data (bool): Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true). </span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing vaccine administration data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/vaccine/coverage/states?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&amp;fullData=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">full_data</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="OpenDisease.get_raps_covid_vaccines_administered_for_state">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_raps_covid_vaccines_administered_for_state">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_raps_covid_vaccines_administered_for_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">last_days</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">full_data</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns Get COVID-19 vaccine doses administered for any state that has reported rolling out vaccination. Sourced from https://covid.ourworldindata.org/</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - country (str): A valid state name</span>
+<span class="sd">        - last_data (int, str): Number of days to return. Use &#39;all&#39; for the full data set (e.g. 15, all, 24</span>
+<span class="sd">        - full_data (bool): Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true). </span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing vaccine administration data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/vaccine/coverage/states/</span><span class="si">{</span><span class="n">state</span><span class="si">}</span><span class="s2">?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&amp;fullData=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">full_data</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+    <span class="c1"># THERAPEUTICS (from RAPS)</span>
+    <span class="c1"># This endpoint doesn&#39;t seem to be working.</span>
+<span class="c1">#    def get_covid_therapeutics_data(self):</span>
+<span class="c1">#        &quot;&quot;&quot;</span>
+<span class="c1">#        Returns therapeutics trial data from RAPS (Regulatory Affairs Professional Society). Specifically published by Jeff Craven at https://www.raps.org/news-and-articles/news-articles/2020/3/covid-19-therapeutics-tracker.</span>
+<span class="c1">#        </span>
+<span class="c1">#        Args:</span>
+<span class="c1">#        - None</span>
+<span class="c1">#        </span>
+<span class="c1">#        Returns:</span>
+<span class="c1">#        - dict: A dictionary containing therapeutics trial data.</span>
+<span class="c1">#        &quot;&quot;&quot;</span>
+<span class="c1">#        endpoint = &quot;covid-19/therapeutics&quot;</span>
+<span class="c1">#        return mr.make_request(self.base_url+endpoint)</span>
+
+    
+    <span class="c1"># VARIANTS (COVID-19 data from The European Surveillance System -TESSy, provided by [Austria, Belgium, Bulgaria, Croatia, Cyprus, Czechia, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Netherlands, Norway, Poland, Portugal, Romania, Slovakia, Slovenia, Spain and Sweden] https://www.ecdc.europa.eu and released by ECDC updated every week)</span>
+<div class="viewcode-block" id="OpenDisease.get_all_countries_ecdc">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_all_countries_ecdc">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_all_countries_ecdc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of supported country names.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - list: A list containing supported country names.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;covid-19/variants/countries&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="OpenDisease.get_ecdc_covid_variant_data_for_country">
+<a class="viewcode-back" href="../../../nokey.health.html#nokey.health.open_disease.OpenDisease.get_ecdc_covid_variant_data_for_country">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_ecdc_covid_variant_data_for_country</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">country</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns COVID-19 ECDC reported data for a specific country. </span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - country (str): A valid country name from the /v3/covid-19/variants/countries/ endpoint</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing covid data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/variants/countries/</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+</div>
+
+   
+   
+  
+   
+   
+    
+    
+    
+ 
+  
+    
+ 
+ 
+ 
+    
+   
+  
+ 
+  
+  
+    
+  
+ 
+ 
+  
+    
+  
+        
+     
+        
+    
+       
+  
+    
+      
+  
+   
+        
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Spyder Rex.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

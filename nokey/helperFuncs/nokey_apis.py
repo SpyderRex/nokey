@@ -13,11 +13,12 @@ nokey_apis = {
     "developer_tools": ["URL Shortener", "URLHaus", "APIsGuru", "Microlink", "FilterLists"],
     "inspiration": ["Dictum"],
     "language": ["Free Dictionary"],
-    "games": ["Free To Game", "Open Trivia Database"],
+    "games": ["Free To Game", "Open Trivia Database", "Shadify"],
     "activities": ["Bored API"],
     "calendar": ["Nager.Date"],
     "government": ["Federal Register", "USA Spending"],
     "art_and_images": ["Lorem Picsum", "Art Institute of Chicago"],
     "tv_and_film": ["Star Trek API"],
-    "books": ["Gutendex"]
+    "books": ["Gutendex"],
+    "health": ["Open Disease"]
 }
