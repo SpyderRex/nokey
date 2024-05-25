@@ -1,3 +1,4 @@
+import requests_cache
 from .. helperFuncs import make_request as mr
 
 class FilterLists:
@@ -8,10 +9,13 @@ class FilterLists:
     - base_url: The base URL of the FilterLists API.
     - about: A short description of the API.
     """
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="filter_lists_cache", backend="sqlite", expire_after=3600):
         self.base_url = "http://filterlists.com/api/directory/"
         self.about = "The FilterLists Directory API provides lists of filters used by AD blockers."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns the URL for the FilterLists API documentation.

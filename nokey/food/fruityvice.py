@@ -1,3 +1,4 @@
+import requests_cache
 from .. helperFuncs import make_request as mr
 
 class Fruityvice:
@@ -9,10 +10,13 @@ class Fruityvice:
     - about: A short description of the API.
     """
     
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="fruityvice_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://www.fruityvice.com/api/fruit/"
         self.about = "Fruityvice is an API that provides information on fruits and their nutritional value."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns the url for the Fruityvice API documentation.

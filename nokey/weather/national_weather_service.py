@@ -1,3 +1,4 @@
+import requests_cache
 from .. helperFuncs import make_request as mr
 
 
@@ -9,10 +10,13 @@ class NationalWeatherService:
     - base_url: The base URL of the National Weather Service API.
     - about: A short description of the API.
     """
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="nws_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://api.weather.gov/"
         self.about = "The National Weather Service (NWS) API allows developers access to critical forecasts, alerts, and observations, along with other weather data."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns URL for API docs.

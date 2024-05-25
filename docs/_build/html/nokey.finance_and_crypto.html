@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.finance_and_crypto package &mdash; nokey 0.6.0 documentation</title>
+  <title>nokey.finance_and_crypto package &mdash; nokey 0.7.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=8fa8b3e9"></script>
+        <script src="_static/documentation_options.js?v=fe7df9b0"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -61,6 +61,7 @@
 <li class="toctree-l4"><a class="reference internal" href="nokey.games.html">nokey.games package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.geolocation.html">nokey.geolocation package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.government.html">nokey.government package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.health.html">nokey.health package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.helperFuncs.html">nokey.helperFuncs package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.inspiration.html">nokey.inspiration package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.jokes.html">nokey.jokes package</a></li>
@@ -114,7 +115,7 @@
 <span id="nokey-finance-and-crypto-coinmap-module"></span><h2>nokey.finance_and_crypto.coinmap module<a class="headerlink" href="#module-nokey.finance_and_crypto.coinmap" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="nokey.finance_and_crypto.coinmap.Coinmap">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.finance_and_crypto.coinmap.</span></span><span class="sig-name descname"><span class="pre">Coinmap</span></span><a class="reference internal" href="_modules/nokey/finance_and_crypto/coinmap.html#Coinmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.coinmap.Coinmap" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.finance_and_crypto.coinmap.</span></span><span class="sig-name descname"><span class="pre">Coinmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'coinmap_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/coinmap.html#Coinmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.coinmap.Coinmap" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class for interacting with the Coinmap API.</p>
 <p>Attributes:
@@ -209,7 +210,7 @@
 <span id="nokey-finance-and-crypto-exchange-api-module"></span><h2>nokey.finance_and_crypto.exchange_api module<a class="headerlink" href="#module-nokey.finance_and_crypto.exchange_api" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="nokey.finance_and_crypto.exchange_api.ExchangeAPI">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.finance_and_crypto.exchange_api.</span></span><span class="sig-name descname"><span class="pre">ExchangeAPI</span></span><a class="reference internal" href="_modules/nokey/finance_and_crypto/exchange_api.html#ExchangeAPI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.exchange_api.ExchangeAPI" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.finance_and_crypto.exchange_api.</span></span><span class="sig-name descname"><span class="pre">ExchangeAPI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'exchange_api_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/exchange_api.html#ExchangeAPI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.exchange_api.ExchangeAPI" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class for interacting with Exchange API.</p>
 <p>Attributes:
@@ -250,19 +251,19 @@
 </dd></dl>
 
 </section>
-<section id="module-nokey.finance_and_crypto.wall_street_bets">
-<span id="nokey-finance-and-crypto-wall-street-bets-module"></span><h2>nokey.finance_and_crypto.wall_street_bets module<a class="headerlink" href="#module-nokey.finance_and_crypto.wall_street_bets" title="Link to this heading"></a></h2>
+<section id="module-nokey.finance_and_crypto.wallstreet_bets">
+<span id="nokey-finance-and-crypto-wallstreet-bets-module"></span><h2>nokey.finance_and_crypto.wallstreet_bets module<a class="headerlink" href="#module-nokey.finance_and_crypto.wallstreet_bets" title="Link to this heading"></a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="nokey.finance_and_crypto.wall_street_bets.WallstreetBets">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.finance_and_crypto.wall_street_bets.</span></span><span class="sig-name descname"><span class="pre">WallstreetBets</span></span><a class="reference internal" href="_modules/nokey/finance_and_crypto/wall_street_bets.html#WallstreetBets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.wall_street_bets.WallstreetBets" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="nokey.finance_and_crypto.wallstreet_bets.WallstreetBets">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.finance_and_crypto.wallstreet_bets.</span></span><span class="sig-name descname"><span class="pre">WallstreetBets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'wallstree_bets_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/wallstreet_bets.html#WallstreetBets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.wallstreet_bets.WallstreetBets" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class to interact with the Wallstreet Bets API.</p>
 <p>Attributes:
 - base_url: The base URL of the Wallstreet Bets API.
 - about: A short description of the API.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="nokey.finance_and_crypto.wall_street_bets.WallstreetBets.get_docs_url">
-<span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/wall_street_bets.html#WallstreetBets.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.wall_street_bets.WallstreetBets.get_docs_url" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="nokey.finance_and_crypto.wallstreet_bets.WallstreetBets.get_docs_url">
+<span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/wallstreet_bets.html#WallstreetBets.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.wallstreet_bets.WallstreetBets.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for the Wallstreet Bets API documentation.</p>
 <p>Args:
 - None</p>
@@ -271,8 +272,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="nokey.finance_and_crypto.wall_street_bets.WallstreetBets.get_stock_sentiment_from_reddit">
-<span class="sig-name descname"><span class="pre">get_stock_sentiment_from_reddit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/wall_street_bets.html#WallstreetBets.get_stock_sentiment_from_reddit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.wall_street_bets.WallstreetBets.get_stock_sentiment_from_reddit" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="nokey.finance_and_crypto.wallstreet_bets.WallstreetBets.get_stock_sentiment_from_reddit">
+<span class="sig-name descname"><span class="pre">get_stock_sentiment_from_reddit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/wallstreet_bets.html#WallstreetBets.get_stock_sentiment_from_reddit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.wallstreet_bets.WallstreetBets.get_stock_sentiment_from_reddit" title="Link to this definition"></a></dt>
 <dd><p>Returns top 50 stocks discussed on Reddit subeddit - Wallstreetbets.</p>
 <p>Args:
 - None</p>

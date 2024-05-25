@@ -1,3 +1,4 @@
+import requests_cache
 from .. helperFuncs import make_request as mr
 
 class Zippopotomus:
@@ -8,10 +9,13 @@ class Zippopotomus:
     - base_url: The basee URL of the API.
     - about: A short description of the API.
     """
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="zippopotomus_cache", backend="sqlite", expire_after=3600):
         self.base_url = "http://api.zippopotam.us/"
         self.about = "Zippopotamus is an open source project that is focused on converting zip codes into valid geographical locations."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns the URL for the Zippopotomus API documentation.

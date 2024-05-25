@@ -1,3 +1,4 @@
+import requests_cache
 from .. helperFuncs import make_request as mr
 
 class APIsGuru:
@@ -8,10 +9,13 @@ class APIsGuru:
     - base_url: The base url for the APIs.guru API.
     - about: A short description of the API.
     """
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="api_gurus_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://api.apis.guru/v2/"
         self.about = "The APIs.guru API is a self-proclaimed Wikipedia for APIs, maintaining an Open API directory."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns the URL for the APIs.guru API documentation.

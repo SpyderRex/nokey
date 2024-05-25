@@ -1,3 +1,4 @@
+import requests_cache
 from .. helperFuncs import make_request as mr
 
 
@@ -9,10 +10,13 @@ class RestCountries:
     - base_url: The base URL of the RestCountries API.
     - about: A short description of the API.
     """
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="rest_country_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://restcountries.com/v3.1/"
         self.about = "REST Countries API is a simple REST API from RapidAPI that provides information about countries in the world In JSON format."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns url for API docs.

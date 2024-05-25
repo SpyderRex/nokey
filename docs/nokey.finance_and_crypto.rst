@@ -20,10 +20,10 @@ nokey.finance\_and\_crypto.exchange\_api module
    :undoc-members:
    :show-inheritance:
 
-nokey.finance\_and\_crypto.wall\_street\_bets module
-----------------------------------------------------
+nokey.finance\_and\_crypto.wallstreet\_bets module
+--------------------------------------------------
 
-.. automodule:: nokey.finance_and_crypto.wall_street_bets
+.. automodule:: nokey.finance_and_crypto.wallstreet_bets
    :members:
    :undoc-members:
    :show-inheritance:

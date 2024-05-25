@@ -1,3 +1,4 @@
+import requests_cache
 from .. helperFuncs import make_request as mr
 
 class OpenTriviaDB:
@@ -8,10 +9,13 @@ class OpenTriviaDB:
     - base_url: The base URL of the API.
     - about: A short description of the API.
     """
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="open_trivia_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://opentdb.com/api.php?"
         self.about = "The Open Trivia Database provides a completely free JSON API to retrieve trivia questions for use in programming projects."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns the URL for the Open Trivia Database API documentation.

@@ -1,5 +1,8 @@
+import requests_cache
 from .. helperFuncs import make_request as mr
+from .. helperFuncs.throttler import throttle_class
 
+@throttle_class(rate_limit=1, period=1)
 class Artic:
     """
     A class for interacting with the Art Institute of Chicago API.
@@ -9,11 +12,14 @@ class Artic:
     - image_api_url: The base URL for accessing the images in this API.
     - about: A short description of the API.
     """
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="artic_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://api.artic.edu/api/v1/"
         self.image_api_url ="https://www.artic.edu/iiif/2/"
         self.about = "The Art Institute of Chicago's API provides JSON-formatted data as a REST-style service that allows developers to explore and integrate the museum’s public data into their projects. This API is the same tool that powers our website, our mobile app, and many other technologies in the museum."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns the URL for the Art Institute of Chicago API documentation.

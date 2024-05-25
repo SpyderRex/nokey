@@ -1,3 +1,4 @@
+import requests_cache
 from .. helperFuncs import make_request as mr
 
 class OpenDisease:
@@ -8,10 +9,13 @@ class OpenDisease:
     - base_url: The base URL for the API.
     - about: A short description of the API.
     """
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="open_disease_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://disease.sh/v3/"
         self.about = "Open Disease is a Third Party API for reliable global disease information, serving COVID and influenza data (Note: None of the data in this API seems to be up to date)"
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns the URL for the Open Disease API documentation.

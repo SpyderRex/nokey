@@ -20,6 +20,14 @@ nokey.games.open\_trivia\_db module
    :undoc-members:
    :show-inheritance:
 
+nokey.games.shadify module
+--------------------------
+
+.. automodule:: nokey.games.shadify
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 

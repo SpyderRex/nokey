@@ -28,6 +28,14 @@ nokey.helperFuncs.nokey\_apis module
    :undoc-members:
    :show-inheritance:
 
+nokey.helperFuncs.throttler module
+----------------------------------
+
+.. automodule:: nokey.helperFuncs.throttler
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 

@@ -1,3 +1,4 @@
+import requests_cache
 from .. helperFuncs import make_request as mr
 
 class SpaceflightNews:
@@ -9,10 +10,13 @@ class SpaceflightNews:
     - base_url: The base URL of the Spaceflight News API.
     - about: A short description of the API.
     """
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="spaceflight_news_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://api.spaceflightnewsapi.net/v4/"
         self.about = "The Spaceflight News API (SNAPI) is a product by The Space Devs (TSD). It's the most complete and up-to-date spaceflight news API currently available."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns the url for the Spaceflight News API documentation.

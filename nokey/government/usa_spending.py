@@ -1,3 +1,4 @@
+import requests_cache
 import datetime as dt
 from .. helperFuncs import make_request as mr 
 
@@ -11,10 +12,13 @@ class USAspending:
     - base_url: The base URL for the API.
     - about: A short description of the API.
     """
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="usa_spending_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://api.usaspending.gov/api/v2/"
         self.about = "USAspending is the official open data source of federal spending information, including information about federal awards such as contracts, grants, and loans."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns the URL for the USAspending API documentation.

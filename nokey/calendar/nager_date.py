@@ -1,5 +1,5 @@
 import requests
-
+import requests_cache
 from .. helperFuncs import make_request as mr
 
 class NagerDate:
@@ -10,10 +10,13 @@ class NagerDate:
     - base_url: The base URL of the API.
     - about: A short description of the API.
     """
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="nager_date_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://date.nager.at/api/v3/"
         self.about = "The Nager.Date API provides a simple way to query the holidays of over 100 countries. It is also possible to query long weekends."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns the URL for the Nager.Date API documentation.

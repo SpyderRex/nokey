@@ -19,6 +19,6 @@ nokey_apis = {
     "government": ["Federal Register", "USA Spending"],
     "art_and_images": ["Lorem Picsum", "Art Institute of Chicago"],
     "tv_and_film": ["Star Trek API"],
-    "books": ["Gutendex"],
+    "books_and_literature": ["Gutendex", "Stephen King API"],
     "health": ["Open Disease"]
 }

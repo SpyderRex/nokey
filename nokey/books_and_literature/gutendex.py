@@ -1,3 +1,4 @@
+import requests_cache
 from .. helperFuncs import make_request as mr
 
 class Gutendex:
@@ -8,10 +9,13 @@ class Gutendex:
     base_url: The base URL for the API.
     about: A short description of the API.
     """
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="gutendex_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://gutendex.com/books/"
         self.about = "Gutendex is a JSON web API for Project Gutenberg ebook metadata."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns the URL for the Gutendex API documentation.

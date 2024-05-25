@@ -1,3 +1,4 @@
+import requests_cache
 from .. helperFuncs import make_request as mr
 
 class Microlink:
@@ -9,10 +10,13 @@ class Microlink:
     - about: A short description of the API.
     """
     
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="microlink_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://api.microlink.io"
-        self.about = "Microlink API provides a powerful API for automating any browser action."
+        self.about = "Microlink API provides a powerful API for automating any browser action. Free use is limited to 50 requests a day."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns the URL for the Microlink API documentation.

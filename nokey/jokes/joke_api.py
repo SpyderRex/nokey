@@ -1,5 +1,8 @@
+import requests_cache
 from .. helperFuncs import make_request as mr
+from .. helperFuncs.throttler import throttle_class
 
+@throttle_class(rate_limit=120, period=60)
 class JokeAPI:
     """
     A class to interact with the JokeAPI API.
@@ -8,10 +11,13 @@ class JokeAPI:
     - base_url: Base URL for interacting with the API.
     - about: A short description of the API.
     """
-    def __init__(self):
+    def __init__(self, use_caching="False", cache_name="joke_api_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://v2.jokeapi.dev/joke/"
         self.about = "JokeAPI is a REST API that serves uniformly and well formatted jokes. It can be used without any API token, membership, registration or payment. It supports a variety of filters that can be applied to get just the right jokes you need."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns the URL for the JokeAPI documentation.

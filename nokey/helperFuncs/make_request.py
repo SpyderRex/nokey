@@ -34,6 +34,7 @@ def make_request(url, headers=None, payload=None):
         # Handle any other unexpected errors
         return {"error": f"An unexpected error occurred: {err}"}
 
+
 def make_request_with_params(url, params):
     """
     Make a request to an API if the API call requires params.
@@ -86,6 +87,33 @@ def make_request_for_content(url):
     except Exception as err:
         # Handle any other unexpected errors
         return {"error": f"An unexpected error occurred: {err}"}
+        
+def make_request_for_content_with_params(url, params):
+    """
+    Make a request to an API if the API call returns content other than in JSON format.
+    
+    Args:
+    - url (str): The url of the API.
+    
+    Returns:
+    - string: Text in any format containing either the response data or an error message.
+    """
+    try:
+        response = requests.get(url, params)
+        return response.content
+    except HTTPError as http_err:
+        # Handle HTTP error
+        return {"error": f"HTTP error occurred: {http_err}"}
+    except Timeout:
+        # Handle timeout error
+        return {"error": "Request timed out."}
+    except RequestException as req_err:
+        # Handle other request exceptions
+        return {"error": f"Request exception occurred: {req_err}"}
+    except Exception as err:
+        # Handle any other unexpected errors
+        return {"error": f"An unexpected error occurred: {err}"}
+        
         
 def make_request_with_post_and_data(url, data):
     """
@@ -140,7 +168,18 @@ def make_request_with_post_and_json(url, json):
     except Exception as err:
         # Handle any other unexpected errors
         return {"error": f"An unexpected error occurred: {err}"}
-   
+        
+def add_params(params, params_list):
+    """
+    Adds parameters to the params dictionary if their values are not None.
+
+    Args:
+        params (dict): The dictionary to add parameters to.
+        params_list (list of tuples): Each tuple contains (original_param_name, new_param_name).
+    """
+    for original_param_name, new_param_name in params_list:
+        if new_param_name is not None:
+            params[original_param_name] = new_param_name
         
       
         

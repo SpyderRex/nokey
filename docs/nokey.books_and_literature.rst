@@ -12,6 +12,14 @@ nokey.books\_and\_literature.gutendex module
    :undoc-members:
    :show-inheritance:
 
+nokey.books\_and\_literature.stephen\_king module
+-------------------------------------------------
+
+.. automodule:: nokey.books_and_literature.stephen_king
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.books_and_literature package &mdash; nokey 0.6.0 documentation</title>
+  <title>nokey.books_and_literature package &mdash; nokey 0.7.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=8fa8b3e9"></script>
+        <script src="_static/documentation_options.js?v=fe7df9b0"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -61,6 +61,7 @@
 <li class="toctree-l4"><a class="reference internal" href="nokey.games.html">nokey.games package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.geolocation.html">nokey.geolocation package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.government.html">nokey.government package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nokey.health.html">nokey.health package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.helperFuncs.html">nokey.helperFuncs package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.inspiration.html">nokey.inspiration package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.jokes.html">nokey.jokes package</a></li>
@@ -114,7 +115,7 @@
 <span id="nokey-books-and-literature-gutendex-module"></span><h2>nokey.books_and_literature.gutendex module<a class="headerlink" href="#module-nokey.books_and_literature.gutendex" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="nokey.books_and_literature.gutendex.Gutendex">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.books_and_literature.gutendex.</span></span><span class="sig-name descname"><span class="pre">Gutendex</span></span><a class="reference internal" href="_modules/nokey/books_and_literature/gutendex.html#Gutendex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.gutendex.Gutendex" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.books_and_literature.gutendex.</span></span><span class="sig-name descname"><span class="pre">Gutendex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gutendex_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/gutendex.html#Gutendex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.gutendex.Gutendex" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class for interacting with the Gutendex API.</p>
 <p>Attributes:
@@ -210,6 +211,89 @@ about: A short description of the API.</p>
 - language (str): The language in which the books are written. Defaults to en (English). Can take multiple comma separated (non-spaced) values.</p>
 <p>Returns:
 - dict: A dictionary containing metadata for books matching the given topic.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-nokey.books_and_literature.stephen_king">
+<span id="nokey-books-and-literature-stephen-king-module"></span><h2>nokey.books_and_literature.stephen_king module<a class="headerlink" href="#module-nokey.books_and_literature.stephen_king" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="nokey.books_and_literature.stephen_king.StephenKingAPI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.books_and_literature.stephen_king.</span></span><span class="sig-name descname"><span class="pre">StephenKingAPI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'stephen_king_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/stephen_king.html#StephenKingAPI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.stephen_king.StephenKingAPI" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to interact with the Stephen King API.</p>
+<p>Attributes:
+- base_url: The base URL of the API.
+- about: A short description of the API.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.books_and_literature.stephen_king.StephenKingAPI.get_docs_url">
+<span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/stephen_king.html#StephenKingAPI.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.stephen_king.StephenKingAPI.get_docs_url" title="Link to this definition"></a></dt>
+<dd><p>Returns the URL for the Stephen King API documentation.</p>
+<p>Args:
+- None</p>
+<p>Returns:
+- string: The URL for the API docs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_book_by_id">
+<span class="sig-name descname"><span class="pre">get_stephen_king_book_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">book_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/stephen_king.html#StephenKingAPI.get_stephen_king_book_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_book_by_id" title="Link to this definition"></a></dt>
+<dd><p>Returns the Stephen King book matching the id, with related metadata.</p>
+<p>Args:
+- book_id (int): A unique number identifying the Stephen King book.</p>
+<p>Returns:
+- dict: A dictionary containing book metadata.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_books">
+<span class="sig-name descname"><span class="pre">get_stephen_king_books</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/stephen_king.html#StephenKingAPI.get_stephen_king_books"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_books" title="Link to this definition"></a></dt>
+<dd><p>Returns all of the Stephen King books and related metadata.</p>
+<p>Args:
+- None</p>
+<p>Returns:
+- dict: A dictionary containing book metadata.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_short_stories">
+<span class="sig-name descname"><span class="pre">get_stephen_king_short_stories</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/stephen_king.html#StephenKingAPI.get_stephen_king_short_stories"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_short_stories" title="Link to this definition"></a></dt>
+<dd><p>Returns all of the Stephen King short stories and related metadata.</p>
+<p>Args:
+- None</p>
+<p>Returns:
+- dict: A dictionary containing short story metadata.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_short_story_by_id">
+<span class="sig-name descname"><span class="pre">get_stephen_king_short_story_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">story_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/stephen_king.html#StephenKingAPI.get_stephen_king_short_story_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_short_story_by_id" title="Link to this definition"></a></dt>
+<dd><p>Returns the Stephen King short story matching the id, with related metadata.</p>
+<p>Args:
+- story_id (int): A unique number identifying the Stephen King short story.</p>
+<p>Returns:
+- dict: A dictionary containing short story metadata.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_villain_by_id">
+<span class="sig-name descname"><span class="pre">get_stephen_king_villain_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">villain_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/stephen_king.html#StephenKingAPI.get_stephen_king_villain_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_villain_by_id" title="Link to this definition"></a></dt>
+<dd><p>Returns the Stephen King villain matching the id, with related metadata.</p>
+<p>Args:
+- villain_id (int): A unique number identifying the Stephen King villain.</p>
+<p>Returns:
+- dict: A dictionary containing villain metadata.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_villains">
+<span class="sig-name descname"><span class="pre">get_stephen_king_villains</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/stephen_king.html#StephenKingAPI.get_stephen_king_villains"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_villains" title="Link to this definition"></a></dt>
+<dd><p>Returns all of the Stephen King villains and related metadata.</p>
+<p>Args:
+- None</p>
+<p>Returns:
+- dict: A dictionary containing villain metadata.</p>
 </dd></dl>
 
 </dd></dl>

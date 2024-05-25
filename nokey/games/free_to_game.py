@@ -1,3 +1,4 @@
+import requests_cache
 from .. helperFuncs import make_request as mr
 
 class FreeToGame:
@@ -8,10 +9,13 @@ class FreeToGame:
     - base_url: The base URL of the Free To Game API.
     - about: A short description of the API.
     """
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="freetogame_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://www.freetogame.com/api/"
         self.about = "The Free To Game API is a way to access programmatically the best free-to-play games and free MMO games."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns the URL for the Free To Game API documentation.

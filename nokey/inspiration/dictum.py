@@ -1,3 +1,4 @@
+import requests_cache
 from .. helperFuncs import make_request as mr
 
 class Dictum:
@@ -8,10 +9,13 @@ class Dictum:
     - base_url: The base URL of the API.
     - about: A short description of the API.
     """
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="dictum_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://api.fisenko.net/v1/"
         self.about = "Dictum API provides a programmatic way to access the most inspiring expressions of humanity."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns the URL for the Dictum API documentation.

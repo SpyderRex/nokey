@@ -1,5 +1,8 @@
+import requests_cache
 from .. helperFuncs import make_request as mr
+from .. helperFuncs.throttler import throttle_class
 
+@throttle_class(rate_limit=200, period=3600)
 class UrlShortener:
     """
     A class for interacting with the URL Shortener API.
@@ -8,10 +11,13 @@ class UrlShortener:
     - base_url: The base URL of the URL Shortener API.
     - about: A short description of the API.
     """
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="url_shortener_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://is.gd/create.php?"
         self.about = "This URL Shortener API (from is.gd) is a URL shortener service."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns the URL for the URL Shortener API documentation.

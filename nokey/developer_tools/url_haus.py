@@ -1,7 +1,6 @@
 import os
-
 import requests
-
+import requests_cache
 from .. helperFuncs import make_request as mr
 
 
@@ -13,10 +12,13 @@ class URLHaus:
     - base_url: The base URL of the API.
     - about: A short description of the API.
     """
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="urlhaus_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://urlhaus-api.abuse.ch/v1/"
         self.about = "URLhaus is a project operated by abuse.ch. The purpose of the project is to collect, track and share malware URLs, helping network administrators and security analysts to protect their network and customers from cyber threats."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns the URL for the URLHaus API documentation.

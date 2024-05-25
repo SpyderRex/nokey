@@ -19,6 +19,7 @@ Subpackages
    nokey.games
    nokey.geolocation
    nokey.government
+   nokey.health
    nokey.helperFuncs
    nokey.inspiration
    nokey.jokes

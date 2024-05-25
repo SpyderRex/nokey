@@ -1,3 +1,4 @@
+import requests_cache
 from .. helperFuncs import make_request as mr
 
 class UniversityDomainsAndNames:
@@ -9,10 +10,13 @@ class UniversityDomainsAndNames:
     - about: A short description of the API.
     """
     
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="university_cache", backend="sqlite", expire_after=3600):
         self.base_url = "http://universities.hipolabs.com/search?"
         self.about = "This API accesses a list of universities and their domain names."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns the url for the University Domains and Names API documentation.

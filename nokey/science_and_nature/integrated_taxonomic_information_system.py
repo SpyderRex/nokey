@@ -1,5 +1,5 @@
+import requests_cache
 import xmltodict
-
 from .. helperFuncs import make_request as mr
 
 class ITIS:
@@ -10,10 +10,13 @@ class ITIS:
     - base_url: The base URL of the API.
     - about: A short description of the API.
     """
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="itis_cache", backend="sqlite", expire_after=3600):
         self.base_url = "http://www.itis.gov/ITISWebService/services/ITISService/"
         self.about = "The ITIS program is driven by a mission: communicate a comprehensive taxonomy of global species that enables biodiversity information to be discovered, indexed, and connected across all human endeavors."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns the URL for the ITIS API documentation.

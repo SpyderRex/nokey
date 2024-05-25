@@ -1,3 +1,4 @@
+import requests_cache
 from .. helperFuncs import make_request as mr
 
 class DogAPI:
@@ -8,9 +9,12 @@ class DogAPI:
     - base_url: The base URL for the API.
     - about: A short description of the API.
     """
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="dog_api_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://dog.ceo/api/"
         self.about = "The Dog API returns URLs for dog images, either at random or by breed."
+        
+        if use_caching:
+            requests_cache.install_cache(cache_name, baackend=backend, expire_after=expire_after)
         
     def get_docs_url(self):
         """

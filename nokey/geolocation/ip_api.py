@@ -1,6 +1,8 @@
+import requests_cache
 from .. helperFuncs import make_request as mr
+from .. helperFuncs.throttler import throttle_class
 
-
+@throttle_class(rate_limit=45, period=60)
 class IP_API:
     """
     A class to interact with the IP API.
@@ -9,10 +11,13 @@ class IP_API:
     - base_url: The base URL of IP API.
     - about: A short description of the API.
     """
-    def __init__(self):
+    def __init__(self, use_caching=False, cache_name="ip_api_cache", backend="sqlite", expire_after=3600):
         self.base_url = "http://ip-api.com/json/" 
         self.about = "The IP API is a fast, reliable, and free IP geolocation API."
         
+        if use_caching:
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
+            
     def get_docs_url(self):
         """
         Returns URL for API docs.

@@ -43,6 +43,8 @@ api_list = get_api_list()
 print(api_list)
 ```
 
+Each API class has optional caching with requests_cache. To enable caching, set the use_caching argument when calling the class to True.
+
 Each API class has an "about" attribute that returns a short description of the API. To get the URL for the API documentation of any API, simply call the get_docs_url() method for the API class.
 
 ## Contributing
