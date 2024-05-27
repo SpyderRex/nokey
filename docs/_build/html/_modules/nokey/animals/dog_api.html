@@ -81,8 +81,8 @@
 <span class="sd">    A class to interact with the Dog API.</span>
 <span class="sd">    </span>
 <span class="sd">    Attributes:</span>
-<span class="sd">    - base_url: The base URL for the API.</span>
-<span class="sd">    - about: A short description of the API.</span>
+<span class="sd">        base_url: The base URL for the API.</span>
+<span class="sd">        about: A short description of the API.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">use_caching</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cache_name</span><span class="o">=</span><span class="s2">&quot;dog_api_cache&quot;</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;sqlite&quot;</span><span class="p">,</span> <span class="n">expire_after</span><span class="o">=</span><span class="mi">3600</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://dog.ceo/api/&quot;</span>
@@ -98,10 +98,10 @@
 <span class="sd">        Returns the URL for the Dog API documentation.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - string: The URL for the Dog API documentation.</span>
+<span class="sd">            string: The URL for the Dog API documentation.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;https://dog.ceo/dog-api/documentation/&quot;</span></div>
 
@@ -113,10 +113,10 @@
 <span class="sd">        Returns a list of all the dog breeds in the Dog API.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Returns a dictionary containing a list of all the dog breeds in the Dog API.</span>
+<span class="sd">            dict: Returns a dictionary containing a list of all the dog breeds in the Dog API.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;breeds/list/all&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -129,10 +129,10 @@
 <span class="sd">        Returns the URL for a random dog image.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing the URL for a random dog image.</span>
+<span class="sd">            dict: Dictionary containing the URL for a random dog image.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;breeds/image/random&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -145,10 +145,10 @@
 <span class="sd">        Returns an array of URLs for images of dogs of the specified breed.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - breed (str): The breed of the dog.</span>
+<span class="sd">            breed (str): The breed of the dog.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing a list of URLs of images for the specified dog breed.</span>
+<span class="sd">            dict: Dictionary containing a list of URLs of images for the specified dog breed.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;breed/</span><span class="si">{</span><span class="n">breed</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">/images&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -161,10 +161,10 @@
 <span class="sd">        Returns a list of all sub-breeds for the specified dog breed.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - breed (str): The breed of the dog.</span>
+<span class="sd">            breed (str): The breed of the dog.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing a list of all sub-breeds for the specified dog breed.</span>
+<span class="sd">            dict: Dictionary containing a list of all sub-breeds for the specified dog breed.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;breed/</span><span class="si">{</span><span class="n">breed</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">/list&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -177,10 +177,10 @@
 <span class="sd">        Returns the URL for a random dog image of the specified breed.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - breed (str): The breed of the dog.</span>
+<span class="sd">            breed (str): The breed of the dog.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary the URL for a random dog image of the specified breed.</span>
+<span class="sd">            dict: Dictionary the URL for a random dog image of the specified breed.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;breed/</span><span class="si">{</span><span class="n">breed</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">/images/random&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>

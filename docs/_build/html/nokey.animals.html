@@ -118,67 +118,118 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.animals.dog_api.</span></span><span class="sig-name descname"><span class="pre">DogAPI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dog_api_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/animals/dog_api.html#DogAPI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.animals.dog_api.DogAPI" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class to interact with the Dog API.</p>
-<p>Attributes:
-- base_url: The base URL for the API.
-- about: A short description of the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.animals.dog_api.DogAPI.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#nokey.animals.dog_api.DogAPI.base_url" title="Link to this definition"></a></dt>
+<dd><p>The base URL for the API.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.animals.dog_api.DogAPI.about">
+<span class="sig-name descname"><span class="pre">about</span></span><a class="headerlink" href="#nokey.animals.dog_api.DogAPI.about" title="Link to this definition"></a></dt>
+<dd><p>A short description of the API.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.animals.dog_api.DogAPI.get_all_dog_breeds">
 <span class="sig-name descname"><span class="pre">get_all_dog_breeds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/animals/dog_api.html#DogAPI.get_all_dog_breeds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.animals.dog_api.DogAPI.get_all_dog_breeds" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of all the dog breeds in the Dog API.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: Returns a dictionary containing a list of all the dog breeds in the Dog API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Returns a dictionary containing a list of all the dog breeds in the Dog API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.animals.dog_api.DogAPI.get_all_subBreeds">
 <span class="sig-name descname"><span class="pre">get_all_subBreeds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">breed</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/animals/dog_api.html#DogAPI.get_all_subBreeds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.animals.dog_api.DogAPI.get_all_subBreeds" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of all sub-breeds for the specified dog breed.</p>
-<p>Args:
-- breed (str): The breed of the dog.</p>
-<p>Returns:
-- dict: Dictionary containing a list of all sub-breeds for the specified dog breed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>breed</strong> (<em>str</em>) – The breed of the dog.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing a list of all sub-breeds for the specified dog breed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.animals.dog_api.DogAPI.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/animals/dog_api.html#DogAPI.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.animals.dog_api.DogAPI.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for the Dog API documentation.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: The URL for the Dog API documentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL for the Dog API documentation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.animals.dog_api.DogAPI.get_dog_images_by_breed">
 <span class="sig-name descname"><span class="pre">get_dog_images_by_breed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">breed</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/animals/dog_api.html#DogAPI.get_dog_images_by_breed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.animals.dog_api.DogAPI.get_dog_images_by_breed" title="Link to this definition"></a></dt>
 <dd><p>Returns an array of URLs for images of dogs of the specified breed.</p>
-<p>Args:
-- breed (str): The breed of the dog.</p>
-<p>Returns:
-- dict: Dictionary containing a list of URLs of images for the specified dog breed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>breed</strong> (<em>str</em>) – The breed of the dog.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing a list of URLs of images for the specified dog breed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.animals.dog_api.DogAPI.get_random_dog_image">
 <span class="sig-name descname"><span class="pre">get_random_dog_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/animals/dog_api.html#DogAPI.get_random_dog_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.animals.dog_api.DogAPI.get_random_dog_image" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for a random dog image.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: Dictionary containing the URL for a random dog image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing the URL for a random dog image.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.animals.dog_api.DogAPI.get_random_dog_image_by_breed">
 <span class="sig-name descname"><span class="pre">get_random_dog_image_by_breed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">breed</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/animals/dog_api.html#DogAPI.get_random_dog_image_by_breed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.animals.dog_api.DogAPI.get_random_dog_image_by_breed" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for a random dog image of the specified breed.</p>
-<p>Args:
-- breed (str): The breed of the dog.</p>
-<p>Returns:
-- dict: Dictionary the URL for a random dog image of the specified breed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>breed</strong> (<em>str</em>) – The breed of the dog.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary the URL for a random dog image of the specified breed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
