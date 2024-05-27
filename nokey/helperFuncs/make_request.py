@@ -40,11 +40,11 @@ def make_request_with_params(url, params):
     Make a request to an API if the API call requires params.
     
     Args:
-        - url (str): The url of the API.
-        - params (dict): The params to be included in the request.
+        url (str): The url of the API.
+        params (dict): The params to be included in the request.
     
     Returns:
-        - dict: A dictionary containing either the response data or an error message.
+        dict: A dictionary containing either the response data or an error message.
     """
     try:
         response = requests.get(url, params)
@@ -67,10 +67,10 @@ def make_request_for_content(url):
     Make a request to an API if the API call returns content other than in JSON format.
     
     Args:
-        - url (str): The url of the API.
+        url (str): The url of the API.
     
     Returns:
-        - string: Text in any format containing either the response data or an error message.
+        string: Text in any format containing either the response data or an error message.
     """
     try:
         response = requests.get(url)
@@ -93,10 +93,10 @@ def make_request_for_content_with_params(url, params):
     Make a request to an API if the API call returns content other than in JSON format.
     
     Args:
-        - url (str): The url of the API.
+        url (str): The url of the API.
     
     Returns:
-        - string: Text in any format containing either the response data or an error message.
+        string: Text in any format containing either the response data or an error message.
     """
     try:
         response = requests.get(url, params)
@@ -120,11 +120,11 @@ def make_request_with_post_and_data(url, data):
     Make a request to an API if the API using the POST method.
     
     Args:
-        - url (str): The url of the API.
-        - data (dict): The data to be included in the request.
+        url (str): The url of the API.
+        data (dict): The data to be included in the request.
     
     Returns:
-        - dict: A dictionary containing either the response data or an error message.
+        dict: A dictionary containing either the response data or an error message.
     """
     try:
         response = requests.post(url, data=data)
@@ -147,11 +147,11 @@ def make_request_with_post_and_json(url, json):
     Make a request to an API if the API using the POST method.
     
     Args:
-        - url (str): The url of the API.
-        - data (dict): The data to be included in the request.
+        url (str): The url of the API.
+        data (dict): The data to be included in the request.
     
     Returns:
-        - dict: A dictionary containing either the response data or an error message.
+        dict: A dictionary containing either the response data or an error message.
     """
     try:
         response = requests.post(url, json=json)

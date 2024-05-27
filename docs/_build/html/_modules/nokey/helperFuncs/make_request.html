@@ -118,11 +118,11 @@
 <span class="sd">    Make a request to an API if the API call requires params.</span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
-<span class="sd">        - url (str): The url of the API.</span>
-<span class="sd">        - params (dict): The params to be included in the request.</span>
+<span class="sd">        url (str): The url of the API.</span>
+<span class="sd">        params (dict): The params to be included in the request.</span>
 <span class="sd">    </span>
 <span class="sd">    Returns:</span>
-<span class="sd">        - dict: A dictionary containing either the response data or an error message.</span>
+<span class="sd">        dict: A dictionary containing either the response data or an error message.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
@@ -148,10 +148,10 @@
 <span class="sd">    Make a request to an API if the API call returns content other than in JSON format.</span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
-<span class="sd">        - url (str): The url of the API.</span>
+<span class="sd">        url (str): The url of the API.</span>
 <span class="sd">    </span>
 <span class="sd">    Returns:</span>
-<span class="sd">        - string: Text in any format containing either the response data or an error message.</span>
+<span class="sd">        string: Text in any format containing either the response data or an error message.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
@@ -177,10 +177,10 @@
 <span class="sd">    Make a request to an API if the API call returns content other than in JSON format.</span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
-<span class="sd">        - url (str): The url of the API.</span>
+<span class="sd">        url (str): The url of the API.</span>
 <span class="sd">    </span>
 <span class="sd">    Returns:</span>
-<span class="sd">        - string: Text in any format containing either the response data or an error message.</span>
+<span class="sd">        string: Text in any format containing either the response data or an error message.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
@@ -207,11 +207,11 @@
 <span class="sd">    Make a request to an API if the API using the POST method.</span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
-<span class="sd">        - url (str): The url of the API.</span>
-<span class="sd">        - data (dict): The data to be included in the request.</span>
+<span class="sd">        url (str): The url of the API.</span>
+<span class="sd">        data (dict): The data to be included in the request.</span>
 <span class="sd">    </span>
 <span class="sd">    Returns:</span>
-<span class="sd">        - dict: A dictionary containing either the response data or an error message.</span>
+<span class="sd">        dict: A dictionary containing either the response data or an error message.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -237,11 +237,11 @@
 <span class="sd">    Make a request to an API if the API using the POST method.</span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
-<span class="sd">        - url (str): The url of the API.</span>
-<span class="sd">        - data (dict): The data to be included in the request.</span>
+<span class="sd">        url (str): The url of the API.</span>
+<span class="sd">        data (dict): The data to be included in the request.</span>
 <span class="sd">    </span>
 <span class="sd">    Returns:</span>
-<span class="sd">        - dict: A dictionary containing either the response data or an error message.</span>
+<span class="sd">        dict: A dictionary containing either the response data or an error message.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">json</span><span class="p">)</span>
