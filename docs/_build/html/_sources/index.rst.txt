@@ -1,5 +1,5 @@
 .. nokey documentation master file, created by
-   sphinx-quickstart on Sun May 26 23:51:50 2024.
+   sphinx-quickstart on Mon May 27 14:50:24 2024.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 

@@ -14,7 +14,7 @@ class DogAPI:
         self.about = "The Dog API returns URLs for dog images, either at random or by breed."
         
         if use_caching:
-            requests_cache.install_cache(cache_name, baackend=backend, expire_after=expire_after)
+            requests_cache.install_cache(cache_name, backend=backend, expire_after=expire_after)
         
     def get_docs_url(self):
         """
