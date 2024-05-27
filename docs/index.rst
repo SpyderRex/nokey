@@ -9,149 +9,35 @@ Welcome to nokey's documentation!
 
 Modules
 =======
-.. automodule:: nokey
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
+.. autosummary::
+   :toctree: _autosummary
+   :template: module.rst
 
-.. automodule:: nokey.country_info
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
+   nokey
+   nokey.country_info
+   nokey.finance_and_crypto
+   nokey.geolocation
+   nokey.spaceflight
+   nokey.education
+   nokey.food
+   nokey.random
+   nokey.jokes
+   nokey.animals
+   nokey.science_and_nature
+   nokey.weather
+   nokey.developer_tools
+   nokey.inspiration
+   nokey.language
+   nokey.games
+   nokey.activities
+   nokey.calendar
+   nokey.government
+   nokey.art_and_images
+   nokey.tv_and_film
+   nokey.books_and_literature
+   nokey.health
+   nokey.helperFuncs
 
-.. automodule:: nokey.finance_and_crypto
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.geolocation
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.spaceflight
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.education
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.food
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.random
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.jokes
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.animals
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.science_and_nature
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.weather
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.developer_tools
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.inspiration
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.language
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.games
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.activities
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.calendar
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.government
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.art_and_images
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.tv_and_film
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.books_and_literature
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.health
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
-
-.. automodule:: nokey.helperFuncs
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :no-index:
 
 Indices and tables
 ==================
