@@ -6,8 +6,8 @@ class DogAPI:
     A class to interact with the Dog API.
     
     Attributes:
-    - base_url: The base URL for the API.
-    - about: A short description of the API.
+        base_url: The base URL for the API.
+        about: A short description of the API.
     """
     def __init__(self, use_caching=False, cache_name="dog_api_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://dog.ceo/api/"
@@ -21,10 +21,10 @@ class DogAPI:
         Returns the URL for the Dog API documentation.
         
         Args:
-        - None
+            None
         
         Returns:
-        - string: The URL for the Dog API documentation.
+            string: The URL for the Dog API documentation.
         """
         return "https://dog.ceo/dog-api/documentation/"
         
@@ -33,10 +33,10 @@ class DogAPI:
         Returns a list of all the dog breeds in the Dog API.
         
         Args:
-        - None
+            None
         
         Returns:
-        - dict: Returns a dictionary containing a list of all the dog breeds in the Dog API.
+            dict: Returns a dictionary containing a list of all the dog breeds in the Dog API.
         """
         endpoint = "breeds/list/all"
         return mr.make_request(self.base_url+endpoint)
@@ -46,10 +46,10 @@ class DogAPI:
         Returns the URL for a random dog image.
         
         Args:
-        - None
+            None
         
         Returns:
-        - dict: Dictionary containing the URL for a random dog image.
+            dict: Dictionary containing the URL for a random dog image.
         """
         endpoint = "breeds/image/random"
         return mr.make_request(self.base_url+endpoint)
@@ -59,10 +59,10 @@ class DogAPI:
         Returns an array of URLs for images of dogs of the specified breed.
         
         Args:
-        - breed (str): The breed of the dog.
+            breed (str): The breed of the dog.
         
         Returns:
-        - dict: Dictionary containing a list of URLs of images for the specified dog breed.
+            dict: Dictionary containing a list of URLs of images for the specified dog breed.
         """
         endpoint = f"breed/{breed.lower()}/images"
         return mr.make_request(self.base_url+endpoint)
@@ -72,10 +72,10 @@ class DogAPI:
         Returns a list of all sub-breeds for the specified dog breed.
         
         Args:
-        - breed (str): The breed of the dog.
+            breed (str): The breed of the dog.
         
         Returns:
-        - dict: Dictionary containing a list of all sub-breeds for the specified dog breed.
+            dict: Dictionary containing a list of all sub-breeds for the specified dog breed.
         """
         endpoint = f"breed/{breed.lower()}/list"
         return mr.make_request(self.base_url+endpoint)
@@ -85,10 +85,10 @@ class DogAPI:
         Returns the URL for a random dog image of the specified breed.
         
         Args:
-        - breed (str): The breed of the dog.
+            breed (str): The breed of the dog.
         
         Returns:
-        - dict: Dictionary the URL for a random dog image of the specified breed.
+            dict: Dictionary the URL for a random dog image of the specified breed.
         """
         endpoint = f"breed/{breed.lower()}/images/random"
         return mr.make_request(self.base_url+endpoint)
