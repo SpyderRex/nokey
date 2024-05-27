@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.helperFuncs package &mdash; nokey 0.7.2 documentation</title>
+  <title>nokey.helperFuncs package &mdash; nokey 0.7.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=6dfdf7c3"></script>
+        <script src="_static/documentation_options.js?v=c98573da"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -166,53 +166,109 @@ and the individual APIs under the respective headings.</p>
 <dt class="sig sig-object py" id="nokey.helperFuncs.make_request.make_request_for_content">
 <span class="sig-prename descclassname"><span class="pre">nokey.helperFuncs.make_request.</span></span><span class="sig-name descname"><span class="pre">make_request_for_content</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/helperFuncs/make_request.html#make_request_for_content"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.helperFuncs.make_request.make_request_for_content" title="Link to this definition"></a></dt>
 <dd><p>Make a request to an API if the API call returns content other than in JSON format.</p>
-<p>Args:
-- url (str): The url of the API.</p>
-<p>Returns:
-- string: Text in any format containing either the response data or an error message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>url</strong> (<em>-</em>) – The url of the API.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Text in any format containing either the response data or an error message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>string</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="nokey.helperFuncs.make_request.make_request_for_content_with_params">
 <span class="sig-prename descclassname"><span class="pre">nokey.helperFuncs.make_request.</span></span><span class="sig-name descname"><span class="pre">make_request_for_content_with_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/helperFuncs/make_request.html#make_request_for_content_with_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.helperFuncs.make_request.make_request_for_content_with_params" title="Link to this definition"></a></dt>
 <dd><p>Make a request to an API if the API call returns content other than in JSON format.</p>
-<p>Args:
-- url (str): The url of the API.</p>
-<p>Returns:
-- string: Text in any format containing either the response data or an error message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>url</strong> (<em>-</em>) – The url of the API.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Text in any format containing either the response data or an error message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>string</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="nokey.helperFuncs.make_request.make_request_with_params">
 <span class="sig-prename descclassname"><span class="pre">nokey.helperFuncs.make_request.</span></span><span class="sig-name descname"><span class="pre">make_request_with_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/helperFuncs/make_request.html#make_request_with_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.helperFuncs.make_request.make_request_with_params" title="Link to this definition"></a></dt>
 <dd><p>Make a request to an API if the API call requires params.</p>
-<p>Args:
-- url (str): The url of the API.
-- params (dict): The params to be included in the request.</p>
-<p>Returns:
-- dict: A dictionary containing either the response data or an error message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<em>-</em>) – The url of the API.</p></li>
+<li><p><strong>params</strong> (<em>-</em>) – The params to be included in the request.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing either the response data or an error message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>dict</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="nokey.helperFuncs.make_request.make_request_with_post_and_data">
 <span class="sig-prename descclassname"><span class="pre">nokey.helperFuncs.make_request.</span></span><span class="sig-name descname"><span class="pre">make_request_with_post_and_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/helperFuncs/make_request.html#make_request_with_post_and_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.helperFuncs.make_request.make_request_with_post_and_data" title="Link to this definition"></a></dt>
 <dd><p>Make a request to an API if the API using the POST method.</p>
-<p>Args:
-- url (str): The url of the API.
-- data (dict): The data to be included in the request.</p>
-<p>Returns:
-- dict: A dictionary containing either the response data or an error message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<em>-</em>) – The url of the API.</p></li>
+<li><p><strong>data</strong> (<em>-</em>) – The data to be included in the request.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing either the response data or an error message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>dict</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="nokey.helperFuncs.make_request.make_request_with_post_and_json">
 <span class="sig-prename descclassname"><span class="pre">nokey.helperFuncs.make_request.</span></span><span class="sig-name descname"><span class="pre">make_request_with_post_and_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/helperFuncs/make_request.html#make_request_with_post_and_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.helperFuncs.make_request.make_request_with_post_and_json" title="Link to this definition"></a></dt>
 <dd><p>Make a request to an API if the API using the POST method.</p>
-<p>Args:
-- url (str): The url of the API.
-- data (dict): The data to be included in the request.</p>
-<p>Returns:
-- dict: A dictionary containing either the response data or an error message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<em>-</em>) – The url of the API.</p></li>
+<li><p><strong>data</strong> (<em>-</em>) – The data to be included in the request.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing either the response data or an error message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>dict</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
