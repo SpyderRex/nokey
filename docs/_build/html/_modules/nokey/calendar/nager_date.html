@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nokey.calendar.nager_date &mdash; nokey 0.7.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=c98573da"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            nokey
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">nokey</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nokey</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">nokey.calendar.nager_date</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for nokey.calendar.nager_date</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">requests_cache</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="n">helperFuncs</span> <span class="kn">import</span> <span class="nn">make_request</span> <span class="k">as</span> <span class="nn">mr</span>
+
+<div class="viewcode-block" id="NagerDate">
+<a class="viewcode-back" href="../../../nokey.calendar.html#nokey.calendar.nager_date.NagerDate">[docs]</a>
+<span class="k">class</span> <span class="nc">NagerDate</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to interact with the Nager.Date API.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">    - base_url: The base URL of the API.</span>
+<span class="sd">    - about: A short description of the API.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">use_caching</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cache_name</span><span class="o">=</span><span class="s2">&quot;nager_date_cache&quot;</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;sqlite&quot;</span><span class="p">,</span> <span class="n">expire_after</span><span class="o">=</span><span class="mi">3600</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://date.nager.at/api/v3/&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">about</span> <span class="o">=</span> <span class="s2">&quot;The Nager.Date API provides a simple way to query the holidays of over 100 countries. It is also possible to query long weekends.&quot;</span>
+        
+        <span class="k">if</span> <span class="n">use_caching</span><span class="p">:</span>
+            <span class="n">requests_cache</span><span class="o">.</span><span class="n">install_cache</span><span class="p">(</span><span class="n">cache_name</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">,</span> <span class="n">expire_after</span><span class="o">=</span><span class="n">expire_after</span><span class="p">)</span>
+            
+<div class="viewcode-block" id="NagerDate.get_docs_url">
+<a class="viewcode-back" href="../../../nokey.calendar.html#nokey.calendar.nager_date.NagerDate.get_docs_url">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_docs_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the URL for the Nager.Date API documentation.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - string: The URL for the API docs.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;https://date.nager.at/swagger/index.html&quot;</span></div>
+
+        
+<div class="viewcode-block" id="NagerDate.get_country_info">
+<a class="viewcode-back" href="../../../nokey.calendar.html#nokey.calendar.nager_date.NagerDate.get_country_info">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_country_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">countryCode</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about a given country.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - countryCode (str): The code representing one of over a hundred countries supported by the API.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing information about the given country.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;CountryInfo/</span><span class="si">{</span><span class="n">countryCode</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NagerDate.get_available_countries">
+<a class="viewcode-back" href="../../../nokey.calendar.html#nokey.calendar.nager_date.NagerDate.get_available_countries">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_available_countries</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns all the countries available in the API.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - list: A list containing all the countries available in the API.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;AvailableCountries&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NagerDate.get_long_weekends_by_country">
+<a class="viewcode-back" href="../../../nokey.calendar.html#nokey.calendar.nager_date.NagerDate.get_long_weekends_by_country">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_long_weekends_by_country</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">countryCode</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of long weekends for a given country in a given year.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - year (int): The year in question.</span>
+<span class="sd">        - countryCode (str): The code representing one of over a hundred countries supported by the API.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - list: A list containing the long weekends for a given country in a given year.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;LongWeekend/</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">countryCode</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NagerDate.get_public_holidays">
+<a class="viewcode-back" href="../../../nokey.calendar.html#nokey.calendar.nager_date.NagerDate.get_public_holidays">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_public_holidays</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">countryCode</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of public holidays for a given country in a given year.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - year (int): The year in question.</span>
+<span class="sd">        - countryCode (str): The code representing one of over a hundred countries supported by the API.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - list: A list containing the public holidays for a given country in a given year.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;PublicHolidays/</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">countryCode</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NagerDate.is_today_a_public_holiday">
+<a class="viewcode-back" href="../../../nokey.calendar.html#nokey.calendar.nager_date.NagerDate.is_today_a_public_holiday">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_today_a_public_holiday</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">countryCode</span><span class="p">,</span> <span class="n">utc_offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns True if today (UTC time zone) is a public holiday for a given country or False if it is not.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - countryCode (str): The code representing one of over a hundred countries supported by the API.</span>
+<span class="sd">        - utc_offset (int): Integer offset from UTC time zone to adjust for one&#39;s own time zone.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - bool: True if today (UTC time zone) is a public holiday for the given country or False if it is not.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;IsTodayPublicHoliday/</span><span class="si">{</span><span class="n">countryCode</span><span class="si">}</span><span class="s2">?offset=</span><span class="si">{</span><span class="n">utc_offset</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">204</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">400</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Validation error&quot;</span>
+        <span class="k">elif</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">404</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Country code is unknown&quot;</span></div>
+
+            
+<div class="viewcode-block" id="NagerDate.get_public_holdiays_for_next_365">
+<a class="viewcode-back" href="../../../nokey.calendar.html#nokey.calendar.nager_date.NagerDate.get_public_holdiays_for_next_365">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_public_holdiays_for_next_365</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">countryCode</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of the upcoming public holidays for a given country for the next 365 days.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - countryCode (str): The code representing one of over a hundred countries supported by the API.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - list: A list containing the upcoming public holidays for a given country for the next 365 days.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;NextPublicHolidays/</span><span class="si">{</span><span class="n">countryCode</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="NagerDate.get_public_holidays_worldwide_for_next_7">
+<a class="viewcode-back" href="../../../nokey.calendar.html#nokey.calendar.nager_date.NagerDate.get_public_holidays_worldwide_for_next_7">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_public_holidays_worldwide_for_next_7</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of all the public holidays worldwide for the next 7 days.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - list: A list containing all the upcoming public holidays worldwide for the next 7 days.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;NextPublicHolidaysWorldwide&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+</div>
+
+     
+  
+            
+    
+           
+        
+    
+        
+        
+        
+        
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Spyder Rex.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

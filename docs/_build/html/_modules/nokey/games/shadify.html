@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nokey.games.shadify &mdash; nokey 0.7.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=c98573da"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            nokey
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">nokey</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nokey</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">nokey.games.shadify</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for nokey.games.shadify</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">requests_cache</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="n">helperFuncs</span> <span class="kn">import</span> <span class="nn">make_request</span> <span class="k">as</span> <span class="nn">mr</span>
+
+<div class="viewcode-block" id="Shadify">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify">[docs]</a>
+<span class="k">class</span> <span class="nc">Shadify</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class for interacting with the Shadify API.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">    - base_url: The base URL of the API.</span>
+<span class="sd">    - about: A short description of the API.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">use_caching</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cache_name</span><span class="o">=</span><span class="s2">&quot;shadify_cache&quot;</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;sqlite&quot;</span><span class="p">,</span> <span class="n">expire_after</span><span class="o">=</span><span class="mi">3600</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://shadify.dev/api/&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">about</span> <span class="o">=</span> <span class="s2">&quot;Shadify is a powerful REST API service provides a collection of different puzzle types, like crosswords, Sudoku, word search and so on. The API allows users to generate data for puzzles, check the correctness of solutions, and configure various parameters to change the difficulty of the puzzles.&quot;</span>
+        
+        <span class="k">if</span> <span class="n">use_caching</span><span class="p">:</span>
+            <span class="n">requests_cache</span><span class="o">.</span><span class="n">install_cache</span><span class="p">(</span><span class="n">cache_name</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">,</span> <span class="n">expire_after</span><span class="o">=</span><span class="n">expire_after</span><span class="p">)</span>
+            
+<div class="viewcode-block" id="Shadify.get_docs_url">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.get_docs_url">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_docs_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the URL for the Shadify API documentation.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - string: The URL for the API docs.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;https://shadify.dev/introduction.html&quot;</span></div>
+
+        
+    <span class="c1"># SUDOKU</span>
+<div class="viewcode-block" id="Shadify.about_sudoku">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.about_sudoku">[docs]</a>
+    <span class="k">def</span> <span class="nf">about_sudoku</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a short description of the game.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - string: A short description of the game.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;Sudoku is a popular number puzzle game. The essence of the game is to fill free cells with numbers from 1 to 9 so that in each row, each column and each small 3×3 square each digit occurs only once.&quot;</span></div>
+
+    
+<div class="viewcode-block" id="Shadify.generate_random_sudoku">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.generate_random_sudoku">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_random_sudoku</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a random sudoku puzzle, both the finished (&quot;grid&quot;) and the unfinished (&quot;task&quot;) versions.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - fill (int): A number from 0 to 50 that corresponds to the field fill level (as a percentage). Default is 30.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing two grids: the unfinished and finished versions of the puzzle.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">fill</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fill value cannot exceed 50.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;sudoku/generator?fill=</span><span class="si">{</span><span class="n">fill</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="Shadify.check_sudoku">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.check_sudoku">[docs]</a>
+    <span class="k">def</span> <span class="nf">check_sudoku</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">puzzle_grid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns whether or not the provided sudoku grid is correct or not.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - puzzle_grid (array): A two-dimensional grid (list of lists), where each list is a row in the sudoku grid.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing whether or not the given puzzle is correctly solved, as well as which row contains incorrect values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;task&quot;</span><span class="p">:</span> <span class="n">puzzle_grid</span>
+        <span class="p">}</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;sudoku/verifier&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_with_post_and_json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span></div>
+
+        
+    <span class="c1"># TAKUZU</span>
+<div class="viewcode-block" id="Shadify.about_takuzu">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.about_takuzu">[docs]</a>
+    <span class="k">def</span> <span class="nf">about_takuzu</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a short description of the game.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - string: A short description of the game.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;Takuzu (a.k.a. Binairo) is an entertaining puzzle game with simple rules. All you have to do is to fill a square field of a certain size with two digits (or colors) while following three simple rules: 1) Each column and each row must be unique. 2) Each row and each column must have an equal number of tiles of each digit. 3) No more than two tiles with the same digit in a row (110001 is wrong, 110010 is right).&quot;</span></div>
+
+        
+<div class="viewcode-block" id="Shadify.generate_random_takuzu">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.generate_random_takuzu">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_random_takuzu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="mi">33</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a random takuzu puzzle, both the finished (&quot;field&quot;) and the unfinished (&quot;task&quot;) versions.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - size (int): An even number from 4 to 12, which specifies the size of the field. Default is 8.</span>
+<span class="sd">        - fill (int): A number from 0 to 100 that corresponds to the field fill level (as a percentage). Default is 33.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing two grids: the unfinished and finished versions of the puzzle, as well as the size of the grid.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">12</span> <span class="ow">or</span> <span class="n">size</span> <span class="o">&lt;</span> <span class="mi">4</span> <span class="ow">or</span> <span class="n">size</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="n">fill</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Size must be an even number between 4 and 12, inclusive; and fill cannot exceed 100.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">size</span> <span class="o">&gt;</span> <span class="mi">12</span> <span class="ow">or</span> <span class="n">size</span> <span class="o">&lt;</span> <span class="mi">4</span> <span class="ow">or</span> <span class="n">size</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Size must be an even number between 4 and 12, inclusive.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">fill</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fill value cannot exceed 100.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;takuzu/generator?size=</span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s2">&amp;fill=</span><span class="si">{</span><span class="n">fill</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="Shadify.check_takuzu">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.check_takuzu">[docs]</a>
+    <span class="k">def</span> <span class="nf">check_takuzu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">puzzle_grid</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns whether or not the provided takuzu grid is correct or not.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - puzzle_grid (array): A two-dimensional grid (list of lists), where each list is a row in the takuzu grid.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing whether or not the given puzzle is correctly solved, as well as which row contains incorrect values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;task&quot;</span><span class="p">:</span> <span class="n">puzzle_grid</span>
+        <span class="p">}</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;takuzu/verifier&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_with_post_and_json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span></div>
+
+        
+    <span class="c1"># SET (I know nothing about this game or how to make it work, so read the documentation or Wikipedia to learn how it works.)</span>
+<div class="viewcode-block" id="Shadify.about_set">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.about_set">[docs]</a>
+    <span class="k">def</span> <span class="nf">about_set</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a short description of the game.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - string: A short description of the game.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;Set (card game) – a fascinating card game. The game deck consists of 81 cards, each with one, two, or three of the same symbol (rhombus, oval, or wave) of the same color (red, green, or purple) and texture (shaded, shaded, or outline only). The essence of the game is to find a set - a set of three cards that meets certain conditions.&quot;</span></div>
+
+        
+<div class="viewcode-block" id="Shadify.get_all_set_cards">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.get_all_set_cards">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_all_set_cards</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">possible_sets</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Always returns the same array of 81 objects. Each object corresponds to one of the cards.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - possible_sets (bool): A true/false string that enables/disables the search for possible sets in the current layout. The list of possible sets is not necessary for the game and acts only as a hint and evidence that sets exist in the current layout.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;set/start?possible-sets=</span><span class="si">{</span><span class="n">possible_sets</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="Shadify.load_set_state">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.load_set_state">[docs]</a>
+    <span class="k">def</span> <span class="nf">load_set_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">possible_sets</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cards</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Always returns the same array of 81 objects. Each object corresponds to one of the cards.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - A string of hyphenated, no spaced numbers representing the state of the cards.</span>
+<span class="sd">        - possible_sets (bool): A true/false string that enables/disables the search for possible sets in the current layout. The list of possible sets is not necessary for the game and acts only as a hint and evidence that sets exist in the current layout.</span>
+<span class="sd">        - action (str): Optional. The add/remove string, which allows you to perform the appropriate action with the current game state. The add string adds 3 random cards from the current freeCards array to the current layout (available only if the layout size does not exceed 20 cards). The remove string removes the specified combination of three cards from the current layout. To do this you must use the cards parameter. Default is None.</span>
+<span class="sd">        - cards (str): Required if action=remove. A string of the form 1-2-3, where each number corresponds to the unique identifier of one of the cards that make up the set. Default is None.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;remove&quot;</span> <span class="ow">and</span> <span class="n">cards</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;set/</span><span class="si">{</span><span class="n">state</span><span class="si">}</span><span class="s2">?possible-sets=</span><span class="si">{</span><span class="n">possible_sets</span><span class="si">}</span><span class="s2">&amp;action=</span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2">&amp;cards=</span><span class="si">{</span><span class="n">cards</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;remove&quot;</span> <span class="ow">and</span> <span class="n">cards</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;If value of action is &#39;removed,&#39; cards cannot be None.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;add&quot;</span><span class="p">:</span>
+            <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;set/</span><span class="si">{</span><span class="n">state</span><span class="si">}</span><span class="s2">?possible-sets=</span><span class="si">{</span><span class="n">possible_sets</span><span class="si">}</span><span class="s2">&amp;action=</span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2">&quot;</span>   
+        <span class="k">if</span> <span class="n">action</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;set/</span><span class="si">{</span><span class="n">state</span><span class="si">}</span><span class="s2">?possible-sets=</span><span class="si">{</span><span class="n">possible_sets</span><span class="si">}</span><span class="s2">&quot;</span> 
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+    <span class="c1"># MATH</span>
+<div class="viewcode-block" id="Shadify.about_math">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.about_math">[docs]</a>
+    <span class="k">def</span> <span class="nf">about_math</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a short description of the game.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - string: A short description of the game.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;A module for generating random mathematical expressions. Great for creating various simulators, where you&#39;ll have to wiggle your brain.&quot;</span></div>
+
+        
+<div class="viewcode-block" id="Shadify.generate_addition">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.generate_addition">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_addition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_first</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_first</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">min_second</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_second</span><span class="o">=</span><span class="mi">99</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a generated addition expression.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - min_first (int): Optional. Minimum value of the first number in the expression. Default is 1.</span>
+<span class="sd">        - max_first (int): Optional. Maximum value of the first number in the expression. Default is 99.</span>
+<span class="sd">        - min_second (int): Optional. Minimum value of the second number in the expression. Default is 1.</span>
+<span class="sd">        - max_second (int): Optional. Maximum value of the second number in the expression. Default is 99.   </span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing the generated expression.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;math/add?min-first=</span><span class="si">{</span><span class="n">min_first</span><span class="si">}</span><span class="s2">&amp;max-first=</span><span class="si">{</span><span class="n">max_first</span><span class="si">}</span><span class="s2">&amp;min-second=</span><span class="si">{</span><span class="n">min_second</span><span class="si">}</span><span class="s2">&amp;max-second=</span><span class="si">{</span><span class="n">max_second</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="Shadify.generate_subtraction">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.generate_subtraction">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_subtraction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_first</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_first</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">min_second</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_second</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">negative</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a generated subtraction expression.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - min_first (int): Optional. Minimum value of the first number in the expression. Default is 1.</span>
+<span class="sd">        - max_first (int): Optional. Maximum value of the first number in the expression. Default is 99.</span>
+<span class="sd">        - min_second (int): Optional. Minimum value of the second number in the expression. Default is 1.</span>
+<span class="sd">        - max_second (int): Optional. Maximum value of the second number in the expression. Default is 99.</span>
+<span class="sd">        - negative (int): Optional. The number 0/1 which enables/disables the possibility of generating a result with a negative value for expressions with subtraction. Initially, when generating an expression with subtraction, the first number is always greater than the second number. To change this behavior, use this parameter. Default is 0.   </span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing the generated expression.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;math/sub?min-first=</span><span class="si">{</span><span class="n">min_first</span><span class="si">}</span><span class="s2">&amp;max-first=</span><span class="si">{</span><span class="n">max_first</span><span class="si">}</span><span class="s2">&amp;min-second=</span><span class="si">{</span><span class="n">min_second</span><span class="si">}</span><span class="s2">&amp;max-second=</span><span class="si">{</span><span class="n">max_second</span><span class="si">}</span><span class="s2">&amp;negative=</span><span class="si">{</span><span class="n">negative</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="Shadify.generate_multiplication">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.generate_multiplication">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_multiplication</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_first</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_first</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">min_second</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_second</span><span class="o">=</span><span class="mi">99</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a generated multiplication expression.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - min_first (int): Optional. Minimum value of the first number in the expression. Default is 1.</span>
+<span class="sd">        - max_first (int): Optional. Maximum value of the first number in the expression. Default is 99.</span>
+<span class="sd">        - min_second (int): Optional. Minimum value of the second number in the expression. Default is 1.</span>
+<span class="sd">        - max_second (int): Optional. Maximum value of the second number in the expression. Default is 99.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing the generated expression.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;math/mul?min-first=</span><span class="si">{</span><span class="n">min_first</span><span class="si">}</span><span class="s2">&amp;max-first=</span><span class="si">{</span><span class="n">max_first</span><span class="si">}</span><span class="s2">&amp;min-second=</span><span class="si">{</span><span class="n">min_second</span><span class="si">}</span><span class="s2">&amp;max-second=</span><span class="si">{</span><span class="n">max_second</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="Shadify.generate_division">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.generate_division">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_division</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_first</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_first</span><span class="o">=</span><span class="mi">99</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a generated division expression.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - min_first (int): Optional. Minimum value of the first number in the expression. Default is 1.</span>
+<span class="sd">        - max_first (int): Optional. Maximum value of the first number in the expression. Default is 99. </span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing the generated expression.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;math/div?min-first=</span><span class="si">{</span><span class="n">min_first</span><span class="si">}</span><span class="s2">&amp;max-first=</span><span class="si">{</span><span class="n">max_first</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="Shadify.generate_quadratic_equation">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.generate_quadratic_equation">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_quadratic_equation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_a</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">min_b</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_b</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">min_c</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_c</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a generated quadratic equation.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - min_a (int): Minimum value of coefficient a. Default is 1.</span>
+<span class="sd">        - max_a (int): Maximum value of coefficient a. Default is 20.</span>
+<span class="sd">        - min_b (int): Minimum value of coefficient b. Default is 1.</span>
+<span class="sd">        - max_b (int): Maximum value of coefficient b. Default is 40.</span>
+<span class="sd">        - min_c (int): Minimum value of coefficient c. Default is 1.</span>
+<span class="sd">        - max_c (int): Maximum value of coefficient c. Default is 20.</span>
+<span class="sd">       </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing the generated equation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;math/quad?min-a=</span><span class="si">{</span><span class="n">min_a</span><span class="si">}</span><span class="s2">&amp;max-a=</span><span class="si">{</span><span class="n">max_a</span><span class="si">}</span><span class="s2">&amp;min-b=</span><span class="si">{</span><span class="n">min_b</span><span class="si">}</span><span class="s2">&amp;max-b=</span><span class="si">{</span><span class="n">max_b</span><span class="si">}</span><span class="s2">&amp;min-c=</span><span class="si">{</span><span class="n">min_c</span><span class="si">}</span><span class="s2">&amp;max-c=</span><span class="si">{</span><span class="n">max_c</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+    
+    <span class="c1"># SCHULTE TABLES</span>
+<div class="viewcode-block" id="Shadify.about_schulte">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.about_schulte">[docs]</a>
+    <span class="k">def</span> <span class="nf">about_schulte</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a short description of the game.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - string: A short description of the game.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;Schulte Tables – tables with randomly arranged objects (usually numbers or letters) used to test and develop quickness of finding these objects in a certain order (usually in ascending order for numbers and alphabetical order for letters). Exercises with tables can improve peripheral visual perception, which will have a positive impact on the skill of speed reading.&quot;</span></div>
+
+        
+<div class="viewcode-block" id="Shadify.generate_random_schulte_table">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.generate_random_schulte_table">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_random_schulte_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;number&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a random schulte table.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - size (int): The size of the generated table. The available range is from 1 to 15. Default is 5.</span>
+<span class="sd">        - mode (str) The number / alphabet string, which defines the generated values for the table: numbers or letters. If alphabet is selected, the size parameter will always be 5. Default is number</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a grid representing the schulte table.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">size</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">size</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Size must be between 1 and 15, inclusive.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;schulte/generator?size=</span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s2">&amp;mode=</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>  </div>
+
+        
+    <span class="c1"># MINESWEEPER</span>
+<div class="viewcode-block" id="Shadify.about_minesweeper">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.about_minesweeper">[docs]</a>
+    <span class="k">def</span> <span class="nf">about_minesweeper</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a short description of the game.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - string: A short description of the game.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;Minesweeper – a computer puzzle game in which the playing field is divided into adjacent cells, some of which are mined. The number of mined cells is known. The goal of the game is to open all the cells that do not contain mines. This game has become quite popular among Windows users, since it was pre-installed by default on older versions of that OS.&quot;</span></div>
+
+
+<div class="viewcode-block" id="Shadify.generate_random_minesweeper_field">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.generate_random_minesweeper_field">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_random_minesweeper_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">mines</span><span class="o">=</span><span class="mi">12</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a randomly generated minesweeper grid.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - start (str): A string of the form 1-2, which sets the starting position of the player. There will never be mines in and around this position. The first number is the X coordinate (from 1 to the value of the widht parameter), the second number is the Y coordinate (from 1 to the value of the height parameter).</span>
+<span class="sd">        - width (int): The number that sets the width of the generated field. The total number of cells in the field must not exceed 1000. Default is 9.</span>
+<span class="sd">        - height (int): The number that sets the height of the generated field. The total number of cells in the field must not exceed 1000. Default is 9.</span>
+<span class="sd">        - mines (int): The number that sets the number of mines on the field. The number of mines must not exceed 25% of the total number of cells on the field. Default is 12.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing the minesweeper board grid and other data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">width</span> <span class="o">*</span> <span class="n">height</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The width and height given would result in </span><span class="si">{</span><span class="n">width</span><span class="o">*</span><span class="n">height</span><span class="si">}</span><span class="s2"> cells, but total cells must not exceed 1000. Adjust dimensions accordingly.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">mines</span> <span class="o">&gt;</span> <span class="mf">.25</span> <span class="o">*</span> <span class="n">width</span> <span class="o">*</span> <span class="n">height</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of mines given would be </span><span class="si">{</span><span class="n">mines</span><span class="o">/</span><span class="p">(</span><span class="n">width</span><span class="o">*</span><span class="n">height</span><span class="p">)</span><span class="si">}</span><span class="s2"> of total cells, but number of mines may not exceed .25 of total cells. Adjust number of mines accordingly.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;minesweeper/generator?start=</span><span class="si">{</span><span class="n">start</span><span class="si">}</span><span class="s2">&amp;width=</span><span class="si">{</span><span class="n">width</span><span class="si">}</span><span class="s2">&amp;height=</span><span class="si">{</span><span class="n">height</span><span class="si">}</span><span class="s2">&amp;mines=</span><span class="si">{</span><span class="n">mines</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+    <span class="c1"># WORDSEARCH</span>
+<div class="viewcode-block" id="Shadify.about_wordsearch">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.about_wordsearch">[docs]</a>
+    <span class="k">def</span> <span class="nf">about_wordsearch</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a short description of the game.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - string: A short description of the game.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;Word search is a puzzle consisting of letters of words placed in a square or rectangular grid. The aim of the puzzle is to find and mark all the words hidden in the grid. The words can be placed horizontally, vertically or diagonally.&quot;</span></div>
+
+        
+<div class="viewcode-block" id="Shadify.generate_random_wordsearch_grid">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.generate_random_wordsearch_grid">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_random_wordsearch_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">9</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a randomly generated wordsearch grid.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - width (int): A number from 5 to 20 that specifies the width of the grid. The total number of cells in the field must not exceed 256. Default is 9.</span>
+<span class="sd">        - height (int): A number from 5 to 20 that specifies the width of the grid. The total number of cells in the field must not exceed 256. Default is 9.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: Returns a dictionary containing the wordsearch grid and the key.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">width</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="ow">or</span> <span class="n">width</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of width must be between 5 and 20, inclusive.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">height</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="ow">or</span> <span class="n">height</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of height must be between 5 and 20, inclusive.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">width</span> <span class="o">*</span> <span class="n">height</span> <span class="o">&gt;</span> <span class="mi">256</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Width and height given would result in </span><span class="si">{</span><span class="n">width</span><span class="o">*</span><span class="n">height</span><span class="si">}</span><span class="s2"> cells, but cells must not exceed 256. Adjust dimensions accordingly.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;wordsearch/generator?width=</span><span class="si">{</span><span class="n">width</span><span class="si">}</span><span class="s2">&amp;height=</span><span class="si">{</span><span class="n">height</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+    <span class="c1"># ANAGRAMS</span>
+<div class="viewcode-block" id="Shadify.about_anagram">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.about_anagram">[docs]</a>
+    <span class="k">def</span> <span class="nf">about_anagram</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a short description of the game.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - string: A short description of the game.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;Anagrams is a whole type of puzzles associated with composing all possible words from a given set of letters. This module implements the simplest variation of anagrams: a random word is given, the letters of which should be used to compose as many other words as possible.&quot;</span></div>
+
+        
+<div class="viewcode-block" id="Shadify.generate_random_anagram">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.generate_random_anagram">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_random_anagram</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a word as the task and the possible words that can be composed from the word.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a task word and a list of words that can be composed from this word.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;anagram/generator&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+    <span class="c1"># COUNTRIES</span>
+<div class="viewcode-block" id="Shadify.about_countries">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.about_countries">[docs]</a>
+    <span class="k">def</span> <span class="nf">about_countries</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a short description of the game.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - string: A short description of the game.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;Countries module allows you to generate quizes such as guess the capital or guess the country from an image of the flag. It is a simple and useful module for creating applications to test and practice knowledge of all countries.&quot;</span></div>
+
+        
+<div class="viewcode-block" id="Shadify.generate_capital_quiz">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.generate_capital_quiz">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_capital_quiz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">variants</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a country capital quiz and answer the the quiz.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - variants (int): Optional. A number from 2 to 6 corresponding to the number of different options from which you have to choose the correct capital of the given country. Default is 4.</span>
+<span class="sd">        - amount (int): Optional. A number from 1 to 20 which is responsible for the number of quizzes returned. The use of this parameter ensures that among all quizzes received, all will be unique. Default is 1.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a country name, a link to its flag, possible answers for its capital, and correct answer.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">variants</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">variants</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of variants must be between 2 and 6, inclusive. Please adjust value accordingly.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">amount</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">amount</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of amount must be between 1 and 20, inclusive. Please adjust value accordingly.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;countries/capital-quiz?variants=</span><span class="si">{</span><span class="n">variants</span><span class="si">}</span><span class="s2">&amp;amount=</span><span class="si">{</span><span class="n">amount</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="Shadify.generate_country_quiz">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.generate_country_quiz">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_country_quiz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">variants</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a country capital quiz and answer the the quiz.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - variants (int): Optional. A number from 2 to 6 corresponding to the number of different options from which you have to choose the the correct country of the given flag image. Default is 4.</span>
+<span class="sd">        - amount (int): Optional. A number from 1 to 20 which is responsible for the number of quizzes returned. The use of this parameter ensures that among all quizzes received, all will be unique. Default is 1.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a link to a country&#39;s flag, possible answers for the country, and correct answer.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">variants</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">variants</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of variants must be between 2 and 6, inclusive. Please adjust value accordingly.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">amount</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">amount</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of amount must be between 1 and 20, inclusive. Please adjust value accordingly.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;countries/country-quiz?variants=</span><span class="si">{</span><span class="n">variants</span><span class="si">}</span><span class="s2">&amp;amount=</span><span class="si">{</span><span class="n">amount</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+    <span class="c1"># CAMP</span>
+<div class="viewcode-block" id="Shadify.about_camp">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.about_camp">[docs]</a>
+    <span class="k">def</span> <span class="nf">about_camp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a short description of the game.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - string: A short description of the game.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;Camp (aka Tents and trees, Tents) is a logic puzzle with simple rules and challenging solutions. The rules of Camp are simple: 1) Pair each tree with a tent adjacent horizontally or vertically. This should be a 1 to 1 relation. 2) Tents never touch each other even diagonally. 3) The clues outside the grid indicate the number of tents on that row/column.&quot;</span></div>
+
+    
+<div class="viewcode-block" id="Shadify.generate_random_camp_task">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.generate_random_camp_task">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_random_camp_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">solution</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a camp game grid and the solution.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - width (int): Optional. A number from 5 to 15 which corresponds to the width of the generated field. Default is 7.</span>
+<span class="sd">        - height (int): Optional. A number from 5 to 15 which corresponds to the height of the generated field. Default is 7.</span>
+<span class="sd">        - solution (bool): Optional. The true/false value that specifies whether the solution should be sent with the task or not. Default is True.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing the camp grid task and the solution if solution is True.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">width</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="ow">or</span> <span class="n">width</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of width must be between 5 and 15, inclusive. Please adjust value accordingly.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">height</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="ow">or</span> <span class="n">height</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of height must be between 5 and 15, inclusive. Please adjust value accordingly.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;camp/generator?width=</span><span class="si">{</span><span class="n">width</span><span class="si">}</span><span class="s2">&amp;height=</span><span class="si">{</span><span class="n">height</span><span class="si">}</span><span class="s2">&amp;solution=</span><span class="si">{</span><span class="n">solution</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="Shadify.check_camp_task">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.check_camp_task">[docs]</a>
+    <span class="k">def</span> <span class="nf">check_camp_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">row_tents</span><span class="p">,</span> <span class="n">column_tents</span><span class="p">,</span> <span class="n">solution</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks the given camp task grid and returns whether or not it is correct.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - row_tents (list): A list containing the row tents values.</span>
+<span class="sd">        - column_tents (list). A list containing the column tents values.</span>
+<span class="sd">        - solution (array): A two dimensional array containing the solution grid.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing whether or not the solution is valid, where the error occurs if it is not, and a message.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;rowTents&quot;</span><span class="p">:</span> <span class="n">row_tents</span><span class="p">,</span>
+                <span class="s2">&quot;columnTents&quot;</span><span class="p">:</span> <span class="n">column_tents</span><span class="p">,</span>
+                <span class="s2">&quot;solution&quot;</span><span class="p">:</span> <span class="n">solution</span>
+        <span class="p">}</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;camp/verifier/&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_with_post_and_json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span></div>
+
+        
+    <span class="c1"># KUROMASU</span>
+<div class="viewcode-block" id="Shadify.about_kuromasu">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.about_kuromasu">[docs]</a>
+    <span class="k">def</span> <span class="nf">about_kuromasu</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a short description of the game.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - string: A short description of the game.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;Kuromasu is a puzzle played on a rectangular grid. Some of these cells have numbers in them. Each cell may be either black or white. The object is to determine what type each cell is. The following rules determine which cells are which: 1) Each number on the board represents the number of white cells that can be seen from that cell, including itself. A cell can be seen from another cell if both cells are within the same row or column, and there are no black cells between them in that row or column. 2) Numbered cells must not be black. 3) No two black cells must be horizontally or vertically adjacent. 4) All the white cells must be connected horizontally or vertically.&quot;</span></div>
+
+    
+<div class="viewcode-block" id="Shadify.generate_random_kuromasu_task">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.generate_random_kuromasu_task">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_random_kuromasu_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a kuromasu task grid and the solution.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - width (int): Optional. A number from 4 to 15 which corresponds to the width of the generated field. Default is 5.</span>
+<span class="sd">        - height (int): Optional. A number from 4 to 15 which corresponds to the height of the generated field. Default is 5.</span>
+<span class="sd">        - fill (int): Optional. A number from 10 to 50 which corresponds to the % level of filling the task with ready cells.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing the kuromasu grid task and the solution.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">width</span> <span class="o">&lt;</span> <span class="mi">4</span> <span class="ow">or</span> <span class="n">width</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of width must be between 4 and 15, inclusive. Please adjust value accordingly.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">height</span> <span class="o">&lt;</span> <span class="mi">4</span> <span class="ow">or</span> <span class="n">height</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of height must be between 4 and 15, inclusive. Please adjust value accordingly.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">fill</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="ow">or</span> <span class="n">fill</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of fill must be between 10 and 50, inclusive.&quot;</span><span class="p">)</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;kuromasu/generator?width=</span><span class="si">{</span><span class="n">width</span><span class="si">}</span><span class="s2">&amp;height=</span><span class="si">{</span><span class="n">height</span><span class="si">}</span><span class="s2">&amp;fill=</span><span class="si">{</span><span class="n">fill</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="Shadify.check_kuromasu_task">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.check_kuromasu_task">[docs]</a>
+    <span class="k">def</span> <span class="nf">check_kuromasu_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">solution</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks the given kuromasu task grid and returns whether or not it is correct.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - solution (array): A two dimensional array containing the solution grid.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing whether or not the solution is valid, where the error occurs if it is not.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;solution&quot;</span><span class="p">:</span> <span class="n">solution</span>
+        <span class="p">}</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;kuromasu/verifier/&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request_with_post_and_json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span></div>
+
+        
+    <span class="c1"># MEMORY</span>
+<div class="viewcode-block" id="Shadify.about_memory">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.about_memory">[docs]</a>
+    <span class="k">def</span> <span class="nf">about_memory</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a short description of the game.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - None</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - string: A short description of the game.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;Memory is a puzzle that&#39;s great for practicing memorization. You are given a field with a random set of elements, and each element in the field occur several times (usually 2 or 3). You have some time to remember the position of all the elements on the field, and then all of them are hidden and your task is to open pairs of identical elements one by one trying to make as few mistakes as possible.&quot;</span></div>
+
+  
+<div class="viewcode-block" id="Shadify.generate_random_memory_grid">
+<a class="viewcode-back" href="../../../nokey.games.html#nokey.games.shadify.Shadify.generate_random_memory_grid">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_random_memory_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">pair_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">show_positions</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a memory grid and pair positions.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">        - width (int). Optional. A number corresponding to the width of the generated grid. The total number of cells in the grid must not exceed 52 multiplied by the pair-size. Default is 6.</span>
+<span class="sd">        - height (int): Optional. A number corresponding to the height of the generated grid. The total number of cells in the grid must not exceed 52 multiplied by the pair-size. Default is 4.</span>
+<span class="sd">        - pair_size (int): Optional. A number corresponding to the size of a pair of identical elements. The value must be a multiple of the total number of cells in the grid. Available values: 2, 3, 4. Default is 3.</span>
+<span class="sd">        - show_positions (bool): Optional. A true/false value that determines whether to send position information for each pair of elements. Default is True.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        - dict: A dictionary containing a memory grid and pair positions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">width</span> <span class="o">*</span> <span class="n">height</span> <span class="o">&gt;</span> <span class="mi">52</span> <span class="o">*</span> <span class="n">pair_size</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The total number of cells in the grid are </span><span class="si">{</span><span class="n">width</span><span class="o">*</span><span class="n">height</span><span class="si">}</span><span class="s2">, but total cells must not exceed 52 times the pair_size. Please adjust dimensions accordingly.&quot;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">()</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;memory/generator?width=</span><span class="si">{</span><span class="n">width</span><span class="si">}</span><span class="s2">&amp;height=</span><span class="si">{</span><span class="n">height</span><span class="si">}</span><span class="s2">&amp;pair-size=</span><span class="si">{</span><span class="n">pair_size</span><span class="si">}</span><span class="s2">&amp;show-positions=</span><span class="si">{</span><span class="n">show_positions</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
+</div>
+
+        
+        
+            
+    
+    
+    
+        
+    
+        
+  
+   
+        
+    
+    
+        
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Spyder Rex.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
