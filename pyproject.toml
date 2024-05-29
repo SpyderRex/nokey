@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nokey"
-version = "0.7.3"
+version = "0.7.4"
 description = "A python package for accessing APIs that require no key."
 authors = ["Spyder Rex <billyjohnsonauthor@gmail.com>"]
 readme = "README.md"

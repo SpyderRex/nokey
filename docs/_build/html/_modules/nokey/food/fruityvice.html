@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.food.fruityvice &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.food.fruityvice &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=c98573da"></script>
+        <script src="../../../_static/documentation_options.js?v=020ce317"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -81,8 +81,8 @@
 <span class="sd">    A class to interact with the Fruityvice API.</span>
 <span class="sd">    </span>
 <span class="sd">    Attributes:</span>
-<span class="sd">    - base_url: The base url of the Fruityvice API.</span>
-<span class="sd">    - about: A short description of the API.</span>
+<span class="sd">        base_url: The base url of the Fruityvice API.</span>
+<span class="sd">        about: A short description of the API.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">use_caching</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cache_name</span><span class="o">=</span><span class="s2">&quot;fruityvice_cache&quot;</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;sqlite&quot;</span><span class="p">,</span> <span class="n">expire_after</span><span class="o">=</span><span class="mi">3600</span><span class="p">):</span>
@@ -99,10 +99,10 @@
 <span class="sd">        Returns the url for the Fruityvice API documentation.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - string: URL for API documentation.</span>
+<span class="sd">            string: URL for API documentation.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;https://www.fruityvice.com/doc/index.html&quot;</span></div>
 
@@ -114,10 +114,10 @@
 <span class="sd">        Returns all the fruit listed in the Fruityvice API.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing all the fruit listed in the API.</span>
+<span class="sd">            dict: Dictionary containing all the fruit listed in the API.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -130,12 +130,12 @@
 <span class="sd">        Returns a fruit with its information based on a minimum and maximum range of values for the specified nutritional component.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - nutrition (str): A nutritional component. Possible values are carbohydrates, protein, fat, calories, and sugar.</span>
-<span class="sd">        - minVal (float): The minimum value of the range specified for nutritional component (per 100g of the fruit). Defaults to its minimum possible value, which is 0.</span>
-<span class="sd">        - maxVal (float): The maximum value of the range specified for nutritional component (per 100g of the fruit). Defaults to its maximum possible value, which is 1000.</span>
+<span class="sd">            nutrition (str): A nutritional component. Possible values are carbohydrates, protein, fat, calories, and sugar.</span>
+<span class="sd">            minVal (float): The minimum value of the range specified for nutritional component (per 100g of the fruit). Defaults to its minimum possible value, which is 0.</span>
+<span class="sd">            maxVal (float): The maximum value of the range specified for nutritional component (per 100g of the fruit). Defaults to its maximum possible value, which is 1000.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing information on the fruit matching the specified values.</span>
+<span class="sd">            dict: Dictionary containing information on the fruit matching the specified values.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nutrition</span><span class="si">}</span><span class="s2">?min=</span><span class="si">{</span><span class="n">minVal</span><span class="si">}</span><span class="s2">&amp;max=</span><span class="si">{</span><span class="n">maxVal</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -148,10 +148,10 @@
 <span class="sd">        Returns fruit matching the given family.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - family (str): The name of a fruit family.</span>
+<span class="sd">            family (str): The name of a fruit family.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        -dict: Dictionary containing fruit of the given family.</span>
+<span class="sd">            dict: Dictionary containing fruit of the given family.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;family/</span><span class="si">{</span><span class="n">family</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -164,10 +164,10 @@
 <span class="sd">        Returns fruit matching the given genus.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - genus (str): The name of a fruit genus.</span>
+<span class="sd">            genus (str): The name of a fruit genus.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        -dict: Dictionary containing fruit of the given genus.</span>
+<span class="sd">            dict: Dictionary containing fruit of the given genus.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;genus/</span><span class="si">{</span><span class="n">genus</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -180,10 +180,10 @@
 <span class="sd">        Returns fruit matching the given order.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - order (str): The name of a fruit order.</span>
+<span class="sd">            order (str): The name of a fruit order.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        -dict: Dictionary containing fruit of the given order.</span>
+<span class="sd">            dict: Dictionary containing fruit of the given order.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;order/</span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>

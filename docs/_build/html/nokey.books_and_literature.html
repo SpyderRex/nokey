@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.books_and_literature package &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.books_and_literature package &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=c98573da"></script>
+        <script src="_static/documentation_options.js?v=020ce317"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -49,7 +49,6 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">nokey</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="nokey.html">nokey package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="nokey.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="nokey.activities.html">nokey.activities package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.animals.html">nokey.animals package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.art_and_images.html">nokey.art_and_images package</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">nokey.books_and_literature package</a></li>
@@ -119,99 +118,174 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.books_and_literature.gutendex.</span></span><span class="sig-name descname"><span class="pre">Gutendex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gutendex_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/gutendex.html#Gutendex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.gutendex.Gutendex" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class for interacting with the Gutendex API.</p>
-<p>Attributes:
-base_url: The base URL for the API.
-about: A short description of the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.books_and_literature.gutendex.Gutendex.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#nokey.books_and_literature.gutendex.Gutendex.base_url" title="Link to this definition"></a></dt>
+<dd><p>The base URL for the API.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.books_and_literature.gutendex.Gutendex.about">
+<span class="sig-name descname"><span class="pre">about</span></span><a class="headerlink" href="#nokey.books_and_literature.gutendex.Gutendex.about" title="Link to this definition"></a></dt>
+<dd><p>A short description of the API.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.books_and_literature.gutendex.Gutendex.get_authors_before_specified_year">
 <span class="sig-name descname"><span class="pre">get_authors_before_specified_year</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">author_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'popular'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/gutendex.html#Gutendex.get_authors_before_specified_year"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.gutendex.Gutendex.get_authors_before_specified_year" title="Link to this definition"></a></dt>
 <dd><p>Returns authors and metadata for their books existing before the specified year.</p>
-<p>Args:
-- author_year_end (int): The year before which the author was alive. Can be negative (for BC era) or positive.
-- sort (str): Parameter by which to sort the data. Default is popular, and other supported values are ascending and descending.
-- language (str): The language in which the books are written. Defaults to en (English). Can take multiple comma separated (non-spaced) values.</p>
-<p>Returns:
-- dict: Returns a dictionary containing metadata for books by authors who were alive before the specified year.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>author_year_end</strong> (<em>int</em>) – The year before which the author was alive. Can be negative (for BC era) or positive.</p></li>
+<li><p><strong>sort</strong> (<em>str</em>) – Parameter by which to sort the data. Default is popular, and other supported values are ascending and descending.</p></li>
+<li><p><strong>language</strong> (<em>str</em>) – The language in which the books are written. Defaults to en (English). Can take multiple comma separated (non-spaced) values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Returns a dictionary containing metadata for books by authors who were alive before the specified year.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.books_and_literature.gutendex.Gutendex.get_authors_within_date_range">
 <span class="sig-name descname"><span class="pre">get_authors_within_date_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">author_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">author_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'popular'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/gutendex.html#Gutendex.get_authors_within_date_range"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.gutendex.Gutendex.get_authors_within_date_range" title="Link to this definition"></a></dt>
 <dd><p>Returns authors and metadata for their books within the specified year range.</p>
-<p>Args:
-- author_year_start (int): The year marking the beginning of range. Can be negative (for BC era) or positive.
-- author_year_end (int): The year marking the end of range. Can be negative (for BC era) or positive.
-- sort (str): Parameter by which to sort the data. Default is popular, and other supported values are ascending and descending.
-- language (str): The language in which the books are written. Defaults to en (English). Can take multiple comma separated (non-spaced) values.</p>
-<p>Returns:
-- dict: A dictionary containing a list of books whose authors lived within the specified range.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>author_year_start</strong> (<em>int</em>) – The year marking the beginning of range. Can be negative (for BC era) or positive.</p></li>
+<li><p><strong>author_year_end</strong> (<em>int</em>) – The year marking the end of range. Can be negative (for BC era) or positive.</p></li>
+<li><p><strong>sort</strong> (<em>str</em>) – Parameter by which to sort the data. Default is popular, and other supported values are ascending and descending.</p></li>
+<li><p><strong>language</strong> (<em>str</em>) – The language in which the books are written. Defaults to en (English). Can take multiple comma separated (non-spaced) values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of books whose authors lived within the specified range.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.books_and_literature.gutendex.Gutendex.get_book_by_id">
 <span class="sig-name descname"><span class="pre">get_book_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">book_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/gutendex.html#Gutendex.get_book_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.gutendex.Gutendex.get_book_by_id" title="Link to this definition"></a></dt>
 <dd><p>Returns metadata for a single book matching the given id.</p>
-<p>Args:
-- book_id (int): A unique integer identifying the book in the API database.</p>
-<p>Returns:
-- dict: A dictionary containing metadata for a single book.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>book_id</strong> (<em>int</em>) – A unique integer identifying the book in the API database.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing metadata for a single book.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.books_and_literature.gutendex.Gutendex.get_books">
 <span class="sig-name descname"><span class="pre">get_books</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">page</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'popular'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/gutendex.html#Gutendex.get_books"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.gutendex.Gutendex.get_books" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of book metadata contained in the API.</p>
-<p>Args:
-- page (int): The page of the book list. Defaults to the first page.
-- sort (str): Sort option for the book metadata. The default is popular, based on number of downloads. Other supported values are ascending and descending.
-- language (str): The language in which the books are written. Defaults to en (English). Can take multiple comma separated (non-spaced) values.</p>
-<p>Returns:
-- dict: A dictionary containing the book metadata for the given page.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>page</strong> (<em>int</em>) – The page of the book list. Defaults to the first page.</p></li>
+<li><p><strong>sort</strong> (<em>str</em>) – Sort option for the book metadata. The default is popular, based on number of downloads. Other supported values are ascending and descending.</p></li>
+<li><p><strong>language</strong> (<em>str</em>) – The language in which the books are written. Defaults to en (English). Can take multiple comma separated (non-spaced) values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the book metadata for the given page.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.books_and_literature.gutendex.Gutendex.get_books_by_ids">
 <span class="sig-name descname"><span class="pre">get_books_by_ids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">book_ids</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/gutendex.html#Gutendex.get_books_by_ids"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.gutendex.Gutendex.get_books_by_ids" title="Link to this definition"></a></dt>
 <dd><p>Returns metadata for a single book matching the given id.</p>
-<p>Args:
-- book_ids (str): Comma separated (no spaces) integers, written as a string, identifying the book in the API database.</p>
-<p>Returns:
-- dict: A dictionary containing metadata for a single book.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>book_ids</strong> (<em>str</em>) – Comma separated (no spaces) integers, written as a string, identifying the book in the API database.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing metadata for a single book.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.books_and_literature.gutendex.Gutendex.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/gutendex.html#Gutendex.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.gutendex.Gutendex.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for the Gutendex API documentation.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: The URL for the API docs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL for the API docs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.books_and_literature.gutendex.Gutendex.search_books_by_author_and_title">
 <span class="sig-name descname"><span class="pre">search_books_by_author_and_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">author</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'popular'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/gutendex.html#Gutendex.search_books_by_author_and_title"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.gutendex.Gutendex.search_books_by_author_and_title" title="Link to this definition"></a></dt>
 <dd><p>Returns metadata on books from the given author and/or a give title.</p>
-<p>Args:
-- author (str): Any part of the author’s name.
-- title (str): Any part of the book’s title.
-- sort (str): Parameter by which to sort the data. Default is popular, and other supported values are ascending and descending.
-- language (str): The language in which the books are written. Defaults to en (English). Can take multiple comma separated (non-spaced) values.</p>
-<p>Returns:
-- dict: A dictionary containing metadata on books from the given author and/or given title.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>author</strong> (<em>str</em>) – Any part of the author’s name.</p></li>
+<li><p><strong>title</strong> (<em>str</em>) – Any part of the book’s title.</p></li>
+<li><p><strong>sort</strong> (<em>str</em>) – Parameter by which to sort the data. Default is popular, and other supported values are ascending and descending.</p></li>
+<li><p><strong>language</strong> (<em>str</em>) – The language in which the books are written. Defaults to en (English). Can take multiple comma separated (non-spaced) values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing metadata on books from the given author and/or given title.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.books_and_literature.gutendex.Gutendex.search_books_by_topic">
 <span class="sig-name descname"><span class="pre">search_books_by_topic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'popular'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/gutendex.html#Gutendex.search_books_by_topic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.gutendex.Gutendex.search_books_by_topic" title="Link to this definition"></a></dt>
 <dd><p>Returns metadata on books matching the given topic.</p>
-<p>Args:
-- topic (str): The topic to search.
-- sort (str): Parameter by which to sort the data. Default is popular, and other supported values are ascending and descending.
-- language (str): The language in which the books are written. Defaults to en (English). Can take multiple comma separated (non-spaced) values.</p>
-<p>Returns:
-- dict: A dictionary containing metadata for books matching the given topic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>topic</strong> (<em>str</em>) – The topic to search.</p></li>
+<li><p><strong>sort</strong> (<em>str</em>) – Parameter by which to sort the data. Default is popular, and other supported values are ascending and descending.</p></li>
+<li><p><strong>language</strong> (<em>str</em>) – The language in which the books are written. Defaults to en (English). Can take multiple comma separated (non-spaced) values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing metadata for books matching the given topic.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -224,77 +298,135 @@ about: A short description of the API.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.books_and_literature.stephen_king.</span></span><span class="sig-name descname"><span class="pre">StephenKingAPI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'stephen_king_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/stephen_king.html#StephenKingAPI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.stephen_king.StephenKingAPI" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class to interact with the Stephen King API.</p>
-<p>Attributes:
-- base_url: The base URL of the API.
-- about: A short description of the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.books_and_literature.stephen_king.StephenKingAPI.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#nokey.books_and_literature.stephen_king.StephenKingAPI.base_url" title="Link to this definition"></a></dt>
+<dd><p>The base URL of the API.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.books_and_literature.stephen_king.StephenKingAPI.about">
+<span class="sig-name descname"><span class="pre">about</span></span><a class="headerlink" href="#nokey.books_and_literature.stephen_king.StephenKingAPI.about" title="Link to this definition"></a></dt>
+<dd><p>A short description of the API.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.books_and_literature.stephen_king.StephenKingAPI.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/stephen_king.html#StephenKingAPI.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.stephen_king.StephenKingAPI.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for the Stephen King API documentation.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: The URL for the API docs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL for the API docs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_book_by_id">
 <span class="sig-name descname"><span class="pre">get_stephen_king_book_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">book_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/stephen_king.html#StephenKingAPI.get_stephen_king_book_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_book_by_id" title="Link to this definition"></a></dt>
 <dd><p>Returns the Stephen King book matching the id, with related metadata.</p>
-<p>Args:
-- book_id (int): A unique number identifying the Stephen King book.</p>
-<p>Returns:
-- dict: A dictionary containing book metadata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>book_id</strong> (<em>int</em>) – A unique number identifying the Stephen King book.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing book metadata.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_books">
 <span class="sig-name descname"><span class="pre">get_stephen_king_books</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/stephen_king.html#StephenKingAPI.get_stephen_king_books"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_books" title="Link to this definition"></a></dt>
 <dd><p>Returns all of the Stephen King books and related metadata.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing book metadata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing book metadata.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_short_stories">
 <span class="sig-name descname"><span class="pre">get_stephen_king_short_stories</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/stephen_king.html#StephenKingAPI.get_stephen_king_short_stories"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_short_stories" title="Link to this definition"></a></dt>
 <dd><p>Returns all of the Stephen King short stories and related metadata.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing short story metadata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing short story metadata.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_short_story_by_id">
 <span class="sig-name descname"><span class="pre">get_stephen_king_short_story_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">story_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/stephen_king.html#StephenKingAPI.get_stephen_king_short_story_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_short_story_by_id" title="Link to this definition"></a></dt>
 <dd><p>Returns the Stephen King short story matching the id, with related metadata.</p>
-<p>Args:
-- story_id (int): A unique number identifying the Stephen King short story.</p>
-<p>Returns:
-- dict: A dictionary containing short story metadata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>story_id</strong> (<em>int</em>) – A unique number identifying the Stephen King short story.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing short story metadata.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_villain_by_id">
 <span class="sig-name descname"><span class="pre">get_stephen_king_villain_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">villain_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/stephen_king.html#StephenKingAPI.get_stephen_king_villain_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_villain_by_id" title="Link to this definition"></a></dt>
 <dd><p>Returns the Stephen King villain matching the id, with related metadata.</p>
-<p>Args:
-- villain_id (int): A unique number identifying the Stephen King villain.</p>
-<p>Returns:
-- dict: A dictionary containing villain metadata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>villain_id</strong> (<em>int</em>) – A unique number identifying the Stephen King villain.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing villain metadata.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_villains">
 <span class="sig-name descname"><span class="pre">get_stephen_king_villains</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/books_and_literature/stephen_king.html#StephenKingAPI.get_stephen_king_villains"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.books_and_literature.stephen_king.StephenKingAPI.get_stephen_king_villains" title="Link to this definition"></a></dt>
 <dd><p>Returns all of the Stephen King villains and related metadata.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing villain metadata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing villain metadata.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

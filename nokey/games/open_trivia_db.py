@@ -6,8 +6,8 @@ class OpenTriviaDB:
     A class for interacting with the Open Trivia Database API.
     
     Attributes:
-    - base_url: The base URL of the API.
-    - about: A short description of the API.
+        base_url: The base URL of the API.
+        about: A short description of the API.
     """
     def __init__(self, use_caching=False, cache_name="open_trivia_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://opentdb.com/api.php?"
@@ -21,10 +21,10 @@ class OpenTriviaDB:
         Returns the URL for the Open Trivia Database API documentation.
         
         Args:
-        - None
+            None
         
         Returns:
-        - string: The URL for the API docs.
+            string: The URL for the API docs.
         """
         return "https://opentdb.com/api_config.php"
         
@@ -33,10 +33,10 @@ class OpenTriviaDB:
         Returns the specified amount of random trivia questions of various difficulties and subjects, and the answers to those questions.
         
         Args:
-        - amount (int): The number of trivia desired.
+            amount (int): The number of trivia desired.
         
         Returns:
-        - dict: A dictionary containing the specified amount of trivia questions along with relevant data and the answers.
+            dict: A dictionary containing the specified amount of trivia questions along with relevant data and the answers.
         """
         endpoint = f"amount={amount}"
         return mr.make_request(self.base_url+endpoint)
@@ -46,10 +46,10 @@ class OpenTriviaDB:
         Returns the specified amount of trivial questions matching the given parameters, along with relevant data and answers to the questions.
         
         Args:
-        - amount (int): The number of trivia questions to return.
-        - category (int): The category of trivia questions desired. Defaults to None, in which case any categories will be returned.
-        - difficulty (str): The difficulty level of the trivia questions. Defaults to None, in which case each question can be any difficulty level. Supported values are easy, medium, and hard.
-        - q_type (str): The type of questions. Defaults to None, in which case the types are random. Supported values are boolean (True or False) and multiple (Multiple Choice).
+            amount (int): The number of trivia questions to return.
+            category (int): The category of trivia questions desired. Defaults to None, in which case any categories will be returned.
+            difficulty (str): The difficulty level of the trivia questions. Defaults to None, in which case each question can be any difficulty level. Supported values are easy, medium, and hard.
+            q_type (str): The type of questions. Defaults to None, in which case the types are random. Supported values are boolean (True or False) and multiple (Multiple Choice).
         """
         category_dict = {"general knowledge": 9, 
                          "books": 10,

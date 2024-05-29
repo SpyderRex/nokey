@@ -8,8 +8,8 @@ class IP_API:
     A class to interact with the IP API.
     
     Attributes:
-    - base_url: The base URL of IP API.
-    - about: A short description of the API.
+        base_url: The base URL of IP API.
+        about: A short description of the API.
     """
     def __init__(self, use_caching=False, cache_name="ip_api_cache", backend="sqlite", expire_after=3600):
         self.base_url = "http://ip-api.com/json/" 
@@ -23,10 +23,10 @@ class IP_API:
         Returns URL for API docs.
         
         Args:
-        - None
+            None
         
         Returns:
-        - string: URL for API documentation.
+            string: URL for API documentation.
         """
         return "https://ip-api.com/docs"
     
@@ -35,10 +35,10 @@ class IP_API:
         Returns geolocation info (country, state, coordinates, etc.) by IP address.
 
         Args:
-        - ip (str): IPv4/IPv6 address or domain name.
+            ip (str): IPv4/IPv6 address or domain name.
 
         Returns:
-        - dict: Location information based on given IP address or domain name.
+            dict: Location information based on given IP address or domain name.
         """
         endpoint = f"{ip}"
         return mr.make_request(self.base_url+endpoint)

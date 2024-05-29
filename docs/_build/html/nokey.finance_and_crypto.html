@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.finance_and_crypto package &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.finance_and_crypto package &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=c98573da"></script>
+        <script src="_static/documentation_options.js?v=020ce317"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -49,7 +49,6 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">nokey</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="nokey.html">nokey package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="nokey.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="nokey.activities.html">nokey.activities package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.animals.html">nokey.animals package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.art_and_images.html">nokey.art_and_images package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.books_and_literature.html">nokey.books_and_literature package</a></li>
@@ -119,89 +118,149 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.finance_and_crypto.coinmap.</span></span><span class="sig-name descname"><span class="pre">Coinmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'coinmap_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/coinmap.html#Coinmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.coinmap.Coinmap" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class for interacting with the Coinmap API.</p>
-<p>Attributes:
-- base_url: The base URL of the Coinmap API.
-- about: A short description of the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.finance_and_crypto.coinmap.Coinmap.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#nokey.finance_and_crypto.coinmap.Coinmap.base_url" title="Link to this definition"></a></dt>
+<dd><p>The base URL of the Coinmap API.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.finance_and_crypto.coinmap.Coinmap.about">
+<span class="sig-name descname"><span class="pre">about</span></span><a class="headerlink" href="#nokey.finance_and_crypto.coinmap.Coinmap.about" title="Link to this definition"></a></dt>
+<dd><p>A short description of the API.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.finance_and_crypto.coinmap.Coinmap.get_atm_operators">
 <span class="sig-name descname"><span class="pre">get_atm_operators</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/coinmap.html#Coinmap.get_atm_operators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.coinmap.Coinmap.get_atm_operators" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of ATM operators.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing a list of ATM operators.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of ATM operators.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.finance_and_crypto.coinmap.Coinmap.get_coins">
 <span class="sig-name descname"><span class="pre">get_coins</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/coinmap.html#Coinmap.get_coins"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.coinmap.Coinmap.get_coins" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of coins.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing a list of coins.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of coins.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.finance_and_crypto.coinmap.Coinmap.get_comments_by_venue_id">
 <span class="sig-name descname"><span class="pre">get_comments_by_venue_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">venue_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/coinmap.html#Coinmap.get_comments_by_venue_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.coinmap.Coinmap.get_comments_by_venue_id" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of comments about the venue matching the given id.</p>
-<p>Args:
-- venue_id (str): A unique number identifying a specific venue.</p>
-<p>Returns:
-- dict: A dictionary containing a list of comments about the venue matching the given id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>venue_id</strong> (<em>str</em>) – A unique number identifying a specific venue.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of comments about the venue matching the given id.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.finance_and_crypto.coinmap.Coinmap.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/coinmap.html#Coinmap.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.coinmap.Coinmap.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for the Coinmap API documentation.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: The URL for the API docs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL for the API docs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.finance_and_crypto.coinmap.Coinmap.get_ratings_by_venue_id">
 <span class="sig-name descname"><span class="pre">get_ratings_by_venue_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">venue_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/coinmap.html#Coinmap.get_ratings_by_venue_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.coinmap.Coinmap.get_ratings_by_venue_id" title="Link to this definition"></a></dt>
 <dd><p>Returns ratings about the venue matching the given id.</p>
-<p>Args:
-- venue_id (str): A unique number identifying a specific venue.</p>
-<p>Returns:
-- dict: A dictionary containing ratings about the venue matching the given id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>venue_id</strong> (<em>str</em>) – A unique number identifying a specific venue.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing ratings about the venue matching the given id.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.finance_and_crypto.coinmap.Coinmap.get_venue_by_id">
 <span class="sig-name descname"><span class="pre">get_venue_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">venue_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/coinmap.html#Coinmap.get_venue_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.coinmap.Coinmap.get_venue_by_id" title="Link to this definition"></a></dt>
 <dd><p>Returns a venue matching the given id.</p>
-<p>Args:
-- venue_id (str): A unique number identifying a specific venue.</p>
-<p>Returns:
-- dict: A dictionary containing information about the venue matching the given id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>venue_id</strong> (<em>str</em>) – A unique number identifying a specific venue.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing information about the venue matching the given id.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.finance_and_crypto.coinmap.Coinmap.get_venues">
 <span class="sig-name descname"><span class="pre">get_venues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_lat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_lat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_lon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_lon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">owner</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upvoter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">before</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">after</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">promoted</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/coinmap.html#Coinmap.get_venues"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.coinmap.Coinmap.get_venues" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of venues with crypto ATMs.</p>
-<p>Args:
-- min_lat (float): Minimum latitude (&gt;=)
-- max_lat (float): Maximum latitude (&lt;=)
-- min_lon (float): Minimum longitude (&gt;=)
-- max_lon (float): Maximum longitude (&lt;=)
-- query (str): Substring search in venue names
-- category (str): Filter category
-- owner (str): Venue owner (userhash)
-- upvoter (str): User who upvoted the venue (userhash)
-- before (date): Only show venues created before YYYY-MM-DD
-- after (date): Only show venues created after YYYY-MM-DD
-- promoted (bool): Show promoted venues (unset = both)
-- limit (int): Limit number of results
-- offset (int): Skip first N results</p>
-<p>Returns:
-- dict: A dictionary containing a list of venues with crypto ATMs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_lat</strong> (<em>float</em>) – Minimum latitude (&gt;=)</p></li>
+<li><p><strong>max_lat</strong> (<em>float</em>) – Maximum latitude (&lt;=)</p></li>
+<li><p><strong>min_lon</strong> (<em>float</em>) – Minimum longitude (&gt;=)</p></li>
+<li><p><strong>max_lon</strong> (<em>float</em>) – Maximum longitude (&lt;=)</p></li>
+<li><p><strong>query</strong> (<em>str</em>) – Substring search in venue names</p></li>
+<li><p><strong>category</strong> (<em>str</em>) – Filter category</p></li>
+<li><p><strong>owner</strong> (<em>str</em>) – Venue owner (userhash)</p></li>
+<li><p><strong>upvoter</strong> (<em>str</em>) – User who upvoted the venue (userhash)</p></li>
+<li><p><strong>before</strong> (<em>date</em>) – Only show venues created before YYYY-MM-DD</p></li>
+<li><p><strong>after</strong> (<em>date</em>) – Only show venues created after YYYY-MM-DD</p></li>
+<li><p><strong>promoted</strong> (<em>bool</em>) – Show promoted venues (unset = both)</p></li>
+<li><p><strong>limit</strong> (<em>int</em>) – Limit number of results</p></li>
+<li><p><strong>offset</strong> (<em>int</em>) – Skip first N results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of venues with crypto ATMs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -214,39 +273,71 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.finance_and_crypto.exchange_api.</span></span><span class="sig-name descname"><span class="pre">ExchangeAPI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'exchange_api_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/exchange_api.html#ExchangeAPI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.exchange_api.ExchangeAPI" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class for interacting with Exchange API.</p>
-<p>Attributes:
-- base_url: The base URL of the API.
-- about: A short description of the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.finance_and_crypto.exchange_api.ExchangeAPI.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#nokey.finance_and_crypto.exchange_api.ExchangeAPI.base_url" title="Link to this definition"></a></dt>
+<dd><p>The base URL of the API.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.finance_and_crypto.exchange_api.ExchangeAPI.about">
+<span class="sig-name descname"><span class="pre">about</span></span><a class="headerlink" href="#nokey.finance_and_crypto.exchange_api.ExchangeAPI.about" title="Link to this definition"></a></dt>
+<dd><p>A short description of the API.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.finance_and_crypto.exchange_api.ExchangeAPI.get_available_currencies">
 <span class="sig-name descname"><span class="pre">get_available_currencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">minified_version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/exchange_api.html#ExchangeAPI.get_available_currencies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.exchange_api.ExchangeAPI.get_available_currencies" title="Link to this definition"></a></dt>
 <dd><p>Returns all the available currencies in the API.</p>
-<p>Args:
-- minified_version (bool): An optional parameter for getting a minified version of the currency list. Default is false.</p>
-<p>Returns:
-- dict: A dictionary containing a list of the available currencies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>minified_version</strong> (<em>bool</em>) – An optional parameter for getting a minified version of the currency list. Default is false.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of the available currencies.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.finance_and_crypto.exchange_api.ExchangeAPI.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/exchange_api.html#ExchangeAPI.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.exchange_api.ExchangeAPI.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for the ExchangeAPI documentation.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: The URL for the API docs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL for the API docs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.finance_and_crypto.exchange_api.ExchangeAPI.get_rates_from_base">
 <span class="sig-name descname"><span class="pre">get_rates_from_base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">currency_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'latest'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minified_version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/exchange_api.html#ExchangeAPI.get_rates_from_base"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.exchange_api.ExchangeAPI.get_rates_from_base" title="Link to this definition"></a></dt>
 <dd><p>Returns exchange rates list for the given currency code on the given date.</p>
-<p>Args:
-- currency_code (str): The code for the base currency used to get exchange rates.
-- date (str): Date for the exchange rates. Default is latest, but other values must be in YYYY-MM-DD format.
-- minified_version (bool): An optional parameter for getting a minified version of the currency list. Default is false.</p>
-<p>Returns:
-- dict: A dictionary containing a list of exchange rates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>currency_code</strong> (<em>str</em>) – The code for the base currency used to get exchange rates.</p></li>
+<li><p><strong>date</strong> (<em>str</em>) – Date for the exchange rates. Default is latest, but other values must be in YYYY-MM-DD format.</p></li>
+<li><p><strong>minified_version</strong> (<em>bool</em>) – An optional parameter for getting a minified version of the currency list. Default is false.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of exchange rates.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -259,27 +350,50 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.finance_and_crypto.wallstreet_bets.</span></span><span class="sig-name descname"><span class="pre">WallstreetBets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'wallstree_bets_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/wallstreet_bets.html#WallstreetBets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.wallstreet_bets.WallstreetBets" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class to interact with the Wallstreet Bets API.</p>
-<p>Attributes:
-- base_url: The base URL of the Wallstreet Bets API.
-- about: A short description of the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.finance_and_crypto.wallstreet_bets.WallstreetBets.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#nokey.finance_and_crypto.wallstreet_bets.WallstreetBets.base_url" title="Link to this definition"></a></dt>
+<dd><p>The base URL of the Wallstreet Bets API.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.finance_and_crypto.wallstreet_bets.WallstreetBets.about">
+<span class="sig-name descname"><span class="pre">about</span></span><a class="headerlink" href="#nokey.finance_and_crypto.wallstreet_bets.WallstreetBets.about" title="Link to this definition"></a></dt>
+<dd><p>A short description of the API.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.finance_and_crypto.wallstreet_bets.WallstreetBets.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/wallstreet_bets.html#WallstreetBets.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.wallstreet_bets.WallstreetBets.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for the Wallstreet Bets API documentation.</p>
-<p>Args:
-- None</p>
-<p>Returns:
--string: The URL for the API docs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL for the API docs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.finance_and_crypto.wallstreet_bets.WallstreetBets.get_stock_sentiment_from_reddit">
 <span class="sig-name descname"><span class="pre">get_stock_sentiment_from_reddit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/finance_and_crypto/wallstreet_bets.html#WallstreetBets.get_stock_sentiment_from_reddit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.finance_and_crypto.wallstreet_bets.WallstreetBets.get_stock_sentiment_from_reddit" title="Link to this definition"></a></dt>
 <dd><p>Returns top 50 stocks discussed on Reddit subeddit - Wallstreetbets.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- list: List of dictionaries containing information about subreddit comments of top 50 stocks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of dictionaries containing information about subreddit comments of top 50 stocks.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

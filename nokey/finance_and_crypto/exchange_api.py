@@ -6,8 +6,8 @@ class ExchangeAPI:
     A class for interacting with Exchange API.
     
     Attributes:
-    - base_url: The base URL of the API.
-    - about: A short description of the API.
+        base_url: The base URL of the API.
+        about: A short description of the API.
     """
     def __init__(self, use_caching=False, cache_name="exchange_api_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@"
@@ -21,10 +21,10 @@ class ExchangeAPI:
         Returns the URL for the ExchangeAPI documentation.
         
         Args:
-        - None
+            None
         
         Returns:
-        - string: The URL for the API docs.
+            string: The URL for the API docs.
         """
         return "https://github.com/fawazahmed0/exchange-api"
         
@@ -33,10 +33,10 @@ class ExchangeAPI:
         Returns all the available currencies in the API.
         
         Args:
-        - minified_version (bool): An optional parameter for getting a minified version of the currency list. Default is false.
+            minified_version (bool): An optional parameter for getting a minified version of the currency list. Default is false.
         
         Returns:
-        - dict: A dictionary containing a list of the available currencies.
+            dict: A dictionary containing a list of the available currencies.
         """
         if minified_version:
             endpoint = "latest/v1/currencies.min.json"
@@ -51,12 +51,12 @@ class ExchangeAPI:
         Returns exchange rates list for the given currency code on the given date.
         
         Args:
-        - currency_code (str): The code for the base currency used to get exchange rates.
-        - date (str): Date for the exchange rates. Default is latest, but other values must be in YYYY-MM-DD format.
-        - minified_version (bool): An optional parameter for getting a minified version of the currency list. Default is false.
+            currency_code (str): The code for the base currency used to get exchange rates.
+            date (str): Date for the exchange rates. Default is latest, but other values must be in YYYY-MM-DD format.
+            minified_version (bool): An optional parameter for getting a minified version of the currency list. Default is false.
         
         Returns:
-        - dict: A dictionary containing a list of exchange rates.
+            dict: A dictionary containing a list of exchange rates.
         """
         if minified_version:
             endpoint = f"{date}/v1/currencies/{currency_code.lower()}.min.json"

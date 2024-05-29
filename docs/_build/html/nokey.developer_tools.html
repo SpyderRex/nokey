@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.developer_tools package &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.developer_tools package &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=c98573da"></script>
+        <script src="_static/documentation_options.js?v=020ce317"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -49,7 +49,6 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">nokey</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="nokey.html">nokey package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="nokey.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="nokey.activities.html">nokey.activities package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.animals.html">nokey.animals package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.art_and_images.html">nokey.art_and_images package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.books_and_literature.html">nokey.books_and_literature package</a></li>
@@ -119,90 +118,159 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.developer_tools.apis_guru.</span></span><span class="sig-name descname"><span class="pre">APIsGuru</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'api_gurus_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/apis_guru.html#APIsGuru"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.apis_guru.APIsGuru" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class to interact with the APIs.guru API.</p>
-<p>Attributes:
-- base_url: The base url for the APIs.guru API.
-- about: A short description of the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.developer_tools.apis_guru.APIsGuru.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#nokey.developer_tools.apis_guru.APIsGuru.base_url" title="Link to this definition"></a></dt>
+<dd><p>The base url for the APIs.guru API.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.developer_tools.apis_guru.APIsGuru.about">
+<span class="sig-name descname"><span class="pre">about</span></span><a class="headerlink" href="#nokey.developer_tools.apis_guru.APIsGuru.about" title="Link to this definition"></a></dt>
+<dd><p>A short description of the API.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.apis_guru.APIsGuru.get_all_apis">
 <span class="sig-name descname"><span class="pre">get_all_apis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/apis_guru.html#APIsGuru.get_all_apis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.apis_guru.APIsGuru.get_all_apis" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of all the APIs in the API directory.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing a list of all the APIs in the directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of all the APIs in the directory.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.apis_guru.APIsGuru.get_all_providers">
 <span class="sig-name descname"><span class="pre">get_all_providers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/apis_guru.html#APIsGuru.get_all_providers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.apis_guru.APIsGuru.get_all_providers" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of all the providers in the API directory.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing a list of all the providers in the directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of all the providers in the directory.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.apis_guru.APIsGuru.get_apis_by_provider">
 <span class="sig-name descname"><span class="pre">get_apis_by_provider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">provider</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/apis_guru.html#APIsGuru.get_apis_by_provider"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.apis_guru.APIsGuru.get_apis_by_provider" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of all the APIs for a particular provider.</p>
-<p>Args:
-- provider (str): The name of the api provider.</p>
-<p>Returns:
-- dict: A dictionary containing a list of all the APIs for a particular provider.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>provider</strong> (<em>str</em>) – The name of the api provider.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of all the APIs for a particular provider.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.apis_guru.APIsGuru.get_basic_metrics">
 <span class="sig-name descname"><span class="pre">get_basic_metrics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/apis_guru.html#APIsGuru.get_basic_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.apis_guru.APIsGuru.get_basic_metrics" title="Link to this definition"></a></dt>
 <dd><p>Returns basic metrics for the entire API directory.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing basic metrics for the entire directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing basic metrics for the entire directory.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.apis_guru.APIsGuru.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/apis_guru.html#APIsGuru.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.apis_guru.APIsGuru.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for the APIs.guru API documentation.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: The URL for the API docs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL for the API docs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.apis_guru.APIsGuru.get_particular_api_version_no_service_name">
 <span class="sig-name descname"><span class="pre">get_particular_api_version_no_service_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">provider</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/apis_guru.html#APIsGuru.get_particular_api_version_no_service_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.apis_guru.APIsGuru.get_particular_api_version_no_service_name" title="Link to this definition"></a></dt>
 <dd><p>Returns the API entry for one specific version of an API where there is no service name.</p>
-<p>Args:
-- provider (str): The name of the provider.
-- api (str): The api.</p>
-<p>Returns:
-- dict: A dictionary containing the API entry for one specific version of an API where there is no service name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>provider</strong> (<em>str</em>) – The name of the provider.</p></li>
+<li><p><strong>api</strong> (<em>str</em>) – The api.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the API entry for one specific version of an API where there is no service name.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.apis_guru.APIsGuru.get_particular_api_version_with_service_name">
 <span class="sig-name descname"><span class="pre">get_particular_api_version_with_service_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">provider</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/apis_guru.html#APIsGuru.get_particular_api_version_with_service_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.apis_guru.APIsGuru.get_particular_api_version_with_service_name" title="Link to this definition"></a></dt>
 <dd><p>Returns the API entry for one specific version of an API where there is a s ervice name.</p>
-<p>Args:
-- provider (str): The name of the provider.
-- service (str): The name of the service.
-- api (str): The name of the API.</p>
-<p>Returns:
-- dict: A dictionary containing the API entry for one specific version of an API where there is a service name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>provider</strong> (<em>str</em>) – The name of the provider.</p></li>
+<li><p><strong>service</strong> (<em>str</em>) – The name of the service.</p></li>
+<li><p><strong>api</strong> (<em>str</em>) – The name of the API.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the API entry for one specific version of an API where there is a service name.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.apis_guru.APIsGuru.get_service_names_by_provider">
 <span class="sig-name descname"><span class="pre">get_service_names_by_provider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">provider</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/apis_guru.html#APIsGuru.get_service_names_by_provider"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.apis_guru.APIsGuru.get_service_names_by_provider" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of all the services for a particular provider.</p>
-<p>Args:
-- provider (str): The name of the provider.</p>
-<p>Returns:
-- dict: A dictionary containing a list of all the services for a particular provider.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>provider</strong> (<em>str</em>) – The name of the provider.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of all the services for a particular provider.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -215,97 +283,169 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.developer_tools.filter_lists.</span></span><span class="sig-name descname"><span class="pre">FilterLists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'filter_lists_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/filter_lists.html#FilterLists"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.filter_lists.FilterLists" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class for interacting with the FilterLists API.</p>
-<p>Attributes:
-- base_url: The base URL of the FilterLists API.
-- about: A short description of the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.developer_tools.filter_lists.FilterLists.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#nokey.developer_tools.filter_lists.FilterLists.base_url" title="Link to this definition"></a></dt>
+<dd><p>The base URL of the FilterLists API.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.developer_tools.filter_lists.FilterLists.about">
+<span class="sig-name descname"><span class="pre">about</span></span><a class="headerlink" href="#nokey.developer_tools.filter_lists.FilterLists.about" title="Link to this definition"></a></dt>
+<dd><p>A short description of the API.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.filter_lists.FilterLists.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/filter_lists.html#FilterLists.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.filter_lists.FilterLists.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for the FilterLists API documentation.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: The URL for the API docs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL for the API docs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.filter_lists.FilterLists.get_languages">
 <span class="sig-name descname"><span class="pre">get_languages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/filter_lists.html#FilterLists.get_languages"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.filter_lists.FilterLists.get_languages" title="Link to this definition"></a></dt>
 <dd><p>Returns the languages targeted by the FilterLists.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing a list of languages targeted by the FilterLists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of languages targeted by the FilterLists.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.filter_lists.FilterLists.get_licenses">
 <span class="sig-name descname"><span class="pre">get_licenses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/filter_lists.html#FilterLists.get_licenses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.filter_lists.FilterLists.get_licenses" title="Link to this definition"></a></dt>
 <dd><p>Returns the licenses applied to the FilterLists.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing a list of licenses applied to the FilterLists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of licenses applied to the FilterLists.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.filter_lists.FilterLists.get_list_by_id">
 <span class="sig-name descname"><span class="pre">get_list_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/filter_lists.html#FilterLists.get_list_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.filter_lists.FilterLists.get_list_by_id" title="Link to this definition"></a></dt>
 <dd><p>Returns details of a specific FilterList matching the given id.</p>
-<p>Args:
-- list_id (int): A unique numerical identifier for a FilterList.</p>
-<p>Returns:
-- dict: A dictionary containing details of the FilterList.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>list_id</strong> (<em>int</em>) – A unique numerical identifier for a FilterList.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing details of the FilterList.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.filter_lists.FilterLists.get_lists">
 <span class="sig-name descname"><span class="pre">get_lists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/filter_lists.html#FilterLists.get_lists"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.filter_lists.FilterLists.get_lists" title="Link to this definition"></a></dt>
 <dd><p>Returns the FilterLists.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing the FilterLists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the FilterLists.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.filter_lists.FilterLists.get_maintainers">
 <span class="sig-name descname"><span class="pre">get_maintainers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/filter_lists.html#FilterLists.get_maintainers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.filter_lists.FilterLists.get_maintainers" title="Link to this definition"></a></dt>
 <dd><p>Returns the maintainers of the FilterLists.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing the maintainers of the FilterLists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the maintainers of the FilterLists.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.filter_lists.FilterLists.get_software">
 <span class="sig-name descname"><span class="pre">get_software</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/filter_lists.html#FilterLists.get_software"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.filter_lists.FilterLists.get_software" title="Link to this definition"></a></dt>
 <dd><p>Returns the software that subscribes to the FilterLists.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing the software that subscribes to the FilterLists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the software that subscribes to the FilterLists.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.filter_lists.FilterLists.get_syntaxes">
 <span class="sig-name descname"><span class="pre">get_syntaxes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/filter_lists.html#FilterLists.get_syntaxes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.filter_lists.FilterLists.get_syntaxes" title="Link to this definition"></a></dt>
 <dd><p>Returns the syntaxes of the FilterLists.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing the syntaxes of the FilterLists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the syntaxes of the FilterLists.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.filter_lists.FilterLists.get_tags">
 <span class="sig-name descname"><span class="pre">get_tags</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/filter_lists.html#FilterLists.get_tags"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.filter_lists.FilterLists.get_tags" title="Link to this definition"></a></dt>
 <dd><p>Returns the tags of the FilterLists.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing the tags of the FilterLists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the tags of the FilterLists.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -318,57 +458,101 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.developer_tools.microlink.</span></span><span class="sig-name descname"><span class="pre">Microlink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'microlink_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/microlink.html#Microlink"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.microlink.Microlink" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class for interacting with the Microlink API.</p>
-<p>Attributes:
-- base_url: The base URL of the API.
-- about: A short description of the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.developer_tools.microlink.Microlink.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#nokey.developer_tools.microlink.Microlink.base_url" title="Link to this definition"></a></dt>
+<dd><p>The base URL of the API.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.developer_tools.microlink.Microlink.about">
+<span class="sig-name descname"><span class="pre">about</span></span><a class="headerlink" href="#nokey.developer_tools.microlink.Microlink.about" title="Link to this definition"></a></dt>
+<dd><p>A short description of the API.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.microlink.Microlink.get_color_palette_for_target_url">
 <span class="sig-name descname"><span class="pre">get_color_palette_for_target_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/microlink.html#Microlink.get_color_palette_for_target_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.microlink.Microlink.get_color_palette_for_target_url" title="Link to this definition"></a></dt>
 <dd><p>Returns metadata containing the predominant color pallette for each image detected over the target URL.</p>
-<p>Args:
-- url (str): The target URL.</p>
-<p>Returns:
-- dict: A dictionary of metadata containing the predominant color pallette for each image detected over the target URL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – The target URL.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary of metadata containing the predominant color pallette for each image detected over the target URL.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.microlink.Microlink.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/microlink.html#Microlink.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.microlink.Microlink.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for the Microlink API documentation.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: The URL for the API docs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL for the API docs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.microlink.Microlink.get_metadata_for_target_url">
 <span class="sig-name descname"><span class="pre">get_metadata_for_target_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/microlink.html#Microlink.get_metadata_for_target_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.microlink.Microlink.get_metadata_for_target_url" title="Link to this definition"></a></dt>
 <dd><p>Returns metadata for the target URL.</p>
-<p>Args:
-- url (str): The target URL.</p>
-<p>Returns:
-- dict: A dictionary containing metadata for the target URL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – The target URL.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing metadata for the target URL.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.microlink.Microlink.get_pdf_of_target_url">
 <span class="sig-name descname"><span class="pre">get_pdf_of_target_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/microlink.html#Microlink.get_pdf_of_target_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.microlink.Microlink.get_pdf_of_target_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for a pdf of the target URL.</p>
-<p>Args:
-- url (str): The target URL.</p>
-<p>Returns:
-- string: The URL for the pdf of the target URL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – The target URL.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL for the pdf of the target URL.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.microlink.Microlink.get_screenshot_of_target_url">
 <span class="sig-name descname"><span class="pre">get_screenshot_of_target_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/microlink.html#Microlink.get_screenshot_of_target_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.microlink.Microlink.get_screenshot_of_target_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for a screenshot of the target URL.</p>
-<p>Args:
-- url (str): The target URL.</p>
-<p>Returns:
-- string: The URL for the screenshot of the target URL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – The target URL.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL for the screenshot of the target URL.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -381,108 +565,192 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.developer_tools.url_haus.</span></span><span class="sig-name descname"><span class="pre">URLHaus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'urlhaus_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/url_haus.html#URLHaus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.url_haus.URLHaus" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class to interact with the URLHaus API.</p>
-<p>Attributes:
-- base_url: The base URL of the API.
-- about: A short description of the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.developer_tools.url_haus.URLHaus.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#nokey.developer_tools.url_haus.URLHaus.base_url" title="Link to this definition"></a></dt>
+<dd><p>The base URL of the API.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.developer_tools.url_haus.URLHaus.about">
+<span class="sig-name descname"><span class="pre">about</span></span><a class="headerlink" href="#nokey.developer_tools.url_haus.URLHaus.about" title="Link to this definition"></a></dt>
+<dd><p>A short description of the API.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.url_haus.URLHaus.download_malware_sample">
 <span class="sig-name descname"><span class="pre">download_malware_sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sha256</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/url_haus.html#URLHaus.download_malware_sample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.url_haus.URLHaus.download_malware_sample" title="Link to this definition"></a></dt>
 <dd><p>Downloads a zip file containing the malware sample (payload).</p>
-<p>Args:
-- base_url (str): The base URL of the API.
-- sha256 (str): The SHA256 hash identifying the malware sample (payload) to be downloaded.</p>
-<p>Returns:
-- str: Path to the downloaded ZIP file if successful, error message otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>base_url</strong> (<em>str</em>) – The base URL of the API.</p></li>
+<li><p><strong>sha256</strong> (<em>str</em>) – The SHA256 hash identifying the malware sample (payload) to be downloaded.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Path to the downloaded ZIP file if successful, error message otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>str</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.url_haus.URLHaus.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/url_haus.html#URLHaus.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.url_haus.URLHaus.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for the URLHaus API documentation.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: The URL for the API docs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL for the API docs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.url_haus.URLHaus.get_info_about_host">
 <span class="sig-name descname"><span class="pre">get_info_about_host</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/url_haus.html#URLHaus.get_info_about_host"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.url_haus.URLHaus.get_info_about_host" title="Link to this definition"></a></dt>
 <dd><p>Returns any information URLHaus may have about a specific host.</p>
-<p>Args:
-- host (str): The IPv4 address, domain name, or hostname in question.</p>
-<p>Returns:
-- dict: A dictionary containing information about a specific host.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>host</strong> (<em>str</em>) – The IPv4 address, domain name, or hostname in question.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing information about a specific host.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.url_haus.URLHaus.get_info_about_payload">
 <span class="sig-name descname"><span class="pre">get_info_about_payload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p_load</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/url_haus.html#URLHaus.get_info_about_payload"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.url_haus.URLHaus.get_info_about_payload" title="Link to this definition"></a></dt>
 <dd><p>Returns any information URLHaus has about a specific payload (malware sample).</p>
-<p>Args:
-- p_load (str): The MD5 hash or SHA256 hash of the payload (malware sample).</p>
-<p>Returns:
-- dict: A dictionary containing information about a specific payload.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>p_load</strong> (<em>str</em>) – The MD5 hash or SHA256 hash of the payload (malware sample).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing information about a specific payload.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.url_haus.URLHaus.get_info_about_signature">
 <span class="sig-name descname"><span class="pre">get_info_about_signature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signature</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/url_haus.html#URLHaus.get_info_about_signature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.url_haus.URLHaus.get_info_about_signature" title="Link to this definition"></a></dt>
 <dd><p>Returns any information URLHaus has about a specific signature.</p>
-<p>Args:
-- signature (str): The signature to query.</p>
-<p>Returns:
-- dict: A dictionary containing information about a specific signature.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>signature</strong> (<em>str</em>) – The signature to query.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing information about a specific signature.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.url_haus.URLHaus.get_info_about_tag">
 <span class="sig-name descname"><span class="pre">get_info_about_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/url_haus.html#URLHaus.get_info_about_tag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.url_haus.URLHaus.get_info_about_tag" title="Link to this definition"></a></dt>
 <dd><p>Returns any information URLHaus has about a specific tag.</p>
-<p>Args:
-- tag (str): The tag to query.</p>
-<p>Returns:
-- dict: A dictionary containing information about a specific tag.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tag</strong> (<em>str</em>) – The tag to query.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing information about a specific tag.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.url_haus.URLHaus.get_info_about_url">
 <span class="sig-name descname"><span class="pre">get_info_about_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/url_haus.html#URLHaus.get_info_about_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.url_haus.URLHaus.get_info_about_url" title="Link to this definition"></a></dt>
 <dd><p>Returns any information URLHaus may have about a specific URL.</p>
-<p>Args:
-- url (str): The URL in question.</p>
-<p>Returns:
-- dict: A dictionary containing information about a specific URL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – The URL in question.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing information about a specific URL.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.url_haus.URLHaus.get_info_about_url_by_id">
 <span class="sig-name descname"><span class="pre">get_info_about_url_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">urlID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/url_haus.html#URLHaus.get_info_about_url_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.url_haus.URLHaus.get_info_about_url_by_id" title="Link to this definition"></a></dt>
 <dd><p>Returns any information URLHaus may have about a specific URL.</p>
-<p>Args:
-- urlID (int): The id of the URL in question.</p>
-<p>Returns:
-- dict: A dictionary containing information about a specific URL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>urlID</strong> (<em>int</em>) – The id of the URL in question.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing information about a specific URL.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.url_haus.URLHaus.get_recent_payloads">
 <span class="sig-name descname"><span class="pre">get_recent_payloads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/url_haus.html#URLHaus.get_recent_payloads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.url_haus.URLHaus.get_recent_payloads" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of recent payloads seen by URLHaus.</p>
-<p>Args:
-- limit (int): Optional limit of payloads returned. Defaults to None.</p>
-<p>Returns:
-- dict: A dictionary containing a list of recent payloads seen by URLHaus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>limit</strong> (<em>int</em>) – Optional limit of payloads returned. Defaults to None.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of recent payloads seen by URLHaus.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.url_haus.URLHaus.get_recent_urls">
 <span class="sig-name descname"><span class="pre">get_recent_urls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/url_haus.html#URLHaus.get_recent_urls"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.url_haus.URLHaus.get_recent_urls" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of recent URLs added to URLHaus.</p>
-<p>Args:
-- limit (int): Optional limit of URLs returned. Defaults to None.</p>
-<p>Returns:
-- dict: A dictionary containing a list of recent URLs added to URLHaus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>limit</strong> (<em>int</em>) – Optional limit of URLs returned. Defaults to None.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of recent URLs added to URLHaus.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -495,28 +763,53 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.developer_tools.url_shortener.</span></span><span class="sig-name descname"><span class="pre">UrlShortener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'url_shortener_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/url_shortener.html#UrlShortener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.url_shortener.UrlShortener" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class for interacting with the URL Shortener API.</p>
-<p>Attributes:
-- base_url: The base URL of the URL Shortener API.
-- about: A short description of the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.developer_tools.url_shortener.UrlShortener.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#nokey.developer_tools.url_shortener.UrlShortener.base_url" title="Link to this definition"></a></dt>
+<dd><p>The base URL of the URL Shortener API.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.developer_tools.url_shortener.UrlShortener.about">
+<span class="sig-name descname"><span class="pre">about</span></span><a class="headerlink" href="#nokey.developer_tools.url_shortener.UrlShortener.about" title="Link to this definition"></a></dt>
+<dd><p>A short description of the API.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.url_shortener.UrlShortener.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/url_shortener.html#UrlShortener.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.url_shortener.UrlShortener.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for the URL Shortener API documentation.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: The URL for the API docs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL for the API docs</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.developer_tools.url_shortener.UrlShortener.shorten_url">
 <span class="sig-name descname"><span class="pre">shorten_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shorturl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/developer_tools/url_shortener.html#UrlShortener.shorten_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.developer_tools.url_shortener.UrlShortener.shorten_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the shortened URL for the given parameters.</p>
-<p>Args:
-- url (str): The original URL to be shortened.
-- shorturl (str): Optional parameter for a desired short URL if available (case sensitive). Must be between 5 and 30 characters. Defaults to None.</p>
-<p>Returns:
-- dict: Dictionary containing the shortened URL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<em>str</em>) – The original URL to be shortened.</p></li>
+<li><p><strong>shorturl</strong> (<em>str</em>) – Optional parameter for a desired short URL if available (case sensitive). Must be between 5 and 30 characters. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing the shortened URL.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

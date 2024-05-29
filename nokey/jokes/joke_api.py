@@ -8,8 +8,8 @@ class JokeAPI:
     A class to interact with the JokeAPI API.
     
     Attributes:
-    - base_url: Base URL for interacting with the API.
-    - about: A short description of the API.
+        base_url: Base URL for interacting with the API.
+        about: A short description of the API.
     """
     def __init__(self, use_caching="False", cache_name="joke_api_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://v2.jokeapi.dev/joke/"
@@ -23,10 +23,10 @@ class JokeAPI:
         Returns the URL for the JokeAPI documentation.
         
         Args:
-        - None
+            None
         
         Returns:
-        - string: The url for the API documentation.
+            string: The url for the API documentation.
         """
         return "https://sv443.net/jokeapi/v2/"
         
@@ -35,15 +35,15 @@ class JokeAPI:
         Returns joke(s) matching the given parameters.
     
         Args:
-        - category (str): Joke category. Defaults to Any. Possible non-default values are Programming, Misc, Dark, Pin, Spooky, and Christmas.
-        - lang (str): Language of the joke. Defaults to en (English). Possible other values are cs (Czech), de (German), es (Spanish), fr (French), and pt (Portuguese).
-        - flags (str): Optional flags to blacklist. Possible values are nsfw, religious, political, racist, sexist, and explicit.
-        - joke_type (str): Optional parameter for either single or twopart joke(s). Defaults to None.
-        - search_string (str): Optional search string contained in desired joke(s). Defaults to None.
-        - amount (int): Number of jokes returned. Defaults to 1.
+            category (str): Joke category. Defaults to Any. Possible non-default values are Programming, Misc, Dark, Pin, Spooky, and Christmas.
+            lang (str): Language of the joke. Defaults to en (English). Possible other values are cs (Czech), de (German), es (Spanish), fr (French), and pt (Portuguese).
+            flags (str): Optional flags to blacklist. Possible values are nsfw, religious, political, racist, sexist, and explicit.
+            joke_type (str): Optional parameter for either single or twopart joke(s). Defaults to None.
+            search_string (str): Optional search string contained in desired joke(s). Defaults to None.
+            amount (int): Number of jokes returned. Defaults to 1.
     
         Returns:
-        - dict: A dictionary containing joke(s) matching given parameters.
+            dict: A dictionary containing joke(s) matching given parameters.
         """
         endpoint = ""
     

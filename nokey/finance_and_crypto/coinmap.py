@@ -8,8 +8,8 @@ class Coinmap:
     A class for interacting with the Coinmap API.
     
     Attributes:
-    - base_url: The base URL of the Coinmap API.
-    - about: A short description of the API.
+        base_url: The base URL of the Coinmap API.
+        about: A short description of the API.
     """
     def __init__(self, use_caching=False, cache_name="coinmap_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://coinmap.org/api/v1/"
@@ -23,38 +23,46 @@ class Coinmap:
         Returns the URL for the Coinmap API documentation.
         
         Args:
-        - None
+            None
         
         Returns:
-        - string: The URL for the API docs.
+            string: The URL for the API docs.
         """
         return "https://coinmap.org/api/"
         
-    def get_venues(self, min_lat: Optional[float] = None, max_lat: Optional[float] = None, min_lon: Optional[float] = None,
-                   max_lon: Optional[float] = None, query: Optional[str] = None, category: Optional[str] = None,
-                   owner: Optional[str] = None, upvoter: Optional[str] = None, before: Optional[date] = None,
-                   after: Optional[date] = None, promoted: Optional[bool] = None, limit: Optional[int] = None,
-                   offset: Optional[int] = None):
+    def get_venues(self, min_lat: Optional[float] = None, 
+                        max_lat: Optional[float] = None, 
+                        min_lon: Optional[float] = None,
+                        max_lon: Optional[float] = None, 
+                        query: Optional[str] = None, 
+                        category: Optional[str] = None,
+                        owner: Optional[str] = None, 
+                        upvoter: Optional[str] = None, 
+                        before: Optional[date] = None,
+                        after: Optional[date] = None, 
+                        promoted: Optional[bool] = None, 
+                        limit: Optional[int] = None,
+                        offset: Optional[int] = None):
         """
         Returns a list of venues with crypto ATMs.
         
         Args:
-        - min_lat (float): Minimum latitude (>=)
-        - max_lat (float): Maximum latitude (<=)
-        - min_lon (float): Minimum longitude (>=)
-        - max_lon (float): Maximum longitude (<=)
-        - query (str): Substring search in venue names
-        - category (str): Filter category
-        - owner (str): Venue owner (userhash)
-        - upvoter (str): User who upvoted the venue (userhash)
-        - before (date): Only show venues created before YYYY-MM-DD
-        - after (date): Only show venues created after YYYY-MM-DD
-        - promoted (bool): Show promoted venues (unset = both)
-        - limit (int): Limit number of results
-        - offset (int): Skip first N results
+            min_lat (float): Minimum latitude (>=)
+            max_lat (float): Maximum latitude (<=)
+            min_lon (float): Minimum longitude (>=)
+            max_lon (float): Maximum longitude (<=)
+            query (str): Substring search in venue names
+            category (str): Filter category
+            owner (str): Venue owner (userhash)
+            upvoter (str): User who upvoted the venue (userhash)
+            before (date): Only show venues created before YYYY-MM-DD
+            after (date): Only show venues created after YYYY-MM-DD
+            promoted (bool): Show promoted venues (unset = both)
+            limit (int): Limit number of results
+            offset (int): Skip first N results
         
         Returns:
-        - dict: A dictionary containing a list of venues with crypto ATMs.
+            dict: A dictionary containing a list of venues with crypto ATMs.
         """
         endpoint = "venues"
         params = {}
@@ -93,10 +101,10 @@ class Coinmap:
         Returns a venue matching the given id.
         
         Args:
-        - venue_id (str): A unique number identifying a specific venue.
+            venue_id (str): A unique number identifying a specific venue.
         
         Returns:
-        - dict: A dictionary containing information about the venue matching the given id.
+            dict: A dictionary containing information about the venue matching the given id.
         """
         endpoint = f"venues/{venue_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -106,10 +114,10 @@ class Coinmap:
         Returns a list of comments about the venue matching the given id.
         
         Args:
-        - venue_id (str): A unique number identifying a specific venue.
+            venue_id (str): A unique number identifying a specific venue.
         
         Returns:
-        - dict: A dictionary containing a list of comments about the venue matching the given id.
+            dict: A dictionary containing a list of comments about the venue matching the given id.
         """
         endpoint = f"venues/{venue_id}/comments"
         return mr.make_request(self.base_url+endpoint)
@@ -119,10 +127,10 @@ class Coinmap:
         Returns ratings about the venue matching the given id.
         
         Args:
-        - venue_id (str): A unique number identifying a specific venue.
+            venue_id (str): A unique number identifying a specific venue.
         
         Returns:
-        - dict: A dictionary containing ratings about the venue matching the given id.
+            dict: A dictionary containing ratings about the venue matching the given id.
         """
         endpoint = f"venues/{venue_id}/ratings"
         return mr.make_request(self.base_url+endpoint)
@@ -132,10 +140,10 @@ class Coinmap:
         Returns a list of ATM operators.
         
         Args:
-        - None
+            None
         
         Returns:
-        - dict: A dictionary containing a list of ATM operators.
+            dict: A dictionary containing a list of ATM operators.
         """
         endpoint = "atm-operators"
         return mr.make_request(self.base_url+endpoint)
@@ -145,10 +153,10 @@ class Coinmap:
         Returns a list of coins.
         
         Args:
-        - None
+            None
         
         Returns:
-        - dict: A dictionary containing a list of coins.
+            dict: A dictionary containing a list of coins.
         """
         endpoint = "coins"
         return mr.make_request(self.base_url+endpoint)
@@ -159,10 +167,10 @@ class Coinmap:
 #        Returns a list of ATM providers.
 #        
 #        Args:
-#        - None
+#            None
 #        
 #        Returns:
-#        - dict: A dictionary containing a list of ATM providers.
+#            dict: A dictionary containing a list of ATM providers.
 #        """
 #        endpoint = "providers"
 #        return mr.make_request(self.base_url+endpoint)

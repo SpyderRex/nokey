@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.helperFuncs.throttler &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.helperFuncs.throttler &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=c98573da"></script>
+        <script src="../../../_static/documentation_options.js?v=020ce317"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -77,7 +77,24 @@
 <div class="viewcode-block" id="Throttler">
 <a class="viewcode-back" href="../../../nokey.helperFuncs.html#nokey.helperFuncs.throttler.Throttler">[docs]</a>
 <span class="k">class</span> <span class="nc">Throttler</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to enforce rate limiting on function calls.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        rate_limit (int): The maximum number of allowed calls within the period.</span>
+<span class="sd">        period (int): The time period in seconds during which the rate limit applies.</span>
+<span class="sd">        last_call (float): The time of the last function call.</span>
+<span class="sd">        num_calls (int): The number of calls made within the current period.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rate_limit</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">period</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the Throttler with a rate limit and a period.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            rate_limit (int): The maximum number of allowed calls within the period.</span>
+<span class="sd">            period (int): The time period in seconds during which the rate limit applies.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rate_limit</span> <span class="o">=</span> <span class="n">rate_limit</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">period</span> <span class="o">=</span> <span class="n">period</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">last_call</span> <span class="o">=</span> <span class="mi">0</span>
@@ -86,6 +103,9 @@
 <div class="viewcode-block" id="Throttler.throttle">
 <a class="viewcode-back" href="../../../nokey.helperFuncs.html#nokey.helperFuncs.throttler.Throttler.throttle">[docs]</a>
     <span class="k">def</span> <span class="nf">throttle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Enforce the rate limit. If the number of calls exceeds the rate limit within the period, this method will make the calling thread sleep until the period resets.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">current_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
         <span class="n">elapsed</span> <span class="o">=</span> <span class="n">current_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_call</span>
 
@@ -103,17 +123,30 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">num_calls</span> <span class="o">+=</span> <span class="mi">1</span></div>
 </div>
 
-        
-        
-
 
 <div class="viewcode-block" id="throttle_class">
 <a class="viewcode-back" href="../../../nokey.helperFuncs.html#nokey.helperFuncs.throttler.throttle_class">[docs]</a>
 <span class="k">def</span> <span class="nf">throttle_class</span><span class="p">(</span><span class="n">rate_limit</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">period</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class decorator to apply throttling to all methods in the class.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        rate_limit (int): The maximum number of allowed calls within the period.</span>
+<span class="sd">        period (int): The time period in seconds during which the rate limit applies.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        cls: The decorated class with throttling applied to its methods.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Decorate the class by wrapping its methods with throttling.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            cls: The class to decorate.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            cls: The decorated class with throttling applied to its methods.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">throttler</span> <span class="o">=</span> <span class="n">Throttler</span><span class="p">(</span><span class="n">rate_limit</span><span class="p">,</span> <span class="n">period</span><span class="p">)</span>
         
         <span class="k">for</span> <span class="n">attr_name</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
@@ -125,6 +158,16 @@
         <span class="k">return</span> <span class="bp">cls</span>
 
     <span class="k">def</span> <span class="nf">wrap_with_throttle</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">throttler</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Wrap a function with throttling.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            func: The function to wrap.</span>
+<span class="sd">            throttler: The Throttler instance to use for throttling.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            func: The wrapped function with throttling applied.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
         <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
             <span class="n">throttler</span><span class="o">.</span><span class="n">throttle</span><span class="p">()</span>

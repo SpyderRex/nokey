@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.calendar package &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.calendar package &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=c98573da"></script>
+        <script src="_static/documentation_options.js?v=020ce317"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -49,7 +49,6 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">nokey</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="nokey.html">nokey package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="nokey.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="nokey.activities.html">nokey.activities package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.animals.html">nokey.animals package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.art_and_images.html">nokey.art_and_images package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.books_and_literature.html">nokey.books_and_literature package</a></li>
@@ -119,90 +118,161 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.calendar.nager_date.</span></span><span class="sig-name descname"><span class="pre">NagerDate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'nager_date_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/calendar/nager_date.html#NagerDate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.calendar.nager_date.NagerDate" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class to interact with the Nager.Date API.</p>
-<p>Attributes:
-- base_url: The base URL of the API.
-- about: A short description of the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.calendar.nager_date.NagerDate.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#nokey.calendar.nager_date.NagerDate.base_url" title="Link to this definition"></a></dt>
+<dd><p>The base URL of the API.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.calendar.nager_date.NagerDate.about">
+<span class="sig-name descname"><span class="pre">about</span></span><a class="headerlink" href="#nokey.calendar.nager_date.NagerDate.about" title="Link to this definition"></a></dt>
+<dd><p>A short description of the API.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.calendar.nager_date.NagerDate.get_available_countries">
 <span class="sig-name descname"><span class="pre">get_available_countries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/calendar/nager_date.html#NagerDate.get_available_countries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.calendar.nager_date.NagerDate.get_available_countries" title="Link to this definition"></a></dt>
 <dd><p>Returns all the countries available in the API.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- list: A list containing all the countries available in the API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing all the countries available in the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.calendar.nager_date.NagerDate.get_country_info">
 <span class="sig-name descname"><span class="pre">get_country_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">countryCode</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/calendar/nager_date.html#NagerDate.get_country_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.calendar.nager_date.NagerDate.get_country_info" title="Link to this definition"></a></dt>
 <dd><p>Returns information about a given country.</p>
-<p>Args:
-- countryCode (str): The code representing one of over a hundred countries supported by the API.</p>
-<p>Returns:
-- dict: A dictionary containing information about the given country.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>countryCode</strong> (<em>str</em>) – The code representing one of over a hundred countries supported by the API.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing information about the given country.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.calendar.nager_date.NagerDate.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/calendar/nager_date.html#NagerDate.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.calendar.nager_date.NagerDate.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for the Nager.Date API documentation.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: The URL for the API docs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL for the API docs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.calendar.nager_date.NagerDate.get_long_weekends_by_country">
 <span class="sig-name descname"><span class="pre">get_long_weekends_by_country</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">countryCode</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/calendar/nager_date.html#NagerDate.get_long_weekends_by_country"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.calendar.nager_date.NagerDate.get_long_weekends_by_country" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of long weekends for a given country in a given year.</p>
-<p>Args:
-- year (int): The year in question.
-- countryCode (str): The code representing one of over a hundred countries supported by the API.</p>
-<p>Returns:
-- list: A list containing the long weekends for a given country in a given year.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>year</strong> (<em>int</em>) – The year in question.</p></li>
+<li><p><strong>countryCode</strong> (<em>str</em>) – The code representing one of over a hundred countries supported by the API.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing the long weekends for a given country in a given year.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.calendar.nager_date.NagerDate.get_public_holdiays_for_next_365">
 <span class="sig-name descname"><span class="pre">get_public_holdiays_for_next_365</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">countryCode</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/calendar/nager_date.html#NagerDate.get_public_holdiays_for_next_365"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.calendar.nager_date.NagerDate.get_public_holdiays_for_next_365" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of the upcoming public holidays for a given country for the next 365 days.</p>
-<p>Args:
-- countryCode (str): The code representing one of over a hundred countries supported by the API.</p>
-<p>Returns:
-- list: A list containing the upcoming public holidays for a given country for the next 365 days.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>countryCode</strong> (<em>str</em>) – The code representing one of over a hundred countries supported by the API.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing the upcoming public holidays for a given country for the next 365 days.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.calendar.nager_date.NagerDate.get_public_holidays">
 <span class="sig-name descname"><span class="pre">get_public_holidays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">countryCode</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/calendar/nager_date.html#NagerDate.get_public_holidays"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.calendar.nager_date.NagerDate.get_public_holidays" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of public holidays for a given country in a given year.</p>
-<p>Args:
-- year (int): The year in question.
-- countryCode (str): The code representing one of over a hundred countries supported by the API.</p>
-<p>Returns:
-- list: A list containing the public holidays for a given country in a given year.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>year</strong> (<em>int</em>) – The year in question.</p></li>
+<li><p><strong>countryCode</strong> (<em>str</em>) – The code representing one of over a hundred countries supported by the API.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing the public holidays for a given country in a given year.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.calendar.nager_date.NagerDate.get_public_holidays_worldwide_for_next_7">
 <span class="sig-name descname"><span class="pre">get_public_holidays_worldwide_for_next_7</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/calendar/nager_date.html#NagerDate.get_public_holidays_worldwide_for_next_7"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.calendar.nager_date.NagerDate.get_public_holidays_worldwide_for_next_7" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of all the public holidays worldwide for the next 7 days.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- list: A list containing all the upcoming public holidays worldwide for the next 7 days.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing all the upcoming public holidays worldwide for the next 7 days.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.calendar.nager_date.NagerDate.is_today_a_public_holiday">
 <span class="sig-name descname"><span class="pre">is_today_a_public_holiday</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">countryCode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">utc_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/calendar/nager_date.html#NagerDate.is_today_a_public_holiday"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.calendar.nager_date.NagerDate.is_today_a_public_holiday" title="Link to this definition"></a></dt>
 <dd><p>Returns True if today (UTC time zone) is a public holiday for a given country or False if it is not.</p>
-<p>Args:
-- countryCode (str): The code representing one of over a hundred countries supported by the API.
-- utc_offset (int): Integer offset from UTC time zone to adjust for one’s own time zone.</p>
-<p>Returns:
-- bool: True if today (UTC time zone) is a public holiday for the given country or False if it is not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>countryCode</strong> (<em>str</em>) – The code representing one of over a hundred countries supported by the API.</p></li>
+<li><p><strong>utc_offset</strong> (<em>int</em>) – Integer offset from UTC time zone to adjust for one’s own time zone.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if today (UTC time zone) is a public holiday for the given country or False if it is not.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

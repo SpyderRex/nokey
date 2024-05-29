@@ -6,8 +6,8 @@ class UniversityDomainsAndNames:
     A class to interact with the University Domains and Names API.
     
     Attributes:
-    - base_url: The base url for the University Domains and Names API.
-    - about: A short description of the API.
+        base_url: The base url for the University Domains and Names API.
+        about: A short description of the API.
     """
     
     def __init__(self, use_caching=False, cache_name="university_cache", backend="sqlite", expire_after=3600):
@@ -22,10 +22,10 @@ class UniversityDomainsAndNames:
         Returns the url for the University Domains and Names API documentation.
         
         Args:
-        - None
+            None
         
         Returns:
-        - string: URL for API documentation.
+            string: URL for API documentation.
         """
         return "https://github.com/Hipo/university-domains-list"
         
@@ -34,13 +34,13 @@ class UniversityDomainsAndNames:
         Returns university names and domains for the given parameters.
         
         Args:
-        - name (str): Whole or partial name of university in question.
-        - country (str): Country of university in question.
-        - offset (int): Optional pagination parameter to limit search. Defaults to None.
-        - limit (int): Optional pagination parameter to limit number of results. Defaults to None.
+            name (str): Whole or partial name of university in question.
+            country (str): Country of university in question.
+            offset (int): Optional pagination parameter to limit search. Defaults to None.
+            limit (int): Optional pagination parameter to limit number of results. Defaults to None.
         
         Returns:
-        - dict: List containing universities matching parameters with their respective domains.
+            dict: List containing universities matching parameters with their respective domains.
         """
         if offset is not None and limit is not None:
             endpoint = f"name={name}&country={country}&offset={offset}&limit={limit}"
@@ -57,10 +57,10 @@ class UniversityDomainsAndNames:
         Forces a refresh of the API, since the API won't automatically update the dataset if it changes.
         
         Args:
-        - None
+            None
         
         Returns:
-        - dict: An updated, refreshed list of the university dataset.
+            dict: An updated, refreshed list of the university dataset.
         """
         endpoint = "update"
         return mr.make_request(self.base_url+endpoint)

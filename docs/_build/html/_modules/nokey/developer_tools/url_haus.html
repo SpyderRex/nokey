@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.developer_tools.url_haus &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.developer_tools.url_haus &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=c98573da"></script>
+        <script src="../../../_static/documentation_options.js?v=020ce317"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -84,8 +84,8 @@
 <span class="sd">    A class to interact with the URLHaus API.</span>
 <span class="sd">    </span>
 <span class="sd">    Attributes:</span>
-<span class="sd">    - base_url: The base URL of the API.</span>
-<span class="sd">    - about: A short description of the API.</span>
+<span class="sd">        base_url: The base URL of the API.</span>
+<span class="sd">        about: A short description of the API.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">use_caching</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cache_name</span><span class="o">=</span><span class="s2">&quot;urlhaus_cache&quot;</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;sqlite&quot;</span><span class="p">,</span> <span class="n">expire_after</span><span class="o">=</span><span class="mi">3600</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://urlhaus-api.abuse.ch/v1/&quot;</span>
@@ -101,10 +101,10 @@
 <span class="sd">        Returns the URL for the URLHaus API documentation.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - string: The URL for the API docs.</span>
+<span class="sd">            string: The URL for the API docs.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;https://urlhaus-api.abuse.ch/&quot;</span></div>
 
@@ -116,10 +116,10 @@
 <span class="sd">        Returns a list of recent URLs added to URLHaus.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - limit (int): Optional limit of URLs returned. Defaults to None.</span>
+<span class="sd">            limit (int): Optional limit of URLs returned. Defaults to None.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a list of recent URLs added to URLHaus.</span>
+<span class="sd">            dict: A dictionary containing a list of recent URLs added to URLHaus.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">limit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;urls/recent/limit/</span><span class="si">{</span><span class="n">limit</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -135,10 +135,10 @@
 <span class="sd">        Returns a list of recent payloads seen by URLHaus.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - limit (int): Optional limit of payloads returned. Defaults to None.</span>
+<span class="sd">            limit (int): Optional limit of payloads returned. Defaults to None.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a list of recent payloads seen by URLHaus.</span>
+<span class="sd">            dict: A dictionary containing a list of recent payloads seen by URLHaus.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">limit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;payloads/recent/limit/</span><span class="si">{</span><span class="n">limit</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -154,10 +154,10 @@
 <span class="sd">        Returns any information URLHaus may have about a specific URL.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - url (str): The URL in question.</span>
+<span class="sd">            url (str): The URL in question.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing information about a specific URL.</span>
+<span class="sd">            dict: A dictionary containing information about a specific URL.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;url/&quot;</span>
@@ -175,10 +175,10 @@
 <span class="sd">        Returns any information URLHaus may have about a specific URL.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - urlID (int): The id of the URL in question.</span>
+<span class="sd">            urlID (int): The id of the URL in question.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing information about a specific URL.</span>
+<span class="sd">            dict: A dictionary containing information about a specific URL.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;urlid&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">urlID</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;urlid/&quot;</span>
@@ -196,10 +196,10 @@
 <span class="sd">        Returns any information URLHaus may have about a specific host.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - host (str): The IPv4 address, domain name, or hostname in question.</span>
+<span class="sd">            host (str): The IPv4 address, domain name, or hostname in question.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing information about a specific host.</span>
+<span class="sd">            dict: A dictionary containing information about a specific host.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;host/&quot;</span>
@@ -217,10 +217,10 @@
 <span class="sd">        Returns any information URLHaus has about a specific payload (malware sample).</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - p_load (str): The MD5 hash or SHA256 hash of the payload (malware sample).</span>
+<span class="sd">            p_load (str): The MD5 hash or SHA256 hash of the payload (malware sample).</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing information about a specific payload.</span>
+<span class="sd">            dict: A dictionary containing information about a specific payload.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">p_load</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;payload/&quot;</span>
@@ -238,10 +238,10 @@
 <span class="sd">        Returns any information URLHaus has about a specific tag.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - tag (str): The tag to query.</span>
+<span class="sd">            tag (str): The tag to query.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing information about a specific tag.</span>
+<span class="sd">            dict: A dictionary containing information about a specific tag.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;tag&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;tag/&quot;</span>
@@ -259,10 +259,10 @@
 <span class="sd">        Returns any information URLHaus has about a specific signature.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - signature (str): The signature to query.</span>
+<span class="sd">            signature (str): The signature to query.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing information about a specific signature.</span>
+<span class="sd">            dict: A dictionary containing information about a specific signature.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;signature&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">signature</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;signature/&quot;</span>
@@ -280,11 +280,11 @@
 <span class="sd">        Downloads a zip file containing the malware sample (payload).</span>
 <span class="sd">    </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - base_url (str): The base URL of the API.</span>
-<span class="sd">        - sha256 (str): The SHA256 hash identifying the malware sample (payload) to be downloaded.</span>
+<span class="sd">            base_url (str): The base URL of the API.</span>
+<span class="sd">            sha256 (str): The SHA256 hash identifying the malware sample (payload) to be downloaded.</span>
 <span class="sd">    </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - str: Path to the downloaded ZIP file if successful, error message otherwise.</span>
+<span class="sd">            - str: Path to the downloaded ZIP file if successful, error message otherwise.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Define the endpoint and construct the URL</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;download/</span><span class="si">{</span><span class="n">sha256</span><span class="si">}</span><span class="s2">&quot;</span>

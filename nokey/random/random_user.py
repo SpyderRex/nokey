@@ -6,8 +6,8 @@ class RandomUserGenerator:
     A class to interact with the Random User Generator API.
     
     Attributes:
-    - base_url: The base url of the API.
-    - about: A short description of the API.
+        base_url: The base url of the API.
+        about: A short description of the API.
     """
     def __init__(self, use_caching=False, cache_name="random_user_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://randomuser.me/api/"
@@ -21,10 +21,10 @@ class RandomUserGenerator:
         Returns the url for the Random User Generator API documentation.
         
         Args:
-        - None
+            None
         
         Returns:
-        - string: URL for API documentation.
+            string: URL for API documentation.
         """
         return "https://randomuser.me/"
         
@@ -33,10 +33,10 @@ class RandomUserGenerator:
         Returns randomly generated data for a random user.
         
         Args:
-        - None
+            None
         
         Returns:
-        -dict: Dictionary containing random information (such as name, DOB, SSN, address, etc) for a random user.
+            dict: Dictionary containing random information (such as name, DOB, SSN, address, etc) for a random user.
         """
         return mr.make_request(self.base_url)
         

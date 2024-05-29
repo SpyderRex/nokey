@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.food package &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.food package &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=c98573da"></script>
+        <script src="_static/documentation_options.js?v=020ce317"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -49,7 +49,6 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">nokey</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="nokey.html">nokey package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="nokey.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="nokey.activities.html">nokey.activities package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.animals.html">nokey.animals package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.art_and_images.html">nokey.art_and_images package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.books_and_literature.html">nokey.books_and_literature package</a></li>
@@ -119,69 +118,122 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.food.fruityvice.</span></span><span class="sig-name descname"><span class="pre">Fruityvice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fruityvice_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/food/fruityvice.html#Fruityvice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.food.fruityvice.Fruityvice" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class to interact with the Fruityvice API.</p>
-<p>Attributes:
-- base_url: The base url of the Fruityvice API.
-- about: A short description of the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.food.fruityvice.Fruityvice.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#nokey.food.fruityvice.Fruityvice.base_url" title="Link to this definition"></a></dt>
+<dd><p>The base url of the Fruityvice API.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.food.fruityvice.Fruityvice.about">
+<span class="sig-name descname"><span class="pre">about</span></span><a class="headerlink" href="#nokey.food.fruityvice.Fruityvice.about" title="Link to this definition"></a></dt>
+<dd><p>A short description of the API.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.food.fruityvice.Fruityvice.get_all_fruit">
 <span class="sig-name descname"><span class="pre">get_all_fruit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/food/fruityvice.html#Fruityvice.get_all_fruit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.food.fruityvice.Fruityvice.get_all_fruit" title="Link to this definition"></a></dt>
 <dd><p>Returns all the fruit listed in the Fruityvice API.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: Dictionary containing all the fruit listed in the API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing all the fruit listed in the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.food.fruityvice.Fruityvice.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/food/fruityvice.html#Fruityvice.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.food.fruityvice.Fruityvice.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the url for the Fruityvice API documentation.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: URL for API documentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>URL for API documentation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.food.fruityvice.Fruityvice.get_fruit_by_family">
 <span class="sig-name descname"><span class="pre">get_fruit_by_family</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">family</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/food/fruityvice.html#Fruityvice.get_fruit_by_family"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.food.fruityvice.Fruityvice.get_fruit_by_family" title="Link to this definition"></a></dt>
 <dd><p>Returns fruit matching the given family.</p>
-<p>Args:
-- family (str): The name of a fruit family.</p>
-<p>Returns:
--dict: Dictionary containing fruit of the given family.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>family</strong> (<em>str</em>) – The name of a fruit family.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing fruit of the given family.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.food.fruityvice.Fruityvice.get_fruit_by_genus">
 <span class="sig-name descname"><span class="pre">get_fruit_by_genus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">genus</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/food/fruityvice.html#Fruityvice.get_fruit_by_genus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.food.fruityvice.Fruityvice.get_fruit_by_genus" title="Link to this definition"></a></dt>
 <dd><p>Returns fruit matching the given genus.</p>
-<p>Args:
-- genus (str): The name of a fruit genus.</p>
-<p>Returns:
--dict: Dictionary containing fruit of the given genus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>genus</strong> (<em>str</em>) – The name of a fruit genus.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing fruit of the given genus.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.food.fruityvice.Fruityvice.get_fruit_by_nutrition">
 <span class="sig-name descname"><span class="pre">get_fruit_by_nutrition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nutrition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minVal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxVal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/food/fruityvice.html#Fruityvice.get_fruit_by_nutrition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.food.fruityvice.Fruityvice.get_fruit_by_nutrition" title="Link to this definition"></a></dt>
 <dd><p>Returns a fruit with its information based on a minimum and maximum range of values for the specified nutritional component.</p>
-<p>Args:
-- nutrition (str): A nutritional component. Possible values are carbohydrates, protein, fat, calories, and sugar.
-- minVal (float): The minimum value of the range specified for nutritional component (per 100g of the fruit). Defaults to its minimum possible value, which is 0.
-- maxVal (float): The maximum value of the range specified for nutritional component (per 100g of the fruit). Defaults to its maximum possible value, which is 1000.</p>
-<p>Returns:
-- dict: Dictionary containing information on the fruit matching the specified values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nutrition</strong> (<em>str</em>) – A nutritional component. Possible values are carbohydrates, protein, fat, calories, and sugar.</p></li>
+<li><p><strong>minVal</strong> (<em>float</em>) – The minimum value of the range specified for nutritional component (per 100g of the fruit). Defaults to its minimum possible value, which is 0.</p></li>
+<li><p><strong>maxVal</strong> (<em>float</em>) – The maximum value of the range specified for nutritional component (per 100g of the fruit). Defaults to its maximum possible value, which is 1000.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing information on the fruit matching the specified values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.food.fruityvice.Fruityvice.get_fruit_by_order">
 <span class="sig-name descname"><span class="pre">get_fruit_by_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/food/fruityvice.html#Fruityvice.get_fruit_by_order"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.food.fruityvice.Fruityvice.get_fruit_by_order" title="Link to this definition"></a></dt>
 <dd><p>Returns fruit matching the given order.</p>
-<p>Args:
-- order (str): The name of a fruit order.</p>
-<p>Returns:
--dict: Dictionary containing fruit of the given order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>order</strong> (<em>str</em>) – The name of a fruit order.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing fruit of the given order.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

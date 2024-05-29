@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.weather.national_weather_service &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.weather.national_weather_service &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=c98573da"></script>
+        <script src="../../../_static/documentation_options.js?v=020ce317"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -82,8 +82,8 @@
 <span class="sd">    A class to interact with the National Weather Service API.</span>
 <span class="sd">    </span>
 <span class="sd">    Attributes:</span>
-<span class="sd">    - base_url: The base URL of the National Weather Service API.</span>
-<span class="sd">    - about: A short description of the API.</span>
+<span class="sd">        base_url: The base URL of the National Weather Service API.</span>
+<span class="sd">        about: A short description of the API.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">use_caching</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cache_name</span><span class="o">=</span><span class="s2">&quot;nws_cache&quot;</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;sqlite&quot;</span><span class="p">,</span> <span class="n">expire_after</span><span class="o">=</span><span class="mi">3600</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.weather.gov/&quot;</span>
@@ -99,10 +99,10 @@
 <span class="sd">        Returns URL for API docs.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - string: URL for API documentation.</span>
+<span class="sd">            string: URL for API documentation.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;https://www.weather.gov/documentation/services-web-api&quot;</span>       </div>
 
@@ -114,10 +114,10 @@
 <span class="sd">        Returns a collection of weather alerts.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Inforation on weather alerts</span>
+<span class="sd">            dict: Inforation on weather alerts</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;alerts&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -130,10 +130,10 @@
 <span class="sd">        Returns a collection of currently active weather alerts.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Inforation on currently active weather alerts</span>
+<span class="sd">            dict: Inforation on currently active weather alerts</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;alerts/active&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -146,10 +146,10 @@
 <span class="sd">        Returns the count of currently active weather alerts broken down by various categories.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Count of currently active weather alerts broke down by categories.</span>
+<span class="sd">            dict: Count of currently active weather alerts broke down by categories.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;alerts/active/count&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -162,10 +162,10 @@
 <span class="sd">        Returns active alerts for the given NWS public zone or county.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - zoneID (str): NWS public zone/county identifier</span>
+<span class="sd">            zoneID (str): NWS public zone/county identifier</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Information of active alerts in the zone specified by zoneID.</span>
+<span class="sd">            dict: Information of active alerts in the zone specified by zoneID.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;alerts/active/zone/</span><span class="si">{</span><span class="n">zoneID</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -178,10 +178,10 @@
 <span class="sd">        Returns active alerts for the given area (state or marine area).</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - area (str): State or marine area ID</span>
+<span class="sd">            area (str): State or marine area ID</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Information of active alerts in the area specified.</span>
+<span class="sd">            dict: Information of active alerts in the area specified.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;alerts/active/area/</span><span class="si">{</span><span class="n">area</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -194,10 +194,10 @@
 <span class="sd">        Returns active alerts for the given marine region ID. Available values : AL, AT, GL, GM, PA, PI.&quot;</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - region (str): Marine region ID. Available values : AL, AT, GL, GM, PA, PI.</span>
+<span class="sd">            region (str): Marine region ID. Available values : AL, AT, GL, GM, PA, PI.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Information of active alerts in the area specified.</span>
+<span class="sd">            dict: Information of active alerts in the area specified.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;alerts/active/region/</span><span class="si">{</span><span class="n">region</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -210,10 +210,10 @@
 <span class="sd">        Returns a list of alerts types.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a list of alert types.</span>
+<span class="sd">            dict: A dictionary containing a list of alert types.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;alerts/types&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -226,10 +226,10 @@
 <span class="sd">        Returns a specific alert record.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - ID (str): Alert identifier.</span>
+<span class="sd">            ID (str): Alert identifier.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing information about a specific alert.</span>
+<span class="sd">            dict: A dictionary containing information about a specific alert.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;alerts/</span><span class="si">{</span><span class="n">ID</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -242,10 +242,10 @@
 <span class="sd">        Returns metadata about a Center Weather Service Unit.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - cwsuID (str): NWS CWSU ID. Available values : ZAB, ZAN, ZAU, ZBW, ZDC, ZDV, ZFA, ZFW, ZHU, ZID, ZJX, ZKC, ZLA, ZLC, ZMA, ZME, ZMP, ZNY, ZOA, ZOB, ZSE, ZTL.</span>
+<span class="sd">            cwsuID (str): NWS CWSU ID. Available values : ZAB, ZAN, ZAU, ZBW, ZDC, ZDV, ZFA, ZFW, ZHU, ZID, ZJX, ZKC, ZLA, ZLC, ZMA, ZME, ZMP, ZNY, ZOA, ZOB, ZSE, ZTL.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Metadata about a cwsu.</span>
+<span class="sd">            dict: Metadata about a cwsu.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;aviation/cwsus/</span><span class="si">{</span><span class="n">cwsuID</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -258,10 +258,10 @@
 <span class="sd">        Returns a list of Center Weather Advisories from a CWSU.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - cwsuID (str): NWS CWSU ID. Available values : ZAB, ZAN, ZAU, ZBW, ZDC, ZDV, ZFA, ZFW, ZHU, ZID, ZJX, ZKC, ZLA, ZLC, ZMA, ZME, ZMP, ZNY, ZOA, ZOB, ZSE, ZTL.</span>
+<span class="sd">            cwsuID (str): NWS CWSU ID. Available values : ZAB, ZAN, ZAU, ZBW, ZDC, ZDV, ZFA, ZFW, ZHU, ZID, ZJX, ZKC, ZLA, ZLC, ZMA, ZME, ZMP, ZNY, ZOA, ZOB, ZSE, ZTL.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing list of  Center Weather Advisories from a CWSU.</span>
+<span class="sd">            dict: Dictionary containing list of  Center Weather Advisories from a CWSU.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;aviation/cwsus/</span><span class="si">{</span><span class="n">cwsuID</span><span class="si">}</span><span class="s2">/cwas&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -274,12 +274,12 @@
 <span class="sd">        Returns a list of Center Weather Advisories from a CWSU.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - cwsuID (str): NWS CWSU ID. Available values : ZAB, ZAN, ZAU, ZBW, ZDC, ZDV, ZFA, ZFW, ZHU, ZID, ZJX, ZKC, ZLA, ZLC, ZMA, ZME, ZMP, ZNY, ZOA, ZOB, ZSE, ZTL.</span>
-<span class="sd">        - date (str): (YYYY-MM-DD format) Date of advisory.</span>
-<span class="sd">        - sequence (int): Sequence number</span>
+<span class="sd">            cwsuID (str): NWS CWSU ID. Available values : ZAB, ZAN, ZAU, ZBW, ZDC, ZDV, ZFA, ZFW, ZHU, ZID, ZJX, ZKC, ZLA, ZLC, ZMA, ZME, ZMP, ZNY, ZOA, ZOB, ZSE, ZTL.</span>
+<span class="sd">            date (str): (YYYY-MM-DD format) Date of advisory.</span>
+<span class="sd">            sequence (int): Sequence number</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing list of Center Weather Advisories from a CWSU.</span>
+<span class="sd">            dict: Dictionary containing list of Center Weather Advisories from a CWSU.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;aviation/cwsus/</span><span class="si">{</span><span class="n">cwsuID</span><span class="si">}</span><span class="s2">/cwas/</span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">sequence</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -291,14 +291,14 @@
 <span class="c1">#        Returns a list of SIGMET/AIRMETs.</span>
 <span class="c1">#</span>
 <span class="c1">#        Args:</span>
-<span class="c1">#        - start_time (str): Start time.</span>
-<span class="c1">#        - end_time (str): End time.</span>
-<span class="c1">#        - date (str): (YYYY-MM-DD format) Date</span>
-<span class="c1">#        - atsu (str): ATSU identifier</span>
-<span class="c1">#        - sequence (str): SIGMET sequence number</span>
+<span class="c1">#            start_time (str): Start time.</span>
+<span class="c1">#            end_time (str): End time.</span>
+<span class="c1">#            date (str): (YYYY-MM-DD format) Date</span>
+<span class="c1">#            atsu (str): ATSU identifier</span>
+<span class="c1">#            sequence (str): SIGMET sequence number</span>
 <span class="c1">#</span>
 <span class="c1">#        Returns:</span>
-<span class="c1">#        - dict: Metadata about a cwsu.</span>
+<span class="c1">#            dict: Metadata about a cwsu.</span>
 <span class="c1">#        &quot;&quot;&quot;</span>
 <span class="c1">#        endpoint = f&quot;aviation/sigmet?{start_time}?{end_time}?{date}?{atsu}?{sequence}&quot;</span>
 <span class="c1">#        return mr.make_request(self.base_url+endpoint)</span>
@@ -310,10 +310,10 @@
 <span class="sd">        Returns a list of SIGMET/AIRMETs for the specified ATSU.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - atsu (str): ATSU identifier.</span>
+<span class="sd">            atsu (str): ATSU identifier.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing list of SIGMET/AIRMETs for the specified ATSU.</span>
+<span class="sd">            dict: Dictionary containing list of SIGMET/AIRMETs for the specified ATSU.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;aviation/sigmets/</span><span class="si">{</span><span class="n">atsu</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -326,11 +326,11 @@
 <span class="sd">        Returns a list of SIGMET/AIRMETs for the specified ATSU for the specified date.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - atsu (str): ATSU identifier.</span>
-<span class="sd">        - date (str): Date (YYYY-MM-DD format)</span>
+<span class="sd">            atsu (str): ATSU identifier.</span>
+<span class="sd">            date (str): Date (YYYY-MM-DD format)</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing list of SIGMET/AIRMETs for the specified ATSU and specified date.</span>
+<span class="sd">            dict: Dictionary containing list of SIGMET/AIRMETs for the specified ATSU and specified date.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;aviation/sigmets/</span><span class="si">{</span><span class="n">atsu</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -343,12 +343,12 @@
 <span class="sd">        Returns a list of SIGMET/AIRMETs for the specified ATSU for the specified date.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - atsu (str): ATSU identifier.</span>
-<span class="sd">        - date (str): Date (YYYY-MM-DD format)</span>
-<span class="sd">        - time (str): Time (HHMM format). This time is always specified in UTC (Zulu) time.</span>
+<span class="sd">            atsu (str): ATSU identifier.</span>
+<span class="sd">            date (str): Date (YYYY-MM-DD format)</span>
+<span class="sd">            time (str): Time (HHMM format). This time is always specified in UTC (Zulu) time.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing a specific SIGMET/AIRMET.</span>
+<span class="sd">            dict: Dictionary containing a specific SIGMET/AIRMET.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;aviation/sigmets/</span><span class="si">{</span><span class="n">atsu</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">time</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -361,10 +361,10 @@
 <span class="sd">        Returns glossary terms.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a list of glossary terms and definitions.</span>
+<span class="sd">            dict: A dictionary containing a list of glossary terms and definitions.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;glossary&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -377,12 +377,12 @@
 <span class="sd">        Returns raw numerical forecast data for a 2.5km grid area.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - wfo (str): Forecast office ID. Available values : AKQ, ALY, BGM, BOX, BTV, BUF, CAE, CAR, CHS, CLE, CTP, GSP, GYX, ILM, ILN, LWX, MHX, OKX, PBZ, PHI, RAH, RLX, RNK, ABQ, AMA, BMX, BRO, CRP, EPZ, EWX, FFC, FWD, HGX, HUN, JAN, JAX, KEY, LCH, LIX, LUB, LZK, MAF, MEG, MFL, MLB, MOB, MRX, OHX, OUN, SHV, SJT, SJU, TAE, TBW, TSA, ABR, APX, ARX, BIS, BOU, CYS, DDC, DLH, DMX, DTX, DVN, EAX, FGF, FSD, GID, GJT, GLD, GRB, GRR, ICT, ILX, IND, IWX, JKL, LBF, LMK, LOT, LSX, MKX, MPX, MQT, OAX, PAH, PUB, RIW, SGF, TOP, UNR, BOI, BYZ, EKA, FGZ, GGW, HNX, LKN, LOX, MFR, MSO, MTR, OTX, PDT, PIH, PQR, PSR, REV, SEW, SGX, SLC, STO, TFX, TWC, VEF, AER, AFC, AFG, AJK, ALU, GUM, HPA, HFO, PPG, STU, NH1, NH2, ONA, ONP</span>
-<span class="sd">        - x (int): Forecast grid X coordinate.</span>
-<span class="sd">        - y (int): Forecast grid Y coordinate.</span>
+<span class="sd">            wfo (str): Forecast office ID. Available values : AKQ, ALY, BGM, BOX, BTV, BUF, CAE, CAR, CHS, CLE, CTP, GSP, GYX, ILM, ILN, LWX, MHX, OKX, PBZ, PHI, RAH, RLX, RNK, ABQ, AMA, BMX, BRO, CRP, EPZ, EWX, FFC, FWD, HGX, HUN, JAN, JAX, KEY, LCH, LIX, LUB, LZK, MAF, MEG, MFL, MLB, MOB, MRX, OHX, OUN, SHV, SJT, SJU, TAE, TBW, TSA, ABR, APX, ARX, BIS, BOU, CYS, DDC, DLH, DMX, DTX, DVN, EAX, FGF, FSD, GID, GJT, GLD, GRB, GRR, ICT, ILX, IND, IWX, JKL, LBF, LMK, LOT, LSX, MKX, MPX, MQT, OAX, PAH, PUB, RIW, SGF, TOP, UNR, BOI, BYZ, EKA, FGZ, GGW, HNX, LKN, LOX, MFR, MSO, MTR, OTX, PDT, PIH, PQR, PSR, REV, SEW, SGX, SLC, STO, TFX, TWC, VEF, AER, AFC, AFG, AJK, ALU, GUM, HPA, HFO, PPG, STU, NH1, NH2, ONA, ONP</span>
+<span class="sd">            x (int): Forecast grid X coordinate.</span>
+<span class="sd">            y (int): Forecast grid Y coordinate.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing the raw numerical forcast data.</span>
+<span class="sd">            dict: Dictionary containing the raw numerical forcast data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;gridpoints/</span><span class="si">{</span><span class="n">wfo</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -395,12 +395,12 @@
 <span class="sd">        Returns a textual forecast for a 2.5km grid area.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - wfo (str): Forecast office ID. Available values : AKQ, ALY, BGM, BOX, BTV, BUF, CAE, CAR, CHS, CLE, CTP, GSP, GYX, ILM, ILN, LWX, MHX, OKX, PBZ, PHI, RAH, RLX, RNK, ABQ, AMA, BMX, BRO, CRP, EPZ, EWX, FFC, FWD, HGX, HUN, JAN, JAX, KEY, LCH, LIX, LUB, LZK, MAF, MEG, MFL, MLB, MOB, MRX, OHX, OUN, SHV, SJT, SJU, TAE, TBW, TSA, ABR, APX, ARX, BIS, BOU, CYS, DDC, DLH, DMX, DTX, DVN, EAX, FGF, FSD, GID, GJT, GLD, GRB, GRR, ICT, ILX, IND, IWX, JKL, LBF, LMK, LOT, LSX, MKX, MPX, MQT, OAX, PAH, PUB, RIW, SGF, TOP, UNR, BOI, BYZ, EKA, FGZ, GGW, HNX, LKN, LOX, MFR, MSO, MTR, OTX, PDT, PIH, PQR, PSR, REV, SEW, SGX, SLC, STO, TFX, TWC, VEF, AER, AFC, AFG, AJK, ALU, GUM, HPA, HFO, PPG, STU, NH1, NH2, ONA, ONP</span>
-<span class="sd">        - x (int): Forecast grid X coordinate.</span>
-<span class="sd">        - y (int): Forecast grid Y coordinate.</span>
+<span class="sd">            wfo (str): Forecast office ID. Available values : AKQ, ALY, BGM, BOX, BTV, BUF, CAE, CAR, CHS, CLE, CTP, GSP, GYX, ILM, ILN, LWX, MHX, OKX, PBZ, PHI, RAH, RLX, RNK, ABQ, AMA, BMX, BRO, CRP, EPZ, EWX, FFC, FWD, HGX, HUN, JAN, JAX, KEY, LCH, LIX, LUB, LZK, MAF, MEG, MFL, MLB, MOB, MRX, OHX, OUN, SHV, SJT, SJU, TAE, TBW, TSA, ABR, APX, ARX, BIS, BOU, CYS, DDC, DLH, DMX, DTX, DVN, EAX, FGF, FSD, GID, GJT, GLD, GRB, GRR, ICT, ILX, IND, IWX, JKL, LBF, LMK, LOT, LSX, MKX, MPX, MQT, OAX, PAH, PUB, RIW, SGF, TOP, UNR, BOI, BYZ, EKA, FGZ, GGW, HNX, LKN, LOX, MFR, MSO, MTR, OTX, PDT, PIH, PQR, PSR, REV, SEW, SGX, SLC, STO, TFX, TWC, VEF, AER, AFC, AFG, AJK, ALU, GUM, HPA, HFO, PPG, STU, NH1, NH2, ONA, ONP</span>
+<span class="sd">            x (int): Forecast grid X coordinate.</span>
+<span class="sd">            y (int): Forecast grid Y coordinate.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing the textual forcast data.</span>
+<span class="sd">            dict: Dictionary containing the textual forcast data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;gridpoints/</span><span class="si">{</span><span class="n">wfo</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">/forecast&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -413,12 +413,12 @@
 <span class="sd">        Returns a textual hourly forecast for a 2.5km grid area.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - wfo (str): Forecast office ID. Available values : AKQ, ALY, BGM, BOX, BTV, BUF, CAE, CAR, CHS, CLE, CTP, GSP, GYX, ILM, ILN, LWX, MHX, OKX, PBZ, PHI, RAH, RLX, RNK, ABQ, AMA, BMX, BRO, CRP, EPZ, EWX, FFC, FWD, HGX, HUN, JAN, JAX, KEY, LCH, LIX, LUB, LZK, MAF, MEG, MFL, MLB, MOB, MRX, OHX, OUN, SHV, SJT, SJU, TAE, TBW, TSA, ABR, APX, ARX, BIS, BOU, CYS, DDC, DLH, DMX, DTX, DVN, EAX, FGF, FSD, GID, GJT, GLD, GRB, GRR, ICT, ILX, IND, IWX, JKL, LBF, LMK, LOT, LSX, MKX, MPX, MQT, OAX, PAH, PUB, RIW, SGF, TOP, UNR, BOI, BYZ, EKA, FGZ, GGW, HNX, LKN, LOX, MFR, MSO, MTR, OTX, PDT, PIH, PQR, PSR, REV, SEW, SGX, SLC, STO, TFX, TWC, VEF, AER, AFC, AFG, AJK, ALU, GUM, HPA, HFO, PPG, STU, NH1, NH2, ONA, ONP</span>
-<span class="sd">        - x (int): Forecast grid X coordinate.</span>
-<span class="sd">        - y (int): Forecast grid Y coordinate.</span>
+<span class="sd">            wfo (str): Forecast office ID. Available values : AKQ, ALY, BGM, BOX, BTV, BUF, CAE, CAR, CHS, CLE, CTP, GSP, GYX, ILM, ILN, LWX, MHX, OKX, PBZ, PHI, RAH, RLX, RNK, ABQ, AMA, BMX, BRO, CRP, EPZ, EWX, FFC, FWD, HGX, HUN, JAN, JAX, KEY, LCH, LIX, LUB, LZK, MAF, MEG, MFL, MLB, MOB, MRX, OHX, OUN, SHV, SJT, SJU, TAE, TBW, TSA, ABR, APX, ARX, BIS, BOU, CYS, DDC, DLH, DMX, DTX, DVN, EAX, FGF, FSD, GID, GJT, GLD, GRB, GRR, ICT, ILX, IND, IWX, JKL, LBF, LMK, LOT, LSX, MKX, MPX, MQT, OAX, PAH, PUB, RIW, SGF, TOP, UNR, BOI, BYZ, EKA, FGZ, GGW, HNX, LKN, LOX, MFR, MSO, MTR, OTX, PDT, PIH, PQR, PSR, REV, SEW, SGX, SLC, STO, TFX, TWC, VEF, AER, AFC, AFG, AJK, ALU, GUM, HPA, HFO, PPG, STU, NH1, NH2, ONA, ONP</span>
+<span class="sd">            x (int): Forecast grid X coordinate.</span>
+<span class="sd">            y (int): Forecast grid Y coordinate.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing the textual hourly forcast data.</span>
+<span class="sd">            dict: Dictionary containing the textual hourly forcast data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;gridpoints/</span><span class="si">{</span><span class="n">wfo</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">/forecast/hourly&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -431,12 +431,12 @@
 <span class="sd">        Returns a list of observation stations usable for a given 2.5km grid area.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - wfo (str): Forecast office ID. Available values : AKQ, ALY, BGM, BOX, BTV, BUF, CAE, CAR, CHS, CLE, CTP, GSP, GYX, ILM, ILN, LWX, MHX, OKX, PBZ, PHI, RAH, RLX, RNK, ABQ, AMA, BMX, BRO, CRP, EPZ, EWX, FFC, FWD, HGX, HUN, JAN, JAX, KEY, LCH, LIX, LUB, LZK, MAF, MEG, MFL, MLB, MOB, MRX, OHX, OUN, SHV, SJT, SJU, TAE, TBW, TSA, ABR, APX, ARX, BIS, BOU, CYS, DDC, DLH, DMX, DTX, DVN, EAX, FGF, FSD, GID, GJT, GLD, GRB, GRR, ICT, ILX, IND, IWX, JKL, LBF, LMK, LOT, LSX, MKX, MPX, MQT, OAX, PAH, PUB, RIW, SGF, TOP, UNR, BOI, BYZ, EKA, FGZ, GGW, HNX, LKN, LOX, MFR, MSO, MTR, OTX, PDT, PIH, PQR, PSR, REV, SEW, SGX, SLC, STO, TFX, TWC, VEF, AER, AFC, AFG, AJK, ALU, GUM, HPA, HFO, PPG, STU, NH1, NH2, ONA, ONP</span>
-<span class="sd">        - x (int): Forecast grid X coordinate.</span>
-<span class="sd">        - y (int): Forecast grid Y coordinate.</span>
+<span class="sd">            wfo (str): Forecast office ID. Available values : AKQ, ALY, BGM, BOX, BTV, BUF, CAE, CAR, CHS, CLE, CTP, GSP, GYX, ILM, ILN, LWX, MHX, OKX, PBZ, PHI, RAH, RLX, RNK, ABQ, AMA, BMX, BRO, CRP, EPZ, EWX, FFC, FWD, HGX, HUN, JAN, JAX, KEY, LCH, LIX, LUB, LZK, MAF, MEG, MFL, MLB, MOB, MRX, OHX, OUN, SHV, SJT, SJU, TAE, TBW, TSA, ABR, APX, ARX, BIS, BOU, CYS, DDC, DLH, DMX, DTX, DVN, EAX, FGF, FSD, GID, GJT, GLD, GRB, GRR, ICT, ILX, IND, IWX, JKL, LBF, LMK, LOT, LSX, MKX, MPX, MQT, OAX, PAH, PUB, RIW, SGF, TOP, UNR, BOI, BYZ, EKA, FGZ, GGW, HNX, LKN, LOX, MFR, MSO, MTR, OTX, PDT, PIH, PQR, PSR, REV, SEW, SGX, SLC, STO, TFX, TWC, VEF, AER, AFC, AFG, AJK, ALU, GUM, HPA, HFO, PPG, STU, NH1, NH2, ONA, ONP</span>
+<span class="sd">            x (int): Forecast grid X coordinate.</span>
+<span class="sd">            y (int): Forecast grid Y coordinate.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing a list of observation stations usable for a given 2.5km grid area.</span>
+<span class="sd">            dict: Dictionary containing a list of observation stations usable for a given 2.5km grid area.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;gridpoints/</span><span class="si">{</span><span class="n">wfo</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">/stations&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -449,10 +449,10 @@
 <span class="sd">        Returns a list of observations for a given station.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - stationID (str): Observation station ID.</span>
+<span class="sd">            stationID (str): Observation station ID.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing list of observations for a given station.</span>
+<span class="sd">            dict: Dictionary containing list of observations for a given station.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;stations/</span><span class="si">{</span><span class="n">stationID</span><span class="si">}</span><span class="s2">/observations&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -465,11 +465,11 @@
 <span class="sd">        Returns a single observation.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - stationID (str): Observation station ID.</span>
-<span class="sd">        - time (str): Timestamp of requested observation.</span>
+<span class="sd">            stationID (str): Observation station ID.</span>
+<span class="sd">            time (str): Timestamp of requested observation.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing single observation for a given station at a given time.</span>
+<span class="sd">            dict: Dictionary containing single observation for a given station at a given time.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;stations/</span><span class="si">{</span><span class="n">stationID</span><span class="si">}</span><span class="s2">/observations/</span><span class="si">{</span><span class="n">time</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -482,10 +482,10 @@
 <span class="sd">        Returns Terminal Aerodrome Forecasts for the specified airport station.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - stationID (str): Observation station ID.</span>
+<span class="sd">            stationID (str): Observation station ID.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing TAFS for given station.</span>
+<span class="sd">            dict: Dictionary containing TAFS for given station.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;stations/</span><span class="si">{</span><span class="n">stationID</span><span class="si">}</span><span class="s2">/tafs&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -498,12 +498,12 @@
 <span class="sd">        Returns a single Terminal Aerodrome Forecast..</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - stationID (str): Observation station ID.</span>
-<span class="sd">        - date (str): Date (YYYY-MM-DD format)</span>
-<span class="sd">        - time (str) Time (HHMM format). This time is always specified in UTC (Zulu) time.</span>
+<span class="sd">            stationID (str): Observation station ID.</span>
+<span class="sd">            date (str): Date (YYYY-MM-DD format)</span>
+<span class="sd">            time (str) Time (HHMM format). This time is always specified in UTC (Zulu) time.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing TAF.</span>
+<span class="sd">            dict: Dictionary containing TAF.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;stations/</span><span class="si">{</span><span class="n">stationID</span><span class="si">}</span><span class="s2">/tafs/</span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">time</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -516,10 +516,10 @@
 <span class="sd">        Returns a list of observation stations.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a list of observation stations.</span>
+<span class="sd">            dict: A dictionary containing a list of observation stations.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;stations&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -532,10 +532,10 @@
 <span class="sd">        Returns metadata about a given observation station.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - stationID (str): Observation station ID.</span>
+<span class="sd">            stationID (str): Observation station ID.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing metadata for given station.</span>
+<span class="sd">            dict: Dictionary containing metadata for given station.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;stations/</span><span class="si">{</span><span class="n">stationID</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -548,10 +548,10 @@
 <span class="sd">        Returns metadata about a NWS forecast office.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - officeID (str): NWS office ID.</span>
+<span class="sd">            officeID (str): NWS office ID.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing metadata for given NWS office.</span>
+<span class="sd">            dict: Dictionary containing metadata for given NWS office.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;offices/</span><span class="si">{</span><span class="n">officeID</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -564,11 +564,11 @@
 <span class="sd">        Returns a specific news headline for a given NWS office.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - officeID (str): NWS office ID.</span>
-<span class="sd">        - headlineID (str): Headline record ID.</span>
+<span class="sd">            officeID (str): NWS office ID.</span>
+<span class="sd">            headlineID (str): Headline record ID.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing headline for given NWS office and given headline ID.</span>
+<span class="sd">            dict: Dictionary containing headline for given NWS office and given headline ID.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;offices/</span><span class="si">{</span><span class="n">officeID</span><span class="si">}</span><span class="s2">/headlines/</span><span class="si">{</span><span class="n">headlineID</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -581,10 +581,10 @@
 <span class="sd">        Returns a list of news headlines for a given NWS office.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - officeID (str): NWS office ID.</span>
+<span class="sd">            officeID (str): NWS office ID.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing headlines for given NWS office.</span>
+<span class="sd">            dict: Dictionary containing headlines for given NWS office.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;offices/</span><span class="si">{</span><span class="n">officeID</span><span class="si">}</span><span class="s2">/headlines&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -596,10 +596,10 @@
 <span class="c1">#        Returns metadata about a given latitude/longitude point.</span>
 <span class="c1">#</span>
 <span class="c1">#        Args:</span>
-<span class="c1">#        - point (str): Point(latitude,longitude)</span>
+<span class="c1">#            point (str): Point(latitude,longitude)</span>
 <span class="c1">#        </span>
 <span class="c1">#        Returns:</span>
-<span class="c1">#        - dict: Dictionary containing metadata for given point.</span>
+<span class="c1">#            dict: Dictionary containing metadata for given point.</span>
 <span class="c1">#        &quot;&quot;&quot;</span>
 <span class="c1">#        endpoint = f&quot;points/{point}&quot;</span>
 <span class="c1">#        return mr.make_request(self.base_url+endpoint)</span>
@@ -611,10 +611,10 @@
 <span class="sd">        Returns a list of radar servers.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a list of radar servers.</span>
+<span class="sd">            dict: A dictionary containing a list of radar servers.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;radar/servers&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -627,10 +627,10 @@
 <span class="sd">        Returns metadata about a given radar server.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - serverID (str): Radar server ID.</span>
+<span class="sd">            serverID (str): Radar server ID.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing metadata for given radar server.</span>
+<span class="sd">            dict: Dictionary containing metadata for given radar server.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;radar/servers/</span><span class="si">{</span><span class="n">serverID</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -643,10 +643,10 @@
 <span class="sd">        Returns a list of radar stations.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a list of radar stations.</span>
+<span class="sd">            dict: A dictionary containing a list of radar stations.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;radar/stations&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -659,10 +659,10 @@
 <span class="sd">        Returns metadata about a given radar station.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - stationID (str): Radar station ID.</span>
+<span class="sd">            stationID (str): Radar station ID.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing metadata for given radar station.</span>
+<span class="sd">            dict: Dictionary containing metadata for given radar station.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;radar/stations/</span><span class="si">{</span><span class="n">stationID</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -675,10 +675,10 @@
 <span class="sd">        Returns metadata about a given radar station alarms.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - stationID (str): Radar station ID.</span>
+<span class="sd">            stationID (str): Radar station ID.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing metadata for given radar station alarms.</span>
+<span class="sd">            dict: Dictionary containing metadata for given radar station alarms.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;radar/stations/</span><span class="si">{</span><span class="n">stationID</span><span class="si">}</span><span class="s2">/alarms&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -691,10 +691,10 @@
 <span class="sd">        Returns metadata about a given radar queue.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - host (str): LDM host.</span>
+<span class="sd">            host (str): LDM host.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing metadata for given radar queue.</span>
+<span class="sd">            dict: Dictionary containing metadata for given radar queue.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;radar/queues/</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -707,10 +707,10 @@
 <span class="sd">        Returns metadata about a given radar wind profiler.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - stationID (str): Profiler station ID.</span>
+<span class="sd">            stationID (str): Profiler station ID.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing metadata for given radar wind profiler.</span>
+<span class="sd">            dict: Dictionary containing metadata for given radar wind profiler.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;radar/profilers/</span><span class="si">{</span><span class="n">stationID</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -723,10 +723,10 @@
 <span class="sd">        Returns a list of text products.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a list of text products.</span>
+<span class="sd">            dict: A dictionary containing a list of text products.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;products&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -739,10 +739,10 @@
 <span class="sd">        Returns a list of valid text product issuance locations.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a list of valid text product issuance locations.</span>
+<span class="sd">            dict: A dictionary containing a list of valid text product issuance locations.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;products/locations&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -755,10 +755,10 @@
 <span class="sd">        Returns a list of valid text product types and codes.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a list of valid text product types and codes.</span>
+<span class="sd">            dict: A dictionary containing a list of valid text product types and codes.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;products/types&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -771,10 +771,10 @@
 <span class="sd">        Returns a specific text product.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - productID (str): Text product ID.</span>
+<span class="sd">            productID (str): Text product ID.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing specific text product.</span>
+<span class="sd">            dict: Dictionary containing specific text product.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;products/</span><span class="si">{</span><span class="n">productID</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -787,10 +787,10 @@
 <span class="sd">        Returns a list of text products of a given type.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - typeID (str): Text product type ID.</span>
+<span class="sd">            typeID (str): Text product type ID.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing list of text products of given type.</span>
+<span class="sd">            dict: Dictionary containing list of text products of given type.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;products/types/</span><span class="si">{</span><span class="n">typeID</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -803,10 +803,10 @@
 <span class="sd">        Returns a list of valid text product issuance locations for a given product type.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - typeID (str): Text product type ID.</span>
+<span class="sd">            typeID (str): Text product type ID.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing list of valid text product issuance locations for a given type.</span>
+<span class="sd">            dict: Dictionary containing list of valid text product issuance locations for a given type.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;products/types/</span><span class="si">{</span><span class="n">typeID</span><span class="si">}</span><span class="s2">/locations&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -819,10 +819,10 @@
 <span class="sd">        Returns a list of valid text product types for a given issuance location.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - locationID (str): Location ID.</span>
+<span class="sd">            locationID (str): Location ID.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing list of valid text product types for a given location.</span>
+<span class="sd">            dict: Dictionary containing list of valid text product types for a given location.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;products/locations/</span><span class="si">{</span><span class="n">locationID</span><span class="si">}</span><span class="s2">/types&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -835,11 +835,11 @@
 <span class="sd">        Returns a list of text products of a given type for a given issuance location.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - typeID (str): Text product type ID.</span>
-<span class="sd">        - locationID (str): Location ID.</span>
+<span class="sd">            typeID (str): Text product type ID.</span>
+<span class="sd">            locationID (str): Location ID.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing list of text product of a given type for a given issuance location.</span>
+<span class="sd">            dict: Dictionary containing list of text product of a given type for a given issuance location.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;products/types/</span><span class="si">{</span><span class="n">typeID</span><span class="si">}</span><span class="s2">/locations/</span><span class="si">{</span><span class="n">locationID</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -852,10 +852,10 @@
 <span class="sd">        Returns a list of zones.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a list of zones.</span>
+<span class="sd">            dict: A dictionary containing a list of zones.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;zones&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -869,10 +869,10 @@
 <span class="sd">        Returns a list of valid text product types for a given issuance location.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - Type (str): Zone type. Available values : land, marine, forecast, public, coastal, offshore, fire, county.</span>
+<span class="sd">            Type (str): Zone type. Available values : land, marine, forecast, public, coastal, offshore, fire, county.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing list of valid text product types for a given location.</span>
+<span class="sd">            dict: Dictionary containing list of valid text product types for a given location.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;zones/</span><span class="si">{</span><span class="n">Type</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -885,11 +885,11 @@
 <span class="sd">        Returns metadata about a given zone.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - Type (str): Zone type. Available values : land, marine, forecast, public, coastal, offshore, fire, county.</span>
-<span class="sd">        - zoneID (str): NWS public zone/county identifier.</span>
+<span class="sd">            Type (str): Zone type. Available values : land, marine, forecast, public, coastal, offshore, fire, county.</span>
+<span class="sd">            zoneID (str): NWS public zone/county identifier.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing metadata about a given zone.</span>
+<span class="sd">            dict: Dictionary containing metadata about a given zone.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;zones/</span><span class="si">{</span><span class="n">Type</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">zoneID</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -902,11 +902,11 @@
 <span class="sd">        Returns the current zone forecast for a given zone.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - Type (str): Zone type. Available values : land, marine, forecast, public, coastal, offshore, fire, county.</span>
-<span class="sd">        - zoneID (str): NWS public zone/county identifier.</span>
+<span class="sd">            Type (str): Zone type. Available values : land, marine, forecast, public, coastal, offshore, fire, county.</span>
+<span class="sd">            zoneID (str): NWS public zone/county identifier.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing zone forecast for a given zone.</span>
+<span class="sd">            dict: Dictionary containing zone forecast for a given zone.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;zones/</span><span class="si">{</span><span class="n">Type</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">zoneID</span><span class="si">}</span><span class="s2">/forecast&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -919,10 +919,10 @@
 <span class="sd">        Returns a list of observations for a given zone.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - zoneID (str): NWS public zone/county identifier.</span>
+<span class="sd">            zoneID (str): NWS public zone/county identifier.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing a list of observations for a given zkne.</span>
+<span class="sd">            dict: Dictionary containing a list of observations for a given zkne.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;zones/forecast/</span><span class="si">{</span><span class="n">zoneID</span><span class="si">}</span><span class="s2">/observations&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -935,10 +935,10 @@
 <span class="sd">        Returns a list of observation stations for a given zone.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">        - zoneID (str): NWS public zone/county identifier.</span>
+<span class="sd">            zoneID (str): NWS public zone/county identifier.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Dictionary containing a list of observation stations for a given zkne.</span>
+<span class="sd">            dict: Dictionary containing a list of observation stations for a given zkne.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;zones/forecast/</span><span class="si">{</span><span class="n">zoneID</span><span class="si">}</span><span class="s2">/stations&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>

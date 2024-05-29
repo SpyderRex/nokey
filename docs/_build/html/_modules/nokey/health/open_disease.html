@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.health.open_disease &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.health.open_disease &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=c98573da"></script>
+        <script src="../../../_static/documentation_options.js?v=020ce317"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -81,8 +81,8 @@
 <span class="sd">    A class for interacting with the Open Disease API.</span>
 <span class="sd">    </span>
 <span class="sd">    Attributes:</span>
-<span class="sd">    - base_url: The base URL for the API.</span>
-<span class="sd">    - about: A short description of the API.</span>
+<span class="sd">        base_url: The base URL for the API.</span>
+<span class="sd">        about: A short description of the API.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">use_caching</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cache_name</span><span class="o">=</span><span class="s2">&quot;open_disease_cache&quot;</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;sqlite&quot;</span><span class="p">,</span> <span class="n">expire_after</span><span class="o">=</span><span class="mi">3600</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://disease.sh/v3/&quot;</span>
@@ -98,10 +98,10 @@
 <span class="sd">        Returns the URL for the Open Disease API documentation.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - string: The URL for the API docs.</span>
+<span class="sd">            string: The URL for the API docs.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;https://disease.sh/docs/&quot;</span></div>
 
@@ -114,11 +114,11 @@
 <span class="sd">        Returns global COVID-19 totals for today, yesterday and two days ago.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - day (int): Which day&#39;s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.</span>
-<span class="sd">        - allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
+<span class="sd">            day (int): Which day&#39;s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.</span>
+<span class="sd">            allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing global COVID-19 totals.</span>
+<span class="sd">            dict: A dictionary containing global COVID-19 totals.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/all?allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -141,12 +141,12 @@
 <span class="sd">        Returns COVID-19 totals for the states.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - sort (str): Provided a key (e.g. cases, todayCases, deaths, active), result will be sorted from greatest to least. See docs for possible fields to sort by. Default is None.</span>
-<span class="sd">        - day (int): Which day&#39;s data to return. Supported values are 0 for today and 1 for yesterday. Default is 0, today.</span>
-<span class="sd">        - allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
+<span class="sd">            sort (str): Provided a key (e.g. cases, todayCases, deaths, active), result will be sorted from greatest to least. See docs for possible fields to sort by. Default is None.</span>
+<span class="sd">            day (int): Which day&#39;s data to return. Supported values are 0 for today and 1 for yesterday. Default is 0, today.</span>
+<span class="sd">            allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing state COVID-19 totals.</span>
+<span class="sd">            dict: A dictionary containing state COVID-19 totals.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">sort</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -177,12 +177,12 @@
 <span class="sd">        Returns COVID-19 totals for the specified state(s).</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - states (str): State name or comma separated non-spaced names, spelled correctly.</span>
-<span class="sd">        - day (int): Which day&#39;s data to return. Supported values are 0 for today and 1 for yesterday. Default is 0, today.</span>
-<span class="sd">        - allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
+<span class="sd">            states (str): State name or comma separated non-spaced names, spelled correctly.</span>
+<span class="sd">            day (int): Which day&#39;s data to return. Supported values are 0 for today and 1 for yesterday. Default is 0, today.</span>
+<span class="sd">            allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing COVID-19 totals for specified state(s).</span>
+<span class="sd">            dict: A dictionary containing COVID-19 totals for specified state(s).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/states/</span><span class="si">{</span><span class="n">states</span><span class="si">}</span><span class="s2">?allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -202,12 +202,12 @@
 <span class="sd">        Returns COVID-19 totals for all the continents.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - sort (str): Provided a key (e.g. cases, todayCases, deaths, active), result will be sorted from greatest to least. See docs for possible fields to sort by. Default is None.</span>
-<span class="sd">        - day (int): Which day&#39;s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.</span>
-<span class="sd">        - allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
+<span class="sd">            sort (str): Provided a key (e.g. cases, todayCases, deaths, active), result will be sorted from greatest to least. See docs for possible fields to sort by. Default is None.</span>
+<span class="sd">            day (int): Which day&#39;s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.</span>
+<span class="sd">            allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing COVID-19 totals for the continents.</span>
+<span class="sd">            dict: A dictionary containing COVID-19 totals for the continents.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">sort</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -244,13 +244,13 @@
 <span class="sd">        Returns COVID-19 totals for the specified continent.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - continent (str): Name of the continent, spelled correctly.</span>
-<span class="sd">        - day (int): Which day&#39;s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.</span>
-<span class="sd">        - strict (bool): Setting to false gives you the ability to fuzzy search continents (i.e. Oman vs. rOMANia). Default is True.</span>
-<span class="sd">        - allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
+<span class="sd">            continent (str): Name of the continent, spelled correctly.</span>
+<span class="sd">            day (int): Which day&#39;s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.</span>
+<span class="sd">            strict (bool): Setting to false gives you the ability to fuzzy search continents (i.e. Oman vs. rOMANia). Default is True.</span>
+<span class="sd">            allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing COVID-19 totals for specified continent.</span>
+<span class="sd">            dict: A dictionary containing COVID-19 totals for specified continent.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/continents/</span><span class="si">{</span><span class="n">continent</span><span class="si">}</span><span class="s2">?strict=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">strict</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -273,12 +273,12 @@
 <span class="sd">        Returns COVID-19 totals for all the countries.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - sort (str): Provided a key (e.g. cases, todayCases, deaths, active), result will be sorted from greatest to least. See docs for possible fields to sort by. Default is None.</span>
-<span class="sd">        - day (int): Which day&#39;s data to return. Supported values are 0 for today and 1 for yesterday. Default is 0, today.</span>
-<span class="sd">        - allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
+<span class="sd">            sort (str): Provided a key (e.g. cases, todayCases, deaths, active), result will be sorted from greatest to least. See docs for possible fields to sort by. Default is None.</span>
+<span class="sd">            day (int): Which day&#39;s data to return. Supported values are 0 for today and 1 for yesterday. Default is 0, today.</span>
+<span class="sd">            allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing COVID-19 totals for the countries.</span>
+<span class="sd">            dict: A dictionary containing COVID-19 totals for the countries.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">sort</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -315,13 +315,13 @@
 <span class="sd">        Returns COVID-19 totals for the specified country.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - country (str): A country name, iso2, iso3, or country ID code</span>
-<span class="sd">        - day (int): Which day&#39;s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.</span>
-<span class="sd">        - strict (bool): Setting to false gives you the ability to fuzzy search countries (i.e. Oman vs. rOMANia). Default is True.</span>
-<span class="sd">        - allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
+<span class="sd">            country (str): A country name, iso2, iso3, or country ID code</span>
+<span class="sd">            day (int): Which day&#39;s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.</span>
+<span class="sd">            strict (bool): Setting to false gives you the ability to fuzzy search countries (i.e. Oman vs. rOMANia). Default is True.</span>
+<span class="sd">            allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing COVID-19 totals for specified country.</span>
+<span class="sd">            dict: A dictionary containing COVID-19 totals for specified country.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/countries/</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">?strict=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">strict</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -344,13 +344,13 @@
 <span class="sd">        Returns COVID-19 totals for the specified countries.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - countries (str): Multiple country names, iso2s, iso3s, or country ID codes, separated by commas, non spaces.</span>
-<span class="sd">        - day (int): Which day&#39;s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.</span>
-<span class="sd">        - strict (bool): Setting to false gives you the ability to fuzzy search countries (i.e. Oman vs. rOMANia). Default is True.</span>
-<span class="sd">        - allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
+<span class="sd">            countries (str): Multiple country names, iso2s, iso3s, or country ID codes, separated by commas, non spaces.</span>
+<span class="sd">            day (int): Which day&#39;s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.</span>
+<span class="sd">            strict (bool): Setting to false gives you the ability to fuzzy search countries (i.e. Oman vs. rOMANia). Default is True.</span>
+<span class="sd">            allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing COVID-19 totals for specified countries.</span>
+<span class="sd">            dict: A dictionary containing COVID-19 totals for specified countries.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/countries/</span><span class="si">{</span><span class="n">countries</span><span class="si">}</span><span class="s2">?strict=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">strict</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&amp;allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -376,10 +376,10 @@
 <span class="sd">        Returns COVID-19 time series data for all countries and all their provences.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">            last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">            dict: A dictionary containing COVID-19 time series data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/historical?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -392,10 +392,10 @@
 <span class="sd">        Returns global accumulated COVID-19 time series data for all countries and all their provences.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">            last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing global accumulated COVID-19 time series data.</span>
+<span class="sd">            dict: A dictionary containing global accumulated COVID-19 time series data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/historical/all?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -408,11 +408,11 @@
 <span class="sd">        Returns COVID-19 time series data for a specific country.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - country (str): A country name, iso2, iso3, or country ID code.</span>
-<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">            country (str): A country name, iso2, iso3, or country ID code.</span>
+<span class="sd">            last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">            dict: A dictionary containing COVID-19 time series data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/historical/</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -425,11 +425,11 @@
 <span class="sd">        Returns COVID-19 time series data for a specific countries.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - country (str): Multiple country names, iso2s, iso3s, or country ID codes, in comma separated no spaced string.</span>
-<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">            country (str): Multiple country names, iso2s, iso3s, or country ID codes, in comma separated no spaced string.</span>
+<span class="sd">            last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">            dict: A dictionary containing COVID-19 time series data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/historical/</span><span class="si">{</span><span class="n">countries</span><span class="si">}</span><span class="s2">?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -442,12 +442,12 @@
 <span class="sd">        Returns COVID-19 time series data for a specific province in a country.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - country (str): A country name, iso2, iso3, or country ID code.</span>
-<span class="sd">        - province (str): Province name. All available names can be found in the /v3/covid-19/historical/{query} endpoint.</span>
-<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">            country (str): A country name, iso2, iso3, or country ID code.</span>
+<span class="sd">            province (str): Province name. All available names can be found in the /v3/covid-19/historical/{query} endpoint.</span>
+<span class="sd">            last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">            dict: A dictionary containing COVID-19 time series data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/historical/</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">province</span><span class="si">}</span><span class="s2">?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -460,12 +460,12 @@
 <span class="sd">        Returns COVID-19 time series data for a specific set of provinces in a country.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - country (str): A country name, iso2, iso3, or country ID code.</span>
-<span class="sd">        - province (str): Provinces spelled correctly separated by &#39;,&#39; or &#39;|&#39; delimiters, never both in the same query.</span>
-<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">            country (str): A country name, iso2, iso3, or country ID code.</span>
+<span class="sd">            province (str): Provinces spelled correctly separated by &#39;,&#39; or &#39;|&#39; delimiters, never both in the same query.</span>
+<span class="sd">            last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">            dict: A dictionary containing COVID-19 time series data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/historical/</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">provinces</span><span class="si">}</span><span class="s2">?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -478,10 +478,10 @@
 <span class="sd">        Returns all possible US States and provinces to query the /historical/usacounties/{state} endpoint with.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - list: A list containing all US states and provinces.</span>
+<span class="sd">            list: A list containing all US states and provinces.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;covid-19/historical/usacounties&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -494,11 +494,11 @@
 <span class="sd">        Returns COVID-19 time series data for all counties in a specific state.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - state (str): US state name, validated in the array returned from the /v3/covid-19/historical/usacounties endpoint.</span>
-<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">            state (str): US state name, validated in the array returned from the /v3/covid-19/historical/usacounties endpoint.</span>
+<span class="sd">            last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">            dict: A dictionary containing COVID-19 time series data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/historical/usacounties/</span><span class="si">{</span><span class="n">state</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -512,10 +512,10 @@
 <span class="sd">        Returns COVID-19 time series data for all states, with an entry for each day since the pandemic began.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">            last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">            dict: A dictionary containing COVID-19 time series data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/nyt/states/?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -528,11 +528,11 @@
 <span class="sd">        Returns COVID-19 time series data for specific state(s), with an entry for each day since the pandemic began.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - states (str): State name(s), separated by commas (e.g. &#39;Illinois, California&#39;).</span>
-<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">            states (str): State name(s), separated by commas (e.g. &#39;Illinois, California&#39;).</span>
+<span class="sd">            last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">            dict: A dictionary containing COVID-19 time series data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/nyt/states/</span><span class="si">{</span><span class="n">states</span><span class="si">}</span><span class="s2">?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -545,10 +545,10 @@
 <span class="sd">        Returns COVID-19 time series data for all available US counties, with an entry for each day since the pandemic began.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">            last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">            dict: A dictionary containing COVID-19 time series data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/nyt/counties/?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -561,11 +561,11 @@
 <span class="sd">        Returns COVID-19 time series data for specific state(s), with an entry for each day since the pandemic began.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - states (str): County name(s), separated by commas (e.g. &#39;Alameda, Humboldt&#39;).</span>
-<span class="sd">        - last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
+<span class="sd">            states (str): County name(s), separated by commas (e.g. &#39;Alameda, Humboldt&#39;).</span>
+<span class="sd">            last_days (int, str): Number of days&#39; data to return. Use &#39;all&#39; to return all data. Default is 30.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">            dict: A dictionary containing COVID-19 time series data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/nyt/counties/</span><span class="si">{</span><span class="n">counties</span><span class="si">}</span><span class="s2">?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -578,9 +578,10 @@
 <span class="sd">        Returns COVID-19 time series data for entire USA, with an entry for each day since the pandemic began.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None </span>
+<span class="sd">            None </span>
+<span class="sd">            </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing COVID-19 time series data.</span>
+<span class="sd">            dict: A dictionary containing COVID-19 time series data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;covid-19/nyt/usa&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -595,10 +596,10 @@
 <span class="sd">        Returns a list of supported country names.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - list: A list containing supported country names.</span>
+<span class="sd">            list: A list containing supported country names.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;covid-19/apple/countries&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -611,10 +612,10 @@
 <span class="sd">        Returns a list of supported subregions in a country where data is available.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - country (str): A valid country name from the /v3/covid-19/apple/countries endpoint</span>
+<span class="sd">            country (str): A valid country name from the /v3/covid-19/apple/countries endpoint</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a list of supported subregions.</span>
+<span class="sd">            dict: A dictionary containing a list of supported subregions.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/apple/countries/</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -627,11 +628,11 @@
 <span class="sd">        Returns a list of mobility data entries for subregion(s) every day since January 13th. Each entry has driving, transit, and walking data with an associated number of percentage change since January 13th. </span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - country (str): A valid country name from the /v3/covid-19/apple/countries endpoint.</span>
-<span class="sd">        - subregions (str): Valid subregion(s) from the /v3/covid-19/apple/countries/{country} endpoint, separated by with commas.</span>
+<span class="sd">            country (str): A valid country name from the /v3/covid-19/apple/countries endpoint.</span>
+<span class="sd">            subregions (str): Valid subregion(s) from the /v3/covid-19/apple/countries/{country} endpoint, separated by with commas.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a list of mobility data.</span>
+<span class="sd">            dict: A dictionary containing a list of mobility data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/apple/countries/</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">subregions</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -646,10 +647,10 @@
 <span class="sd">        Returns a list of supported country names for government specific data.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - list: A list containing supported country names.</span>
+<span class="sd">            list: A list containing supported country names.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;covid-19/gov&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -662,11 +663,11 @@
 <span class="sd">        Returns government supported data for a specific country.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - country (str): A valid country name from the /v3/covid-19/gov endpoint.</span>
-<span class="sd">        - allow_null (bool): By default, if a value is missing, it is returned as 0. This allows nulls to be returned.</span>
+<span class="sd">            country (str): A valid country name from the /v3/covid-19/gov endpoint.</span>
+<span class="sd">            allow_null (bool): By default, if a value is missing, it is returned as 0. This allows nulls to be returned.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a list of supported subregions.</span>
+<span class="sd">            dict: A dictionary containing a list of supported subregions.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/gov/</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">?allowNull=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">allow_null</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -680,10 +681,10 @@
 <span class="c1">#        Returns vaccine trial data from RAPS.</span>
 <span class="c1">#        </span>
 <span class="c1">#        Args:</span>
-<span class="c1">#        - None</span>
+<span class="c1">#            None</span>
 <span class="c1">#        </span>
 <span class="c1">#        Returns:</span>
-<span class="c1">#        - dict: A dictionary containing vaccine trial data.</span>
+<span class="c1">#            dict: A dictionary containing vaccine trial data.</span>
 <span class="c1">#        &quot;&quot;&quot;</span>
 <span class="c1">#        endpoint = &quot;covid-19/vaccine&quot;</span>
 <span class="c1">#        return mr.make_request(self.base_url+endpoint)</span>
@@ -695,11 +696,11 @@
 <span class="sd">        Returns total global COVID-19 vaccine doses administered. Sourced from https://covid.ourworldindata.org.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - last_data (int, str): Number of days to return. Use &#39;all&#39; for the full data set (e.g. 15, all, 24</span>
-<span class="sd">        - full_data (bool): Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true). </span>
+<span class="sd">            last_data (int, str): Number of days to return. Use &#39;all&#39; for the full data set (e.g. 15, all, 24</span>
+<span class="sd">            full_data (bool): Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true). </span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing vaccine administration data.</span>
+<span class="sd">            dict: A dictionary containing vaccine administration data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/vaccine/coverage?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&amp;fullData=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">full_data</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -712,11 +713,11 @@
 <span class="sd">        Returns Get COVID-19 vaccine doses administered for all countries that have reported rolling out vaccination. Sourced from https://covid.ourworldindata.org/</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - last_data (int, str): Number of days to return. Use &#39;all&#39; for the full data set (e.g. 15, all, 24</span>
-<span class="sd">        - full_data (bool): Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true). </span>
+<span class="sd">            last_data (int, str): Number of days to return. Use &#39;all&#39; for the full data set (e.g. 15, all, 24</span>
+<span class="sd">            full_data (bool): Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true). </span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing vaccine administration data.</span>
+<span class="sd">            dict: A dictionary containing vaccine administration data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/vaccine/coverage/countries?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&amp;fullData=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">full_data</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -729,12 +730,12 @@
 <span class="sd">        Returns Get COVID-19 vaccine doses administered for any country that has reported rolling out vaccination. Sourced from https://covid.ourworldindata.org/</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - country (str): A valid country name, iso2, iso3.</span>
-<span class="sd">        - last_data (int, str): Number of days to return. Use &#39;all&#39; for the full data set (e.g. 15, all, 24</span>
-<span class="sd">        - full_data (bool): Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true). </span>
+<span class="sd">            country (str): A valid country name, iso2, iso3.</span>
+<span class="sd">            last_data (int, str): Number of days to return. Use &#39;all&#39; for the full data set (e.g. 15, all, 24</span>
+<span class="sd">            full_data (bool): Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true). </span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing vaccine administration data.</span>
+<span class="sd">            dict: A dictionary containing vaccine administration data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/vaccine/coverage/countries/</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&amp;fullData=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">full_data</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -747,11 +748,11 @@
 <span class="sd">        Returns Get COVID-19 vaccine doses administered for all states that have reported rolling out vaccination. Sourced from https://covid.ourworldindata.org/</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - last_data (int, str): Number of days to return. Use &#39;all&#39; for the full data set (e.g. 15, all, 24</span>
-<span class="sd">        - full_data (bool): Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true). </span>
+<span class="sd">            last_data (int, str): Number of days to return. Use &#39;all&#39; for the full data set (e.g. 15, all, 24</span>
+<span class="sd">            full_data (bool): Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true). </span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing vaccine administration data.</span>
+<span class="sd">            dict: A dictionary containing vaccine administration data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/vaccine/coverage/states?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&amp;fullData=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">full_data</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -764,12 +765,12 @@
 <span class="sd">        Returns Get COVID-19 vaccine doses administered for any state that has reported rolling out vaccination. Sourced from https://covid.ourworldindata.org/</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - country (str): A valid state name</span>
-<span class="sd">        - last_data (int, str): Number of days to return. Use &#39;all&#39; for the full data set (e.g. 15, all, 24</span>
-<span class="sd">        - full_data (bool): Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true). </span>
+<span class="sd">            country (str): A valid state name</span>
+<span class="sd">            last_data (int, str): Number of days to return. Use &#39;all&#39; for the full data set (e.g. 15, all, 24</span>
+<span class="sd">            full_data (bool): Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true). </span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing vaccine administration data.</span>
+<span class="sd">            dict: A dictionary containing vaccine administration data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/vaccine/coverage/states/</span><span class="si">{</span><span class="n">state</span><span class="si">}</span><span class="s2">?lastdays=</span><span class="si">{</span><span class="n">last_days</span><span class="si">}</span><span class="s2">&amp;fullData=</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">full_data</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -782,10 +783,10 @@
 <span class="c1">#        Returns therapeutics trial data from RAPS (Regulatory Affairs Professional Society). Specifically published by Jeff Craven at https://www.raps.org/news-and-articles/news-articles/2020/3/covid-19-therapeutics-tracker.</span>
 <span class="c1">#        </span>
 <span class="c1">#        Args:</span>
-<span class="c1">#        - None</span>
+<span class="c1">#            None</span>
 <span class="c1">#        </span>
 <span class="c1">#        Returns:</span>
-<span class="c1">#        - dict: A dictionary containing therapeutics trial data.</span>
+<span class="c1">#            dict: A dictionary containing therapeutics trial data.</span>
 <span class="c1">#        &quot;&quot;&quot;</span>
 <span class="c1">#        endpoint = &quot;covid-19/therapeutics&quot;</span>
 <span class="c1">#        return mr.make_request(self.base_url+endpoint)</span>
@@ -799,10 +800,10 @@
 <span class="sd">        Returns a list of supported country names.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - list: A list containing supported country names.</span>
+<span class="sd">            list: A list containing supported country names.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;covid-19/variants/countries&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -815,10 +816,10 @@
 <span class="sd">        Returns COVID-19 ECDC reported data for a specific country. </span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - country (str): A valid country name from the /v3/covid-19/variants/countries/ endpoint</span>
+<span class="sd">            country (str): A valid country name from the /v3/covid-19/variants/countries/ endpoint</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing covid data.</span>
+<span class="sd">            dict: A dictionary containing covid data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;covid-19/variants/countries/</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>

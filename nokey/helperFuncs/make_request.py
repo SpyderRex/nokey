@@ -35,7 +35,7 @@ def make_request(url, headers=None, payload=None):
         return {"error": f"An unexpected error occurred: {err}"}
 
 
-def make_request_with_params(url, params):
+def make_request_with_params(url, params, headers=None):
     """
     Make a request to an API if the API call requires params.
     
@@ -47,7 +47,7 @@ def make_request_with_params(url, params):
         dict: A dictionary containing either the response data or an error message.
     """
     try:
-        response = requests.get(url, params)
+        response = requests.get(url, params, headers=headers)
         return response.json()
     except HTTPError as http_err:
         # Handle HTTP error
@@ -62,7 +62,7 @@ def make_request_with_params(url, params):
         # Handle any other unexpected errors
         return {"error": f"An unexpected error occurred: {err}"}
         
-def make_request_for_content(url):
+def make_request_for_content(url, headers=None):
     """
     Make a request to an API if the API call returns content other than in JSON format.
     
@@ -73,7 +73,7 @@ def make_request_for_content(url):
         string: Text in any format containing either the response data or an error message.
     """
     try:
-        response = requests.get(url)
+        response = requests.get(url, headers=headers)
         return response.content
     except HTTPError as http_err:
         # Handle HTTP error
@@ -88,7 +88,7 @@ def make_request_for_content(url):
         # Handle any other unexpected errors
         return {"error": f"An unexpected error occurred: {err}"}
         
-def make_request_for_content_with_params(url, params):
+def make_request_for_content_with_params(url, params, headers=None):
     """
     Make a request to an API if the API call returns content other than in JSON format.
     
@@ -99,7 +99,7 @@ def make_request_for_content_with_params(url, params):
         string: Text in any format containing either the response data or an error message.
     """
     try:
-        response = requests.get(url, params)
+        response = requests.get(url, params, headers=headers)
         return response.content
     except HTTPError as http_err:
         # Handle HTTP error

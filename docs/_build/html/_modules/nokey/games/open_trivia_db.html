@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.games.open_trivia_db &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.games.open_trivia_db &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=c98573da"></script>
+        <script src="../../../_static/documentation_options.js?v=020ce317"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -81,8 +81,8 @@
 <span class="sd">    A class for interacting with the Open Trivia Database API.</span>
 <span class="sd">    </span>
 <span class="sd">    Attributes:</span>
-<span class="sd">    - base_url: The base URL of the API.</span>
-<span class="sd">    - about: A short description of the API.</span>
+<span class="sd">        base_url: The base URL of the API.</span>
+<span class="sd">        about: A short description of the API.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">use_caching</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cache_name</span><span class="o">=</span><span class="s2">&quot;open_trivia_cache&quot;</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;sqlite&quot;</span><span class="p">,</span> <span class="n">expire_after</span><span class="o">=</span><span class="mi">3600</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://opentdb.com/api.php?&quot;</span>
@@ -98,10 +98,10 @@
 <span class="sd">        Returns the URL for the Open Trivia Database API documentation.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - string: The URL for the API docs.</span>
+<span class="sd">            string: The URL for the API docs.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;https://opentdb.com/api_config.php&quot;</span></div>
 
@@ -113,10 +113,10 @@
 <span class="sd">        Returns the specified amount of random trivia questions of various difficulties and subjects, and the answers to those questions.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - amount (int): The number of trivia desired.</span>
+<span class="sd">            amount (int): The number of trivia desired.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing the specified amount of trivia questions along with relevant data and the answers.</span>
+<span class="sd">            dict: A dictionary containing the specified amount of trivia questions along with relevant data and the answers.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;amount=</span><span class="si">{</span><span class="n">amount</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -129,10 +129,10 @@
 <span class="sd">        Returns the specified amount of trivial questions matching the given parameters, along with relevant data and answers to the questions.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - amount (int): The number of trivia questions to return.</span>
-<span class="sd">        - category (int): The category of trivia questions desired. Defaults to None, in which case any categories will be returned.</span>
-<span class="sd">        - difficulty (str): The difficulty level of the trivia questions. Defaults to None, in which case each question can be any difficulty level. Supported values are easy, medium, and hard.</span>
-<span class="sd">        - q_type (str): The type of questions. Defaults to None, in which case the types are random. Supported values are boolean (True or False) and multiple (Multiple Choice).</span>
+<span class="sd">            amount (int): The number of trivia questions to return.</span>
+<span class="sd">            category (int): The category of trivia questions desired. Defaults to None, in which case any categories will be returned.</span>
+<span class="sd">            difficulty (str): The difficulty level of the trivia questions. Defaults to None, in which case each question can be any difficulty level. Supported values are easy, medium, and hard.</span>
+<span class="sd">            q_type (str): The type of questions. Defaults to None, in which case the types are random. Supported values are boolean (True or False) and multiple (Multiple Choice).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">category_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;general knowledge&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> 
                          <span class="s2">&quot;books&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>

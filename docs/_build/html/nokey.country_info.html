@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.country_info package &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.country_info package &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=c98573da"></script>
+        <script src="_static/documentation_options.js?v=020ce317"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -49,7 +49,6 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">nokey</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="nokey.html">nokey package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="nokey.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="nokey.activities.html">nokey.activities package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.animals.html">nokey.animals package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.art_and_images.html">nokey.art_and_images package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.books_and_literature.html">nokey.books_and_literature package</a></li>
@@ -119,107 +118,186 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.country_info.rest_country.</span></span><span class="sig-name descname"><span class="pre">RestCountries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rest_country_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/country_info/rest_country.html#RestCountries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.country_info.rest_country.RestCountries" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class to interact with the RestCountries API.</p>
-<p>Attributes:
-- base_url: The base URL of the RestCountries API.
-- about: A short description of the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.country_info.rest_country.RestCountries.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#nokey.country_info.rest_country.RestCountries.base_url" title="Link to this definition"></a></dt>
+<dd><p>The base URL of the RestCountries API.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.country_info.rest_country.RestCountries.about">
+<span class="sig-name descname"><span class="pre">about</span></span><a class="headerlink" href="#nokey.country_info.rest_country.RestCountries.about" title="Link to this definition"></a></dt>
+<dd><p>A short description of the API.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.country_info.rest_country.RestCountries.get_all_countries">
 <span class="sig-name descname"><span class="pre">get_all_countries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/country_info/rest_country.html#RestCountries.get_all_countries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.country_info.rest_country.RestCountries.get_all_countries" title="Link to this definition"></a></dt>
 <dd><p>Returns information about all countries listed in the API.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- list: A list of dictionaries containing information about all the countries, or an error if no data is found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of dictionaries containing information about all the countries, or an error if no data is found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.country_info.rest_country.RestCountries.get_country_by_capital">
 <span class="sig-name descname"><span class="pre">get_country_by_capital</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">capital</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/country_info/rest_country.html#RestCountries.get_country_by_capital"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.country_info.rest_country.RestCountries.get_country_by_capital" title="Link to this definition"></a></dt>
 <dd><p>Returns information about a country with the given capital</p>
-<p>Args:
-- capital (str): The name of the capital city.</p>
-<p>Returns:
-- list: A list of dictionaries containing information about countries using the capital, or an error if no countries found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>capital</strong> (<em>str</em>) – The name of the capital city.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of dictionaries containing information about countries using the capital, or an error if no countries found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.country_info.rest_country.RestCountries.get_country_by_code">
 <span class="sig-name descname"><span class="pre">get_country_by_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/country_info/rest_country.html#RestCountries.get_country_by_code"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.country_info.rest_country.RestCountries.get_country_by_code" title="Link to this definition"></a></dt>
 <dd><p>Returns information about a country by its code (cca2, ccn3, cca3, or cioc).</p>
-<p>Args:
-- code (str): The country code.</p>
-<p>Returns:
-- dict: Information about the country, or an error if country not found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code</strong> (<em>str</em>) – The country code.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Information about the country, or an error if country not found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.country_info.rest_country.RestCountries.get_country_by_currency">
 <span class="sig-name descname"><span class="pre">get_country_by_currency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">currency</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/country_info/rest_country.html#RestCountries.get_country_by_currency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.country_info.rest_country.RestCountries.get_country_by_currency" title="Link to this definition"></a></dt>
 <dd><p>Returns information about countries that use a specific currency.</p>
-<p>Args:
-- currency (str): The currency code or name.</p>
-<p>Returns:
-- list: A list of dictionaries containing information about countries using the currency, or an error if no countries found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>currency</strong> (<em>str</em>) – The currency code or name.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of dictionaries containing information about countries using the currency, or an error if no countries found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.country_info.rest_country.RestCountries.get_country_by_language">
 <span class="sig-name descname"><span class="pre">get_country_by_language</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">language</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/country_info/rest_country.html#RestCountries.get_country_by_language"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.country_info.rest_country.RestCountries.get_country_by_language" title="Link to this definition"></a></dt>
 <dd><p>Returns information about countries speaking a given language.</p>
-<p>Args:
-- language (str): The name of the spoken language of the country.</p>
-<p>Returns:
-- list: A list of dictionaries containing information about countries using the language, or an error if no countries found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>language</strong> (<em>str</em>) – The name of the spoken language of the country.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of dictionaries containing information about countries using the language, or an error if no countries found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.country_info.rest_country.RestCountries.get_country_by_name">
 <span class="sig-name descname"><span class="pre">get_country_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/country_info/rest_country.html#RestCountries.get_country_by_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.country_info.rest_country.RestCountries.get_country_by_name" title="Link to this definition"></a></dt>
 <dd><p>Returns information about a country by its name.</p>
-<p>Args:
-- name (str): The name of the country.</p>
-<p>Returns:
-- dict: Information about the country, or an error if country not found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – The name of the country.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Information about the country, or an error if country not found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.country_info.rest_country.RestCountries.get_country_by_region">
 <span class="sig-name descname"><span class="pre">get_country_by_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/country_info/rest_country.html#RestCountries.get_country_by_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.country_info.rest_country.RestCountries.get_country_by_region" title="Link to this definition"></a></dt>
 <dd><p>Returns information about countries based on a given region.</p>
-<p>Args:
-- region (str): The name of the region.</p>
-<p>Returns:
-- list: A list of dictionaries containing information about countries using the region, or an error if no country is found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>region</strong> (<em>str</em>) – The name of the region.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of dictionaries containing information about countries using the region, or an error if no country is found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.country_info.rest_country.RestCountries.get_country_by_subregion">
 <span class="sig-name descname"><span class="pre">get_country_by_subregion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subregion</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/country_info/rest_country.html#RestCountries.get_country_by_subregion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.country_info.rest_country.RestCountries.get_country_by_subregion" title="Link to this definition"></a></dt>
 <dd><p>Returns information about countries based on a given subregion.</p>
-<p>Args:
-- subregion (str): The name of the subregion.</p>
-<p>Returns:
-- list: A list of dictionaries containing information about countries using the region, or an error if no country is found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>subregion</strong> (<em>str</em>) – The name of the subregion.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of dictionaries containing information about countries using the region, or an error if no country is found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.country_info.rest_country.RestCountries.get_country_by_translation">
 <span class="sig-name descname"><span class="pre">get_country_by_translation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">translation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/country_info/rest_country.html#RestCountries.get_country_by_translation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.country_info.rest_country.RestCountries.get_country_by_translation" title="Link to this definition"></a></dt>
 <dd><p>Returns information about countries based on a translation of the name.</p>
-<p>Args:
-- translation (str): The name in a given translation.</p>
-<p>Returns:
-- list: A list of dictionaries containing information about countries using the region, or an error if no country is found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>translation</strong> (<em>str</em>) – The name in a given translation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of dictionaries containing information about countries using the region, or an error if no country is found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.country_info.rest_country.RestCountries.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/country_info/rest_country.html#RestCountries.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.country_info.rest_country.RestCountries.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns url for API docs.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: Url for the API documentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Url for the API documentation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

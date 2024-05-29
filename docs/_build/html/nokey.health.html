@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.health package &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.health package &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=c98573da"></script>
+        <script src="_static/documentation_options.js?v=020ce317"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -49,7 +49,6 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">nokey</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="nokey.html">nokey package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="nokey.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="nokey.activities.html">nokey.activities package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.animals.html">nokey.animals package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.art_and_images.html">nokey.art_and_images package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.books_and_literature.html">nokey.books_and_literature package</a></li>
@@ -119,383 +118,674 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.health.open_disease.</span></span><span class="sig-name descname"><span class="pre">OpenDisease</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'open_disease_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class for interacting with the Open Disease API.</p>
-<p>Attributes:
-- base_url: The base URL for the API.
-- about: A short description of the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.base_url" title="Link to this definition"></a></dt>
+<dd><p>The base URL for the API.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.about">
+<span class="sig-name descname"><span class="pre">about</span></span><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.about" title="Link to this definition"></a></dt>
+<dd><p>A short description of the API.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_all_countries_apple">
 <span class="sig-name descname"><span class="pre">get_all_countries_apple</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_all_countries_apple"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_all_countries_apple" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of supported country names.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- list: A list containing supported country names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing supported country names.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_all_countries_ecdc">
 <span class="sig-name descname"><span class="pre">get_all_countries_ecdc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_all_countries_ecdc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_all_countries_ecdc" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of supported country names.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- list: A list containing supported country names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing supported country names.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_all_countries_gov">
 <span class="sig-name descname"><span class="pre">get_all_countries_gov</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_all_countries_gov"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_all_countries_gov" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of supported country names for government specific data.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- list: A list containing supported country names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing supported country names.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_all_us_states_jhu">
 <span class="sig-name descname"><span class="pre">get_all_us_states_jhu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_all_us_states_jhu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_all_us_states_jhu" title="Link to this definition"></a></dt>
 <dd><p>Returns all possible US States and provinces to query the /historical/usacounties/{state} endpoint with.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- list: A list containing all US states and provinces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing all US states and provinces.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_apple_mobility_data_for_subregions">
 <span class="sig-name descname"><span class="pre">get_apple_mobility_data_for_subregions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subregions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_apple_mobility_data_for_subregions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_apple_mobility_data_for_subregions" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of mobility data entries for subregion(s) every day since January 13th. Each entry has driving, transit, and walking data with an associated number of percentage change since January 13th.</p>
-<p>Args:
-- country (str): A valid country name from the /v3/covid-19/apple/countries endpoint.
-- subregions (str): Valid subregion(s) from the /v3/covid-19/apple/countries/{country} endpoint, separated by with commas.</p>
-<p>Returns:
-- dict: A dictionary containing a list of mobility data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>country</strong> (<em>str</em>) – A valid country name from the /v3/covid-19/apple/countries endpoint.</p></li>
+<li><p><strong>subregions</strong> (<em>str</em>) – Valid subregion(s) from the /v3/covid-19/apple/countries/{country} endpoint, separated by with commas.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of mobility data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_apple_supported_subregions_for_country">
 <span class="sig-name descname"><span class="pre">get_apple_supported_subregions_for_country</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_apple_supported_subregions_for_country"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_apple_supported_subregions_for_country" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of supported subregions in a country where data is available.</p>
-<p>Args:
-- country (str): A valid country name from the /v3/covid-19/apple/countries endpoint</p>
-<p>Returns:
-- dict: A dictionary containing a list of supported subregions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>country</strong> (<em>str</em>) – A valid country name from the /v3/covid-19/apple/countries endpoint</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of supported subregions.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for the Open Disease API documentation.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: The URL for the API docs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL for the API docs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_ecdc_covid_variant_data_for_country">
 <span class="sig-name descname"><span class="pre">get_ecdc_covid_variant_data_for_country</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_ecdc_covid_variant_data_for_country"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_ecdc_covid_variant_data_for_country" title="Link to this definition"></a></dt>
 <dd><p>Returns COVID-19 ECDC reported data for a specific country.</p>
-<p>Args:
-- country (str): A valid country name from the /v3/covid-19/variants/countries/ endpoint</p>
-<p>Returns:
-- dict: A dictionary containing covid data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>country</strong> (<em>str</em>) – A valid country name from the /v3/covid-19/variants/countries/ endpoint</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing covid data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_gov_covid_data_for_country">
 <span class="sig-name descname"><span class="pre">get_gov_covid_data_for_country</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_null</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_gov_covid_data_for_country"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_gov_covid_data_for_country" title="Link to this definition"></a></dt>
 <dd><p>Returns government supported data for a specific country.</p>
-<p>Args:
-- country (str): A valid country name from the /v3/covid-19/gov endpoint.
-- allow_null (bool): By default, if a value is missing, it is returned as 0. This allows nulls to be returned.</p>
-<p>Returns:
-- dict: A dictionary containing a list of supported subregions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>country</strong> (<em>str</em>) – A valid country name from the /v3/covid-19/gov endpoint.</p></li>
+<li><p><strong>allow_null</strong> (<em>bool</em>) – By default, if a value is missing, it is returned as 0. This allows nulls to be returned.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of supported subregions.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_jhu_global_accumulated_covid_data">
 <span class="sig-name descname"><span class="pre">get_jhu_global_accumulated_covid_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">last_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_jhu_global_accumulated_covid_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_jhu_global_accumulated_covid_data" title="Link to this definition"></a></dt>
 <dd><p>Returns global accumulated COVID-19 time series data for all countries and all their provences.</p>
-<p>Args:
-- last_days (int, str): Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p>
-<p>Returns:
-- dict: A dictionary containing global accumulated COVID-19 time series data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>last_days</strong> (<em>int</em><em>, </em><em>str</em>) – Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing global accumulated COVID-19 time series data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_jhu_global_time_series_covid_data">
 <span class="sig-name descname"><span class="pre">get_jhu_global_time_series_covid_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">last_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_jhu_global_time_series_covid_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_jhu_global_time_series_covid_data" title="Link to this definition"></a></dt>
 <dd><p>Returns COVID-19 time series data for all countries and all their provences.</p>
-<p>Args:
-- last_days (int, str): Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p>
-<p>Returns:
-- dict: A dictionary containing COVID-19 time series data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>last_days</strong> (<em>int</em><em>, </em><em>str</em>) – Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing COVID-19 time series data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_jhu_time_series_covid_data_for_countries">
 <span class="sig-name descname"><span class="pre">get_jhu_time_series_covid_data_for_countries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">countries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_jhu_time_series_covid_data_for_countries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_jhu_time_series_covid_data_for_countries" title="Link to this definition"></a></dt>
 <dd><p>Returns COVID-19 time series data for a specific countries.</p>
-<p>Args:
-- country (str): Multiple country names, iso2s, iso3s, or country ID codes, in comma separated no spaced string.
-- last_days (int, str): Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p>
-<p>Returns:
-- dict: A dictionary containing COVID-19 time series data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>country</strong> (<em>str</em>) – Multiple country names, iso2s, iso3s, or country ID codes, in comma separated no spaced string.</p></li>
+<li><p><strong>last_days</strong> (<em>int</em><em>, </em><em>str</em>) – Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing COVID-19 time series data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_jhu_time_series_covid_data_for_country">
 <span class="sig-name descname"><span class="pre">get_jhu_time_series_covid_data_for_country</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_jhu_time_series_covid_data_for_country"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_jhu_time_series_covid_data_for_country" title="Link to this definition"></a></dt>
 <dd><p>Returns COVID-19 time series data for a specific country.</p>
-<p>Args:
-- country (str): A country name, iso2, iso3, or country ID code.
-- last_days (int, str): Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p>
-<p>Returns:
-- dict: A dictionary containing COVID-19 time series data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>country</strong> (<em>str</em>) – A country name, iso2, iso3, or country ID code.</p></li>
+<li><p><strong>last_days</strong> (<em>int</em><em>, </em><em>str</em>) – Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing COVID-19 time series data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_jhu_time_series_covid_data_for_province">
 <span class="sig-name descname"><span class="pre">get_jhu_time_series_covid_data_for_province</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">province</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_jhu_time_series_covid_data_for_province"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_jhu_time_series_covid_data_for_province" title="Link to this definition"></a></dt>
 <dd><p>Returns COVID-19 time series data for a specific province in a country.</p>
-<p>Args:
-- country (str): A country name, iso2, iso3, or country ID code.
-- province (str): Province name. All available names can be found in the /v3/covid-19/historical/{query} endpoint.
-- last_days (int, str): Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p>
-<p>Returns:
-- dict: A dictionary containing COVID-19 time series data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>country</strong> (<em>str</em>) – A country name, iso2, iso3, or country ID code.</p></li>
+<li><p><strong>province</strong> (<em>str</em>) – Province name. All available names can be found in the /v3/covid-19/historical/{query} endpoint.</p></li>
+<li><p><strong>last_days</strong> (<em>int</em><em>, </em><em>str</em>) – Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing COVID-19 time series data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_jhu_time_series_covid_data_for_provinces">
 <span class="sig-name descname"><span class="pre">get_jhu_time_series_covid_data_for_provinces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">provinces</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_jhu_time_series_covid_data_for_provinces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_jhu_time_series_covid_data_for_provinces" title="Link to this definition"></a></dt>
 <dd><p>Returns COVID-19 time series data for a specific set of provinces in a country.</p>
-<p>Args:
-- country (str): A country name, iso2, iso3, or country ID code.
-- province (str): Provinces spelled correctly separated by ‘,’ or ‘|’ delimiters, never both in the same query.
-- last_days (int, str): Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p>
-<p>Returns:
-- dict: A dictionary containing COVID-19 time series data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>country</strong> (<em>str</em>) – A country name, iso2, iso3, or country ID code.</p></li>
+<li><p><strong>province</strong> (<em>str</em>) – Provinces spelled correctly separated by ‘,’ or ‘|’ delimiters, never both in the same query.</p></li>
+<li><p><strong>last_days</strong> (<em>int</em><em>, </em><em>str</em>) – Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing COVID-19 time series data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_jhu_time_series_covid_data_for_state">
 <span class="sig-name descname"><span class="pre">get_jhu_time_series_covid_data_for_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_jhu_time_series_covid_data_for_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_jhu_time_series_covid_data_for_state" title="Link to this definition"></a></dt>
 <dd><p>Returns COVID-19 time series data for all counties in a specific state.</p>
-<p>Args:
-- state (str): US state name, validated in the array returned from the /v3/covid-19/historical/usacounties endpoint.
-- last_days (int, str): Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p>
-<p>Returns:
-- dict: A dictionary containing COVID-19 time series data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<em>str</em>) – US state name, validated in the array returned from the /v3/covid-19/historical/usacounties endpoint.</p></li>
+<li><p><strong>last_days</strong> (<em>int</em><em>, </em><em>str</em>) – Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing COVID-19 time series data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_nyt_time_series_covid_data_for_all_states">
 <span class="sig-name descname"><span class="pre">get_nyt_time_series_covid_data_for_all_states</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">last_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_nyt_time_series_covid_data_for_all_states"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_nyt_time_series_covid_data_for_all_states" title="Link to this definition"></a></dt>
 <dd><p>Returns COVID-19 time series data for all states, with an entry for each day since the pandemic began.</p>
-<p>Args:
-- last_days (int, str): Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p>
-<p>Returns:
-- dict: A dictionary containing COVID-19 time series data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>last_days</strong> (<em>int</em><em>, </em><em>str</em>) – Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing COVID-19 time series data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_nyt_time_series_covid_data_for_all_us_counties">
 <span class="sig-name descname"><span class="pre">get_nyt_time_series_covid_data_for_all_us_counties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">last_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_nyt_time_series_covid_data_for_all_us_counties"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_nyt_time_series_covid_data_for_all_us_counties" title="Link to this definition"></a></dt>
 <dd><p>Returns COVID-19 time series data for all available US counties, with an entry for each day since the pandemic began.</p>
-<p>Args:
-- last_days (int, str): Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p>
-<p>Returns:
-- dict: A dictionary containing COVID-19 time series data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>last_days</strong> (<em>int</em><em>, </em><em>str</em>) – Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing COVID-19 time series data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_nyt_time_series_covid_data_for_entire_usa">
 <span class="sig-name descname"><span class="pre">get_nyt_time_series_covid_data_for_entire_usa</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_nyt_time_series_covid_data_for_entire_usa"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_nyt_time_series_covid_data_for_entire_usa" title="Link to this definition"></a></dt>
 <dd><p>Returns COVID-19 time series data for entire USA, with an entry for each day since the pandemic began.</p>
-<p>Args:
-- None
-Returns:
-- dict: A dictionary containing COVID-19 time series data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing COVID-19 time series data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_nyt_time_series_covid_data_for_specific_states">
 <span class="sig-name descname"><span class="pre">get_nyt_time_series_covid_data_for_specific_states</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_nyt_time_series_covid_data_for_specific_states"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_nyt_time_series_covid_data_for_specific_states" title="Link to this definition"></a></dt>
 <dd><p>Returns COVID-19 time series data for specific state(s), with an entry for each day since the pandemic began.</p>
-<p>Args:
-- states (str): State name(s), separated by commas (e.g. ‘Illinois, California’).
-- last_days (int, str): Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p>
-<p>Returns:
-- dict: A dictionary containing COVID-19 time series data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>states</strong> (<em>str</em>) – State name(s), separated by commas (e.g. ‘Illinois, California’).</p></li>
+<li><p><strong>last_days</strong> (<em>int</em><em>, </em><em>str</em>) – Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing COVID-19 time series data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_nyt_time_series_covid_data_for_specific_us_counties">
 <span class="sig-name descname"><span class="pre">get_nyt_time_series_covid_data_for_specific_us_counties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">counties</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_nyt_time_series_covid_data_for_specific_us_counties"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_nyt_time_series_covid_data_for_specific_us_counties" title="Link to this definition"></a></dt>
 <dd><p>Returns COVID-19 time series data for specific state(s), with an entry for each day since the pandemic began.</p>
-<p>Args:
-- states (str): County name(s), separated by commas (e.g. ‘Alameda, Humboldt’).
-- last_days (int, str): Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p>
-<p>Returns:
-- dict: A dictionary containing COVID-19 time series data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>states</strong> (<em>str</em>) – County name(s), separated by commas (e.g. ‘Alameda, Humboldt’).</p></li>
+<li><p><strong>last_days</strong> (<em>int</em><em>, </em><em>str</em>) – Number of days’ data to return. Use ‘all’ to return all data. Default is 30.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing COVID-19 time series data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_raps_covid_vaccines_administered_for_all_countries">
 <span class="sig-name descname"><span class="pre">get_raps_covid_vaccines_administered_for_all_countries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">last_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_raps_covid_vaccines_administered_for_all_countries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_raps_covid_vaccines_administered_for_all_countries" title="Link to this definition"></a></dt>
 <dd><p>Returns Get COVID-19 vaccine doses administered for all countries that have reported rolling out vaccination. Sourced from <a class="reference external" href="https://covid.ourworldindata.org/">https://covid.ourworldindata.org/</a></p>
-<p>Args:
-- last_data (int, str): Number of days to return. Use ‘all’ for the full data set (e.g. 15, all, 24
-- full_data (bool): Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true).</p>
-<p>Returns:
-- dict: A dictionary containing vaccine administration data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>last_data</strong> (<em>int</em><em>, </em><em>str</em>) – Number of days to return. Use ‘all’ for the full data set (e.g. 15, all, 24</p></li>
+<li><p><strong>full_data</strong> (<em>bool</em>) – Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing vaccine administration data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_raps_covid_vaccines_administered_for_all_states">
 <span class="sig-name descname"><span class="pre">get_raps_covid_vaccines_administered_for_all_states</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">last_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_raps_covid_vaccines_administered_for_all_states"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_raps_covid_vaccines_administered_for_all_states" title="Link to this definition"></a></dt>
 <dd><p>Returns Get COVID-19 vaccine doses administered for all states that have reported rolling out vaccination. Sourced from <a class="reference external" href="https://covid.ourworldindata.org/">https://covid.ourworldindata.org/</a></p>
-<p>Args:
-- last_data (int, str): Number of days to return. Use ‘all’ for the full data set (e.g. 15, all, 24
-- full_data (bool): Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true).</p>
-<p>Returns:
-- dict: A dictionary containing vaccine administration data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>last_data</strong> (<em>int</em><em>, </em><em>str</em>) – Number of days to return. Use ‘all’ for the full data set (e.g. 15, all, 24</p></li>
+<li><p><strong>full_data</strong> (<em>bool</em>) – Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing vaccine administration data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_raps_covid_vaccines_administered_for_country">
 <span class="sig-name descname"><span class="pre">get_raps_covid_vaccines_administered_for_country</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_raps_covid_vaccines_administered_for_country"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_raps_covid_vaccines_administered_for_country" title="Link to this definition"></a></dt>
 <dd><p>Returns Get COVID-19 vaccine doses administered for any country that has reported rolling out vaccination. Sourced from <a class="reference external" href="https://covid.ourworldindata.org/">https://covid.ourworldindata.org/</a></p>
-<p>Args:
-- country (str): A valid country name, iso2, iso3.
-- last_data (int, str): Number of days to return. Use ‘all’ for the full data set (e.g. 15, all, 24
-- full_data (bool): Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true).</p>
-<p>Returns:
-- dict: A dictionary containing vaccine administration data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>country</strong> (<em>str</em>) – A valid country name, iso2, iso3.</p></li>
+<li><p><strong>last_data</strong> (<em>int</em><em>, </em><em>str</em>) – Number of days to return. Use ‘all’ for the full data set (e.g. 15, all, 24</p></li>
+<li><p><strong>full_data</strong> (<em>bool</em>) – Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing vaccine administration data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_raps_covid_vaccines_administered_for_state">
 <span class="sig-name descname"><span class="pre">get_raps_covid_vaccines_administered_for_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_raps_covid_vaccines_administered_for_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_raps_covid_vaccines_administered_for_state" title="Link to this definition"></a></dt>
 <dd><p>Returns Get COVID-19 vaccine doses administered for any state that has reported rolling out vaccination. Sourced from <a class="reference external" href="https://covid.ourworldindata.org/">https://covid.ourworldindata.org/</a></p>
-<p>Args:
-- country (str): A valid state name
-- last_data (int, str): Number of days to return. Use ‘all’ for the full data set (e.g. 15, all, 24
-- full_data (bool): Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true).</p>
-<p>Returns:
-- dict: A dictionary containing vaccine administration data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>country</strong> (<em>str</em>) – A valid state name</p></li>
+<li><p><strong>last_data</strong> (<em>int</em><em>, </em><em>str</em>) – Number of days to return. Use ‘all’ for the full data set (e.g. 15, all, 24</p></li>
+<li><p><strong>full_data</strong> (<em>bool</em>) – Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing vaccine administration data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_raps_total_covid_vaccines_administered">
 <span class="sig-name descname"><span class="pre">get_raps_total_covid_vaccines_administered</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">last_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_raps_total_covid_vaccines_administered"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_raps_total_covid_vaccines_administered" title="Link to this definition"></a></dt>
 <dd><p>Returns total global COVID-19 vaccine doses administered. Sourced from <a class="reference external" href="https://covid.ourworldindata.org">https://covid.ourworldindata.org</a>.</p>
-<p>Args:
-- last_data (int, str): Number of days to return. Use ‘all’ for the full data set (e.g. 15, all, 24
-- full_data (bool): Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true).</p>
-<p>Returns:
-- dict: A dictionary containing vaccine administration data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>last_data</strong> (<em>int</em><em>, </em><em>str</em>) – Number of days to return. Use ‘all’ for the full data set (e.g. 15, all, 24</p></li>
+<li><p><strong>full_data</strong> (<em>bool</em>) – Flag indicating whether to return data type as simpleVaccineTimeline (false) or fullVaccineTimeline (true).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing vaccine administration data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_all_continents">
 <span class="sig-name descname"><span class="pre">get_worldometers_covid_data_for_all_continents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_null</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_worldometers_covid_data_for_all_continents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_all_continents" title="Link to this definition"></a></dt>
 <dd><p>Returns COVID-19 totals for all the continents.</p>
-<p>Args:
-- sort (str): Provided a key (e.g. cases, todayCases, deaths, active), result will be sorted from greatest to least. See docs for possible fields to sort by. Default is None.
-- day (int): Which day’s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.
-- allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</p>
-<p>Returns:
-- dict: A dictionary containing COVID-19 totals for the continents.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sort</strong> (<em>str</em>) – Provided a key (e.g. cases, todayCases, deaths, active), result will be sorted from greatest to least. See docs for possible fields to sort by. Default is None.</p></li>
+<li><p><strong>day</strong> (<em>int</em>) – Which day’s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.</p></li>
+<li><p><strong>allow_null</strong> (<em>bool</em>) – True if, where the value is 0, null is instead retired. Default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing COVID-19 totals for the continents.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_all_countries">
 <span class="sig-name descname"><span class="pre">get_worldometers_covid_data_for_all_countries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_null</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_worldometers_covid_data_for_all_countries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_all_countries" title="Link to this definition"></a></dt>
 <dd><p>Returns COVID-19 totals for all the countries.</p>
-<p>Args:
-- sort (str): Provided a key (e.g. cases, todayCases, deaths, active), result will be sorted from greatest to least. See docs for possible fields to sort by. Default is None.
-- day (int): Which day’s data to return. Supported values are 0 for today and 1 for yesterday. Default is 0, today.
-- allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</p>
-<p>Returns:
-- dict: A dictionary containing COVID-19 totals for the countries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sort</strong> (<em>str</em>) – Provided a key (e.g. cases, todayCases, deaths, active), result will be sorted from greatest to least. See docs for possible fields to sort by. Default is None.</p></li>
+<li><p><strong>day</strong> (<em>int</em>) – Which day’s data to return. Supported values are 0 for today and 1 for yesterday. Default is 0, today.</p></li>
+<li><p><strong>allow_null</strong> (<em>bool</em>) – True if, where the value is 0, null is instead retired. Default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing COVID-19 totals for the countries.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_all_states">
 <span class="sig-name descname"><span class="pre">get_worldometers_covid_data_for_all_states</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_null</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_worldometers_covid_data_for_all_states"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_all_states" title="Link to this definition"></a></dt>
 <dd><p>Returns COVID-19 totals for the states.</p>
-<p>Args:
-- sort (str): Provided a key (e.g. cases, todayCases, deaths, active), result will be sorted from greatest to least. See docs for possible fields to sort by. Default is None.
-- day (int): Which day’s data to return. Supported values are 0 for today and 1 for yesterday. Default is 0, today.
-- allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</p>
-<p>Returns:
-- dict: A dictionary containing state COVID-19 totals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sort</strong> (<em>str</em>) – Provided a key (e.g. cases, todayCases, deaths, active), result will be sorted from greatest to least. See docs for possible fields to sort by. Default is None.</p></li>
+<li><p><strong>day</strong> (<em>int</em>) – Which day’s data to return. Supported values are 0 for today and 1 for yesterday. Default is 0, today.</p></li>
+<li><p><strong>allow_null</strong> (<em>bool</em>) – True if, where the value is 0, null is instead retired. Default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing state COVID-19 totals.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_specific_continent">
 <span class="sig-name descname"><span class="pre">get_worldometers_covid_data_for_specific_continent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">continent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_null</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_worldometers_covid_data_for_specific_continent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_specific_continent" title="Link to this definition"></a></dt>
 <dd><p>Returns COVID-19 totals for the specified continent.</p>
-<p>Args:
-- continent (str): Name of the continent, spelled correctly.
-- day (int): Which day’s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.
-- strict (bool): Setting to false gives you the ability to fuzzy search continents (i.e. Oman vs. rOMANia). Default is True.
-- allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</p>
-<p>Returns:
-- dict: A dictionary containing COVID-19 totals for specified continent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>continent</strong> (<em>str</em>) – Name of the continent, spelled correctly.</p></li>
+<li><p><strong>day</strong> (<em>int</em>) – Which day’s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.</p></li>
+<li><p><strong>strict</strong> (<em>bool</em>) – Setting to false gives you the ability to fuzzy search continents (i.e. Oman vs. rOMANia). Default is True.</p></li>
+<li><p><strong>allow_null</strong> (<em>bool</em>) – True if, where the value is 0, null is instead retired. Default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing COVID-19 totals for specified continent.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_specific_countries">
 <span class="sig-name descname"><span class="pre">get_worldometers_covid_data_for_specific_countries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">countries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_null</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_worldometers_covid_data_for_specific_countries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_specific_countries" title="Link to this definition"></a></dt>
 <dd><p>Returns COVID-19 totals for the specified countries.</p>
-<p>Args:
-- countries (str): Multiple country names, iso2s, iso3s, or country ID codes, separated by commas, non spaces.
-- day (int): Which day’s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.
-- strict (bool): Setting to false gives you the ability to fuzzy search countries (i.e. Oman vs. rOMANia). Default is True.
-- allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</p>
-<p>Returns:
-- dict: A dictionary containing COVID-19 totals for specified countries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>countries</strong> (<em>str</em>) – Multiple country names, iso2s, iso3s, or country ID codes, separated by commas, non spaces.</p></li>
+<li><p><strong>day</strong> (<em>int</em>) – Which day’s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.</p></li>
+<li><p><strong>strict</strong> (<em>bool</em>) – Setting to false gives you the ability to fuzzy search countries (i.e. Oman vs. rOMANia). Default is True.</p></li>
+<li><p><strong>allow_null</strong> (<em>bool</em>) – True if, where the value is 0, null is instead retired. Default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing COVID-19 totals for specified countries.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_specific_country">
 <span class="sig-name descname"><span class="pre">get_worldometers_covid_data_for_specific_country</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_null</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_worldometers_covid_data_for_specific_country"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_specific_country" title="Link to this definition"></a></dt>
 <dd><p>Returns COVID-19 totals for the specified country.</p>
-<p>Args:
-- country (str): A country name, iso2, iso3, or country ID code
-- day (int): Which day’s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.
-- strict (bool): Setting to false gives you the ability to fuzzy search countries (i.e. Oman vs. rOMANia). Default is True.
-- allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</p>
-<p>Returns:
-- dict: A dictionary containing COVID-19 totals for specified country.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>country</strong> (<em>str</em>) – A country name, iso2, iso3, or country ID code</p></li>
+<li><p><strong>day</strong> (<em>int</em>) – Which day’s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.</p></li>
+<li><p><strong>strict</strong> (<em>bool</em>) – Setting to false gives you the ability to fuzzy search countries (i.e. Oman vs. rOMANia). Default is True.</p></li>
+<li><p><strong>allow_null</strong> (<em>bool</em>) – True if, where the value is 0, null is instead retired. Default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing COVID-19 totals for specified country.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_specific_states">
 <span class="sig-name descname"><span class="pre">get_worldometers_covid_data_for_specific_states</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_null</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_worldometers_covid_data_for_specific_states"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_worldometers_covid_data_for_specific_states" title="Link to this definition"></a></dt>
 <dd><p>Returns COVID-19 totals for the specified state(s).</p>
-<p>Args:
-- states (str): State name or comma separated non-spaced names, spelled correctly.
-- day (int): Which day’s data to return. Supported values are 0 for today and 1 for yesterday. Default is 0, today.
-- allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</p>
-<p>Returns:
-- dict: A dictionary containing COVID-19 totals for specified state(s).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>states</strong> (<em>str</em>) – State name or comma separated non-spaced names, spelled correctly.</p></li>
+<li><p><strong>day</strong> (<em>int</em>) – Which day’s data to return. Supported values are 0 for today and 1 for yesterday. Default is 0, today.</p></li>
+<li><p><strong>allow_null</strong> (<em>bool</em>) – True if, where the value is 0, null is instead retired. Default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing COVID-19 totals for specified state(s).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.health.open_disease.OpenDisease.get_worldometers_global_covid_data">
 <span class="sig-name descname"><span class="pre">get_worldometers_global_covid_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">day</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_null</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/health/open_disease.html#OpenDisease.get_worldometers_global_covid_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.health.open_disease.OpenDisease.get_worldometers_global_covid_data" title="Link to this definition"></a></dt>
 <dd><p>Returns global COVID-19 totals for today, yesterday and two days ago.</p>
-<p>Args:
-- day (int): Which day’s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.
-- allow_null (bool): True if, where the value is 0, null is instead retired. Default is False.</p>
-<p>Returns:
-- dict: A dictionary containing global COVID-19 totals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>day</strong> (<em>int</em>) – Which day’s data to return. Supported values are 0 for today, 1 for yesterday, and 2 for the day before yesterday. Default is 0, today.</p></li>
+<li><p><strong>allow_null</strong> (<em>bool</em>) – True if, where the value is 0, null is instead retired. Default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing global COVID-19 totals.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

@@ -9,8 +9,8 @@ class URLHaus:
     A class to interact with the URLHaus API.
     
     Attributes:
-    - base_url: The base URL of the API.
-    - about: A short description of the API.
+        base_url: The base URL of the API.
+        about: A short description of the API.
     """
     def __init__(self, use_caching=False, cache_name="urlhaus_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://urlhaus-api.abuse.ch/v1/"
@@ -24,10 +24,10 @@ class URLHaus:
         Returns the URL for the URLHaus API documentation.
         
         Args:
-        - None
+            None
         
         Returns:
-        - string: The URL for the API docs.
+            string: The URL for the API docs.
         """
         return "https://urlhaus-api.abuse.ch/"
         
@@ -36,10 +36,10 @@ class URLHaus:
         Returns a list of recent URLs added to URLHaus.
         
         Args:
-        - limit (int): Optional limit of URLs returned. Defaults to None.
+            limit (int): Optional limit of URLs returned. Defaults to None.
         
         Returns:
-        - dict: A dictionary containing a list of recent URLs added to URLHaus.
+            dict: A dictionary containing a list of recent URLs added to URLHaus.
         """
         if limit is not None:
             endpoint = f"urls/recent/limit/{limit}"
@@ -52,10 +52,10 @@ class URLHaus:
         Returns a list of recent payloads seen by URLHaus.
         
         Args:
-        - limit (int): Optional limit of payloads returned. Defaults to None.
+            limit (int): Optional limit of payloads returned. Defaults to None.
         
         Returns:
-        - dict: A dictionary containing a list of recent payloads seen by URLHaus.
+            dict: A dictionary containing a list of recent payloads seen by URLHaus.
         """
         if limit is not None:
             endpoint = f"payloads/recent/limit/{limit}"
@@ -68,10 +68,10 @@ class URLHaus:
         Returns any information URLHaus may have about a specific URL.
         
         Args:
-        - url (str): The URL in question.
+            url (str): The URL in question.
         
         Returns:
-        - dict: A dictionary containing information about a specific URL.
+            dict: A dictionary containing information about a specific URL.
         """
         payload = {"url": f"{url}"}
         endpoint = "url/"
@@ -86,10 +86,10 @@ class URLHaus:
         Returns any information URLHaus may have about a specific URL.
         
         Args:
-        - urlID (int): The id of the URL in question.
+            urlID (int): The id of the URL in question.
         
         Returns:
-        - dict: A dictionary containing information about a specific URL.
+            dict: A dictionary containing information about a specific URL.
         """
         payload = {"urlid": f"{urlID}"}
         endpoint = "urlid/"
@@ -104,10 +104,10 @@ class URLHaus:
         Returns any information URLHaus may have about a specific host.
         
         Args:
-        - host (str): The IPv4 address, domain name, or hostname in question.
+            host (str): The IPv4 address, domain name, or hostname in question.
         
         Returns:
-        - dict: A dictionary containing information about a specific host.
+            dict: A dictionary containing information about a specific host.
         """
         payload = {"host": f"{host}"}
         endpoint = "host/"
@@ -122,10 +122,10 @@ class URLHaus:
         Returns any information URLHaus has about a specific payload (malware sample).
         
         Args:
-        - p_load (str): The MD5 hash or SHA256 hash of the payload (malware sample).
+            p_load (str): The MD5 hash or SHA256 hash of the payload (malware sample).
         
         Returns:
-        - dict: A dictionary containing information about a specific payload.
+            dict: A dictionary containing information about a specific payload.
         """
         payload = {"payload": f"{p_load}"}
         endpoint = "payload/"
@@ -140,10 +140,10 @@ class URLHaus:
         Returns any information URLHaus has about a specific tag.
         
         Args:
-        - tag (str): The tag to query.
+            tag (str): The tag to query.
         
         Returns:
-        - dict: A dictionary containing information about a specific tag.
+            dict: A dictionary containing information about a specific tag.
         """
         payload = {"tag": f"{tag}"}
         endpoint = "tag/"
@@ -158,10 +158,10 @@ class URLHaus:
         Returns any information URLHaus has about a specific signature.
         
         Args:
-        - signature (str): The signature to query.
+            signature (str): The signature to query.
         
         Returns:
-        - dict: A dictionary containing information about a specific signature.
+            dict: A dictionary containing information about a specific signature.
         """
         payload = {"signature": f"{signature}"}
         endpoint = "signature/"
@@ -176,11 +176,11 @@ class URLHaus:
         Downloads a zip file containing the malware sample (payload).
     
         Args:
-        - base_url (str): The base URL of the API.
-        - sha256 (str): The SHA256 hash identifying the malware sample (payload) to be downloaded.
+            base_url (str): The base URL of the API.
+            sha256 (str): The SHA256 hash identifying the malware sample (payload) to be downloaded.
     
         Returns:
-        - str: Path to the downloaded ZIP file if successful, error message otherwise.
+            - str: Path to the downloaded ZIP file if successful, error message otherwise.
         """
         # Define the endpoint and construct the URL
         endpoint = f"download/{sha256}"

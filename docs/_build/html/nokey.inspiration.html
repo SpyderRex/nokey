@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.inspiration package &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.inspiration package &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=c98573da"></script>
+        <script src="_static/documentation_options.js?v=020ce317"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -49,7 +49,6 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">nokey</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="nokey.html">nokey package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="nokey.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="nokey.activities.html">nokey.activities package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.animals.html">nokey.animals package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.art_and_images.html">nokey.art_and_images package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.books_and_literature.html">nokey.books_and_literature package</a></li>
@@ -119,106 +118,188 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.inspiration.dictum.</span></span><span class="sig-name descname"><span class="pre">Dictum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dictum_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/inspiration/dictum.html#Dictum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.inspiration.dictum.Dictum" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class for interacting with the Dictum API.</p>
-<p>Attributes:
-- base_url: The base URL of the API.
-- about: A short description of the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.inspiration.dictum.Dictum.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#nokey.inspiration.dictum.Dictum.base_url" title="Link to this definition"></a></dt>
+<dd><p>The base URL of the API.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.inspiration.dictum.Dictum.about">
+<span class="sig-name descname"><span class="pre">about</span></span><a class="headerlink" href="#nokey.inspiration.dictum.Dictum.about" title="Link to this definition"></a></dt>
+<dd><p>A short description of the API.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.inspiration.dictum.Dictum.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/inspiration/dictum.html#Dictum.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.inspiration.dictum.Dictum.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for the Dictum API documentation.</p>
-<p>Args:
-- None</p>
-<p>Returns:
--string: The URL for the API docs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL for the API docs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.inspiration.dictum.Dictum.get_inspiring_author_by_id">
 <span class="sig-name descname"><span class="pre">get_inspiring_author_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">authorID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/inspiration/dictum.html#Dictum.get_inspiring_author_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.inspiration.dictum.Dictum.get_inspiring_author_by_id" title="Link to this definition"></a></dt>
 <dd><p>Returns the author matching the unique identifier.</p>
-<p>Args:
-- language (str): The language of the author. Defaults to en (English). Only other value supported is ru (Russian).
-- authorID (str): A unique hexadecimal string identifying a specific author in the API.</p>
-<p>Returns:
-- dict: A dictionary containing the author matching the given id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>language</strong> (<em>str</em>) – The language of the author. Defaults to en (English). Only other value supported is ru (Russian).</p></li>
+<li><p><strong>authorID</strong> (<em>str</em>) – A unique hexadecimal string identifying a specific author in the API.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the author matching the given id.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.inspiration.dictum.Dictum.get_inspiring_authors">
 <span class="sig-name descname"><span class="pre">get_inspiring_authors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_query</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/inspiration/dictum.html#Dictum.get_inspiring_authors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.inspiration.dictum.Dictum.get_inspiring_authors" title="Link to this definition"></a></dt>
 <dd><p>Returns list of authors featured in the API based on the given parameters.</p>
-<p>Args:
-- language (str): The language of the author. Default is en (English). Only other value supported is ru (Russian).
-- search_query (str): The search query matching the author’s name. Default is None.
-- offset (int): The page offset for the list of authors. Default is 0.
-- limit (int): The number of items.</p>
-<p>Returns:
-- dict: A dictionary containing the authors matching the given parameters, along with the unique identifier for the author.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>language</strong> (<em>str</em>) – The language of the author. Default is en (English). Only other value supported is ru (Russian).</p></li>
+<li><p><strong>search_query</strong> (<em>str</em>) – The search query matching the author’s name. Default is None.</p></li>
+<li><p><strong>offset</strong> (<em>int</em>) – The page offset for the list of authors. Default is 0.</p></li>
+<li><p><strong>limit</strong> (<em>int</em>) – The number of items.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the authors matching the given parameters, along with the unique identifier for the author.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.inspiration.dictum.Dictum.get_inspiring_quote_by_quote_id">
 <span class="sig-name descname"><span class="pre">get_inspiring_quote_by_quote_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quoteID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/inspiration/dictum.html#Dictum.get_inspiring_quote_by_quote_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.inspiration.dictum.Dictum.get_inspiring_quote_by_quote_id" title="Link to this definition"></a></dt>
 <dd><p>Returns a quote  matching the unique identifier.</p>
-<p>Args:
-- language (str): The language of the author. Defaults to en (English). Only other value supported is ru (Russian).
-- quoteID (str): A unique hexadecimal string identifying a specific quote in the API.</p>
-<p>Returns:
-- dict: A dictionary containing a quote matching the given id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>language</strong> (<em>str</em>) – The language of the author. Defaults to en (English). Only other value supported is ru (Russian).</p></li>
+<li><p><strong>quoteID</strong> (<em>str</em>) – A unique hexadecimal string identifying a specific quote in the API.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a quote matching the given id.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.inspiration.dictum.Dictum.get_inspiring_quotes">
 <span class="sig-name descname"><span class="pre">get_inspiring_quotes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_query</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/inspiration/dictum.html#Dictum.get_inspiring_quotes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.inspiration.dictum.Dictum.get_inspiring_quotes" title="Link to this definition"></a></dt>
 <dd><p>Returns list of quotes matching the given parameters.</p>
-<p>Args:
-- language (str): The language of the author. Default is en (English). Only other value supported is ru (Russian).
-- search_query (str): The search query matching the quote. Default is None.
-- offset (int): The page offset for the list of quotes. Default is 0.
-- limit (int): The number of items.</p>
-<p>Returns:
-- dict: A dictionary containing the quotes matching the given parameters, along with the unique identifier for the author.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>language</strong> (<em>str</em>) – The language of the author. Default is en (English). Only other value supported is ru (Russian).</p></li>
+<li><p><strong>search_query</strong> (<em>str</em>) – The search query matching the quote. Default is None.</p></li>
+<li><p><strong>offset</strong> (<em>int</em>) – The page offset for the list of quotes. Default is 0.</p></li>
+<li><p><strong>limit</strong> (<em>int</em>) – The number of items.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the quotes matching the given parameters, along with the unique identifier for the author.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.inspiration.dictum.Dictum.get_inspiring_quotes_by_author_id">
 <span class="sig-name descname"><span class="pre">get_inspiring_quotes_by_author_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">authorID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/inspiration/dictum.html#Dictum.get_inspiring_quotes_by_author_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.inspiration.dictum.Dictum.get_inspiring_quotes_by_author_id" title="Link to this definition"></a></dt>
 <dd><p>Returns quotes from an author matching the unique identifier.</p>
-<p>Args:
-- language (str): The language of the author. Defaults to en (English). Only other value supported is ru (Russian).
-- authorID (str): A unique hexadecimal string identifying a specific author in the API.</p>
-<p>Returns:
-- dict: A dictionary containing quotes from the author matching the given id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>language</strong> (<em>str</em>) – The language of the author. Defaults to en (English). Only other value supported is ru (Russian).</p></li>
+<li><p><strong>authorID</strong> (<em>str</em>) – A unique hexadecimal string identifying a specific author in the API.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing quotes from the author matching the given id.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.inspiration.dictum.Dictum.get_languages">
 <span class="sig-name descname"><span class="pre">get_languages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/inspiration/dictum.html#Dictum.get_languages"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.inspiration.dictum.Dictum.get_languages" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of author languages used in the API.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing a list of languages (as of this time, only Russian and English)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of languages (as of this time, only Russian and English)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.inspiration.dictum.Dictum.get_number_of_quotes_and_authors">
 <span class="sig-name descname"><span class="pre">get_number_of_quotes_and_authors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/inspiration/dictum.html#Dictum.get_number_of_quotes_and_authors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.inspiration.dictum.Dictum.get_number_of_quotes_and_authors" title="Link to this definition"></a></dt>
 <dd><p>Returns the number of quotes and authors in the API for the given language.</p>
-<p>Args:
-- language (str). The language of the quotes. Defaults to en (English). Only other value supported is ru (Russian).</p>
-<p>Returns:
-- dict: Dictionary containing the number of authors and quotes for the given language.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>language</strong> (<em>str</em><em>)</em><em>. The language</em><em> of </em><em>the quotes. Defaults to en</em><em> (</em><em>English</em><em>)</em><em>. Only other value supported is ru</em><em> (</em><em>Russian</em>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing the number of authors and quotes for the given language.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.inspiration.dictum.Dictum.get_random_quote">
 <span class="sig-name descname"><span class="pre">get_random_quote</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/inspiration/dictum.html#Dictum.get_random_quote"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.inspiration.dictum.Dictum.get_random_quote" title="Link to this definition"></a></dt>
 <dd><p>Returns a random quote.</p>
-<p>Args:
-- language (str): Language of the quote. Defaults to en (English). Only other value supported is ru (Russian).</p>
-<p>Returns:
-- dict: A dictionary containing the random quote.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>language</strong> (<em>str</em>) – Language of the quote. Defaults to en (English). Only other value supported is ru (Russian).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the random quote.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

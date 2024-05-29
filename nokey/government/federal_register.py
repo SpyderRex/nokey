@@ -6,8 +6,8 @@ class FederalRegister:
     A class for interacting with the Federal Register API.
     
     Attributes:
-    base_url: The base URL of the API.
-    about: A short description of the API.
+        base_url: The base URL of the API.
+        about: A short description of the API.
     """
     def __init__(self, use_caching=False, cache_name="federal_register_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://www.federalregister.gov/api/v1/"
@@ -21,10 +21,10 @@ class FederalRegister:
         Returns the URL for the Federal Register API documentation.
         
         Args:
-        - None
+            None
         
         Returns:
-        - string: The URL for the API docs.
+            string: The URL for the API docs.
         """
         return "https://www.federalregister.gov/developers/documentation/api/v1"
         
@@ -33,10 +33,10 @@ class FederalRegister:
         Returns a Federal Register document of the given number.
         
         Args:
-        - document_num (str): The unique number for the document.
+            document_num (str): The unique number for the document.
         
         Returns:
-        - dict: A dictionary containing the document matching the given number.
+            dict: A dictionary containing the document matching the given number.
         """
         endpoint = f"documents/{document_num}.json"
         return mr.make_request(self.base_url+endpoint)
@@ -46,10 +46,10 @@ class FederalRegister:
         Returns multiple Federal Register documents of the given numbers.
         
         Args:
-        - document_nums (str): A string of unspaced, comma-separated document numbers.
+            document_nums (str): A string of unspaced, comma-separated document numbers.
         
         Returns:
-        - dict: A dictionary containing the documents matching the given numbers.
+            dict: A dictionary containing the documents matching the given numbers.
         """
         endpoint = f"documents/{document_nums}.json"
         return mr.make_request(self.base_url+endpoint)
@@ -59,12 +59,12 @@ class FederalRegister:
         Returns the Federal Register documents published since 1994 matching the given parameters.
         
         Args:
-        - search_term (str): The term by which to search the documents.
-        - per_page (int): The number of documents to return at once; default is 20; 1000 maximum.
-        - doc_type (str): Additional optional search by document type. Supported values are rule (final rule), prorule (proposed rule), notice (notice), and presdocu (presidential document)
+            search_term (str): The term by which to search the documents.
+            per_page (int): The number of documents to return at once; default is 20; 1000 maximum.
+            doc_type (str): Additional optional search by document type. Supported values are rule (final rule), prorule (proposed rule), notice (notice), and presdocu (presidential document)
         
         Returns:
-        - dict: A dictionary containing the documents published since 1994 matching the given values.
+            dict: A dictionary containing the documents published since 1994 matching the given values.
         """
         if doc_type is not None:
             endpoint = f"documents.json?per_page={per_page}&conditions[term]={search_term}&conditions[type][]={doc_type.upper()}"
@@ -78,12 +78,12 @@ class FederalRegister:
         Returns counts of matching Federal Register documents grouped by a facet.
         
         Args:
-        - facet (str): The facet by which to group the documents. Supported values are daily, weekly, monthly, quarterly, yearly, agency, topic, section, type, and subtype.
-        - search_term (str): Option search query term. Defaults to None.
-        - doc_type (str): Additional optional search by document type. Supported values are rule (final rule), prorule (proposed rule), notice (notice), and presdocu (presidential document)
+            facet (str): The facet by which to group the documents. Supported values are daily, weekly, monthly, quarterly, yearly, agency, topic, section, type, and subtype.
+            search_term (str): Option search query term. Defaults to None.
+            doc_type (str): Additional optional search by document type. Supported values are rule (final rule), prorule (proposed rule), notice (notice), and presdocu (presidential document)
         
         Returns:
-        - dict: Returns a dictionary of document counts for the given parameters.
+            dict: Returns a dictionary of document counts for the given parameters.
         """
         if search_term is not None and doc_type is None:
             endpoint = f"documents/facets/{facet}?conditions[term]={search_term}"
@@ -100,10 +100,10 @@ class FederalRegister:
         Returns the document table of contents based on print edition.
         
         Args:
-        - pub_date (str): The exact publication date (YYYY-MM-DD).
+            pub_date (str): The exact publication date (YYYY-MM-DD).
         
         Returns:
-        - dict: A dictionary containing the document table of contents that matches the given date.
+            dict: A dictionary containing the document table of contents that matches the given date.
         """
         endpoint = f"issues/{pub_date}.json"
         return mr.make_request(self.base_url+endpoint)
@@ -113,10 +113,10 @@ class FederalRegister:
         Returns a single public inspection document matching the given number.
         
         Args:
-        - document_num (str): The number matching the public inspection document.
+            document_num (str): The number matching the public inspection document.
         
         Returns:
-        - dict: A dictionary containing a single public inspection document matching the given number.
+            dict: A dictionary containing a single public inspection document matching the given number.
         """
         endpoint = f"public-inspection-documents/{document_num}.json"
         return mr.make_request(self.base_url+endpoint)
@@ -126,10 +126,10 @@ class FederalRegister:
         Returns the public inspection documents matching the given numbers.
         
         Args:
-        - document_nums (str): The numbers matching the public inspection documents, separated by commas, no spaces.
+            document_nums (str): The numbers matching the public inspection documents, separated by commas, no spaces.
         
         Returns:
-        - dict: A dictionary containing the public inspection documents matching the given numbers.
+            dict: A dictionary containing the public inspection documents matching the given numbers.
         """
         endpoint = f"public-inspection-documents/{document_nums}.json"
         return mr.make_request(self.base_url+endpoint)
@@ -139,10 +139,10 @@ class FederalRegister:
         Returns all the public inspection documents that are currently on public inspection.
         
         Args:
-        - None
+            None
         
         Returns:
-        - dict: A dictionary containing all the public inspection documents that are currently on public inspection.
+            dict: A dictionary containing all the public inspection documents that are currently on public inspection.
         """
         endpoint = "public-inspection-documents/current.json"
         return mr.make_request(self.base_url+endpoint)
@@ -152,13 +152,13 @@ class FederalRegister:
         Returns the Federal Register documents published since 1994 matching the given parameters.
         
         Args:
-        - pub_date (str): Public inspection issue date (YYYY-MM-DD).
-        - per_page (int): The number of documents to return at once; default is 20; 1000 maximum.
-        - search_term (str): The term by which to search the documents.
-        - doc_type (str): Additional optional search by document type. Supported values are rule (final rule), prorule (proposed rule), notice (notice), and presdocu (presidential document)
+            pub_date (str): Public inspection issue date (YYYY-MM-DD).
+            per_page (int): The number of documents to return at once; default is 20; 1000 maximum.
+            search_term (str): The term by which to search the documents.
+            doc_type (str): Additional optional search by document type. Supported values are rule (final rule), prorule (proposed rule), notice (notice), and presdocu (presidential document)
         
         Returns:
-        - dict: A dictionary containing the documents published since 1994 matching the given values.
+            dict: A dictionary containing the documents published since 1994 matching the given values.
         """
         if search_term is not None and doc_type is None:
             endpoint = f"public-inspection-documents.json?per_page={per_page}&conditions[available_on]={pub_date}&conditions[term]={search_term}"
@@ -179,10 +179,10 @@ class FederalRegister:
         Returns all agency details.
         
         Args:
-        - None
+            None
         
         Returns:
-        - dict: A dictionary containing all agency details.
+            dict: A dictionary containing all agency details.
         """
         endpoint = "agencies"
         return mr.make_request(self.base_url+endpoint)
@@ -192,10 +192,10 @@ class FederalRegister:
         Returns a particular agency's details.
         
         Args:
-        - slug (str): The Federal Register slug for the agency. See Federal Register API docs for extensive list of possible values.
+            slug (str): The Federal Register slug for the agency. See Federal Register API docs for extensive list of possible values.
         
         Returns:
-        - dict: A dictionary containing a particular agency's details.
+            dict: A dictionary containing a particular agency's details.
         """
         endpoint = f"agencies/{slug}"
         return mr.make_request(self.base_url+endpoint)
@@ -205,10 +205,10 @@ class FederalRegister:
         Returns the available image variants and their metadata for a single image identifier.
         
         Args:
-        - image_id (str): The Federal Register image identifier.
+            image_id (str): The Federal Register image identifier.
         
         Returns:
-        - dict: A dictionary containing the available image variants and their metadata for a single image identifier.
+            dict: A dictionary containing the available image variants and their metadata for a single image identifier.
         """
         endpoint = f"images/{image_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -218,10 +218,10 @@ class FederalRegister:
         Returns all suggested searches or limit by FederalRegister.gov section.
         
         Args:
-        - section (str): The Federal Register slug for the section. Supported values are business-and-industry, environment, health-and-public-welfare, money, science-and-technology, and world.
+            section (str): The Federal Register slug for the section. Supported values are business-and-industry, environment, health-and-public-welfare, money, science-and-technology, and world.
         
         Returns:
-        - dict: A dictionary containing all the suggested searches or limit by Federal.Register.gov section.
+            dict: A dictionary containing all the suggested searches or limit by Federal.Register.gov section.
         """
         endpoint = f"suggested_searches?conditions[sections]={section}"
         return mr.make_request(self.base_url+endpoint)
@@ -231,10 +231,10 @@ class FederalRegister:
         Returns a particular suggested search.
         
         Args:
-        - slug (str): The Federal Register slug for the suggested search. See Federal Register API docs for extensive list of possible values.
+            slug (str): The Federal Register slug for the suggested search. See Federal Register API docs for extensive list of possible values.
         
         Returns:
-        - dict: A dictionary containing a particular suggested search.
+            dict: A dictionary containing a particular suggested search.
         """
         endpoint = f"suggested_searches/{slug}"
         return mr.make_request(self.base_url+endpoint)

@@ -6,8 +6,8 @@ class FilterLists:
     A class for interacting with the FilterLists API.
     
     Attributes:
-    - base_url: The base URL of the FilterLists API.
-    - about: A short description of the API.
+        base_url: The base URL of the FilterLists API.
+        about: A short description of the API.
     """
     def __init__(self, use_caching=False, cache_name="filter_lists_cache", backend="sqlite", expire_after=3600):
         self.base_url = "http://filterlists.com/api/directory/"
@@ -21,10 +21,10 @@ class FilterLists:
         Returns the URL for the FilterLists API documentation.
         
         Args:
-        - None
+            None
         
         Returns:
-        - string: The URL for the API docs.
+            string: The URL for the API docs.
         """
         return "https://filterlists.com/api/#/"
         
@@ -33,10 +33,10 @@ class FilterLists:
         Returns the languages targeted by the FilterLists.
         
         Args:
-        - None
+            None
         
         Returns:
-        - dict: A dictionary containing a list of languages targeted by the FilterLists.
+            dict: A dictionary containing a list of languages targeted by the FilterLists.
         """
         endpoint = "languages"
         return mr.make_request(self.base_url+endpoint)
@@ -46,10 +46,10 @@ class FilterLists:
         Returns the licenses applied to the FilterLists.
         
         Args:
-        - None
+            None
         
         Returns:
-        - dict: A dictionary containing a list of licenses applied to the FilterLists.
+            dict: A dictionary containing a list of licenses applied to the FilterLists.
         """
         endpoint = "licenses"
         return mr.make_request(self.base_url+endpoint)
@@ -59,10 +59,10 @@ class FilterLists:
         Returns the FilterLists.
         
         Args:
-        - None
+            None
         
         Returns:
-        - dict: A dictionary containing the FilterLists.
+            dict: A dictionary containing the FilterLists.
         """
         endpoint = "lists"
         return mr.make_request(self.base_url+endpoint)
@@ -72,10 +72,10 @@ class FilterLists:
         Returns details of a specific FilterList matching the given id.
         
         Args:
-        - list_id (int): A unique numerical identifier for a FilterList.
+            list_id (int): A unique numerical identifier for a FilterList.
         
         Returns:
-        - dict: A dictionary containing details of the FilterList.
+            dict: A dictionary containing details of the FilterList.
         """
         endpoint = f"lists/{list_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -85,10 +85,10 @@ class FilterLists:
         Returns the maintainers of the FilterLists.
         
         Args:
-        - None
+            None
         
         Returns:
-        - dict: A dictionary containing the maintainers of the FilterLists.
+            dict: A dictionary containing the maintainers of the FilterLists.
         """
         endpoint = "maintainers"
         return mr.make_request(self.base_url+endpoint)
@@ -98,10 +98,10 @@ class FilterLists:
         Returns the software that subscribes to the FilterLists.
         
         Args:
-        - None
+            None
         
         Returns:
-        - dict: A dictionary containing the software that subscribes to the FilterLists.
+            dict: A dictionary containing the software that subscribes to the FilterLists.
         """
         endpoint = "software"
         return mr.make_request(self.base_url+endpoint)
@@ -111,10 +111,10 @@ class FilterLists:
         Returns the syntaxes of the FilterLists.
         
         Args:
-        - None
+            None
         
         Returns:
-        - dict: A dictionary containing the syntaxes of the FilterLists.
+            dict: A dictionary containing the syntaxes of the FilterLists.
         """
         endpoint = "syntaxes"
         return mr.make_request(self.base_url+endpoint)
@@ -124,10 +124,10 @@ class FilterLists:
         Returns the tags of the FilterLists.
         
         Args:
-        - None
+            None
         
         Returns:
-        - dict: A dictionary containing the tags of the FilterLists.
+            dict: A dictionary containing the tags of the FilterLists.
         """
         endpoint = "tags"
         return mr.make_request(self.base_url+endpoint)

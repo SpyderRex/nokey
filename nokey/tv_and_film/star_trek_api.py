@@ -6,8 +6,8 @@ class STAPI:
     A class for interacting with the Star Trek API.
     
     Attributes:
-    - base_url: The base URL of the API.
-    - about: A short description of the API.
+        base_url: The base URL of the API.
+        about: A short description of the API.
     """
     def __init__(self, use_caching=False, cache_name="stapi_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://stapi.co/api/"
@@ -21,10 +21,10 @@ class STAPI:
         Returns the URL for the Star Trek API.
         
         Args:
-        - None
+            None
         
         Returns:
-        - str: The URL for the API.
+            str: The URL for the API.
         """
         return "https://editor.swagger.io/?url=https://stapi.co/api/v1/rest/common/download/stapi.yaml"
         
@@ -33,10 +33,10 @@ class STAPI:
         Returns information about a Star Trek animal matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the animal.
+            uid (str): The unique identifier for the animal.
         
         Returns:
-        - dict: A dictionary containing information about the animal.
+            dict: A dictionary containing information about the animal.
         """
         endpoint = f"v1/rest/animal?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -46,11 +46,11 @@ class STAPI:
         Returns a list of animals of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of animals per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of animals per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of animals.
+            dict: A dictionary containing a list of animals.
         """
         endpoint = f"v1/rest/animal/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -60,10 +60,10 @@ class STAPI:
         Returns information about a Star Trek astronomical object matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the astronomical object.
+            uid (str): The unique identifier for the astronomical object.
         
         Returns:
-        - dict: A dictionary containing information about the astronomical object.
+            dict: A dictionary containing information about the astronomical object.
         """
         endpoint = f"v2/rest/astronomicalObject?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -73,11 +73,11 @@ class STAPI:
         Returns a list of astronomical objects of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of objects per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of objects per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of astronomical objects.
+            dict: A dictionary containing a list of astronomical objects.
         """
         endpoint = f"v2/rest/astronomicalObject/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -87,10 +87,10 @@ class STAPI:
         Returns information about a Star Trek book matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the book.
+            uid (str): The unique identifier for the book.
         
         Returns:
-        - dict: A dictionary containing information about the book.
+            dict: A dictionary containing information about the book.
         """
         endpoint = f"v2/rest/book?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -100,11 +100,11 @@ class STAPI:
         Returns a list of Star Trek books of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of books per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of books per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of books.
+            dict: A dictionary containing a list of books.
         """
         endpoint = f"v2/rest/book/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -114,10 +114,10 @@ class STAPI:
         Returns information about a Star Trek book collection matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the book collection.
+            uid (str): The unique identifier for the book collection.
         
         Returns:
-        - dict: A dictionary containing information about the book collection.
+            dict: A dictionary containing information about the book collection.
         """
         endpoint = f"v1/rest/bookCollection?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -127,11 +127,11 @@ class STAPI:
         Returns a list of Star Trek book collections of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of book collections per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of book collections per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of book collections.
+            dict: A dictionary containing a list of book collections.
         """
         endpoint = f"v1/rest/bookCollection/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -141,10 +141,10 @@ class STAPI:
         Returns information about a Star Trek book series matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the book series.
+            uid (str): The unique identifier for the book series.
         
         Returns:
-        - dict: A dictionary containing information about the book series.
+            dict: A dictionary containing information about the book series.
         """
         endpoint = f"v1/rest/bookSeries?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -154,11 +154,11 @@ class STAPI:
         Returns a list of Star Trek book series of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of book series per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of book series per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of book series.
+            dict: A dictionary containing a list of book series.
         """
         endpoint = f"v1/rest/bookSeries/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -168,10 +168,10 @@ class STAPI:
         Returns information about a Star Trek character matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the character.
+            uid (str): The unique identifier for the character.
         
         Returns:
-        - dict: A dictionary containing information about the character.
+            dict: A dictionary containing information about the character.
         """
         endpoint = f"v1/rest/character?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -181,11 +181,11 @@ class STAPI:
         Returns a list of Star Trek characters of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of characters per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of characters per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of characters.
+            dict: A dictionary containing a list of characters.
         """
         endpoint = f"v1/rest/character/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -195,10 +195,10 @@ class STAPI:
         Returns information about a Star Trek comic matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the comic.
+            uid (str): The unique identifier for the comic.
         
         Returns:
-        - dict: A dictionary containing information about the comic.
+            dict: A dictionary containing information about the comic.
         """
         endpoint = f"v1/rest/comics?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -208,11 +208,11 @@ class STAPI:
         Returns a list of Star Trek comics of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of comics per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of comics per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of comics.
+            dict: A dictionary containing a list of comics.
         """
         endpoint = f"v1/rest/comics/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -222,10 +222,10 @@ class STAPI:
         Returns information about a Star Trek comic collection matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the comic collection.
+            uid (str): The unique identifier for the comic collection.
         
         Returns:
-        - dict: A dictionary containing information about the comic collection.
+            dict: A dictionary containing information about the comic collection.
         """
         endpoint = f"v1/rest/comicCollection?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -235,11 +235,11 @@ class STAPI:
         Returns a list of Star Trek comic collections of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of comic collections per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of comic collections per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of comic collections.
+            dict: A dictionary containing a list of comic collections.
         """
         endpoint = f"v1/rest/comicCollection/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -249,10 +249,10 @@ class STAPI:
         Returns information about a Star Trek comic series matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the comic series.
+            uid (str): The unique identifier for the comic series.
         
         Returns:
-        - dict: A dictionary containing information about the comic series.
+            dict: A dictionary containing information about the comic series.
         """
         endpoint = f"v1/rest/comicSeries?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -262,11 +262,11 @@ class STAPI:
         Returns a list of Star Trek comic series of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of comic series per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of comic series per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of comic series.
+            dict: A dictionary containing a list of comic series.
         """
         endpoint = f"v1/rest/comicSeries/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -276,10 +276,10 @@ class STAPI:
         Returns information about a Star Trek comic strip matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the comic strip.
+            uid (str): The unique identifier for the comic strip.
         
         Returns:
-        - dict: A dictionary containing information about the comic strip.
+            dict: A dictionary containing information about the comic strip.
         """
         endpoint = f"v1/rest/comicStrip?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -289,11 +289,11 @@ class STAPI:
         Returns a list of Star Trek comic strips of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of comic strips per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of comic strips per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of comic strips.
+            dict: A dictionary containing a list of comic strips.
         """
         endpoint = f"v1/rest/comicStrip/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -303,10 +303,10 @@ class STAPI:
         Returns information about a Star Trek company matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the company.
+            uid (str): The unique identifier for the company.
         
         Returns:
-        - dict: A dictionary containing information about the company.
+            dict: A dictionary containing information about the company.
         """
         endpoint = f"v2/rest/company?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -316,11 +316,11 @@ class STAPI:
         Returns a list of Star Trek companies of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of companies per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of companies per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of companies.
+            dict: A dictionary containing a list of companies.
         """
         endpoint = f"v2/rest/company/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -330,10 +330,10 @@ class STAPI:
         Returns information about a Star Trek conflict matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the conflict.
+            uid (str): The unique identifier for the conflict.
         
         Returns:
-        - dict: A dictionary containing information about the conflict.
+            dict: A dictionary containing information about the conflict.
         """
         endpoint = f"v2/rest/conflict?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -343,11 +343,11 @@ class STAPI:
         Returns a list of Star Trek conflicts of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of conflicts per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of conflicts per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of conflicts.
+            dict: A dictionary containing a list of conflicts.
         """
         endpoint = f"v1/rest/conflict/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -357,10 +357,10 @@ class STAPI:
         Returns the data version of the API.
         
         Args:
-        - None
+            None
         
         Returns:
-        - dict: A dictionary containing the data version of the API.
+            dict: A dictionary containing the data version of the API.
         """
         endpoint = "v1/rest/common/dataVersion"
         return mr.make_request(self.base_url+endpoint)
@@ -370,10 +370,10 @@ class STAPI:
         Returns information about a Star Trek element matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the element.
+            uid (str): The unique identifier for the element.
         
         Returns:
-        - dict: A dictionary containing information about the element.
+            dict: A dictionary containing information about the element.
         """
         endpoint = f"v2/rest/element?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -383,11 +383,11 @@ class STAPI:
         Returns a list of Star Trek elements of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of elements per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of elements per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of elements.
+            dict: A dictionary containing a list of elements.
         """
         endpoint = f"v2/rest/element/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -397,10 +397,10 @@ class STAPI:
         Returns information about a Star Trek episode matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the episode.
+            uid (str): The unique identifier for the episode.
         
         Returns:
-        - dict: A dictionary containing information about the episode.
+            dict: A dictionary containing information about the episode.
         """
         endpoint = f"v1/rest/episode?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -410,11 +410,11 @@ class STAPI:
         Returns a list of Star Trek episodes of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of eposodes per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of eposodes per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of episodes.
+            dict: A dictionary containing a list of episodes.
         """
         endpoint = f"v1/rest/episode/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -424,10 +424,10 @@ class STAPI:
         Returns information about a Star Trek food matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the food.
+            uid (str): The unique identifier for the food.
         
         Returns:
-        - dict: A dictionary containing information about the food.
+            dict: A dictionary containing information about the food.
         """
         endpoint = f"v1/rest/food?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -437,11 +437,11 @@ class STAPI:
         Returns a list of Star Trek foods of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of foods per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of foods per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of foods.
+            dict: A dictionary containing a list of foods.
         """
         endpoint = f"v1/rest/food/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -451,10 +451,10 @@ class STAPI:
         Returns information about Star Trek literature matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the literature.
+            uid (str): The unique identifier for the literature.
         
         Returns:
-        - dict: A dictionary containing information about the literature.
+            dict: A dictionary containing information about the literature.
         """
         endpoint = f"v1/rest/literature?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -464,11 +464,11 @@ class STAPI:
         Returns a list of Star Trek literature of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of literature per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of literature per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of literature.
+            dict: A dictionary containing a list of literature.
         """
         endpoint = f"v1/rest/literature/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -478,10 +478,10 @@ class STAPI:
         Returns information about a Star Trek location matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the location.
+            uid (str): The unique identifier for the location.
         
         Returns:
-        - dict: A dictionary containing information about the location.
+            dict: A dictionary containing information about the location.
         """
         endpoint = f"v2/rest/location?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -491,11 +491,11 @@ class STAPI:
         Returns a list of Star Trek locations of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of locations per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of locations per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of locations.
+            dict: A dictionary containing a list of locations.
         """
         endpoint = f"v2/rest/location/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -505,10 +505,10 @@ class STAPI:
         Returns information about a Star Trek magazine matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the magazine.
+            uid (str): The unique identifier for the magazine.
         
         Returns:
-        - dict: A dictionary containing information about the magazine.
+            dict: A dictionary containing information about the magazine.
         """
         endpoint = f"v1/rest/magazine?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -518,11 +518,11 @@ class STAPI:
         Returns a list of Star Trek magazines of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of magazines per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of magazines per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of magazines.
+            dict: A dictionary containing a list of magazines.
         """
         endpoint = f"v1/rest/magazine/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -532,10 +532,10 @@ class STAPI:
         Returns information about a Star Trek magazine series matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the magazine series.
+            uid (str): The unique identifier for the magazine series.
         
         Returns:
-        - dict: A dictionary containing information about the magazine series.
+            dict: A dictionary containing information about the magazine series.
         """
         endpoint = f"v1/rest/magazineSeries?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -545,11 +545,11 @@ class STAPI:
         Returns a list of Star Trek magazine series of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of magazine series per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of magazine series per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of magazine series.
+            dict: A dictionary containing a list of magazine series.
         """
         endpoint = f"v1/rest/magazineSeries/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -559,10 +559,10 @@ class STAPI:
         Returns information about a Star Trek material matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the material.
+            uid (str): The unique identifier for the material.
         
         Returns:
-        - dict: A dictionary containing information about the material.
+            dict: A dictionary containing information about the material.
         """
         endpoint = f"v1/rest/material?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -572,11 +572,11 @@ class STAPI:
         Returns a list of Star Trek materials of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of materials per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of materials per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of materials.
+            dict: A dictionary containing a list of materials.
         """
         endpoint = f"v1/rest/material/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -586,10 +586,10 @@ class STAPI:
         Returns information about a Star Trek medical condition matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the medical condition.
+            uid (str): The unique identifier for the medical condition.
         
         Returns:
-        - dict: A dictionary containing information about the medical condition.
+            dict: A dictionary containing information about the medical condition.
         """
         endpoint = f"v1/rest/medicalCondition?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -599,11 +599,11 @@ class STAPI:
         Returns a list of Star Trek medical conditions of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of medical conditions per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of medical conditions per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of medical conditions.
+            dict: A dictionary containing a list of medical conditions.
         """
         endpoint = f"v1/rest/medicalCondition/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -613,10 +613,10 @@ class STAPI:
         Returns information about a Star Trek movie matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the movie.
+            uid (str): The unique identifier for the movie.
         
         Returns:
-        - dict: A dictionary containing information about the movie.
+            dict: A dictionary containing information about the movie.
         """
         endpoint = f"v1/rest/movie?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -626,11 +626,11 @@ class STAPI:
         Returns a list of Star Trek movies of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of movies per page. Defaults to 50 (although at this time there are only 14 entries).
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of movies per page. Defaults to 50 (although at this time there are only 14 entries).
         
         Returns:
-        - dict: A dictionary containing a list of movies.
+            dict: A dictionary containing a list of movies.
         """
         endpoint = f"v1/rest/movie/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -640,10 +640,10 @@ class STAPI:
         Returns information about a Star Trek occupation matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the occupation.
+            uid (str): The unique identifier for the occupation.
         
         Returns:
-        - dict: A dictionary containing information about the occupation.
+            dict: A dictionary containing information about the occupation.
         """
         endpoint = f"v2/rest/occupation?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -653,11 +653,11 @@ class STAPI:
         Returns a list of Star Trek occupations of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of occupations per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of occupations per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of occupations.
+            dict: A dictionary containing a list of occupations.
         """
         endpoint = f"v2/rest/occupation/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -667,10 +667,10 @@ class STAPI:
         Returns information about a Star Trek organization matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the organization.
+            uid (str): The unique identifier for the organization.
         
         Returns:
-        - dict: A dictionary containing information about the organization.
+            dict: A dictionary containing information about the organization.
         """
         endpoint = f"v1/rest/organization?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -680,11 +680,11 @@ class STAPI:
         Returns a list of Star Trek organizations of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of organizations per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of organizations per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of organizations.
+            dict: A dictionary containing a list of organizations.
         """
         endpoint = f"v1/rest/organization/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -694,10 +694,10 @@ class STAPI:
         Returns information about a Star Trek performer matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the performer.
+            uid (str): The unique identifier for the performer.
         
         Returns:
-        - dict: A dictionary containing information about the performer.
+            dict: A dictionary containing information about the performer.
         """
         endpoint = f"v2/rest/performer?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -707,11 +707,11 @@ class STAPI:
         Returns a list of Star Trek performers of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of performers per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of performers per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of performers.
+            dict: A dictionary containing a list of performers.
         """
         endpoint = f"v2/rest/performer/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -721,10 +721,10 @@ class STAPI:
         Returns information about a Star Trek season matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the season.
+            uid (str): The unique identifier for the season.
         
         Returns:
-        - dict: A dictionary containing information about the season.
+            dict: A dictionary containing information about the season.
         """
         endpoint = f"v1/rest/season?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -734,11 +734,11 @@ class STAPI:
         Returns a list of Star Trek seasons of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of seasons per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of seasons per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of seasons.
+            dict: A dictionary containing a list of seasons.
         """
         endpoint = f"v1/rest/season/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -748,10 +748,10 @@ class STAPI:
         Returns information about a Star Trek series matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the series.
+            uid (str): The unique identifier for the series.
         
         Returns:
-        - dict: A dictionary containing information about the series.
+            dict: A dictionary containing information about the series.
         """
         endpoint = f"v1/rest/series?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -761,11 +761,11 @@ class STAPI:
         Returns a list of Star Trek series of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of series per page. Defaults to 50 (although at this time there are only 12 entries).
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of series per page. Defaults to 50 (although at this time there are only 12 entries).
         
         Returns:
-        - dict: A dictionary containing a list of series.
+            dict: A dictionary containing a list of series.
         """
         endpoint = f"v1/rest/series/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -775,10 +775,10 @@ class STAPI:
         Returns information about a Star Trek soundtrack.matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the soundtrack.
+            uid (str): The unique identifier for the soundtrack.
         
         Returns:
-        - dict: A dictionary containing information about the soundtrack.
+            dict: A dictionary containing information about the soundtrack.
         """
         endpoint = f"v1/rest/soundtrack?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -788,11 +788,11 @@ class STAPI:
         Returns a list of Star Trek soundtracks of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of soundtracks per page. Defaults to 50 (although at this time there are only 12 entries).
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of soundtracks per page. Defaults to 50 (although at this time there are only 12 entries).
         
         Returns:
-        - dict: A dictionary containing a list of soundtracks.
+            dict: A dictionary containing a list of soundtracks.
         """
         endpoint = f"v1/rest/soundtrack/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -802,10 +802,10 @@ class STAPI:
         Returns information about a Star Trek spacecraft matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the spacecraft.
+            uid (str): The unique identifier for the spacecraft.
         
         Returns:
-        - dict: A dictionary containing information about the spacecraft.
+            dict: A dictionary containing information about the spacecraft.
         """
         endpoint = f"v2/rest/spacecraft?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -815,11 +815,11 @@ class STAPI:
         Returns a list of Star Trek spacecrafts of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of spacecrafts per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of spacecrafts per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of spacecrafts.
+            dict: A dictionary containing a list of spacecrafts.
         """
         endpoint = f"v2/rest/spacecraft/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -829,10 +829,10 @@ class STAPI:
         Returns information about a Star Trek spacecraft class matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the spacecraft class.
+            uid (str): The unique identifier for the spacecraft class.
         
         Returns:
-        - dict: A dictionary containing information about the spacecraft class.
+            dict: A dictionary containing information about the spacecraft class.
         """
         endpoint = f"v2/rest/spacecraftClass?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -842,11 +842,11 @@ class STAPI:
         Returns a list of Star Trek spacecraft classes of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of spacecraft classes per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of spacecraft classes per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of spacecraft classes.
+            dict: A dictionary containing a list of spacecraft classes.
         """
         endpoint = f"v2/rest/spacecraftClass/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -856,10 +856,10 @@ class STAPI:
         Returns information about a Star Trek species matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the species.
+            uid (str): The unique identifier for the species.
         
         Returns:
-        - dict: A dictionary containing information about the species.
+            dict: A dictionary containing information about the species.
         """
         endpoint = f"v2/rest/species?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -869,11 +869,11 @@ class STAPI:
         Returns a list of Star Trek species of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of species per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of species per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of species.
+            dict: A dictionary containing a list of species.
         """
         endpoint = f"v2/rest/species/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -883,10 +883,10 @@ class STAPI:
         Returns information about a Star Trek staff matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the staff.
+            uid (str): The unique identifier for the staff.
         
         Returns:
-        - dict: A dictionary containing information about the staff.
+            dict: A dictionary containing information about the staff.
         """
         endpoint = f"v2/rest/staff?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -896,11 +896,11 @@ class STAPI:
         Returns a list of Star Trek staff of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of staff per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of staff per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of staff.
+            dict: A dictionary containing a list of staff.
         """
         endpoint = f"v2/rest/staff/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -910,10 +910,10 @@ class STAPI:
         Returns information about a Star Trek technology matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the technology.
+            uid (str): The unique identifier for the technology.
         
         Returns:
-        - dict: A dictionary containing information about the technology.
+            dict: A dictionary containing information about the technology.
         """
         endpoint = f"v2/rest/technology?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -923,11 +923,11 @@ class STAPI:
         Returns a list of Star Trek technologies of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of technologies per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of technologies per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of technologies.
+            dict: A dictionary containing a list of technologies.
         """
         endpoint = f"v2/rest/technology/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -937,10 +937,10 @@ class STAPI:
         Returns information about a Star Trek titles matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the title.
+            uid (str): The unique identifier for the title.
         
         Returns:
-        - dict: A dictionary containing information about the title.
+            dict: A dictionary containing information about the title.
         """
         endpoint = f"v2/rest/title?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -950,11 +950,11 @@ class STAPI:
         Returns a list of Star Trek titles of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of titles per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of titles per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of titles.
+            dict: A dictionary containing a list of titles.
         """
         endpoint = f"v2/rest/title/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -964,10 +964,10 @@ class STAPI:
         Returns information about a Star Trek trading card matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the trading card.
+            uid (str): The unique identifier for the trading card.
         
         Returns:
-        - dict: A dictionary containing information about the trading card.
+            dict: A dictionary containing information about the trading card.
         """
         endpoint = f"v1/rest/tradingCard?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -977,11 +977,11 @@ class STAPI:
         Returns a list of Star Trek trading cards of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of trading cards per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of trading cards per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of trading cards.
+            dict: A dictionary containing a list of trading cards.
         """
         endpoint = f"v1/rest/tradingCard/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -991,10 +991,10 @@ class STAPI:
         Returns information about a Star Trek trading card deck matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the trading card deck.
+            uid (str): The unique identifier for the trading card deck.
         
         Returns:
-        - dict: A dictionary containing information about the trading card deck.
+            dict: A dictionary containing information about the trading card deck.
         """
         endpoint = f"v1/rest/tradingCardDeck?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -1004,11 +1004,11 @@ class STAPI:
         Returns a list of Star Trek trading card decks of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of trading card decks per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of trading card decks per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of trading card decks.
+            dict: A dictionary containing a list of trading card decks.
         """
         endpoint = f"v1/rest/tradingCardDeck/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -1018,10 +1018,10 @@ class STAPI:
         Returns information about a Star Trek trading card set matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the trading card set.
+            uid (str): The unique identifier for the trading card set.
         
         Returns:
-        - dict: A dictionary containing information about the trading card set.
+            dict: A dictionary containing information about the trading card set.
         """
         endpoint = f"v1/rest/tradingCardSet?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -1031,11 +1031,11 @@ class STAPI:
         Returns a list of Star Trek trading card sets of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of trading card sets per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of trading card sets per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of trading card sets.
+            dict: A dictionary containing a list of trading card sets.
         """
         endpoint = f"v1/rest/tradingCardSet/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -1045,10 +1045,10 @@ class STAPI:
         Returns information about a Star Trek video game matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the video game.
+            uid (str): The unique identifier for the video game.
         
         Returns:
-        - dict: A dictionary containing information about the video game.
+            dict: A dictionary containing information about the video game.
         """
         endpoint = f"v1/rest/videoGame?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -1058,11 +1058,11 @@ class STAPI:
         Returns a list of Star Trek video games of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of video games per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of video games per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of video games.
+            dict: A dictionary containing a list of video games.
         """
         endpoint = f"v1/rest/videoGame/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -1072,10 +1072,10 @@ class STAPI:
         Returns information about a Star Trek video release matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the video release.
+            uid (str): The unique identifier for the video release.
         
         Returns:
-        - dict: A dictionary containing information about the video release.
+            dict: A dictionary containing information about the video release.
         """
         endpoint = f"v2/rest/videoRelease?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -1085,11 +1085,11 @@ class STAPI:
         Returns a list of Star Trek video releases of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of video releases per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of video releases per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of video releases.
+            dict: A dictionary containing a list of video releases.
         """
         endpoint = f"v2/rest/videoRelease/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)
@@ -1099,10 +1099,10 @@ class STAPI:
         Returns information about a Star Trek weapon matching the unique id.
         
         Args:
-        - uid (str): The unique identifier for the weapon.
+            uid (str): The unique identifier for the weapon.
         
         Returns:
-        - dict: A dictionary containing information about the weapon.
+            dict: A dictionary containing information about the weapon.
         """
         endpoint = f"v2/rest/weapon?uid={uid}"
         return mr.make_request(self.base_url+endpoint)
@@ -1112,11 +1112,11 @@ class STAPI:
         Returns a list of Star Trek weapons of the specified page number and page size.
         
         Args:
-        - pageNumber (int): The page number of the list. Defaults to 0, the first page.
-        - pageSize (int): The number of weapons per page. Defaults to 50.
+            pageNumber (int): The page number of the list. Defaults to 0, the first page.
+            pageSize (int): The number of weapons per page. Defaults to 50.
         
         Returns:
-        - dict: A dictionary containing a list of weapons.
+            dict: A dictionary containing a list of weapons.
         """
         endpoint = f"v2/rest/weapon/search?pageNumber={pageNumber}&pageSize={pageSize}"
         return mr.make_request(self.base_url+endpoint)

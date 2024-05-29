@@ -8,9 +8,9 @@ class Artic:
     A class for interacting with the Art Institute of Chicago API.
     
     Attributes:
-    - base_url: The base URL of the API.
-    - image_api_url: The base URL for accessing the images in this API.
-    - about: A short description of the API.
+        base_url: The base URL of the API.
+        image_api_url: The base URL for accessing the images in this API.
+        about: A short description of the API.
     """
     def __init__(self, use_caching=False, cache_name="artic_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://api.artic.edu/api/v1/"
@@ -25,10 +25,10 @@ class Artic:
         Returns the URL for the Art Institute of Chicago API documentation.
         
         Args:
-        - None
+            None
         
         Returns:
-        - string: The URL for the API docs.
+            string: The URL for the API docs.
         """
         return "https://api.artic.edu/docs/"
     
@@ -38,11 +38,11 @@ class Artic:
         Returns data about all the artwork at Art Institute of Chicago.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing artwork data.
+            dict: A dictionary containing artwork data.
         """
         endpoint = f"artworks?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -52,10 +52,10 @@ class Artic:
         Returns data about a specific artwork in the Art Institute of Chicago's database.
         
         Args:
-        - artwork_id (int): A unique number identifying the artwork.
+            artwork_id (int): A unique number identifying the artwork.
         
         Returns:
-        - dict: A dictionary containing data about a specific artwork.
+            dict: A dictionary containing data about a specific artwork.
         """
         endpoint = f"artworks/{artwork_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -65,12 +65,12 @@ class Artic:
         Returns data about all the artwork contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_artworks_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_artworks_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing artwork data.
+            dict: A dictionary containing artwork data.
         """
         endpoint = f"artworks/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -80,10 +80,10 @@ class Artic:
         Returns the list of artwork fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_artworks()["data"][0].keys()
         
@@ -92,10 +92,10 @@ class Artic:
         Returns data about a artwork in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about artwork.
+            dict: A dictionary containing data about artwork.
         """
         endpoint = f"artworks/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -106,11 +106,11 @@ class Artic:
         Returns data about all the artists in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing artist data.
+            dict: A dictionary containing artist data.
         """
         endpoint = f"artists?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -120,10 +120,10 @@ class Artic:
         Returns data about a specific artist in the Art Institute of Chicago's database.
         
         Args:
-        - artist_id (int): A unique number identifying the artist
+            artist_id (int): A unique number identifying the artist
         
         Returns:
-        - dict: A dictionary containing data about a specific artist.
+            dict: A dictionary containing data about a specific artist.
         """
         endpoint = f"artists/{artist_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -133,12 +133,12 @@ class Artic:
         Returns data about all the artists contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_artists_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_artists_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing artist data.
+            dict: A dictionary containing artist data.
         """
         endpoint = f"artists/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -148,10 +148,10 @@ class Artic:
         Returns the list of artist fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_artists()["data"][0].keys()
         
@@ -160,10 +160,10 @@ class Artic:
         Returns data about artists in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about artists
+            dict: A dictionary containing data about artists
         """
         endpoint = f"artists/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)        
@@ -174,11 +174,11 @@ class Artic:
         Returns data about all the places in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing places data.
+            dict: A dictionary containing places data.
         """
         endpoint = f"places?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -188,10 +188,10 @@ class Artic:
         Returns data about a specific place in the Art Institute of Chicago's database.
         
         Args:
-        - place_id (negative int): A unique (negative) number identifying the place.
+            place_id (negative int): A unique (negative) number identifying the place.
         
         Returns:
-        - dict: A dictionary containing data about a specific place.
+            dict: A dictionary containing data about a specific place.
         """
         endpoint = f"places/{place_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -201,12 +201,12 @@ class Artic:
         Returns data about all the places contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_places_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_places_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing places data.
+            dict: A dictionary containing places data.
         """
         endpoint = f"places/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -216,10 +216,10 @@ class Artic:
         Returns the list of places fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_places()["data"][0].keys()
         
@@ -228,10 +228,10 @@ class Artic:
         Returns data about places in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about places.
+            dict: A dictionary containing data about places.
         """
         endpoint = f"places/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -242,11 +242,11 @@ class Artic:
         Returns data about all the agents in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing agents data.
+            dict: A dictionary containing agents data.
         """
         endpoint = f"agents?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -256,10 +256,10 @@ class Artic:
         Returns data about a specific agent in the Art Institute of Chicago's database.
         
         Args:
-        - agent_id (int): A unique number identifying the agent.
+            agent_id (int): A unique number identifying the agent.
         
         Returns:
-        - dict: A dictionary containing data about a specific agent.
+            dict: A dictionary containing data about a specific agent.
         """
         endpoint = f"agents/{agent_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -269,12 +269,12 @@ class Artic:
         Returns data about all the agents contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_agents_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_agents_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing agents data.
+            dict: A dictionary containing agents data.
         """
         endpoint = f"agents/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -284,10 +284,10 @@ class Artic:
         Returns the list of agents fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_agents()["data"][0].keys()
         
@@ -296,10 +296,10 @@ class Artic:
         Returns data about agents in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about agents.
+            dict: A dictionary containing data about agents.
         """
         endpoint = f"agents/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -310,11 +310,11 @@ class Artic:
         Returns data about all the galleries in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing galleries data.
+            dict: A dictionary containing galleries data.
         """
         endpoint = f"galleries?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -324,10 +324,10 @@ class Artic:
         Returns data about a specific gallery in the Art Institute of Chicago's database.
         
         Args:
-        - agent_id (int): A unique number identifying the gallery.
+            agent_id (int): A unique number identifying the gallery.
         
         Returns:
-        - dict: A dictionary containing data about a specific gallery.
+            dict: A dictionary containing data about a specific gallery.
         """
         endpoint = f"galleries/{gallery_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -337,12 +337,12 @@ class Artic:
         Returns data about all the galleries contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_galleries_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_galleries_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing galleries data.
+            dict: A dictionary containing galleries data.
         """
         endpoint = f"galleries/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -352,10 +352,10 @@ class Artic:
         Returns the list of galleries fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_galleries()["data"][0].keys()
         
@@ -364,10 +364,10 @@ class Artic:
         Returns data about galleries in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about galleries.
+            dict: A dictionary containing data about galleries.
         """
         endpoint = f"galleries/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -378,11 +378,11 @@ class Artic:
         Returns data about all the exhibitions in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing exhibitions data.
+            dict: A dictionary containing exhibitions data.
         """
         endpoint = f"exhibitions?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -392,10 +392,10 @@ class Artic:
         Returns data about a specific exhibition in the Art Institute of Chicago's database.
         
         Args:
-        - exhibition_id (int): A unique number identifying the exhibition.
+            exhibition_id (int): A unique number identifying the exhibition.
         
         Returns:
-        - dict: A dictionary containing data about a specific exhibition.
+            dict: A dictionary containing data about a specific exhibition.
         """
         endpoint = f"exhibitions/{exhibition_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -405,12 +405,12 @@ class Artic:
         Returns data about all the exhibitions contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_exhibitions_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_exhibitions_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing exhibitions data.
+            dict: A dictionary containing exhibitions data.
         """
         endpoint = f"exhibitions/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -420,10 +420,10 @@ class Artic:
         Returns the list of exhibitions fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_exhibitions()["data"][0].keys()
         
@@ -432,10 +432,10 @@ class Artic:
         Returns data about exhibitions in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about exhibitions.
+            dict: A dictionary containing data about exhibitions.
         """
         endpoint = f"exhibitions/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -446,11 +446,11 @@ class Artic:
         Returns data about all the agent types in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing agent types data.
+            dict: A dictionary containing agent types data.
         """
         endpoint = f"agent-types?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -460,10 +460,10 @@ class Artic:
         Returns data about a specific agent type in the Art Institute of Chicago's database.
         
         Args:
-        - agent_type_id (int): A unique number identifying the agent type.
+            agent_type_id (int): A unique number identifying the agent type.
         
         Returns:
-        - dict: A dictionary containing data about a specific agent type.
+            dict: A dictionary containing data about a specific agent type.
         """
         endpoint = f"agent-types/{agent_type_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -473,12 +473,12 @@ class Artic:
         Returns data about all the agent types contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_agent_types_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_agent_types_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing agent types data.
+            dict: A dictionary containing agent types data.
         """
         endpoint = f"agent-types/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -488,10 +488,10 @@ class Artic:
         Returns the list of agent types fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_agent_types()["data"][0].keys()
         
@@ -500,10 +500,10 @@ class Artic:
         Returns data about agent types in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about agent types.
+            dict: A dictionary containing data about agent types.
         """
         endpoint = f"agent-types/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -514,11 +514,11 @@ class Artic:
         Returns data about all the agent roles in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing agent roles data.
+            dict: A dictionary containing agent roles data.
         """
         endpoint = f"agent-roles?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -528,10 +528,10 @@ class Artic:
         Returns data about a specific agent role in the Art Institute of Chicago's database.
         
         Args:
-        - agent_role_id (int): A unique number identifying the agent role.
+            agent_role_id (int): A unique number identifying the agent role.
         
         Returns:
-        - dict: A dictionary containing data about a specific agent role.
+            dict: A dictionary containing data about a specific agent role.
         """
         endpoint = f"agent-role/{agent_role_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -541,12 +541,12 @@ class Artic:
         Returns data about all the agent roles contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_agent_roles_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_agent_roles_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing agent roles data.
+            dict: A dictionary containing agent roles data.
         """
         endpoint = f"agent-roles/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -556,10 +556,10 @@ class Artic:
         Returns the list of agent roles fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_agent_roles()["data"][0].keys()
         
@@ -568,10 +568,10 @@ class Artic:
         Returns data about agent roles in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about agent roles.
+            dict: A dictionary containing data about agent roles.
         """
         endpoint = f"agent-roles/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -582,11 +582,11 @@ class Artic:
         Returns data about all the artwork place qualifiers in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing artwork place qualifiers data.
+            dict: A dictionary containing artwork place qualifiers data.
         """
         endpoint = f"artwork-place-qualifiers?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -596,10 +596,10 @@ class Artic:
         Returns data about a specific artwork place qualifier in the Art Institute of Chicago's database.
         
         Args:
-        - artwork_place_qualifier_id (int): A unique number identifying the artwork place qualifier.
+            artwork_place_qualifier_id (int): A unique number identifying the artwork place qualifier.
         
         Returns:
-        - dict: A dictionary containing data about a specific artwork place qualifier.
+            dict: A dictionary containing data about a specific artwork place qualifier.
         """
         endpoint = f"artwork-place-qualifier/{artwork_place_qualifier_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -609,12 +609,12 @@ class Artic:
         Returns data about all the artwork place qualifiers contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_artwork_place_qualifiers_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_artwork_place_qualifiers_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing artwork place qualifiers data.
+            dict: A dictionary containing artwork place qualifiers data.
         """
         endpoint = f"artwork-place-qualifiers/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -624,10 +624,10 @@ class Artic:
         Returns the list of artwork place qualifiers fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_artwork_place_qualifiers()["data"][0].keys()
         
@@ -636,10 +636,10 @@ class Artic:
         Returns data about artwork place qualifiers in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about artwork place qualifiers.
+            dict: A dictionary containing data about artwork place qualifiers.
         """
         endpoint = f"artwork-place-qualifiers/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -650,11 +650,11 @@ class Artic:
         Returns data about all the artwork date qualifiers in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing artwork date qualifiers data.
+            dict: A dictionary containing artwork date qualifiers data.
         """
         endpoint = f"artwork-date-qualifiers?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -664,10 +664,10 @@ class Artic:
         Returns data about a specific artwork date qualifier in the Art Institute of Chicago's database.
         
         Args:
-        - artwork_date_qualifier_id (int): A unique number identifying the artwork date qualifier.
+            artwork_date_qualifier_id (int): A unique number identifying the artwork date qualifier.
         
         Returns:
-        - dict: A dictionary containing data about a specific artwork date qualifier.
+            dict: A dictionary containing data about a specific artwork date qualifier.
         """
         endpoint = f"artwork-date-qualifier/{artwork_date_qualifier_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -677,12 +677,12 @@ class Artic:
         Returns data about all the artwork date qualifiers contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_artwork_date_qualifiers_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_artwork_date_qualifiers_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing artwork date qualifiers data.
+            dict: A dictionary containing artwork date qualifiers data.
         """
         endpoint = f"artwork-date-qualifiers/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -692,10 +692,10 @@ class Artic:
         Returns the list of artwork date qualifiers fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_artwork_date_qualifiers()["data"][0].keys()
         
@@ -704,10 +704,10 @@ class Artic:
         Returns data about artwork date qualifiers in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about artwork date qualifiers.
+            dict: A dictionary containing data about artwork date qualifiers.
         """
         endpoint = f"artwork-date-qualifiers/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -718,11 +718,11 @@ class Artic:
         Returns data about all the artwork types in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing artwork type data.
+            dict: A dictionary containing artwork type data.
         """
         endpoint = f"artwork-types?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -732,10 +732,10 @@ class Artic:
         Returns data about a specific artwork type in the Art Institute of Chicago's database.
         
         Args:
-        - artwork_type_id (int): A unique number identifying the artwork type.
+            artwork_type_id (int): A unique number identifying the artwork type.
         
         Returns:
-        - dict: A dictionary containing data about a specific artwork type.
+            dict: A dictionary containing data about a specific artwork type.
         """
         endpoint = f"artwork-types/{artwork_type_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -745,12 +745,12 @@ class Artic:
         Returns data about all the artwork types contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_artwork_types_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_artwork_types_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing artwork types data.
+            dict: A dictionary containing artwork types data.
         """
         endpoint = f"artwork-types/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -760,10 +760,10 @@ class Artic:
         Returns the list of artwork types fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_artwork_types()["data"][0].keys()
         
@@ -772,10 +772,10 @@ class Artic:
         Returns data about artwork types in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about artwork types.
+            dict: A dictionary containing data about artwork types.
         """
         endpoint = f"artwork-types/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -786,11 +786,11 @@ class Artic:
         Returns data about all the category terms in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing category terms.
+            dict: A dictionary containing category terms.
         """
         endpoint = f"category-terms?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -800,10 +800,10 @@ class Artic:
         Returns data about a specific category term in the Art Institute of Chicago's database.
         
         Args:
-        - category_term_id (str): A unique id identifying the category term.
+            category_term_id (str): A unique id identifying the category term.
         
         Returns:
-        - dict: A dictionary containing data about a specific category term.
+            dict: A dictionary containing data about a specific category term.
         """
         endpoint = f"category-terms/{category_term_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -813,12 +813,12 @@ class Artic:
         Returns data about all the category terms contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_category_terms_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_category_terms_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing category terms data.
+            dict: A dictionary containing category terms data.
         """
         endpoint = f"category-terms/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -828,10 +828,10 @@ class Artic:
         Returns the list of category terms fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_category_terms()["data"][0].keys()
         
@@ -840,10 +840,10 @@ class Artic:
         Returns data about category terms in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about category terms.
+            dict: A dictionary containing data about category terms.
         """
         endpoint = f"category-terms/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -854,11 +854,11 @@ class Artic:
         Returns data about all the images in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing image data.
+            dict: A dictionary containing image data.
         """
         endpoint = f"images?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -868,10 +868,10 @@ class Artic:
         Returns data about a specific image in the Art Institute of Chicago's database.
         
         Args:
-        - image_id (str): A unique id identifying the image.
+            image_id (str): A unique id identifying the image.
         
         Returns:
-        - dict: A dictionary containing data about a specific image.
+            dict: A dictionary containing data about a specific image.
         """
         endpoint = f"images/{image_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -881,12 +881,12 @@ class Artic:
         Returns data about all the images contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_images_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_images_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing images data.
+            dict: A dictionary containing images data.
         """
         endpoint = f"images/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -896,10 +896,10 @@ class Artic:
         Returns the list of images fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_images()["data"][0].keys()
         
@@ -908,10 +908,10 @@ class Artic:
         Returns data about images in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about images.
+            dict: A dictionary containing data about images.
         """
         endpoint = f"images/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -922,11 +922,11 @@ class Artic:
         Returns data about all the videos in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing videos data.
+            dict: A dictionary containing videos data.
         """
         endpoint = f"videos?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -936,10 +936,10 @@ class Artic:
         Returns data about a specific video in the Art Institute of Chicago's database.
         
         Args:
-        - video_id (str): A unique id identifying the video.
+            video_id (str): A unique id identifying the video.
         
         Returns:
-        - dict: A dictionary containing data about a specific video.
+            dict: A dictionary containing data about a specific video.
         """
         endpoint = f"videos/{video_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -949,12 +949,12 @@ class Artic:
         Returns data about all the videos contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_videos_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_videos_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing videos data.
+            dict: A dictionary containing videos data.
         """
         endpoint = f"videos/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -964,10 +964,10 @@ class Artic:
         Returns the list of videos fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_videos()["data"][0].keys()
         
@@ -976,10 +976,10 @@ class Artic:
         Returns data about videos in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about videos.
+            dict: A dictionary containing data about videos.
         """
         endpoint = f"videos/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -990,11 +990,11 @@ class Artic:
         Returns data about all the sounds in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing sounds data.
+            dict: A dictionary containing sounds data.
         """
         endpoint = f"sounds?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1004,10 +1004,10 @@ class Artic:
         Returns data about a specific sound in the Art Institute of Chicago's database.
         
         Args:
-        - sound_id (str): A unique id identifying the sound.
+            sound_id (str): A unique id identifying the sound.
         
         Returns:
-        - dict: A dictionary containing data about a specific sound.
+            dict: A dictionary containing data about a specific sound.
         """
         endpoint = f"sounds/{sound_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -1017,12 +1017,12 @@ class Artic:
         Returns data about all the sounds contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_sounds_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_sounds_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing sounds data.
+            dict: A dictionary containing sounds data.
         """
         endpoint = f"sounds/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1032,10 +1032,10 @@ class Artic:
         Returns the list of sounds fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_sounds()["data"][0].keys()
         
@@ -1044,10 +1044,10 @@ class Artic:
         Returns data about sounds in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about sounds.
+            dict: A dictionary containing data about sounds.
         """
         endpoint = f"sounds/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1058,11 +1058,11 @@ class Artic:
         Returns data about all the texts in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing texts data.
+            dict: A dictionary containing texts data.
         """
         endpoint = f"texts?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1072,10 +1072,10 @@ class Artic:
         Returns data about a specific text in the Art Institute of Chicago's database.
         
         Args:
-        - text_id (str): A unique id identifying the text.
+            text_id (str): A unique id identifying the text.
         
         Returns:
-        - dict: A dictionary containing data about a specific text.
+            dict: A dictionary containing data about a specific text.
         """
         endpoint = f"texts/{text_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -1085,12 +1085,12 @@ class Artic:
         Returns data about all the texts contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_texts_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_texts_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing texts data.
+            dict: A dictionary containing texts data.
         """
         endpoint = f"texts/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1100,10 +1100,10 @@ class Artic:
         Returns the list of texts fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_texts()["data"][0].keys()
         
@@ -1112,10 +1112,10 @@ class Artic:
         Returns data about texts in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about texts.
+            dict: A dictionary containing data about texts.
         """
         endpoint = f"texts/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1126,11 +1126,11 @@ class Artic:
         Returns data about all the products in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing products data.
+            dict: A dictionary containing products data.
         """
         endpoint = f"products?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1140,10 +1140,10 @@ class Artic:
         Returns data about a specific product in the Art Institute of Chicago's database.
         
         Args:
-        - product_id (int): A unique number identifying the product.
+            product_id (int): A unique number identifying the product.
         
         Returns:
-        - dict: A dictionary containing data about a specific product.
+            dict: A dictionary containing data about a specific product.
         """
         endpoint = f"products/{product_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -1153,12 +1153,12 @@ class Artic:
         Returns data about all the products contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_products_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_products_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing products data.
+            dict: A dictionary containing products data.
         """
         endpoint = f"products/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1168,10 +1168,10 @@ class Artic:
         Returns the list of products fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_products()["data"][0].keys()
         
@@ -1180,10 +1180,10 @@ class Artic:
         Returns data about products in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about products.
+            dict: A dictionary containing data about products.
         """
         endpoint = f"products/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1194,11 +1194,11 @@ class Artic:
         Returns data about all the tours in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing tours data.
+            dict: A dictionary containing tours data.
         """
         endpoint = f"tours?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1208,10 +1208,10 @@ class Artic:
         Returns data about a specific tour in the Art Institute of Chicago's database.
         
         Args:
-        - tour_id (int): A unique number identifying the tour.
+            tour_id (int): A unique number identifying the tour.
         
         Returns:
-        - dict: A dictionary containing data about a specific tour.
+            dict: A dictionary containing data about a specific tour.
         """
         endpoint = f"tours/{tour_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -1221,12 +1221,12 @@ class Artic:
         Returns data about all the tours contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_tours_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_tours_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing tours data.
+            dict: A dictionary containing tours data.
         """
         endpoint = f"tours/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1236,10 +1236,10 @@ class Artic:
         Returns the list of tours fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_tours()["data"][0].keys()
         
@@ -1248,10 +1248,10 @@ class Artic:
         Returns data about tours in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about tours.
+            dict: A dictionary containing data about tours.
         """
         endpoint = f"tours/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1262,11 +1262,11 @@ class Artic:
         Returns data about all the mobile sounds in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing mobile sounds data.
+            dict: A dictionary containing mobile sounds data.
         """
         endpoint = f"mobile-sounds?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1276,10 +1276,10 @@ class Artic:
         Returns data about a specific mobile sound in the Art Institute of Chicago's database.
         
         Args:
-        - mobile_sound_id (int): A unique number identifying the mobile sound.
+            mobile_sound_id (int): A unique number identifying the mobile sound.
         
         Returns:
-        - dict: A dictionary containing data about a specific mobile sound.
+            dict: A dictionary containing data about a specific mobile sound.
         """
         endpoint = f"mobile-sounds/{mobile_sound_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -1289,12 +1289,12 @@ class Artic:
         Returns data about all the mobile sounds contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_mobile_sounds_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_mobile_sounds_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing mobile sounds data.
+            dict: A dictionary containing mobile sounds data.
         """
         endpoint = f"mobile-sounds/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1304,10 +1304,10 @@ class Artic:
         Returns the list of mobile sounds fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields
+            object: A dict_keys object containing a list of the fields
         """
         return self.get_all_mobile_sounds()["data"][0].keys()
         
@@ -1316,10 +1316,10 @@ class Artic:
         Returns data about mobile sounds in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about mobile sounds.
+            dict: A dictionary containing data about mobile sounds.
         """
         endpoint = f"mobile-sounds/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1330,11 +1330,11 @@ class Artic:
         Returns data about all the publications in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing publications data.
+            dict: A dictionary containing publications data.
         """
         endpoint = f"publications?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1344,10 +1344,10 @@ class Artic:
         Returns data about a specific publication in the Art Institute of Chicago's database.
         
         Args:
-        - publication_id (int): A unique number identifying the publication.
+            publication_id (int): A unique number identifying the publication.
         
         Returns:
-        - dict: A dictionary containing data about a specific publication.
+            dict: A dictionary containing data about a specific publication.
         """
         endpoint = f"publications/{publication_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -1357,12 +1357,12 @@ class Artic:
         Returns data about all the publications contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_publications_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_publications_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing publications data.
+            dict: A dictionary containing publications data.
         """
         endpoint = f"publications/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1372,10 +1372,10 @@ class Artic:
         Returns the list of publications fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields
+            object: A dict_keys object containing a list of the fields
         """
         return self.get_all_publications()["data"][0].keys()
         
@@ -1384,10 +1384,10 @@ class Artic:
         Returns data about publications in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about publications.
+            dict: A dictionary containing data about publications.
         """
         endpoint = f"publications/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1398,11 +1398,11 @@ class Artic:
         Returns data about all the sections in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing sections data.
+            dict: A dictionary containing sections data.
         """
         endpoint = f"sections?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1412,10 +1412,10 @@ class Artic:
         Returns data about a specific section in the Art Institute of Chicago's database.
         
         Args:
-        - section_id (int): A unique number identifying the publication.
+            section_id (int): A unique number identifying the publication.
         
         Returns:
-        - dict: A dictionary containing data about a specific section.
+            dict: A dictionary containing data about a specific section.
         """
         endpoint = f"sections/{section_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -1425,12 +1425,12 @@ class Artic:
         Returns data about all the sections contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_sections_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_sections_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing sections data.
+            dict: A dictionary containing sections data.
         """
         endpoint = f"sections/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1440,10 +1440,10 @@ class Artic:
         Returns the list of sections fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields
+            object: A dict_keys object containing a list of the fields
         """
         return self.get_all_sections()["data"][0].keys()
         
@@ -1452,10 +1452,10 @@ class Artic:
         Returns data about sections in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about sections.
+            dict: A dictionary containing data about sections.
         """
         endpoint = f"sections/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1466,11 +1466,11 @@ class Artic:
         Returns data about all the sites in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing sites data.
+            dict: A dictionary containing sites data.
         """
         endpoint = f"sites?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1480,10 +1480,10 @@ class Artic:
         Returns data about a specific site in the Art Institute of Chicago's database.
         
         Args:
-        - site_id (int): A unique number identifying the site.
+            site_id (int): A unique number identifying the site.
         
         Returns:
-        - dict: A dictionary containing data about a specific site.
+            dict: A dictionary containing data about a specific site.
         """
         endpoint = f"sites/{site_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -1493,12 +1493,12 @@ class Artic:
         Returns data about all the sites contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_sites_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_sites_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing sites data.
+            dict: A dictionary containing sites data.
         """
         endpoint = f"sites/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1508,10 +1508,10 @@ class Artic:
         Returns the list of sites fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields
+            object: A dict_keys object containing a list of the fields
         """
         return self.get_all_sites()["data"][0].keys()
         
@@ -1520,10 +1520,10 @@ class Artic:
         Returns data about sites in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about sites.
+            dict: A dictionary containing data about sites.
         """
         endpoint = f"sites/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1534,11 +1534,11 @@ class Artic:
         Returns data about all the events in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing events data.
+            dict: A dictionary containing events data.
         """
         endpoint = f"events?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1548,10 +1548,10 @@ class Artic:
         Returns data about a specific event in the Art Institute of Chicago's database.
         
         Args:
-        - event_id (int): A unique number identifying the event.
+            event_id (int): A unique number identifying the event.
         
         Returns:
-        - dict: A dictionary containing data about a specific event.
+            dict: A dictionary containing data about a specific event.
         """
         endpoint = f"event/{event_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -1561,12 +1561,12 @@ class Artic:
         Returns data about all the events contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_events_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_events_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing events data.
+            dict: A dictionary containing events data.
         """
         endpoint = f"events/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1576,10 +1576,10 @@ class Artic:
         Returns the list of events fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields
+            object: A dict_keys object containing a list of the fields
         """
         return self.get_all_events()["data"][0].keys()
         
@@ -1588,10 +1588,10 @@ class Artic:
         Returns data about events in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about events.
+            dict: A dictionary containing data about events.
         """
         endpoint = f"events/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1602,11 +1602,11 @@ class Artic:
         Returns data about all the event occurrences in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing event occurrences data.
+            dict: A dictionary containing event occurrences data.
         """
         endpoint = f"event-occurrences?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1616,10 +1616,10 @@ class Artic:
         Returns data about a specific event occurrence in the Art Institute of Chicago's database.
         
         Args:
-        - event_occurrence_id (str): A unique id identifying the event occurrence.
+            event_occurrence_id (str): A unique id identifying the event occurrence.
         
         Returns:
-        - dict: A dictionary containing data about a specific event occurrence.
+            dict: A dictionary containing data about a specific event occurrence.
         """
         endpoint = f"event-occurrences/{event_occurrence_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -1629,12 +1629,12 @@ class Artic:
         Returns data about all the event occurrences contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_events_occurrences_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_events_occurrences_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing event occurrences data.
+            dict: A dictionary containing event occurrences data.
         """
         endpoint = f"event-occurrences/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1644,10 +1644,10 @@ class Artic:
         Returns the list of event occurrences fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields
+            object: A dict_keys object containing a list of the fields
         """
         return self.get_all_event_occurrences()["data"][0].keys()
         
@@ -1656,10 +1656,10 @@ class Artic:
         Returns data about event occurrences in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about event occurrences.
+            dict: A dictionary containing data about event occurrences.
         """
         endpoint = f"event-occurrences/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1670,11 +1670,11 @@ class Artic:
         Returns data about all the event programs in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing event programs data.
+            dict: A dictionary containing event programs data.
         """
         endpoint = f"event-programs?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1684,10 +1684,10 @@ class Artic:
         Returns data about a specific event program in the Art Institute of Chicago's database.
         
         Args:
-        - event_program_id (int): A unique number identifying the event program.
+            event_program_id (int): A unique number identifying the event program.
         
         Returns:
-        - dict: A dictionary containing data about a specific event program.
+            dict: A dictionary containing data about a specific event program.
         """
         endpoint = f"event-programs/{event_program_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -1697,12 +1697,12 @@ class Artic:
         Returns data about all the event programs contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_events_programs_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_events_programs_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing event programs data.
+            dict: A dictionary containing event programs data.
         """
         endpoint = f"event-programs/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1712,10 +1712,10 @@ class Artic:
         Returns the list of event programs fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_event_programs()["data"][0].keys()
         
@@ -1724,10 +1724,10 @@ class Artic:
         Returns data about event programs in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about event programs.
+            dict: A dictionary containing data about event programs.
         """
         endpoint = f"event-programs/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1738,11 +1738,11 @@ class Artic:
         Returns data about all the articles in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing articles data.
+            dict: A dictionary containing articles data.
         """
         endpoint = f"articles?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1752,10 +1752,10 @@ class Artic:
         Returns data about a specific article in the Art Institute of Chicago's database.
         
         Args:
-        - article_id (int): A unique number identifying the article.
+            article_id (int): A unique number identifying the article.
         
         Returns:
-        - dict: A dictionary containing data about a specific article.
+            dict: A dictionary containing data about a specific article.
         """
         endpoint = f"articles/{article_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -1765,12 +1765,12 @@ class Artic:
         Returns data about all the articles contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_articles_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_articles_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing articles data.
+            dict: A dictionary containing articles data.
         """
         endpoint = f"articles/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1780,10 +1780,10 @@ class Artic:
         Returns the list of articles fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_articles()["data"][0].keys()
         
@@ -1792,10 +1792,10 @@ class Artic:
         Returns data about articles in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about articles.
+            dict: A dictionary containing data about articles.
         """
         endpoint = f"articles/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1806,11 +1806,11 @@ class Artic:
         Returns data about all the highlights in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing highlights data.
+            dict: A dictionary containing highlights data.
         """
         endpoint = f"highlights?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1820,10 +1820,10 @@ class Artic:
         Returns data about a specific highlight in the Art Institute of Chicago's database.
         
         Args:
-        - highlight_id (int): A unique number identifying the highlight.
+            highlight_id (int): A unique number identifying the highlight.
         
         Returns:
-        - dict: A dictionary containing data about a specific highlight.
+            dict: A dictionary containing data about a specific highlight.
         """
         endpoint = f"highlights/{highlight_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -1833,12 +1833,12 @@ class Artic:
         Returns data about all the highlights contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_highlights_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_highlights_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing highlights data.
+            dict: A dictionary containing highlights data.
         """
         endpoint = f"highlights/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1848,10 +1848,10 @@ class Artic:
         Returns the list of highlights fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_highlights()["data"][0].keys()
         
@@ -1860,10 +1860,10 @@ class Artic:
         Returns data about highlights in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about highlights.
+            dict: A dictionary containing data about highlights.
         """
         endpoint = f"highlights/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1874,11 +1874,11 @@ class Artic:
         Returns data about all the static pages in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing static pages data.
+            dict: A dictionary containing static pages data.
         """
         endpoint = f"static-pages?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1888,10 +1888,10 @@ class Artic:
         Returns data about a specific static page in the Art Institute of Chicago's database.
         
         Args:
-        - static_page_id (int): A unique number identifying the static page.
+            static_page_id (int): A unique number identifying the static page.
         
         Returns:
-        - dict: A dictionary containing data about a specific static page.
+            dict: A dictionary containing data about a specific static page.
         """
         endpoint = f"static-pages/{static_page_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -1901,12 +1901,12 @@ class Artic:
         Returns data about all the static pages contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_static_pages_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_static_pages_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing static pages data.
+            dict: A dictionary containing static pages data.
         """
         endpoint = f"static-pages/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1916,10 +1916,10 @@ class Artic:
         Returns the list of static pages fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_static_pages()["data"][0].keys()
         
@@ -1928,10 +1928,10 @@ class Artic:
         Returns data about static pages in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about static pages.
+            dict: A dictionary containing data about static pages.
         """
         endpoint = f"static-pages/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1942,11 +1942,11 @@ class Artic:
         Returns data about all the generic pages in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing generic pages data.
+            dict: A dictionary containing generic pages data.
         """
         endpoint = f"generic-pages?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1956,10 +1956,10 @@ class Artic:
         Returns data about a specific generic page in the Art Institute of Chicago's database.
         
         Args:
-        - generic_page_id (int): A unique number identifying the generic page.
+            generic_page_id (int): A unique number identifying the generic page.
         
         Returns:
-        - dict: A dictionary containing data about a specific generic page.
+            dict: A dictionary containing data about a specific generic page.
         """
         endpoint = f"generic-pages/{generic_page_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -1969,12 +1969,12 @@ class Artic:
         Returns data about all the generic pages contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_generic_pages_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_generic_pages_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing generic pages data.
+            dict: A dictionary containing generic pages data.
         """
         endpoint = f"generic-pages/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -1984,10 +1984,10 @@ class Artic:
         Returns the list of generic pages fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_generic_pages()["data"][0].keys()
         
@@ -1996,10 +1996,10 @@ class Artic:
         Returns data about generic pages in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about generic pages.
+            dict: A dictionary containing data about generic pages.
         """
         endpoint = f"generic-pages/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -2010,11 +2010,11 @@ class Artic:
         Returns data about all the press releases in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing press releases data.
+            dict: A dictionary containing press releases data.
         """
         endpoint = f"press-releases?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -2024,10 +2024,10 @@ class Artic:
         Returns data about a specific press release in the Art Institute of Chicago's database.
         
         Args:
-        - press_release_id (int): A unique number identifying the press release.
+            press_release_id (int): A unique number identifying the press release.
         
         Returns:
-        - dict: A dictionary containing data about a specific press release.
+            dict: A dictionary containing data about a specific press release.
         """
         endpoint = f"press-releases/{press_release_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -2037,12 +2037,12 @@ class Artic:
         Returns data about all the press releases contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_press_releases_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_press_releases_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing press releases data.
+            dict: A dictionary containing press releases data.
         """
         endpoint = f"press-releases/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -2052,10 +2052,10 @@ class Artic:
         Returns the list of press releases fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_press_releases()["data"][0].keys()
         
@@ -2064,10 +2064,10 @@ class Artic:
         Returns data about press releases in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about press releases.
+            dict: A dictionary containing data about press releases.
         """
         endpoint = f"press-releases/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -2078,11 +2078,11 @@ class Artic:
         Returns data about all the educator resources in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing educator resources data.
+            dict: A dictionary containing educator resources data.
         """
         endpoint = f"educator-resources?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -2092,10 +2092,10 @@ class Artic:
         Returns data about a specific educator resource in the Art Institute of Chicago's database.
         
         Args:
-        - educator_resource_id (int): A unique number identifying the educator resource.
+            educator_resource_id (int): A unique number identifying the educator resource.
         
         Returns:
-        - dict: A dictionary containing data about a specific educator resource.
+            dict: A dictionary containing data about a specific educator resource.
         """
         endpoint = f"educator-resources/{educator_resource_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -2105,12 +2105,12 @@ class Artic:
         Returns data about all the educator resources contained in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_educator_resources_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_educator_resources_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing educator resources data.
+            dict: A dictionary containing educator resources data.
         """
         endpoint = f"educator-resources/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -2120,10 +2120,10 @@ class Artic:
         Returns the list of educator resources fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_educator_resources()["data"][0].keys()
         
@@ -2132,10 +2132,10 @@ class Artic:
         Returns data about educator resources in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about educator resources.
+            dict: A dictionary containing data about educator resources.
         """
         endpoint = f"educator-resources/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -2146,11 +2146,11 @@ class Artic:
         Returns data about all the digital catalogs in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing digital catalogs data.
+            dict: A dictionary containing digital catalogs data.
         """
         endpoint = f"digital-catalogs?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -2160,10 +2160,10 @@ class Artic:
         Returns data about a specific digital catalog in the Art Institute of Chicago's database.
         
         Args:
-        - digital_catalog_id (int): A unique number identifying the digital catalog.
+            digital_catalog_id (int): A unique number identifying the digital catalog.
         
         Returns:
-        - dict: A dictionary containing data about a specific digital catalog.
+            dict: A dictionary containing data about a specific digital catalog.
         """
         endpoint = f"digital-catalogs/{digital_catalog_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -2173,12 +2173,12 @@ class Artic:
         Returns data about all the digital catalogs in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_digital_catalogs_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_digital_catalogs_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing digital catalogs data.
+            dict: A dictionary containing digital catalogs data.
         """
         endpoint = f"digital-catalogs/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -2188,10 +2188,10 @@ class Artic:
         Returns the list of digital catalogs fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_digital_catalogs()["data"][0].keys()
         
@@ -2200,10 +2200,10 @@ class Artic:
         Returns data about digital catalogs in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about digital catalogs.
+            dict: A dictionary containing data about digital catalogs.
         """
         endpoint = f"digital-catalogs/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -2214,11 +2214,11 @@ class Artic:
         Returns data about all the digital publication sections in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing digital publication sections data.
+            dict: A dictionary containing digital publication sections data.
         """
         endpoint = f"digital-publication-sections?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -2228,10 +2228,10 @@ class Artic:
         Returns data about a specific digital publication section in the Art Institute of Chicago's database.
         
         Args:
-        - digital_publication_section_id (int): A unique number identifying the digital publication section.
+            digital_publication_section_id (int): A unique number identifying the digital publication section.
         
         Returns:
-        - dict: A dictionary containing data about a specific digital publication section.
+            dict: A dictionary containing data about a specific digital publication section.
         """
         endpoint = f"digital-publication-sections/{digital_publication_section_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -2241,12 +2241,12 @@ class Artic:
         Returns data about all the digital publication sections in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_digital_publication_sections_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_digital_publication_sections_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing digital publication sections data.
+            dict: A dictionary containing digital publication sections data.
         """
         endpoint = f"digital-publication-sections/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -2256,10 +2256,10 @@ class Artic:
         Returns the list of digital publication sections fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_digital_publication_sections()["data"][0].keys()
         
@@ -2268,10 +2268,10 @@ class Artic:
         Returns data about digital publication sections in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about digital publication sections.
+            dict: A dictionary containing data about digital publication sections.
         """
         endpoint = f"digital-publication-sections/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -2282,11 +2282,11 @@ class Artic:
         Returns data about all the printed catalogs in Art Institute of Chicago database.
         
         Args:
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing printed catalogs data.
+            dict: A dictionary containing printed catalogs data.
         """
         endpoint = f"printed-catalogs?page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -2296,10 +2296,10 @@ class Artic:
         Returns data about a specific printed catalog in the Art Institute of Chicago's database.
         
         Args:
-        - printed_catalog_id (int): A unique number identifying the printed catalog.
+            printed_catalog_id (int): A unique number identifying the printed catalog.
         
         Returns:
-        - dict: A dictionary containing data about a specific printed catalog.
+            dict: A dictionary containing data about a specific printed catalog.
         """
         endpoint = f"printed-catalogs/{printed_catalog_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -2309,12 +2309,12 @@ class Artic:
         Returns data about all the printed catalogs in the ARTIC database, but only by the specified fields.
         
         Args:
-        - field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_printed_catalogs_data_fields function to get the available fields.
-        - page (int): Pagination parameter. Defaults to first page.
-        - limit (int): Number of results per page. Default is 10.
+            field (str): A comma separated, no spaced string of field names. For retrieving only certain fields. Call get_printed_catalogs_data_fields function to get the available fields.
+            page (int): Pagination parameter. Defaults to first page.
+            limit (int): Number of results per page. Default is 10.
         
         Returns:
-        - dict: A dictionary containing printed catalogs data.
+            dict: A dictionary containing printed catalogs data.
         """
         endpoint = f"printed-catalogs/?fields={fields}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -2324,10 +2324,10 @@ class Artic:
         Returns the list of printed catalogs fields (dictionary keys) used in the ARTIC database.
         
         Args:
-        - None
+            None
         
         Returns:
-        - object: A dict_keys object containing a list of the fields.
+            object: A dict_keys object containing a list of the fields.
         """
         return self.get_all_printed_catalogs()["data"][0].keys()
         
@@ -2336,10 +2336,10 @@ class Artic:
         Returns data about printed catalogs in the Art Institute of Chicago's database matching the specified query term and field values.
         
         Args:
-        - query (str): A search term.
+            query (str): A search term.
         
         Returns:
-        - dict: A dictionary containing data about printed catalogs.
+            dict: A dictionary containing data about printed catalogs.
         """
         endpoint = f"printed-catalogs/search?q={query}&page={page}&limit={limit}"
         return mr.make_request(self.base_url+endpoint)
@@ -2350,10 +2350,10 @@ class Artic:
         Downloads a jpg of the image matching the id.
         
         Args:
-        - image_id (str): The unique identifier for the image. These can be obtained from both the images and exhibitions endpoints of the Artic API.
+            image_id (str): The unique identifier for the image. These can be obtained from both the images and exhibitions endpoints of the Artic API.
         
         Returns:
-        - image, str: Downloads an image and returns a string confirming the download.
+            image, str: Downloads an image and returns a string confirming the download.
         """
         endpoint = f"{image_id}/full/843,/0/default.jpg"
         image_bin = mr.make_request_for_content(self.image_api_url+endpoint)

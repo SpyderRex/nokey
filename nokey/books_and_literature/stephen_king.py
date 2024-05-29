@@ -6,8 +6,8 @@ class StephenKingAPI:
     A class to interact with the Stephen King API.
     
     Attributes:
-    - base_url: The base URL of the API.
-    - about: A short description of the API.
+        base_url: The base URL of the API.
+        about: A short description of the API.
     """
     def __init__(self, use_caching=False, cache_name="stephen_king_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://stephen-king-api.onrender.com/api/"
@@ -21,10 +21,10 @@ class StephenKingAPI:
         Returns the URL for the Stephen King API documentation.
         
         Args:
-        - None
+            None
         
         Returns:
-        - string: The URL for the API docs.
+            string: The URL for the API docs.
         """
         return "https://stephen-king-api.onrender.com/"
         
@@ -33,10 +33,10 @@ class StephenKingAPI:
         Returns all of the Stephen King books and related metadata.
         
         Args:
-        - None
+            None
         
         Returns:
-        - dict: A dictionary containing book metadata.
+            dict: A dictionary containing book metadata.
         """
         endpoint = "books"
         return mr.make_request(self.base_url+endpoint)
@@ -46,10 +46,10 @@ class StephenKingAPI:
         Returns the Stephen King book matching the id, with related metadata.
         
         Args:
-        - book_id (int): A unique number identifying the Stephen King book.
+            book_id (int): A unique number identifying the Stephen King book.
         
         Returns:
-        - dict: A dictionary containing book metadata.
+            dict: A dictionary containing book metadata.
         """
         endpoint = f"book/{book_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -59,10 +59,10 @@ class StephenKingAPI:
         Returns all of the Stephen King short stories and related metadata.
         
         Args:
-        - None
+            None
         
         Returns:
-        - dict: A dictionary containing short story metadata.
+            dict: A dictionary containing short story metadata.
         """
         endpoint = "shorts"
         return mr.make_request(self.base_url+endpoint)
@@ -72,10 +72,10 @@ class StephenKingAPI:
         Returns the Stephen King short story matching the id, with related metadata.
         
         Args:
-        - story_id (int): A unique number identifying the Stephen King short story.
+            story_id (int): A unique number identifying the Stephen King short story.
         
         Returns:
-        - dict: A dictionary containing short story metadata.
+            dict: A dictionary containing short story metadata.
         """
         endpoint = f"short/{story_id}"
         return mr.make_request(self.base_url+endpoint)
@@ -85,10 +85,10 @@ class StephenKingAPI:
         Returns all of the Stephen King villains and related metadata.
         
         Args:
-        - None
+            None
         
         Returns:
-        - dict: A dictionary containing villain metadata.
+            dict: A dictionary containing villain metadata.
         """
         endpoint = "villains"
         return mr.make_request(self.base_url+endpoint)
@@ -98,10 +98,10 @@ class StephenKingAPI:
         Returns the Stephen King villain matching the id, with related metadata.
         
         Args:
-        - villain_id (int): A unique number identifying the Stephen King villain.
+            villain_id (int): A unique number identifying the Stephen King villain.
         
         Returns:
-        - dict: A dictionary containing villain metadata.
+            dict: A dictionary containing villain metadata.
         """
         endpoint = f"villain/{villain_id}"
         return mr.make_request(self.base_url+endpoint)

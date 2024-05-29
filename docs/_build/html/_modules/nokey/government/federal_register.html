@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.government.federal_register &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.government.federal_register &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=c98573da"></script>
+        <script src="../../../_static/documentation_options.js?v=020ce317"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -81,8 +81,8 @@
 <span class="sd">    A class for interacting with the Federal Register API.</span>
 <span class="sd">    </span>
 <span class="sd">    Attributes:</span>
-<span class="sd">    base_url: The base URL of the API.</span>
-<span class="sd">    about: A short description of the API.</span>
+<span class="sd">        base_url: The base URL of the API.</span>
+<span class="sd">        about: A short description of the API.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">use_caching</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cache_name</span><span class="o">=</span><span class="s2">&quot;federal_register_cache&quot;</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;sqlite&quot;</span><span class="p">,</span> <span class="n">expire_after</span><span class="o">=</span><span class="mi">3600</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://www.federalregister.gov/api/v1/&quot;</span>
@@ -98,10 +98,10 @@
 <span class="sd">        Returns the URL for the Federal Register API documentation.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - string: The URL for the API docs.</span>
+<span class="sd">            string: The URL for the API docs.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;https://www.federalregister.gov/developers/documentation/api/v1&quot;</span></div>
 
@@ -113,10 +113,10 @@
 <span class="sd">        Returns a Federal Register document of the given number.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - document_num (str): The unique number for the document.</span>
+<span class="sd">            document_num (str): The unique number for the document.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing the document matching the given number.</span>
+<span class="sd">            dict: A dictionary containing the document matching the given number.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;documents/</span><span class="si">{</span><span class="n">document_num</span><span class="si">}</span><span class="s2">.json&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -129,10 +129,10 @@
 <span class="sd">        Returns multiple Federal Register documents of the given numbers.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - document_nums (str): A string of unspaced, comma-separated document numbers.</span>
+<span class="sd">            document_nums (str): A string of unspaced, comma-separated document numbers.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing the documents matching the given numbers.</span>
+<span class="sd">            dict: A dictionary containing the documents matching the given numbers.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;documents/</span><span class="si">{</span><span class="n">document_nums</span><span class="si">}</span><span class="s2">.json&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -145,12 +145,12 @@
 <span class="sd">        Returns the Federal Register documents published since 1994 matching the given parameters.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - search_term (str): The term by which to search the documents.</span>
-<span class="sd">        - per_page (int): The number of documents to return at once; default is 20; 1000 maximum.</span>
-<span class="sd">        - doc_type (str): Additional optional search by document type. Supported values are rule (final rule), prorule (proposed rule), notice (notice), and presdocu (presidential document)</span>
+<span class="sd">            search_term (str): The term by which to search the documents.</span>
+<span class="sd">            per_page (int): The number of documents to return at once; default is 20; 1000 maximum.</span>
+<span class="sd">            doc_type (str): Additional optional search by document type. Supported values are rule (final rule), prorule (proposed rule), notice (notice), and presdocu (presidential document)</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing the documents published since 1994 matching the given values.</span>
+<span class="sd">            dict: A dictionary containing the documents published since 1994 matching the given values.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">doc_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;documents.json?per_page=</span><span class="si">{</span><span class="n">per_page</span><span class="si">}</span><span class="s2">&amp;conditions[term]=</span><span class="si">{</span><span class="n">search_term</span><span class="si">}</span><span class="s2">&amp;conditions[type][]=</span><span class="si">{</span><span class="n">doc_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -167,12 +167,12 @@
 <span class="sd">        Returns counts of matching Federal Register documents grouped by a facet.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - facet (str): The facet by which to group the documents. Supported values are daily, weekly, monthly, quarterly, yearly, agency, topic, section, type, and subtype.</span>
-<span class="sd">        - search_term (str): Option search query term. Defaults to None.</span>
-<span class="sd">        - doc_type (str): Additional optional search by document type. Supported values are rule (final rule), prorule (proposed rule), notice (notice), and presdocu (presidential document)</span>
+<span class="sd">            facet (str): The facet by which to group the documents. Supported values are daily, weekly, monthly, quarterly, yearly, agency, topic, section, type, and subtype.</span>
+<span class="sd">            search_term (str): Option search query term. Defaults to None.</span>
+<span class="sd">            doc_type (str): Additional optional search by document type. Supported values are rule (final rule), prorule (proposed rule), notice (notice), and presdocu (presidential document)</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: Returns a dictionary of document counts for the given parameters.</span>
+<span class="sd">            dict: Returns a dictionary of document counts for the given parameters.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">search_term</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">doc_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;documents/facets/</span><span class="si">{</span><span class="n">facet</span><span class="si">}</span><span class="s2">?conditions[term]=</span><span class="si">{</span><span class="n">search_term</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -192,10 +192,10 @@
 <span class="sd">        Returns the document table of contents based on print edition.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - pub_date (str): The exact publication date (YYYY-MM-DD).</span>
+<span class="sd">            pub_date (str): The exact publication date (YYYY-MM-DD).</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing the document table of contents that matches the given date.</span>
+<span class="sd">            dict: A dictionary containing the document table of contents that matches the given date.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;issues/</span><span class="si">{</span><span class="n">pub_date</span><span class="si">}</span><span class="s2">.json&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -208,10 +208,10 @@
 <span class="sd">        Returns a single public inspection document matching the given number.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - document_num (str): The number matching the public inspection document.</span>
+<span class="sd">            document_num (str): The number matching the public inspection document.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a single public inspection document matching the given number.</span>
+<span class="sd">            dict: A dictionary containing a single public inspection document matching the given number.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;public-inspection-documents/</span><span class="si">{</span><span class="n">document_num</span><span class="si">}</span><span class="s2">.json&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -224,10 +224,10 @@
 <span class="sd">        Returns the public inspection documents matching the given numbers.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - document_nums (str): The numbers matching the public inspection documents, separated by commas, no spaces.</span>
+<span class="sd">            document_nums (str): The numbers matching the public inspection documents, separated by commas, no spaces.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing the public inspection documents matching the given numbers.</span>
+<span class="sd">            dict: A dictionary containing the public inspection documents matching the given numbers.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;public-inspection-documents/</span><span class="si">{</span><span class="n">document_nums</span><span class="si">}</span><span class="s2">.json&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -240,10 +240,10 @@
 <span class="sd">        Returns all the public inspection documents that are currently on public inspection.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing all the public inspection documents that are currently on public inspection.</span>
+<span class="sd">            dict: A dictionary containing all the public inspection documents that are currently on public inspection.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;public-inspection-documents/current.json&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -256,13 +256,13 @@
 <span class="sd">        Returns the Federal Register documents published since 1994 matching the given parameters.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - pub_date (str): Public inspection issue date (YYYY-MM-DD).</span>
-<span class="sd">        - per_page (int): The number of documents to return at once; default is 20; 1000 maximum.</span>
-<span class="sd">        - search_term (str): The term by which to search the documents.</span>
-<span class="sd">        - doc_type (str): Additional optional search by document type. Supported values are rule (final rule), prorule (proposed rule), notice (notice), and presdocu (presidential document)</span>
+<span class="sd">            pub_date (str): Public inspection issue date (YYYY-MM-DD).</span>
+<span class="sd">            per_page (int): The number of documents to return at once; default is 20; 1000 maximum.</span>
+<span class="sd">            search_term (str): The term by which to search the documents.</span>
+<span class="sd">            doc_type (str): Additional optional search by document type. Supported values are rule (final rule), prorule (proposed rule), notice (notice), and presdocu (presidential document)</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing the documents published since 1994 matching the given values.</span>
+<span class="sd">            dict: A dictionary containing the documents published since 1994 matching the given values.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">search_term</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">doc_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;public-inspection-documents.json?per_page=</span><span class="si">{</span><span class="n">per_page</span><span class="si">}</span><span class="s2">&amp;conditions[available_on]=</span><span class="si">{</span><span class="n">pub_date</span><span class="si">}</span><span class="s2">&amp;conditions[term]=</span><span class="si">{</span><span class="n">search_term</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -286,10 +286,10 @@
 <span class="sd">        Returns all agency details.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing all agency details.</span>
+<span class="sd">            dict: A dictionary containing all agency details.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;agencies&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -302,10 +302,10 @@
 <span class="sd">        Returns a particular agency&#39;s details.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - slug (str): The Federal Register slug for the agency. See Federal Register API docs for extensive list of possible values.</span>
+<span class="sd">            slug (str): The Federal Register slug for the agency. See Federal Register API docs for extensive list of possible values.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a particular agency&#39;s details.</span>
+<span class="sd">            dict: A dictionary containing a particular agency&#39;s details.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;agencies/</span><span class="si">{</span><span class="n">slug</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -318,10 +318,10 @@
 <span class="sd">        Returns the available image variants and their metadata for a single image identifier.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - image_id (str): The Federal Register image identifier.</span>
+<span class="sd">            image_id (str): The Federal Register image identifier.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing the available image variants and their metadata for a single image identifier.</span>
+<span class="sd">            dict: A dictionary containing the available image variants and their metadata for a single image identifier.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;images/</span><span class="si">{</span><span class="n">image_id</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -334,10 +334,10 @@
 <span class="sd">        Returns all suggested searches or limit by FederalRegister.gov section.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - section (str): The Federal Register slug for the section. Supported values are business-and-industry, environment, health-and-public-welfare, money, science-and-technology, and world.</span>
+<span class="sd">            section (str): The Federal Register slug for the section. Supported values are business-and-industry, environment, health-and-public-welfare, money, science-and-technology, and world.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing all the suggested searches or limit by Federal.Register.gov section.</span>
+<span class="sd">            dict: A dictionary containing all the suggested searches or limit by Federal.Register.gov section.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;suggested_searches?conditions[sections]=</span><span class="si">{</span><span class="n">section</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -350,10 +350,10 @@
 <span class="sd">        Returns a particular suggested search.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - slug (str): The Federal Register slug for the suggested search. See Federal Register API docs for extensive list of possible values.</span>
+<span class="sd">            slug (str): The Federal Register slug for the suggested search. See Federal Register API docs for extensive list of possible values.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a particular suggested search.</span>
+<span class="sd">            dict: A dictionary containing a particular suggested search.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;suggested_searches/</span><span class="si">{</span><span class="n">slug</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>

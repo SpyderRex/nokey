@@ -7,7 +7,6 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   nokey.activities
    nokey.animals
    nokey.art_and_images
    nokey.books_and_literature

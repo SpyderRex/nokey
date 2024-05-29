@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.games.free_to_game &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.games.free_to_game &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=c98573da"></script>
+        <script src="../../../_static/documentation_options.js?v=020ce317"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -81,8 +81,8 @@
 <span class="sd">    Class to interact with the Free To Game API.</span>
 <span class="sd">    </span>
 <span class="sd">    Attributes:</span>
-<span class="sd">    - base_url: The base URL of the Free To Game API.</span>
-<span class="sd">    - about: A short description of the API.</span>
+<span class="sd">        base_url: The base URL of the Free To Game API.</span>
+<span class="sd">        about: A short description of the API.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">use_caching</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cache_name</span><span class="o">=</span><span class="s2">&quot;freetogame_cache&quot;</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;sqlite&quot;</span><span class="p">,</span> <span class="n">expire_after</span><span class="o">=</span><span class="mi">3600</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://www.freetogame.com/api/&quot;</span>
@@ -98,10 +98,10 @@
 <span class="sd">        Returns the URL for the Free To Game API documentation.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        -string: The URL for the API docs.</span>
+<span class="sd">            string: The URL for the API docs.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;https://www.freetogame.com/api-doc&quot;</span></div>
 
@@ -113,10 +113,10 @@
 <span class="sd">        Returns the live games listed in the API.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - sort_by (str): Optional parameter by which to sort games if desired. Defaults to None, but supported values are release-date, popularity, alphabetical or relevance.</span>
+<span class="sd">            sort_by (str): Optional parameter by which to sort games if desired. Defaults to None, but supported values are release-date, popularity, alphabetical or relevance.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing all the live games listed in the API.</span>
+<span class="sd">            dict: A dictionary containing all the live games listed in the API.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">sort_by</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;games?sort-by=</span><span class="si">{</span><span class="n">sort_by</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -132,11 +132,11 @@
 <span class="sd">        Returns a list of free games by platform.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - platform (str): The platform on which the game is played. Supported values are pc, browser, or all.</span>
-<span class="sd">        - sort_by (str): Optional parameter by which to sort games if desired. Defaults to None, but supported values are release-date, popularity, alphabetical or relevance.</span>
+<span class="sd">            platform (str): The platform on which the game is played. Supported values are pc, browser, or all.</span>
+<span class="sd">            sort_by (str): Optional parameter by which to sort games if desired. Defaults to None, but supported values are release-date, popularity, alphabetical or relevance.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing the free games played on the given platform.</span>
+<span class="sd">            dict: A dictionary containing the free games played on the given platform.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">sort_by</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;games?platform=</span><span class="si">{</span><span class="n">platform</span><span class="si">}</span><span class="s2">&amp;sort-by=</span><span class="si">{</span><span class="n">sort_by</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -152,11 +152,11 @@
 <span class="sd">        Returns a list of free games by category.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - category (str): The category of the game. Supported values are mmorpg, shooter, strategy, moba, racing, sports, social, sandbox, open-world, survival, pvp, pve, pixel, voxel, zombie, turn-based, first-person, third-Person, top-down, tank, space, sailing, side-scroller, superhero, permadeath, card, battle-royale, mmo, mmofps, mmotps, 3d, 2d, anime, fantasy, sci-fi, fighting, action-rpg, action, military, martial-arts, flight, low-spec, tower-defense, horror, mmorts.</span>
-<span class="sd">        - sort_by (str): Optional parameter by which to sort games if desired. Defaults to None, but supported values are release-date, popularity, alphabetical or relevance.</span>
+<span class="sd">            category (str): The category of the game. Supported values are mmorpg, shooter, strategy, moba, racing, sports, social, sandbox, open-world, survival, pvp, pve, pixel, voxel, zombie, turn-based, first-person, third-Person, top-down, tank, space, sailing, side-scroller, superhero, permadeath, card, battle-royale, mmo, mmofps, mmotps, 3d, 2d, anime, fantasy, sci-fi, fighting, action-rpg, action, military, martial-arts, flight, low-spec, tower-defense, horror, mmorts.</span>
+<span class="sd">            sort_by (str): Optional parameter by which to sort games if desired. Defaults to None, but supported values are release-date, popularity, alphabetical or relevance.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing the free games matching the given category.</span>
+<span class="sd">            dict: A dictionary containing the free games matching the given category.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">sort_by</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;games?category=</span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">&amp;sort-by=</span><span class="si">{</span><span class="n">sort_by</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -172,12 +172,12 @@
 <span class="sd">        Returns a list of free games by category.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - platform (str): The platform on which the game is played. Supported values are pc, browser, or all.</span>
-<span class="sd">        - category (str): The category of the game. Supported values are mmorpg, shooter, strategy, moba, racing, sports, social, sandbox, open-world, survival, pvp, pve, pixel, voxel, zombie, turn-based, first-person, third-Person, top-down, tank, space, sailing, side-scroller, superhero, permadeath, card, battle-royale, mmo, mmofps, mmotps, 3d, 2d, anime, fantasy, sci-fi, fighting, action-rpg, action, military, martial-arts, flight, low-spec, tower-defense, horror, mmorts.</span>
-<span class="sd">        - sort_by (str): Optional parameter by which to sort games if desired. Defaults to None, but supported values are release-date, popularity, alphabetical or relevance.</span>
+<span class="sd">            platform (str): The platform on which the game is played. Supported values are pc, browser, or all.</span>
+<span class="sd">            category (str): The category of the game. Supported values are mmorpg, shooter, strategy, moba, racing, sports, social, sandbox, open-world, survival, pvp, pve, pixel, voxel, zombie, turn-based, first-person, third-Person, top-down, tank, space, sailing, side-scroller, superhero, permadeath, card, battle-royale, mmo, mmofps, mmotps, 3d, 2d, anime, fantasy, sci-fi, fighting, action-rpg, action, military, martial-arts, flight, low-spec, tower-defense, horror, mmorts.</span>
+<span class="sd">            sort_by (str): Optional parameter by which to sort games if desired. Defaults to None, but supported values are release-date, popularity, alphabetical or relevance.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing the free games matching the given category.</span>
+<span class="sd">            dict: A dictionary containing the free games matching the given category.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">sort_by</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;games?platform=</span><span class="si">{</span><span class="n">platform</span><span class="si">}</span><span class="s2">&amp;category=</span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">&amp;sort-by=</span><span class="si">{</span><span class="n">sort_by</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -193,12 +193,12 @@
 <span class="sd">        Returns a list of free games by category.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - tag (str): The filter tags, representing the categories of the filtered games, period delimited, no spaces. Supported values are mmorpg, shooter, strategy, moba, racing, sports, social, sandbox, open-world, survival, pvp, pve, pixel, voxel, zombie, turn-based, first-person, third-Person, top-down, tank, space, sailing, side-scroller, superhero, permadeath, card, battle-royale, mmo, mmofps, mmotps, 3d, 2d, anime, fantasy, sci-fi, fighting, action-rpg, action, military, martial-arts, flight, low-spec, tower-defense, horror, mmorts.</span>
-<span class="sd">        - platform (str): Optional parameter representing the platform on which the games are played. Default is all, but other supported values are browser and pc.</span>
-<span class="sd">        - sort_by (str): Optional parameter by which to sort games if desired. Defaults to None, but supported values are release-date, popularity, alphabetical or relevance.</span>
+<span class="sd">            tag (str): The filter tags, representing the categories of the filtered games, period delimited, no spaces. Supported values are mmorpg, shooter, strategy, moba, racing, sports, social, sandbox, open-world, survival, pvp, pve, pixel, voxel, zombie, turn-based, first-person, third-Person, top-down, tank, space, sailing, side-scroller, superhero, permadeath, card, battle-royale, mmo, mmofps, mmotps, 3d, 2d, anime, fantasy, sci-fi, fighting, action-rpg, action, military, martial-arts, flight, low-spec, tower-defense, horror, mmorts.</span>
+<span class="sd">            platform (str): Optional parameter representing the platform on which the games are played. Default is all, but other supported values are browser and pc.</span>
+<span class="sd">            sort_by (str): Optional parameter by which to sort games if desired. Defaults to None, but supported values are release-date, popularity, alphabetical or relevance.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing the free games matching the given category.</span>
+<span class="sd">            dict: A dictionary containing the free games matching the given category.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">sort_by</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;filter?tag=</span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2">&amp;platform=</span><span class="si">{</span><span class="n">platform</span><span class="si">}</span><span class="s2">&amp;sort-by=</span><span class="si">{</span><span class="n">sort_by</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -214,10 +214,10 @@
 <span class="sd">        Returns information for a single game matching the id.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - gameID (int): A number representing the unique id of the game as listed in the API.</span>
+<span class="sd">            gameID (int): A number representing the unique id of the game as listed in the API.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing information for the game matching the given id.</span>
+<span class="sd">            dict: A dictionary containing information for the game matching the given id.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;game?id=</span><span class="si">{</span><span class="n">gameID</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>

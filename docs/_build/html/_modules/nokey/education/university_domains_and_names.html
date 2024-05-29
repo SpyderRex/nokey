@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.education.university_domains_and_names &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.education.university_domains_and_names &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=c98573da"></script>
+        <script src="../../../_static/documentation_options.js?v=020ce317"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -81,8 +81,8 @@
 <span class="sd">    A class to interact with the University Domains and Names API.</span>
 <span class="sd">    </span>
 <span class="sd">    Attributes:</span>
-<span class="sd">    - base_url: The base url for the University Domains and Names API.</span>
-<span class="sd">    - about: A short description of the API.</span>
+<span class="sd">        base_url: The base url for the University Domains and Names API.</span>
+<span class="sd">        about: A short description of the API.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">use_caching</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cache_name</span><span class="o">=</span><span class="s2">&quot;university_cache&quot;</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;sqlite&quot;</span><span class="p">,</span> <span class="n">expire_after</span><span class="o">=</span><span class="mi">3600</span><span class="p">):</span>
@@ -99,10 +99,10 @@
 <span class="sd">        Returns the url for the University Domains and Names API documentation.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - string: URL for API documentation.</span>
+<span class="sd">            string: URL for API documentation.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;https://github.com/Hipo/university-domains-list&quot;</span></div>
 
@@ -114,13 +114,13 @@
 <span class="sd">        Returns university names and domains for the given parameters.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - name (str): Whole or partial name of university in question.</span>
-<span class="sd">        - country (str): Country of university in question.</span>
-<span class="sd">        - offset (int): Optional pagination parameter to limit search. Defaults to None.</span>
-<span class="sd">        - limit (int): Optional pagination parameter to limit number of results. Defaults to None.</span>
+<span class="sd">            name (str): Whole or partial name of university in question.</span>
+<span class="sd">            country (str): Country of university in question.</span>
+<span class="sd">            offset (int): Optional pagination parameter to limit search. Defaults to None.</span>
+<span class="sd">            limit (int): Optional pagination parameter to limit number of results. Defaults to None.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: List containing universities matching parameters with their respective domains.</span>
+<span class="sd">            dict: List containing universities matching parameters with their respective domains.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">offset</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">limit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;name=</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&amp;country=</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">&amp;offset=</span><span class="si">{</span><span class="n">offset</span><span class="si">}</span><span class="s2">&amp;limit=</span><span class="si">{</span><span class="n">limit</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -140,10 +140,10 @@
 <span class="sd">        Forces a refresh of the API, since the API won&#39;t automatically update the dataset if it changes.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: An updated, refreshed list of the university dataset.</span>
+<span class="sd">            dict: An updated, refreshed list of the university dataset.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;update&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>

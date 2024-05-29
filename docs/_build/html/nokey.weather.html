@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.weather package &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.weather package &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=c98573da"></script>
+        <script src="_static/documentation_options.js?v=020ce317"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -48,7 +48,6 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">nokey</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="nokey.html">nokey package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="nokey.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="nokey.activities.html">nokey.activities package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.animals.html">nokey.animals package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.art_and_images.html">nokey.art_and_images package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.books_and_literature.html">nokey.books_and_literature package</a></li>
@@ -118,527 +117,912 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.weather.national_weather_service.</span></span><span class="sig-name descname"><span class="pre">NationalWeatherService</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'nws_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class to interact with the National Weather Service API.</p>
-<p>Attributes:
-- base_url: The base URL of the National Weather Service API.
-- about: A short description of the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.base_url" title="Link to this definition"></a></dt>
+<dd><p>The base URL of the National Weather Service API.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.about">
+<span class="sig-name descname"><span class="pre">about</span></span><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.about" title="Link to this definition"></a></dt>
+<dd><p>A short description of the API.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_NWS_office_headline_by_headline_id">
 <span class="sig-name descname"><span class="pre">get_NWS_office_headline_by_headline_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">officeID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headlineID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_NWS_office_headline_by_headline_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_NWS_office_headline_by_headline_id" title="Link to this definition"></a></dt>
 <dd><p>Returns a specific news headline for a given NWS office.</p>
-<p>Args:
-- officeID (str): NWS office ID.
-- headlineID (str): Headline record ID.</p>
-<p>Returns:
-- dict: Dictionary containing headline for given NWS office and given headline ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>officeID</strong> (<em>str</em>) – NWS office ID.</p></li>
+<li><p><strong>headlineID</strong> (<em>str</em>) – Headline record ID.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing headline for given NWS office and given headline ID.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_NWS_office_headlines">
 <span class="sig-name descname"><span class="pre">get_NWS_office_headlines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">officeID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_NWS_office_headlines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_NWS_office_headlines" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of news headlines for a given NWS office.</p>
-<p>Args:
-- officeID (str): NWS office ID.</p>
-<p>Returns:
-- dict: Dictionary containing headlines for given NWS office.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>officeID</strong> (<em>str</em>) – NWS office ID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing headlines for given NWS office.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_NWS_office_metadata">
 <span class="sig-name descname"><span class="pre">get_NWS_office_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">officeID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_NWS_office_metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_NWS_office_metadata" title="Link to this definition"></a></dt>
 <dd><p>Returns metadata about a NWS forecast office.</p>
-<p>Args:
-- officeID (str): NWS office ID.</p>
-<p>Returns:
-- dict: Dictionary containing metadata for given NWS office.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>officeID</strong> (<em>str</em>) – NWS office ID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing metadata for given NWS office.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_active_alerts">
 <span class="sig-name descname"><span class="pre">get_active_alerts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_active_alerts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_active_alerts" title="Link to this definition"></a></dt>
 <dd><p>Returns a collection of currently active weather alerts.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: Inforation on currently active weather alerts</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Inforation on currently active weather alerts</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_active_alerts_by_area">
 <span class="sig-name descname"><span class="pre">get_active_alerts_by_area</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">area</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_active_alerts_by_area"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_active_alerts_by_area" title="Link to this definition"></a></dt>
 <dd><p>Returns active alerts for the given area (state or marine area).</p>
-<p>Args:
-- area (str): State or marine area ID</p>
-<p>Returns:
-- dict: Information of active alerts in the area specified.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>area</strong> (<em>str</em>) – State or marine area ID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Information of active alerts in the area specified.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_active_alerts_by_region">
 <span class="sig-name descname"><span class="pre">get_active_alerts_by_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_active_alerts_by_region"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_active_alerts_by_region" title="Link to this definition"></a></dt>
 <dd><p>Returns active alerts for the given marine region ID. Available values : AL, AT, GL, GM, PA, PI.”</p>
-<p>Args:
-- region (str): Marine region ID. Available values : AL, AT, GL, GM, PA, PI.</p>
-<p>Returns:
-- dict: Information of active alerts in the area specified.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>region</strong> (<em>str</em>) – Marine region ID. Available values : AL, AT, GL, GM, PA, PI.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Information of active alerts in the area specified.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_active_alerts_by_zone">
 <span class="sig-name descname"><span class="pre">get_active_alerts_by_zone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zoneID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_active_alerts_by_zone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_active_alerts_by_zone" title="Link to this definition"></a></dt>
 <dd><p>Returns active alerts for the given NWS public zone or county.</p>
-<p>Args:
-- zoneID (str): NWS public zone/county identifier</p>
-<p>Returns:
-- dict: Information of active alerts in the zone specified by zoneID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>zoneID</strong> (<em>str</em>) – NWS public zone/county identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Information of active alerts in the zone specified by zoneID.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_active_alerts_count">
 <span class="sig-name descname"><span class="pre">get_active_alerts_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_active_alerts_count"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_active_alerts_count" title="Link to this definition"></a></dt>
 <dd><p>Returns the count of currently active weather alerts broken down by various categories.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: Count of currently active weather alerts broke down by categories.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Count of currently active weather alerts broke down by categories.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_alert_by_id">
 <span class="sig-name descname"><span class="pre">get_alert_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_alert_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_alert_by_id" title="Link to this definition"></a></dt>
 <dd><p>Returns a specific alert record.</p>
-<p>Args:
-- ID (str): Alert identifier.</p>
-<p>Returns:
-- dict: A dictionary containing information about a specific alert.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ID</strong> (<em>str</em>) – Alert identifier.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing information about a specific alert.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_alert_types">
 <span class="sig-name descname"><span class="pre">get_alert_types</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_alert_types"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_alert_types" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of alerts types.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing a list of alert types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of alert types.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_alerts">
 <span class="sig-name descname"><span class="pre">get_alerts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_alerts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_alerts" title="Link to this definition"></a></dt>
 <dd><p>Returns a collection of weather alerts.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: Inforation on weather alerts</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Inforation on weather alerts</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_cwsu_advisories">
 <span class="sig-name descname"><span class="pre">get_cwsu_advisories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cwsuID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_cwsu_advisories"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_cwsu_advisories" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of Center Weather Advisories from a CWSU.</p>
-<p>Args:
-- cwsuID (str): NWS CWSU ID. Available values : ZAB, ZAN, ZAU, ZBW, ZDC, ZDV, ZFA, ZFW, ZHU, ZID, ZJX, ZKC, ZLA, ZLC, ZMA, ZME, ZMP, ZNY, ZOA, ZOB, ZSE, ZTL.</p>
-<p>Returns:
-- dict: Dictionary containing list of  Center Weather Advisories from a CWSU.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cwsuID</strong> (<em>str</em>) – NWS CWSU ID. Available values : ZAB, ZAN, ZAU, ZBW, ZDC, ZDV, ZFA, ZFW, ZHU, ZID, ZJX, ZKC, ZLA, ZLC, ZMA, ZME, ZMP, ZNY, ZOA, ZOB, ZSE, ZTL.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing list of  Center Weather Advisories from a CWSU.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_cwsu_advisories_by_date_and_seq">
 <span class="sig-name descname"><span class="pre">get_cwsu_advisories_by_date_and_seq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cwsuID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sequence</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_cwsu_advisories_by_date_and_seq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_cwsu_advisories_by_date_and_seq" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of Center Weather Advisories from a CWSU.</p>
-<p>Args:
-- cwsuID (str): NWS CWSU ID. Available values : ZAB, ZAN, ZAU, ZBW, ZDC, ZDV, ZFA, ZFW, ZHU, ZID, ZJX, ZKC, ZLA, ZLC, ZMA, ZME, ZMP, ZNY, ZOA, ZOB, ZSE, ZTL.
-- date (str): (YYYY-MM-DD format) Date of advisory.
-- sequence (int): Sequence number</p>
-<p>Returns:
-- dict: Dictionary containing list of Center Weather Advisories from a CWSU.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cwsuID</strong> (<em>str</em>) – NWS CWSU ID. Available values : ZAB, ZAN, ZAU, ZBW, ZDC, ZDV, ZFA, ZFW, ZHU, ZID, ZJX, ZKC, ZLA, ZLC, ZMA, ZME, ZMP, ZNY, ZOA, ZOB, ZSE, ZTL.</p></li>
+<li><p><strong>date</strong> (<em>str</em>) – (YYYY-MM-DD format) Date of advisory.</p></li>
+<li><p><strong>sequence</strong> (<em>int</em>) – Sequence number</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing list of Center Weather Advisories from a CWSU.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_cwsu_metadata">
 <span class="sig-name descname"><span class="pre">get_cwsu_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cwsuID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_cwsu_metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_cwsu_metadata" title="Link to this definition"></a></dt>
 <dd><p>Returns metadata about a Center Weather Service Unit.</p>
-<p>Args:
-- cwsuID (str): NWS CWSU ID. Available values : ZAB, ZAN, ZAU, ZBW, ZDC, ZDV, ZFA, ZFW, ZHU, ZID, ZJX, ZKC, ZLA, ZLC, ZMA, ZME, ZMP, ZNY, ZOA, ZOB, ZSE, ZTL.</p>
-<p>Returns:
-- dict: Metadata about a cwsu.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cwsuID</strong> (<em>str</em>) – NWS CWSU ID. Available values : ZAB, ZAN, ZAU, ZBW, ZDC, ZDV, ZFA, ZFW, ZHU, ZID, ZJX, ZKC, ZLA, ZLC, ZMA, ZME, ZMP, ZNY, ZOA, ZOB, ZSE, ZTL.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Metadata about a cwsu.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns URL for API docs.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: URL for API documentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>URL for API documentation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_glossary">
 <span class="sig-name descname"><span class="pre">get_glossary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_glossary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_glossary" title="Link to this definition"></a></dt>
 <dd><p>Returns glossary terms.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing a list of glossary terms and definitions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of glossary terms and definitions.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_observation_stations_by_gridpoints">
 <span class="sig-name descname"><span class="pre">get_observation_stations_by_gridpoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wfo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_observation_stations_by_gridpoints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_observation_stations_by_gridpoints" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of observation stations usable for a given 2.5km grid area.</p>
-<p>Args:
-- wfo (str): Forecast office ID. Available values : AKQ, ALY, BGM, BOX, BTV, BUF, CAE, CAR, CHS, CLE, CTP, GSP, GYX, ILM, ILN, LWX, MHX, OKX, PBZ, PHI, RAH, RLX, RNK, ABQ, AMA, BMX, BRO, CRP, EPZ, EWX, FFC, FWD, HGX, HUN, JAN, JAX, KEY, LCH, LIX, LUB, LZK, MAF, MEG, MFL, MLB, MOB, MRX, OHX, OUN, SHV, SJT, SJU, TAE, TBW, TSA, ABR, APX, ARX, BIS, BOU, CYS, DDC, DLH, DMX, DTX, DVN, EAX, FGF, FSD, GID, GJT, GLD, GRB, GRR, ICT, ILX, IND, IWX, JKL, LBF, LMK, LOT, LSX, MKX, MPX, MQT, OAX, PAH, PUB, RIW, SGF, TOP, UNR, BOI, BYZ, EKA, FGZ, GGW, HNX, LKN, LOX, MFR, MSO, MTR, OTX, PDT, PIH, PQR, PSR, REV, SEW, SGX, SLC, STO, TFX, TWC, VEF, AER, AFC, AFG, AJK, ALU, GUM, HPA, HFO, PPG, STU, NH1, NH2, ONA, ONP
-- x (int): Forecast grid X coordinate.
-- y (int): Forecast grid Y coordinate.</p>
-<p>Returns:
-- dict: Dictionary containing a list of observation stations usable for a given 2.5km grid area.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wfo</strong> (<em>str</em>) – Forecast office ID. Available values : AKQ, ALY, BGM, BOX, BTV, BUF, CAE, CAR, CHS, CLE, CTP, GSP, GYX, ILM, ILN, LWX, MHX, OKX, PBZ, PHI, RAH, RLX, RNK, ABQ, AMA, BMX, BRO, CRP, EPZ, EWX, FFC, FWD, HGX, HUN, JAN, JAX, KEY, LCH, LIX, LUB, LZK, MAF, MEG, MFL, MLB, MOB, MRX, OHX, OUN, SHV, SJT, SJU, TAE, TBW, TSA, ABR, APX, ARX, BIS, BOU, CYS, DDC, DLH, DMX, DTX, DVN, EAX, FGF, FSD, GID, GJT, GLD, GRB, GRR, ICT, ILX, IND, IWX, JKL, LBF, LMK, LOT, LSX, MKX, MPX, MQT, OAX, PAH, PUB, RIW, SGF, TOP, UNR, BOI, BYZ, EKA, FGZ, GGW, HNX, LKN, LOX, MFR, MSO, MTR, OTX, PDT, PIH, PQR, PSR, REV, SEW, SGX, SLC, STO, TFX, TWC, VEF, AER, AFC, AFG, AJK, ALU, GUM, HPA, HFO, PPG, STU, NH1, NH2, ONA, ONP</p></li>
+<li><p><strong>x</strong> (<em>int</em>) – Forecast grid X coordinate.</p></li>
+<li><p><strong>y</strong> (<em>int</em>) – Forecast grid Y coordinate.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing a list of observation stations usable for a given 2.5km grid area.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_observation_stations_by_zone">
 <span class="sig-name descname"><span class="pre">get_observation_stations_by_zone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zoneID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_observation_stations_by_zone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_observation_stations_by_zone" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of observation stations for a given zone.</p>
-<p>Args:
-- zoneID (str): NWS public zone/county identifier.</p>
-<p>Returns:
-- dict: Dictionary containing a list of observation stations for a given zkne.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>zoneID</strong> (<em>str</em>) – NWS public zone/county identifier.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing a list of observation stations for a given zkne.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_observations_by_station">
 <span class="sig-name descname"><span class="pre">get_observations_by_station</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stationID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_observations_by_station"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_observations_by_station" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of observations for a given station.</p>
-<p>Args:
-- stationID (str): Observation station ID.</p>
-<p>Returns:
-- dict: Dictionary containing list of observations for a given station.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stationID</strong> (<em>str</em>) – Observation station ID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing list of observations for a given station.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_radar_queue_metadata">
 <span class="sig-name descname"><span class="pre">get_radar_queue_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_radar_queue_metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_radar_queue_metadata" title="Link to this definition"></a></dt>
 <dd><p>Returns metadata about a given radar queue.</p>
-<p>Args:
-- host (str): LDM host.</p>
-<p>Returns:
-- dict: Dictionary containing metadata for given radar queue.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>host</strong> (<em>str</em>) – LDM host.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing metadata for given radar queue.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_radar_server_metadata_by_id">
 <span class="sig-name descname"><span class="pre">get_radar_server_metadata_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serverID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_radar_server_metadata_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_radar_server_metadata_by_id" title="Link to this definition"></a></dt>
 <dd><p>Returns metadata about a given radar server.</p>
-<p>Args:
-- serverID (str): Radar server ID.</p>
-<p>Returns:
-- dict: Dictionary containing metadata for given radar server.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>serverID</strong> (<em>str</em>) – Radar server ID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing metadata for given radar server.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_radar_servers">
 <span class="sig-name descname"><span class="pre">get_radar_servers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_radar_servers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_radar_servers" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of radar servers.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing a list of radar servers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of radar servers.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_radar_station_alarms_metadata_by_id">
 <span class="sig-name descname"><span class="pre">get_radar_station_alarms_metadata_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stationID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_radar_station_alarms_metadata_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_radar_station_alarms_metadata_by_id" title="Link to this definition"></a></dt>
 <dd><p>Returns metadata about a given radar station alarms.</p>
-<p>Args:
-- stationID (str): Radar station ID.</p>
-<p>Returns:
-- dict: Dictionary containing metadata for given radar station alarms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stationID</strong> (<em>str</em>) – Radar station ID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing metadata for given radar station alarms.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_radar_station_metadata_by_id">
 <span class="sig-name descname"><span class="pre">get_radar_station_metadata_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stationID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_radar_station_metadata_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_radar_station_metadata_by_id" title="Link to this definition"></a></dt>
 <dd><p>Returns metadata about a given radar station.</p>
-<p>Args:
-- stationID (str): Radar station ID.</p>
-<p>Returns:
-- dict: Dictionary containing metadata for given radar station.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stationID</strong> (<em>str</em>) – Radar station ID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing metadata for given radar station.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_radar_stations">
 <span class="sig-name descname"><span class="pre">get_radar_stations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_radar_stations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_radar_stations" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of radar stations.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing a list of radar stations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of radar stations.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_radar_wind_profiler_metadata">
 <span class="sig-name descname"><span class="pre">get_radar_wind_profiler_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stationID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_radar_wind_profiler_metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_radar_wind_profiler_metadata" title="Link to this definition"></a></dt>
 <dd><p>Returns metadata about a given radar wind profiler.</p>
-<p>Args:
-- stationID (str): Profiler station ID.</p>
-<p>Returns:
-- dict: Dictionary containing metadata for given radar wind profiler.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stationID</strong> (<em>str</em>) – Profiler station ID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing metadata for given radar wind profiler.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_raw_data_by_gridpoints">
 <span class="sig-name descname"><span class="pre">get_raw_data_by_gridpoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wfo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_raw_data_by_gridpoints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_raw_data_by_gridpoints" title="Link to this definition"></a></dt>
 <dd><p>Returns raw numerical forecast data for a 2.5km grid area.</p>
-<p>Args:
-- wfo (str): Forecast office ID. Available values : AKQ, ALY, BGM, BOX, BTV, BUF, CAE, CAR, CHS, CLE, CTP, GSP, GYX, ILM, ILN, LWX, MHX, OKX, PBZ, PHI, RAH, RLX, RNK, ABQ, AMA, BMX, BRO, CRP, EPZ, EWX, FFC, FWD, HGX, HUN, JAN, JAX, KEY, LCH, LIX, LUB, LZK, MAF, MEG, MFL, MLB, MOB, MRX, OHX, OUN, SHV, SJT, SJU, TAE, TBW, TSA, ABR, APX, ARX, BIS, BOU, CYS, DDC, DLH, DMX, DTX, DVN, EAX, FGF, FSD, GID, GJT, GLD, GRB, GRR, ICT, ILX, IND, IWX, JKL, LBF, LMK, LOT, LSX, MKX, MPX, MQT, OAX, PAH, PUB, RIW, SGF, TOP, UNR, BOI, BYZ, EKA, FGZ, GGW, HNX, LKN, LOX, MFR, MSO, MTR, OTX, PDT, PIH, PQR, PSR, REV, SEW, SGX, SLC, STO, TFX, TWC, VEF, AER, AFC, AFG, AJK, ALU, GUM, HPA, HFO, PPG, STU, NH1, NH2, ONA, ONP
-- x (int): Forecast grid X coordinate.
-- y (int): Forecast grid Y coordinate.</p>
-<p>Returns:
-- dict: Dictionary containing the raw numerical forcast data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wfo</strong> (<em>str</em>) – Forecast office ID. Available values : AKQ, ALY, BGM, BOX, BTV, BUF, CAE, CAR, CHS, CLE, CTP, GSP, GYX, ILM, ILN, LWX, MHX, OKX, PBZ, PHI, RAH, RLX, RNK, ABQ, AMA, BMX, BRO, CRP, EPZ, EWX, FFC, FWD, HGX, HUN, JAN, JAX, KEY, LCH, LIX, LUB, LZK, MAF, MEG, MFL, MLB, MOB, MRX, OHX, OUN, SHV, SJT, SJU, TAE, TBW, TSA, ABR, APX, ARX, BIS, BOU, CYS, DDC, DLH, DMX, DTX, DVN, EAX, FGF, FSD, GID, GJT, GLD, GRB, GRR, ICT, ILX, IND, IWX, JKL, LBF, LMK, LOT, LSX, MKX, MPX, MQT, OAX, PAH, PUB, RIW, SGF, TOP, UNR, BOI, BYZ, EKA, FGZ, GGW, HNX, LKN, LOX, MFR, MSO, MTR, OTX, PDT, PIH, PQR, PSR, REV, SEW, SGX, SLC, STO, TFX, TWC, VEF, AER, AFC, AFG, AJK, ALU, GUM, HPA, HFO, PPG, STU, NH1, NH2, ONA, ONP</p></li>
+<li><p><strong>x</strong> (<em>int</em>) – Forecast grid X coordinate.</p></li>
+<li><p><strong>y</strong> (<em>int</em>) – Forecast grid Y coordinate.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing the raw numerical forcast data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_sigmets_by_atsu">
 <span class="sig-name descname"><span class="pre">get_sigmets_by_atsu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atsu</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_sigmets_by_atsu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_sigmets_by_atsu" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of SIGMET/AIRMETs for the specified ATSU.</p>
-<p>Args:
-- atsu (str): ATSU identifier.</p>
-<p>Returns:
-- dict: Dictionary containing list of SIGMET/AIRMETs for the specified ATSU.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>atsu</strong> (<em>str</em>) – ATSU identifier.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing list of SIGMET/AIRMETs for the specified ATSU.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_sigmets_by_atsu_and_date">
 <span class="sig-name descname"><span class="pre">get_sigmets_by_atsu_and_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atsu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_sigmets_by_atsu_and_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_sigmets_by_atsu_and_date" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of SIGMET/AIRMETs for the specified ATSU for the specified date.</p>
-<p>Args:
-- atsu (str): ATSU identifier.
-- date (str): Date (YYYY-MM-DD format)</p>
-<p>Returns:
-- dict: Dictionary containing list of SIGMET/AIRMETs for the specified ATSU and specified date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atsu</strong> (<em>str</em>) – ATSU identifier.</p></li>
+<li><p><strong>date</strong> (<em>str</em>) – Date (YYYY-MM-DD format)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing list of SIGMET/AIRMETs for the specified ATSU and specified date.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_specific_sigmet">
 <span class="sig-name descname"><span class="pre">get_specific_sigmet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atsu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_specific_sigmet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_specific_sigmet" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of SIGMET/AIRMETs for the specified ATSU for the specified date.</p>
-<p>Args:
-- atsu (str): ATSU identifier.
-- date (str): Date (YYYY-MM-DD format)
-- time (str): Time (HHMM format). This time is always specified in UTC (Zulu) time.</p>
-<p>Returns:
-- dict: Dictionary containing a specific SIGMET/AIRMET.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atsu</strong> (<em>str</em>) – ATSU identifier.</p></li>
+<li><p><strong>date</strong> (<em>str</em>) – Date (YYYY-MM-DD format)</p></li>
+<li><p><strong>time</strong> (<em>str</em>) – Time (HHMM format). This time is always specified in UTC (Zulu) time.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing a specific SIGMET/AIRMET.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_station_metadata">
 <span class="sig-name descname"><span class="pre">get_station_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stationID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_station_metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_station_metadata" title="Link to this definition"></a></dt>
 <dd><p>Returns metadata about a given observation station.</p>
-<p>Args:
-- stationID (str): Observation station ID.</p>
-<p>Returns:
-- dict: Dictionary containing metadata for given station.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stationID</strong> (<em>str</em>) – Observation station ID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing metadata for given station.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_station_observation_by_time">
 <span class="sig-name descname"><span class="pre">get_station_observation_by_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stationID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_station_observation_by_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_station_observation_by_time" title="Link to this definition"></a></dt>
 <dd><p>Returns a single observation.</p>
-<p>Args:
-- stationID (str): Observation station ID.
-- time (str): Timestamp of requested observation.</p>
-<p>Returns:
-- dict: Dictionary containing single observation for a given station at a given time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stationID</strong> (<em>str</em>) – Observation station ID.</p></li>
+<li><p><strong>time</strong> (<em>str</em>) – Timestamp of requested observation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing single observation for a given station at a given time.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_stations">
 <span class="sig-name descname"><span class="pre">get_stations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_stations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_stations" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of observation stations.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing a list of observation stations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of observation stations.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_taf_by_date_time">
 <span class="sig-name descname"><span class="pre">get_taf_by_date_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stationID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_taf_by_date_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_taf_by_date_time" title="Link to this definition"></a></dt>
 <dd><p>Returns a single Terminal Aerodrome Forecast..</p>
-<p>Args:
-- stationID (str): Observation station ID.
-- date (str): Date (YYYY-MM-DD format)
-- time (str) Time (HHMM format). This time is always specified in UTC (Zulu) time.</p>
-<p>Returns:
-- dict: Dictionary containing TAF.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stationID</strong> (<em>str</em>) – Observation station ID.</p></li>
+<li><p><strong>date</strong> (<em>str</em>) – Date (YYYY-MM-DD format)</p></li>
+<li><p><strong>time</strong> (<em>str</em><em>) </em><em>Time</em><em> (</em><em>HHMM format</em><em>)</em><em>. This time is always specified in UTC</em><em> (</em><em>Zulu</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing TAF.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_tafs_by_station">
 <span class="sig-name descname"><span class="pre">get_tafs_by_station</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stationID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_tafs_by_station"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_tafs_by_station" title="Link to this definition"></a></dt>
 <dd><p>Returns Terminal Aerodrome Forecasts for the specified airport station.</p>
-<p>Args:
-- stationID (str): Observation station ID.</p>
-<p>Returns:
-- dict: Dictionary containing TAFS for given station.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stationID</strong> (<em>str</em>) – Observation station ID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing TAFS for given station.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_text_product_by_id">
 <span class="sig-name descname"><span class="pre">get_text_product_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">productID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_text_product_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_text_product_by_id" title="Link to this definition"></a></dt>
 <dd><p>Returns a specific text product.</p>
-<p>Args:
-- productID (str): Text product ID.</p>
-<p>Returns:
-- dict: Dictionary containing specific text product.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>productID</strong> (<em>str</em>) – Text product ID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing specific text product.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_text_product_locations">
 <span class="sig-name descname"><span class="pre">get_text_product_locations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_text_product_locations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_text_product_locations" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of valid text product issuance locations.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing a list of valid text product issuance locations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of valid text product issuance locations.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_text_product_locations_by_type">
 <span class="sig-name descname"><span class="pre">get_text_product_locations_by_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typeID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_text_product_locations_by_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_text_product_locations_by_type" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of valid text product issuance locations for a given product type.</p>
-<p>Args:
-- typeID (str): Text product type ID.</p>
-<p>Returns:
-- dict: Dictionary containing list of valid text product issuance locations for a given type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>typeID</strong> (<em>str</em>) – Text product type ID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing list of valid text product issuance locations for a given type.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_text_product_types">
 <span class="sig-name descname"><span class="pre">get_text_product_types</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_text_product_types"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_text_product_types" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of valid text product types and codes.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing a list of valid text product types and codes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of valid text product types and codes.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_text_product_types_by_location">
 <span class="sig-name descname"><span class="pre">get_text_product_types_by_location</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locationID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_text_product_types_by_location"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_text_product_types_by_location" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of valid text product types for a given issuance location.</p>
-<p>Args:
-- locationID (str): Location ID.</p>
-<p>Returns:
-- dict: Dictionary containing list of valid text product types for a given location.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>locationID</strong> (<em>str</em>) – Location ID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing list of valid text product types for a given location.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_text_products">
 <span class="sig-name descname"><span class="pre">get_text_products</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_text_products"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_text_products" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of text products.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing a list of text products.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of text products.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_text_products_by_type">
 <span class="sig-name descname"><span class="pre">get_text_products_by_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typeID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_text_products_by_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_text_products_by_type" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of text products of a given type.</p>
-<p>Args:
-- typeID (str): Text product type ID.</p>
-<p>Returns:
-- dict: Dictionary containing list of text products of given type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>typeID</strong> (<em>str</em>) – Text product type ID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing list of text products of given type.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_text_products_by_type_and_location">
 <span class="sig-name descname"><span class="pre">get_text_products_by_type_and_location</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typeID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locationID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_text_products_by_type_and_location"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_text_products_by_type_and_location" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of text products of a given type for a given issuance location.</p>
-<p>Args:
-- typeID (str): Text product type ID.
-- locationID (str): Location ID.</p>
-<p>Returns:
-- dict: Dictionary containing list of text product of a given type for a given issuance location.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>typeID</strong> (<em>str</em>) – Text product type ID.</p></li>
+<li><p><strong>locationID</strong> (<em>str</em>) – Location ID.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing list of text product of a given type for a given issuance location.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_textual_forecast_by_gridpoints">
 <span class="sig-name descname"><span class="pre">get_textual_forecast_by_gridpoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wfo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_textual_forecast_by_gridpoints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_textual_forecast_by_gridpoints" title="Link to this definition"></a></dt>
 <dd><p>Returns a textual forecast for a 2.5km grid area.</p>
-<p>Args:
-- wfo (str): Forecast office ID. Available values : AKQ, ALY, BGM, BOX, BTV, BUF, CAE, CAR, CHS, CLE, CTP, GSP, GYX, ILM, ILN, LWX, MHX, OKX, PBZ, PHI, RAH, RLX, RNK, ABQ, AMA, BMX, BRO, CRP, EPZ, EWX, FFC, FWD, HGX, HUN, JAN, JAX, KEY, LCH, LIX, LUB, LZK, MAF, MEG, MFL, MLB, MOB, MRX, OHX, OUN, SHV, SJT, SJU, TAE, TBW, TSA, ABR, APX, ARX, BIS, BOU, CYS, DDC, DLH, DMX, DTX, DVN, EAX, FGF, FSD, GID, GJT, GLD, GRB, GRR, ICT, ILX, IND, IWX, JKL, LBF, LMK, LOT, LSX, MKX, MPX, MQT, OAX, PAH, PUB, RIW, SGF, TOP, UNR, BOI, BYZ, EKA, FGZ, GGW, HNX, LKN, LOX, MFR, MSO, MTR, OTX, PDT, PIH, PQR, PSR, REV, SEW, SGX, SLC, STO, TFX, TWC, VEF, AER, AFC, AFG, AJK, ALU, GUM, HPA, HFO, PPG, STU, NH1, NH2, ONA, ONP
-- x (int): Forecast grid X coordinate.
-- y (int): Forecast grid Y coordinate.</p>
-<p>Returns:
-- dict: Dictionary containing the textual forcast data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wfo</strong> (<em>str</em>) – Forecast office ID. Available values : AKQ, ALY, BGM, BOX, BTV, BUF, CAE, CAR, CHS, CLE, CTP, GSP, GYX, ILM, ILN, LWX, MHX, OKX, PBZ, PHI, RAH, RLX, RNK, ABQ, AMA, BMX, BRO, CRP, EPZ, EWX, FFC, FWD, HGX, HUN, JAN, JAX, KEY, LCH, LIX, LUB, LZK, MAF, MEG, MFL, MLB, MOB, MRX, OHX, OUN, SHV, SJT, SJU, TAE, TBW, TSA, ABR, APX, ARX, BIS, BOU, CYS, DDC, DLH, DMX, DTX, DVN, EAX, FGF, FSD, GID, GJT, GLD, GRB, GRR, ICT, ILX, IND, IWX, JKL, LBF, LMK, LOT, LSX, MKX, MPX, MQT, OAX, PAH, PUB, RIW, SGF, TOP, UNR, BOI, BYZ, EKA, FGZ, GGW, HNX, LKN, LOX, MFR, MSO, MTR, OTX, PDT, PIH, PQR, PSR, REV, SEW, SGX, SLC, STO, TFX, TWC, VEF, AER, AFC, AFG, AJK, ALU, GUM, HPA, HFO, PPG, STU, NH1, NH2, ONA, ONP</p></li>
+<li><p><strong>x</strong> (<em>int</em>) – Forecast grid X coordinate.</p></li>
+<li><p><strong>y</strong> (<em>int</em>) – Forecast grid Y coordinate.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing the textual forcast data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_textual_hourly_forecast_by_gridpoints">
 <span class="sig-name descname"><span class="pre">get_textual_hourly_forecast_by_gridpoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wfo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_textual_hourly_forecast_by_gridpoints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_textual_hourly_forecast_by_gridpoints" title="Link to this definition"></a></dt>
 <dd><p>Returns a textual hourly forecast for a 2.5km grid area.</p>
-<p>Args:
-- wfo (str): Forecast office ID. Available values : AKQ, ALY, BGM, BOX, BTV, BUF, CAE, CAR, CHS, CLE, CTP, GSP, GYX, ILM, ILN, LWX, MHX, OKX, PBZ, PHI, RAH, RLX, RNK, ABQ, AMA, BMX, BRO, CRP, EPZ, EWX, FFC, FWD, HGX, HUN, JAN, JAX, KEY, LCH, LIX, LUB, LZK, MAF, MEG, MFL, MLB, MOB, MRX, OHX, OUN, SHV, SJT, SJU, TAE, TBW, TSA, ABR, APX, ARX, BIS, BOU, CYS, DDC, DLH, DMX, DTX, DVN, EAX, FGF, FSD, GID, GJT, GLD, GRB, GRR, ICT, ILX, IND, IWX, JKL, LBF, LMK, LOT, LSX, MKX, MPX, MQT, OAX, PAH, PUB, RIW, SGF, TOP, UNR, BOI, BYZ, EKA, FGZ, GGW, HNX, LKN, LOX, MFR, MSO, MTR, OTX, PDT, PIH, PQR, PSR, REV, SEW, SGX, SLC, STO, TFX, TWC, VEF, AER, AFC, AFG, AJK, ALU, GUM, HPA, HFO, PPG, STU, NH1, NH2, ONA, ONP
-- x (int): Forecast grid X coordinate.
-- y (int): Forecast grid Y coordinate.</p>
-<p>Returns:
-- dict: Dictionary containing the textual hourly forcast data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wfo</strong> (<em>str</em>) – Forecast office ID. Available values : AKQ, ALY, BGM, BOX, BTV, BUF, CAE, CAR, CHS, CLE, CTP, GSP, GYX, ILM, ILN, LWX, MHX, OKX, PBZ, PHI, RAH, RLX, RNK, ABQ, AMA, BMX, BRO, CRP, EPZ, EWX, FFC, FWD, HGX, HUN, JAN, JAX, KEY, LCH, LIX, LUB, LZK, MAF, MEG, MFL, MLB, MOB, MRX, OHX, OUN, SHV, SJT, SJU, TAE, TBW, TSA, ABR, APX, ARX, BIS, BOU, CYS, DDC, DLH, DMX, DTX, DVN, EAX, FGF, FSD, GID, GJT, GLD, GRB, GRR, ICT, ILX, IND, IWX, JKL, LBF, LMK, LOT, LSX, MKX, MPX, MQT, OAX, PAH, PUB, RIW, SGF, TOP, UNR, BOI, BYZ, EKA, FGZ, GGW, HNX, LKN, LOX, MFR, MSO, MTR, OTX, PDT, PIH, PQR, PSR, REV, SEW, SGX, SLC, STO, TFX, TWC, VEF, AER, AFC, AFG, AJK, ALU, GUM, HPA, HFO, PPG, STU, NH1, NH2, ONA, ONP</p></li>
+<li><p><strong>x</strong> (<em>int</em>) – Forecast grid X coordinate.</p></li>
+<li><p><strong>y</strong> (<em>int</em>) – Forecast grid Y coordinate.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing the textual hourly forcast data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_zone_forecast">
 <span class="sig-name descname"><span class="pre">get_zone_forecast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoneID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_zone_forecast"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_zone_forecast" title="Link to this definition"></a></dt>
 <dd><p>Returns the current zone forecast for a given zone.</p>
-<p>Args:
-- Type (str): Zone type. Available values : land, marine, forecast, public, coastal, offshore, fire, county.
-- zoneID (str): NWS public zone/county identifier.</p>
-<p>Returns:
-- dict: Dictionary containing zone forecast for a given zone.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Type</strong> (<em>str</em>) – Zone type. Available values : land, marine, forecast, public, coastal, offshore, fire, county.</p></li>
+<li><p><strong>zoneID</strong> (<em>str</em>) – NWS public zone/county identifier.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing zone forecast for a given zone.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_zone_metadata">
 <span class="sig-name descname"><span class="pre">get_zone_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoneID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_zone_metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_zone_metadata" title="Link to this definition"></a></dt>
 <dd><p>Returns metadata about a given zone.</p>
-<p>Args:
-- Type (str): Zone type. Available values : land, marine, forecast, public, coastal, offshore, fire, county.
-- zoneID (str): NWS public zone/county identifier.</p>
-<p>Returns:
-- dict: Dictionary containing metadata about a given zone.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Type</strong> (<em>str</em>) – Zone type. Available values : land, marine, forecast, public, coastal, offshore, fire, county.</p></li>
+<li><p><strong>zoneID</strong> (<em>str</em>) – NWS public zone/county identifier.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing metadata about a given zone.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_zone_observations">
 <span class="sig-name descname"><span class="pre">get_zone_observations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zoneID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_zone_observations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_zone_observations" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of observations for a given zone.</p>
-<p>Args:
-- zoneID (str): NWS public zone/county identifier.</p>
-<p>Returns:
-- dict: Dictionary containing a list of observations for a given zkne.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>zoneID</strong> (<em>str</em>) – NWS public zone/county identifier.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing a list of observations for a given zkne.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_zones">
 <span class="sig-name descname"><span class="pre">get_zones</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_zones"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_zones" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of zones.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing a list of zones.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a list of zones.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.weather.national_weather_service.NationalWeatherService.get_zones_by_type">
 <span class="sig-name descname"><span class="pre">get_zones_by_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/weather/national_weather_service.html#NationalWeatherService.get_zones_by_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.weather.national_weather_service.NationalWeatherService.get_zones_by_type" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of valid text product types for a given issuance location.</p>
-<p>Args:
-- Type (str): Zone type. Available values : land, marine, forecast, public, coastal, offshore, fire, county.</p>
-<p>Returns:
-- dict: Dictionary containing list of valid text product types for a given location.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Type</strong> (<em>str</em>) – Zone type. Available values : land, marine, forecast, public, coastal, offshore, fire, county.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing list of valid text product types for a given location.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

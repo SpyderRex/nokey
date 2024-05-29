@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.games package &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.games package &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=c98573da"></script>
+        <script src="_static/documentation_options.js?v=020ce317"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -49,7 +49,6 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">nokey</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="nokey.html">nokey package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="nokey.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="nokey.activities.html">nokey.activities package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.animals.html">nokey.animals package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.art_and_images.html">nokey.art_and_images package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nokey.books_and_literature.html">nokey.books_and_literature package</a></li>
@@ -119,83 +118,149 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.games.free_to_game.</span></span><span class="sig-name descname"><span class="pre">FreeToGame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'freetogame_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/free_to_game.html#FreeToGame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.free_to_game.FreeToGame" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class to interact with the Free To Game API.</p>
-<p>Attributes:
-- base_url: The base URL of the Free To Game API.
-- about: A short description of the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.games.free_to_game.FreeToGame.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#nokey.games.free_to_game.FreeToGame.base_url" title="Link to this definition"></a></dt>
+<dd><p>The base URL of the Free To Game API.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.games.free_to_game.FreeToGame.about">
+<span class="sig-name descname"><span class="pre">about</span></span><a class="headerlink" href="#nokey.games.free_to_game.FreeToGame.about" title="Link to this definition"></a></dt>
+<dd><p>A short description of the API.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.free_to_game.FreeToGame.filter_games">
 <span class="sig-name descname"><span class="pre">filter_games</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/free_to_game.html#FreeToGame.filter_games"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.free_to_game.FreeToGame.filter_games" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of free games by category.</p>
-<p>Args:
-- tag (str): The filter tags, representing the categories of the filtered games, period delimited, no spaces. Supported values are mmorpg, shooter, strategy, moba, racing, sports, social, sandbox, open-world, survival, pvp, pve, pixel, voxel, zombie, turn-based, first-person, third-Person, top-down, tank, space, sailing, side-scroller, superhero, permadeath, card, battle-royale, mmo, mmofps, mmotps, 3d, 2d, anime, fantasy, sci-fi, fighting, action-rpg, action, military, martial-arts, flight, low-spec, tower-defense, horror, mmorts.
-- platform (str): Optional parameter representing the platform on which the games are played. Default is all, but other supported values are browser and pc.
-- sort_by (str): Optional parameter by which to sort games if desired. Defaults to None, but supported values are release-date, popularity, alphabetical or relevance.</p>
-<p>Returns:
-- dict: A dictionary containing the free games matching the given category.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – The filter tags, representing the categories of the filtered games, period delimited, no spaces. Supported values are mmorpg, shooter, strategy, moba, racing, sports, social, sandbox, open-world, survival, pvp, pve, pixel, voxel, zombie, turn-based, first-person, third-Person, top-down, tank, space, sailing, side-scroller, superhero, permadeath, card, battle-royale, mmo, mmofps, mmotps, 3d, 2d, anime, fantasy, sci-fi, fighting, action-rpg, action, military, martial-arts, flight, low-spec, tower-defense, horror, mmorts.</p></li>
+<li><p><strong>platform</strong> (<em>str</em>) – Optional parameter representing the platform on which the games are played. Default is all, but other supported values are browser and pc.</p></li>
+<li><p><strong>sort_by</strong> (<em>str</em>) – Optional parameter by which to sort games if desired. Defaults to None, but supported values are release-date, popularity, alphabetical or relevance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the free games matching the given category.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.free_to_game.FreeToGame.get_all_live_games">
 <span class="sig-name descname"><span class="pre">get_all_live_games</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sort_by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/free_to_game.html#FreeToGame.get_all_live_games"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.free_to_game.FreeToGame.get_all_live_games" title="Link to this definition"></a></dt>
 <dd><p>Returns the live games listed in the API.</p>
-<p>Args:
-- sort_by (str): Optional parameter by which to sort games if desired. Defaults to None, but supported values are release-date, popularity, alphabetical or relevance.</p>
-<p>Returns:
-- dict: A dictionary containing all the live games listed in the API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sort_by</strong> (<em>str</em>) – Optional parameter by which to sort games if desired. Defaults to None, but supported values are release-date, popularity, alphabetical or relevance.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing all the live games listed in the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.free_to_game.FreeToGame.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/free_to_game.html#FreeToGame.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.free_to_game.FreeToGame.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for the Free To Game API documentation.</p>
-<p>Args:
-- None</p>
-<p>Returns:
--string: The URL for the API docs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL for the API docs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.free_to_game.FreeToGame.get_game_by_id">
 <span class="sig-name descname"><span class="pre">get_game_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gameID</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/free_to_game.html#FreeToGame.get_game_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.free_to_game.FreeToGame.get_game_by_id" title="Link to this definition"></a></dt>
 <dd><p>Returns information for a single game matching the id.</p>
-<p>Args:
-- gameID (int): A number representing the unique id of the game as listed in the API.</p>
-<p>Returns:
-- dict: A dictionary containing information for the game matching the given id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>gameID</strong> (<em>int</em>) – A number representing the unique id of the game as listed in the API.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing information for the game matching the given id.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.free_to_game.FreeToGame.get_games_by_category">
 <span class="sig-name descname"><span class="pre">get_games_by_category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/free_to_game.html#FreeToGame.get_games_by_category"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.free_to_game.FreeToGame.get_games_by_category" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of free games by category.</p>
-<p>Args:
-- category (str): The category of the game. Supported values are mmorpg, shooter, strategy, moba, racing, sports, social, sandbox, open-world, survival, pvp, pve, pixel, voxel, zombie, turn-based, first-person, third-Person, top-down, tank, space, sailing, side-scroller, superhero, permadeath, card, battle-royale, mmo, mmofps, mmotps, 3d, 2d, anime, fantasy, sci-fi, fighting, action-rpg, action, military, martial-arts, flight, low-spec, tower-defense, horror, mmorts.
-- sort_by (str): Optional parameter by which to sort games if desired. Defaults to None, but supported values are release-date, popularity, alphabetical or relevance.</p>
-<p>Returns:
-- dict: A dictionary containing the free games matching the given category.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>category</strong> (<em>str</em>) – The category of the game. Supported values are mmorpg, shooter, strategy, moba, racing, sports, social, sandbox, open-world, survival, pvp, pve, pixel, voxel, zombie, turn-based, first-person, third-Person, top-down, tank, space, sailing, side-scroller, superhero, permadeath, card, battle-royale, mmo, mmofps, mmotps, 3d, 2d, anime, fantasy, sci-fi, fighting, action-rpg, action, military, martial-arts, flight, low-spec, tower-defense, horror, mmorts.</p></li>
+<li><p><strong>sort_by</strong> (<em>str</em>) – Optional parameter by which to sort games if desired. Defaults to None, but supported values are release-date, popularity, alphabetical or relevance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the free games matching the given category.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.free_to_game.FreeToGame.get_games_by_platform">
 <span class="sig-name descname"><span class="pre">get_games_by_platform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">platform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/free_to_game.html#FreeToGame.get_games_by_platform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.free_to_game.FreeToGame.get_games_by_platform" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of free games by platform.</p>
-<p>Args:
-- platform (str): The platform on which the game is played. Supported values are pc, browser, or all.
-- sort_by (str): Optional parameter by which to sort games if desired. Defaults to None, but supported values are release-date, popularity, alphabetical or relevance.</p>
-<p>Returns:
-- dict: A dictionary containing the free games played on the given platform.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>platform</strong> (<em>str</em>) – The platform on which the game is played. Supported values are pc, browser, or all.</p></li>
+<li><p><strong>sort_by</strong> (<em>str</em>) – Optional parameter by which to sort games if desired. Defaults to None, but supported values are release-date, popularity, alphabetical or relevance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the free games played on the given platform.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.free_to_game.FreeToGame.get_games_by_platform_and_category">
 <span class="sig-name descname"><span class="pre">get_games_by_platform_and_category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">platform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/free_to_game.html#FreeToGame.get_games_by_platform_and_category"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.free_to_game.FreeToGame.get_games_by_platform_and_category" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of free games by category.</p>
-<p>Args:
-- platform (str): The platform on which the game is played. Supported values are pc, browser, or all.
-- category (str): The category of the game. Supported values are mmorpg, shooter, strategy, moba, racing, sports, social, sandbox, open-world, survival, pvp, pve, pixel, voxel, zombie, turn-based, first-person, third-Person, top-down, tank, space, sailing, side-scroller, superhero, permadeath, card, battle-royale, mmo, mmofps, mmotps, 3d, 2d, anime, fantasy, sci-fi, fighting, action-rpg, action, military, martial-arts, flight, low-spec, tower-defense, horror, mmorts.
-- sort_by (str): Optional parameter by which to sort games if desired. Defaults to None, but supported values are release-date, popularity, alphabetical or relevance.</p>
-<p>Returns:
-- dict: A dictionary containing the free games matching the given category.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>platform</strong> (<em>str</em>) – The platform on which the game is played. Supported values are pc, browser, or all.</p></li>
+<li><p><strong>category</strong> (<em>str</em>) – The category of the game. Supported values are mmorpg, shooter, strategy, moba, racing, sports, social, sandbox, open-world, survival, pvp, pve, pixel, voxel, zombie, turn-based, first-person, third-Person, top-down, tank, space, sailing, side-scroller, superhero, permadeath, card, battle-royale, mmo, mmofps, mmotps, 3d, 2d, anime, fantasy, sci-fi, fighting, action-rpg, action, military, martial-arts, flight, low-spec, tower-defense, horror, mmorts.</p></li>
+<li><p><strong>sort_by</strong> (<em>str</em>) – Optional parameter by which to sort games if desired. Defaults to None, but supported values are release-date, popularity, alphabetical or relevance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the free games matching the given category.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -208,38 +273,66 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.games.open_trivia_db.</span></span><span class="sig-name descname"><span class="pre">OpenTriviaDB</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'open_trivia_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/open_trivia_db.html#OpenTriviaDB"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.open_trivia_db.OpenTriviaDB" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class for interacting with the Open Trivia Database API.</p>
-<p>Attributes:
-- base_url: The base URL of the API.
-- about: A short description of the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.games.open_trivia_db.OpenTriviaDB.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#nokey.games.open_trivia_db.OpenTriviaDB.base_url" title="Link to this definition"></a></dt>
+<dd><p>The base URL of the API.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.games.open_trivia_db.OpenTriviaDB.about">
+<span class="sig-name descname"><span class="pre">about</span></span><a class="headerlink" href="#nokey.games.open_trivia_db.OpenTriviaDB.about" title="Link to this definition"></a></dt>
+<dd><p>A short description of the API.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.open_trivia_db.OpenTriviaDB.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/open_trivia_db.html#OpenTriviaDB.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.open_trivia_db.OpenTriviaDB.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for the Open Trivia Database API documentation.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: The URL for the API docs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL for the API docs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.open_trivia_db.OpenTriviaDB.get_random_trivia_questions">
 <span class="sig-name descname"><span class="pre">get_random_trivia_questions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/open_trivia_db.html#OpenTriviaDB.get_random_trivia_questions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.open_trivia_db.OpenTriviaDB.get_random_trivia_questions" title="Link to this definition"></a></dt>
 <dd><p>Returns the specified amount of random trivia questions of various difficulties and subjects, and the answers to those questions.</p>
-<p>Args:
-- amount (int): The number of trivia desired.</p>
-<p>Returns:
-- dict: A dictionary containing the specified amount of trivia questions along with relevant data and the answers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>amount</strong> (<em>int</em>) – The number of trivia desired.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the specified amount of trivia questions along with relevant data and the answers.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.open_trivia_db.OpenTriviaDB.get_specified_trivia_questions">
 <span class="sig-name descname"><span class="pre">get_specified_trivia_questions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difficulty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/open_trivia_db.html#OpenTriviaDB.get_specified_trivia_questions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.open_trivia_db.OpenTriviaDB.get_specified_trivia_questions" title="Link to this definition"></a></dt>
 <dd><p>Returns the specified amount of trivial questions matching the given parameters, along with relevant data and answers to the questions.</p>
-<p>Args:
-- amount (int): The number of trivia questions to return.
-- category (int): The category of trivia questions desired. Defaults to None, in which case any categories will be returned.
-- difficulty (str): The difficulty level of the trivia questions. Defaults to None, in which case each question can be any difficulty level. Supported values are easy, medium, and hard.
-- q_type (str): The type of questions. Defaults to None, in which case the types are random. Supported values are boolean (True or False) and multiple (Multiple Choice).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>amount</strong> (<em>int</em>) – The number of trivia questions to return.</p></li>
+<li><p><strong>category</strong> (<em>int</em>) – The category of trivia questions desired. Defaults to None, in which case any categories will be returned.</p></li>
+<li><p><strong>difficulty</strong> (<em>str</em>) – The difficulty level of the trivia questions. Defaults to None, in which case each question can be any difficulty level. Supported values are easy, medium, and hard.</p></li>
+<li><p><strong>q_type</strong> (<em>str</em>) – The type of questions. Defaults to None, in which case the types are random. Supported values are boolean (True or False) and multiple (Multiple Choice).</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -252,393 +345,679 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nokey.games.shadify.</span></span><span class="sig-name descname"><span class="pre">Shadify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'shadify_cache'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqlite'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class for interacting with the Shadify API.</p>
-<p>Attributes:
-- base_url: The base URL of the API.
-- about: A short description of the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.games.shadify.Shadify.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#nokey.games.shadify.Shadify.base_url" title="Link to this definition"></a></dt>
+<dd><p>The base URL of the API.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nokey.games.shadify.Shadify.about">
+<span class="sig-name descname"><span class="pre">about</span></span><a class="headerlink" href="#nokey.games.shadify.Shadify.about" title="Link to this definition"></a></dt>
+<dd><p>A short description of the API.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.about_anagram">
 <span class="sig-name descname"><span class="pre">about_anagram</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.about_anagram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.about_anagram" title="Link to this definition"></a></dt>
 <dd><p>Returns a short description of the game.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: A short description of the game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A short description of the game.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.about_camp">
 <span class="sig-name descname"><span class="pre">about_camp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.about_camp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.about_camp" title="Link to this definition"></a></dt>
 <dd><p>Returns a short description of the game.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: A short description of the game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A short description of the game.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.about_countries">
 <span class="sig-name descname"><span class="pre">about_countries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.about_countries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.about_countries" title="Link to this definition"></a></dt>
 <dd><p>Returns a short description of the game.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: A short description of the game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A short description of the game.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.about_kuromasu">
 <span class="sig-name descname"><span class="pre">about_kuromasu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.about_kuromasu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.about_kuromasu" title="Link to this definition"></a></dt>
 <dd><p>Returns a short description of the game.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: A short description of the game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A short description of the game.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.about_math">
 <span class="sig-name descname"><span class="pre">about_math</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.about_math"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.about_math" title="Link to this definition"></a></dt>
 <dd><p>Returns a short description of the game.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: A short description of the game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A short description of the game.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.about_memory">
 <span class="sig-name descname"><span class="pre">about_memory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.about_memory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.about_memory" title="Link to this definition"></a></dt>
 <dd><p>Returns a short description of the game.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: A short description of the game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A short description of the game.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.about_minesweeper">
 <span class="sig-name descname"><span class="pre">about_minesweeper</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.about_minesweeper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.about_minesweeper" title="Link to this definition"></a></dt>
 <dd><p>Returns a short description of the game.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: A short description of the game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A short description of the game.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.about_schulte">
 <span class="sig-name descname"><span class="pre">about_schulte</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.about_schulte"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.about_schulte" title="Link to this definition"></a></dt>
 <dd><p>Returns a short description of the game.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: A short description of the game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A short description of the game.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.about_set">
 <span class="sig-name descname"><span class="pre">about_set</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.about_set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.about_set" title="Link to this definition"></a></dt>
 <dd><p>Returns a short description of the game.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: A short description of the game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A short description of the game.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.about_sudoku">
 <span class="sig-name descname"><span class="pre">about_sudoku</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.about_sudoku"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.about_sudoku" title="Link to this definition"></a></dt>
 <dd><p>Returns a short description of the game.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: A short description of the game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A short description of the game.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.about_takuzu">
 <span class="sig-name descname"><span class="pre">about_takuzu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.about_takuzu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.about_takuzu" title="Link to this definition"></a></dt>
 <dd><p>Returns a short description of the game.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: A short description of the game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A short description of the game.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.about_wordsearch">
 <span class="sig-name descname"><span class="pre">about_wordsearch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.about_wordsearch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.about_wordsearch" title="Link to this definition"></a></dt>
 <dd><p>Returns a short description of the game.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: A short description of the game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A short description of the game.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.check_camp_task">
 <span class="sig-name descname"><span class="pre">check_camp_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row_tents</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_tents</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solution</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.check_camp_task"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.check_camp_task" title="Link to this definition"></a></dt>
 <dd><p>Checks the given camp task grid and returns whether or not it is correct.</p>
-<p>Args:
-- row_tents (list): A list containing the row tents values.
-- column_tents (list). A list containing the column tents values.
-- solution (array): A two dimensional array containing the solution grid.</p>
-<p>Returns:
-- dict: A dictionary containing whether or not the solution is valid, where the error occurs if it is not, and a message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row_tents</strong> (<em>list</em>) – A list containing the row tents values.</p></li>
+<li><p><strong>column_tents</strong> (<em>list</em>) – </p></li>
+<li><p><strong>solution</strong> (<em>array</em>) – A two dimensional array containing the solution grid.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing whether or not the solution is valid, where the error occurs if it is not, and a message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.check_kuromasu_task">
 <span class="sig-name descname"><span class="pre">check_kuromasu_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solution</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.check_kuromasu_task"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.check_kuromasu_task" title="Link to this definition"></a></dt>
 <dd><p>Checks the given kuromasu task grid and returns whether or not it is correct.</p>
-<p>Args:
-- solution (array): A two dimensional array containing the solution grid.</p>
-<p>Returns:
-- dict: A dictionary containing whether or not the solution is valid, where the error occurs if it is not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>solution</strong> (<em>array</em>) – A two dimensional array containing the solution grid.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing whether or not the solution is valid, where the error occurs if it is not.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.check_sudoku">
 <span class="sig-name descname"><span class="pre">check_sudoku</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">puzzle_grid</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.check_sudoku"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.check_sudoku" title="Link to this definition"></a></dt>
 <dd><p>Returns whether or not the provided sudoku grid is correct or not.</p>
-<p>Args:
-- puzzle_grid (array): A two-dimensional grid (list of lists), where each list is a row in the sudoku grid.</p>
-<p>Returns:
-- dict: A dictionary containing whether or not the given puzzle is correctly solved, as well as which row contains incorrect values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>puzzle_grid</strong> (<em>array</em>) – A two-dimensional grid (list of lists), where each list is a row in the sudoku grid.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing whether or not the given puzzle is correctly solved, as well as which row contains incorrect values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.check_takuzu">
 <span class="sig-name descname"><span class="pre">check_takuzu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">puzzle_grid</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.check_takuzu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.check_takuzu" title="Link to this definition"></a></dt>
 <dd><p>Returns whether or not the provided takuzu grid is correct or not.</p>
-<p>Args:
-- puzzle_grid (array): A two-dimensional grid (list of lists), where each list is a row in the takuzu grid.</p>
-<p>Returns:
-- dict: A dictionary containing whether or not the given puzzle is correctly solved, as well as which row contains incorrect values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>puzzle_grid</strong> (<em>array</em>) – A two-dimensional grid (list of lists), where each list is a row in the takuzu grid.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing whether or not the given puzzle is correctly solved, as well as which row contains incorrect values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.generate_addition">
 <span class="sig-name descname"><span class="pre">generate_addition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_second</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_second</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">99</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.generate_addition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.generate_addition" title="Link to this definition"></a></dt>
 <dd><p>Returns a generated addition expression.</p>
-<p>Args:
-- min_first (int): Optional. Minimum value of the first number in the expression. Default is 1.
-- max_first (int): Optional. Maximum value of the first number in the expression. Default is 99.
-- min_second (int): Optional. Minimum value of the second number in the expression. Default is 1.
-- max_second (int): Optional. Maximum value of the second number in the expression. Default is 99.</p>
-<p>Returns:
-- dict: A dictionary containing the generated expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_first</strong> (<em>int</em>) – Optional. Minimum value of the first number in the expression. Default is 1.</p></li>
+<li><p><strong>max_first</strong> (<em>int</em>) – Optional. Maximum value of the first number in the expression. Default is 99.</p></li>
+<li><p><strong>min_second</strong> (<em>int</em>) – Optional. Minimum value of the second number in the expression. Default is 1.</p></li>
+<li><p><strong>max_second</strong> (<em>int</em>) – Optional. Maximum value of the second number in the expression. Default is 99.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the generated expression.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.generate_capital_quiz">
 <span class="sig-name descname"><span class="pre">generate_capital_quiz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variants</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.generate_capital_quiz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.generate_capital_quiz" title="Link to this definition"></a></dt>
 <dd><p>Returns a country capital quiz and answer the the quiz.</p>
-<p>Args:
-- variants (int): Optional. A number from 2 to 6 corresponding to the number of different options from which you have to choose the correct capital of the given country. Default is 4.
-- amount (int): Optional. A number from 1 to 20 which is responsible for the number of quizzes returned. The use of this parameter ensures that among all quizzes received, all will be unique. Default is 1.</p>
-<p>Returns:
-- dict: A dictionary containing a country name, a link to its flag, possible answers for its capital, and correct answer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>variants</strong> (<em>int</em>) – Optional. A number from 2 to 6 corresponding to the number of different options from which you have to choose the correct capital of the given country. Default is 4.</p></li>
+<li><p><strong>amount</strong> (<em>int</em>) – Optional. A number from 1 to 20 which is responsible for the number of quizzes returned. The use of this parameter ensures that among all quizzes received, all will be unique. Default is 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a country name, a link to its flag, possible answers for its capital, and correct answer.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.generate_country_quiz">
 <span class="sig-name descname"><span class="pre">generate_country_quiz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variants</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.generate_country_quiz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.generate_country_quiz" title="Link to this definition"></a></dt>
 <dd><p>Returns a country capital quiz and answer the the quiz.</p>
-<p>Args:
-- variants (int): Optional. A number from 2 to 6 corresponding to the number of different options from which you have to choose the the correct country of the given flag image. Default is 4.
-- amount (int): Optional. A number from 1 to 20 which is responsible for the number of quizzes returned. The use of this parameter ensures that among all quizzes received, all will be unique. Default is 1.</p>
-<p>Returns:
-- dict: A dictionary containing a link to a country’s flag, possible answers for the country, and correct answer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>variants</strong> (<em>int</em>) – Optional. A number from 2 to 6 corresponding to the number of different options from which you have to choose the the correct country of the given flag image. Default is 4.</p></li>
+<li><p><strong>amount</strong> (<em>int</em>) – Optional. A number from 1 to 20 which is responsible for the number of quizzes returned. The use of this parameter ensures that among all quizzes received, all will be unique. Default is 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a link to a country’s flag, possible answers for the country, and correct answer.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.generate_division">
 <span class="sig-name descname"><span class="pre">generate_division</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">99</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.generate_division"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.generate_division" title="Link to this definition"></a></dt>
 <dd><p>Returns a generated division expression.</p>
-<p>Args:
-- min_first (int): Optional. Minimum value of the first number in the expression. Default is 1.
-- max_first (int): Optional. Maximum value of the first number in the expression. Default is 99.</p>
-<p>Returns:
-- dict: A dictionary containing the generated expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_first</strong> (<em>int</em>) – Optional. Minimum value of the first number in the expression. Default is 1.</p></li>
+<li><p><strong>max_first</strong> (<em>int</em>) – Optional. Maximum value of the first number in the expression. Default is 99.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the generated expression.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.generate_multiplication">
 <span class="sig-name descname"><span class="pre">generate_multiplication</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_second</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_second</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">99</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.generate_multiplication"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.generate_multiplication" title="Link to this definition"></a></dt>
 <dd><p>Returns a generated multiplication expression.</p>
-<p>Args:
-- min_first (int): Optional. Minimum value of the first number in the expression. Default is 1.
-- max_first (int): Optional. Maximum value of the first number in the expression. Default is 99.
-- min_second (int): Optional. Minimum value of the second number in the expression. Default is 1.
-- max_second (int): Optional. Maximum value of the second number in the expression. Default is 99.</p>
-<p>Returns:
-- dict: A dictionary containing the generated expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_first</strong> (<em>int</em>) – Optional. Minimum value of the first number in the expression. Default is 1.</p></li>
+<li><p><strong>max_first</strong> (<em>int</em>) – Optional. Maximum value of the first number in the expression. Default is 99.</p></li>
+<li><p><strong>min_second</strong> (<em>int</em>) – Optional. Minimum value of the second number in the expression. Default is 1.</p></li>
+<li><p><strong>max_second</strong> (<em>int</em>) – Optional. Maximum value of the second number in the expression. Default is 99.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the generated expression.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.generate_quadratic_equation">
 <span class="sig-name descname"><span class="pre">generate_quadratic_equation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.generate_quadratic_equation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.generate_quadratic_equation" title="Link to this definition"></a></dt>
 <dd><p>Returns a generated quadratic equation.</p>
-<p>Args:
-- min_a (int): Minimum value of coefficient a. Default is 1.
-- max_a (int): Maximum value of coefficient a. Default is 20.
-- min_b (int): Minimum value of coefficient b. Default is 1.
-- max_b (int): Maximum value of coefficient b. Default is 40.
-- min_c (int): Minimum value of coefficient c. Default is 1.
-- max_c (int): Maximum value of coefficient c. Default is 20.</p>
-<p>Returns:
-- dict: A dictionary containing the generated equation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_a</strong> (<em>int</em>) – Minimum value of coefficient a. Default is 1.</p></li>
+<li><p><strong>max_a</strong> (<em>int</em>) – Maximum value of coefficient a. Default is 20.</p></li>
+<li><p><strong>min_b</strong> (<em>int</em>) – Minimum value of coefficient b. Default is 1.</p></li>
+<li><p><strong>max_b</strong> (<em>int</em>) – Maximum value of coefficient b. Default is 40.</p></li>
+<li><p><strong>min_c</strong> (<em>int</em>) – Minimum value of coefficient c. Default is 1.</p></li>
+<li><p><strong>max_c</strong> (<em>int</em>) – Maximum value of coefficient c. Default is 20.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the generated equation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.generate_random_anagram">
 <span class="sig-name descname"><span class="pre">generate_random_anagram</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.generate_random_anagram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.generate_random_anagram" title="Link to this definition"></a></dt>
 <dd><p>Returns a word as the task and the possible words that can be composed from the word.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- dict: A dictionary containing a task word and a list of words that can be composed from this word.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a task word and a list of words that can be composed from this word.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.generate_random_camp_task">
 <span class="sig-name descname"><span class="pre">generate_random_camp_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.generate_random_camp_task"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.generate_random_camp_task" title="Link to this definition"></a></dt>
 <dd><p>Returns a camp game grid and the solution.</p>
-<p>Args:
-- width (int): Optional. A number from 5 to 15 which corresponds to the width of the generated field. Default is 7.
-- height (int): Optional. A number from 5 to 15 which corresponds to the height of the generated field. Default is 7.
-- solution (bool): Optional. The true/false value that specifies whether the solution should be sent with the task or not. Default is True.</p>
-<p>Returns:
-- dict: A dictionary containing the camp grid task and the solution if solution is True.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>int</em>) – Optional. A number from 5 to 15 which corresponds to the width of the generated field. Default is 7.</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – Optional. A number from 5 to 15 which corresponds to the height of the generated field. Default is 7.</p></li>
+<li><p><strong>solution</strong> (<em>bool</em>) – Optional. The true/false value that specifies whether the solution should be sent with the task or not. Default is True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the camp grid task and the solution if solution is True.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.generate_random_kuromasu_task">
 <span class="sig-name descname"><span class="pre">generate_random_kuromasu_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.generate_random_kuromasu_task"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.generate_random_kuromasu_task" title="Link to this definition"></a></dt>
 <dd><p>Returns a kuromasu task grid and the solution.</p>
-<p>Args:
-- width (int): Optional. A number from 4 to 15 which corresponds to the width of the generated field. Default is 5.
-- height (int): Optional. A number from 4 to 15 which corresponds to the height of the generated field. Default is 5.
-- fill (int): Optional. A number from 10 to 50 which corresponds to the % level of filling the task with ready cells.</p>
-<p>Returns:
-- dict: A dictionary containing the kuromasu grid task and the solution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>int</em>) – Optional. A number from 4 to 15 which corresponds to the width of the generated field. Default is 5.</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – Optional. A number from 4 to 15 which corresponds to the height of the generated field. Default is 5.</p></li>
+<li><p><strong>fill</strong> (<em>int</em>) – Optional. A number from 10 to 50 which corresponds to the % level of filling the task with ready cells.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the kuromasu grid task and the solution.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.generate_random_memory_grid">
 <span class="sig-name descname"><span class="pre">generate_random_memory_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pair_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_positions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.generate_random_memory_grid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.generate_random_memory_grid" title="Link to this definition"></a></dt>
 <dd><p>Returns a memory grid and pair positions.</p>
-<p>Args:
-- width (int). Optional. A number corresponding to the width of the generated grid. The total number of cells in the grid must not exceed 52 multiplied by the pair-size. Default is 6.
-- height (int): Optional. A number corresponding to the height of the generated grid. The total number of cells in the grid must not exceed 52 multiplied by the pair-size. Default is 4.
-- pair_size (int): Optional. A number corresponding to the size of a pair of identical elements. The value must be a multiple of the total number of cells in the grid. Available values: 2, 3, 4. Default is 3.
-- show_positions (bool): Optional. A true/false value that determines whether to send position information for each pair of elements. Default is True.</p>
-<p>Returns:
-- dict: A dictionary containing a memory grid and pair positions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>int</em>) – </p></li>
+<li><p><strong>height</strong> (<em>int</em>) – Optional. A number corresponding to the height of the generated grid. The total number of cells in the grid must not exceed 52 multiplied by the pair-size. Default is 4.</p></li>
+<li><p><strong>pair_size</strong> (<em>int</em>) – Optional. A number corresponding to the size of a pair of identical elements. The value must be a multiple of the total number of cells in the grid. Available values: 2, 3, 4. Default is 3.</p></li>
+<li><p><strong>show_positions</strong> (<em>bool</em>) – Optional. A true/false value that determines whether to send position information for each pair of elements. Default is True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a memory grid and pair positions.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.generate_random_minesweeper_field">
 <span class="sig-name descname"><span class="pre">generate_random_minesweeper_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.generate_random_minesweeper_field"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.generate_random_minesweeper_field" title="Link to this definition"></a></dt>
 <dd><p>Returns a randomly generated minesweeper grid.</p>
-<p>Args:
-- start (str): A string of the form 1-2, which sets the starting position of the player. There will never be mines in and around this position. The first number is the X coordinate (from 1 to the value of the widht parameter), the second number is the Y coordinate (from 1 to the value of the height parameter).
-- width (int): The number that sets the width of the generated field. The total number of cells in the field must not exceed 1000. Default is 9.
-- height (int): The number that sets the height of the generated field. The total number of cells in the field must not exceed 1000. Default is 9.
-- mines (int): The number that sets the number of mines on the field. The number of mines must not exceed 25% of the total number of cells on the field. Default is 12.</p>
-<p>Returns:
-- dict: A dictionary containing the minesweeper board grid and other data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> (<em>str</em>) – A string of the form 1-2, which sets the starting position of the player. There will never be mines in and around this position. The first number is the X coordinate (from 1 to the value of the widht parameter), the second number is the Y coordinate (from 1 to the value of the height parameter).</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – The number that sets the width of the generated field. The total number of cells in the field must not exceed 1000. Default is 9.</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – The number that sets the height of the generated field. The total number of cells in the field must not exceed 1000. Default is 9.</p></li>
+<li><p><strong>mines</strong> (<em>int</em>) – The number that sets the number of mines on the field. The number of mines must not exceed 25% of the total number of cells on the field. Default is 12.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the minesweeper board grid and other data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.generate_random_schulte_table">
 <span class="sig-name descname"><span class="pre">generate_random_schulte_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'number'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.generate_random_schulte_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.generate_random_schulte_table" title="Link to this definition"></a></dt>
 <dd><p>Returns a random schulte table.</p>
-<p>Args:
-- size (int): The size of the generated table. The available range is from 1 to 15. Default is 5.
-- mode (str) The number / alphabet string, which defines the generated values for the table: numbers or letters. If alphabet is selected, the size parameter will always be 5. Default is number</p>
-<p>Returns:
-- dict: A dictionary containing a grid representing the schulte table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>size</strong> (<em>int</em>) – The size of the generated table. The available range is from 1 to 15. Default is 5.</p></li>
+<li><p><strong>mode</strong> (<em>str</em>) – numbers or letters. If alphabet is selected, the size parameter will always be 5. Default is number</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing a grid representing the schulte table.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.generate_random_sudoku">
 <span class="sig-name descname"><span class="pre">generate_random_sudoku</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.generate_random_sudoku"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.generate_random_sudoku" title="Link to this definition"></a></dt>
 <dd><p>Returns a random sudoku puzzle, both the finished (“grid”) and the unfinished (“task”) versions.</p>
-<p>Args:
-- fill (int): A number from 0 to 50 that corresponds to the field fill level (as a percentage). Default is 30.</p>
-<p>Returns:
-- dict: A dictionary containing two grids: the unfinished and finished versions of the puzzle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fill</strong> (<em>int</em>) – A number from 0 to 50 that corresponds to the field fill level (as a percentage). Default is 30.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing two grids: the unfinished and finished versions of the puzzle.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.generate_random_takuzu">
 <span class="sig-name descname"><span class="pre">generate_random_takuzu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">33</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.generate_random_takuzu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.generate_random_takuzu" title="Link to this definition"></a></dt>
 <dd><p>Returns a random takuzu puzzle, both the finished (“field”) and the unfinished (“task”) versions.</p>
-<p>Args:
-- size (int): An even number from 4 to 12, which specifies the size of the field. Default is 8.
-- fill (int): A number from 0 to 100 that corresponds to the field fill level (as a percentage). Default is 33.</p>
-<p>Returns:
-- dict: A dictionary containing two grids: the unfinished and finished versions of the puzzle, as well as the size of the grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>size</strong> (<em>int</em>) – An even number from 4 to 12, which specifies the size of the field. Default is 8.</p></li>
+<li><p><strong>fill</strong> (<em>int</em>) – A number from 0 to 100 that corresponds to the field fill level (as a percentage). Default is 33.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing two grids: the unfinished and finished versions of the puzzle, as well as the size of the grid.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.generate_random_wordsearch_grid">
 <span class="sig-name descname"><span class="pre">generate_random_wordsearch_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.generate_random_wordsearch_grid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.generate_random_wordsearch_grid" title="Link to this definition"></a></dt>
 <dd><p>Returns a randomly generated wordsearch grid.</p>
-<p>Args:
-- width (int): A number from 5 to 20 that specifies the width of the grid. The total number of cells in the field must not exceed 256. Default is 9.
-- height (int): A number from 5 to 20 that specifies the width of the grid. The total number of cells in the field must not exceed 256. Default is 9.</p>
-<p>Returns:
-- dict: Returns a dictionary containing the wordsearch grid and the key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>int</em>) – A number from 5 to 20 that specifies the width of the grid. The total number of cells in the field must not exceed 256. Default is 9.</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – A number from 5 to 20 that specifies the width of the grid. The total number of cells in the field must not exceed 256. Default is 9.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Returns a dictionary containing the wordsearch grid and the key.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.generate_subtraction">
 <span class="sig-name descname"><span class="pre">generate_subtraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_second</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_second</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">negative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.generate_subtraction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.generate_subtraction" title="Link to this definition"></a></dt>
 <dd><p>Returns a generated subtraction expression.</p>
-<p>Args:
-- min_first (int): Optional. Minimum value of the first number in the expression. Default is 1.
-- max_first (int): Optional. Maximum value of the first number in the expression. Default is 99.
-- min_second (int): Optional. Minimum value of the second number in the expression. Default is 1.
-- max_second (int): Optional. Maximum value of the second number in the expression. Default is 99.
-- negative (int): Optional. The number 0/1 which enables/disables the possibility of generating a result with a negative value for expressions with subtraction. Initially, when generating an expression with subtraction, the first number is always greater than the second number. To change this behavior, use this parameter. Default is 0.</p>
-<p>Returns:
-- dict: A dictionary containing the generated expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_first</strong> (<em>int</em>) – Optional. Minimum value of the first number in the expression. Default is 1.</p></li>
+<li><p><strong>max_first</strong> (<em>int</em>) – Optional. Maximum value of the first number in the expression. Default is 99.</p></li>
+<li><p><strong>min_second</strong> (<em>int</em>) – Optional. Minimum value of the second number in the expression. Default is 1.</p></li>
+<li><p><strong>max_second</strong> (<em>int</em>) – Optional. Maximum value of the second number in the expression. Default is 99.</p></li>
+<li><p><strong>negative</strong> (<em>int</em>) – Optional. The number 0/1 which enables/disables the possibility of generating a result with a negative value for expressions with subtraction. Initially, when generating an expression with subtraction, the first number is always greater than the second number. To change this behavior, use this parameter. Default is 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the generated expression.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.get_all_set_cards">
 <span class="sig-name descname"><span class="pre">get_all_set_cards</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">possible_sets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.get_all_set_cards"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.get_all_set_cards" title="Link to this definition"></a></dt>
 <dd><p>Always returns the same array of 81 objects. Each object corresponds to one of the cards.</p>
-<p>Args:
-- possible_sets (bool): A true/false string that enables/disables the search for possible sets in the current layout. The list of possible sets is not necessary for the game and acts only as a hint and evidence that sets exist in the current layout.</p>
-<p>Returns:
-- dict: A dictionary containing</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>possible_sets</strong> (<em>bool</em>) – A true/false string that enables/disables the search for possible sets in the current layout. The list of possible sets is not necessary for the game and acts only as a hint and evidence that sets exist in the current layout.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.get_docs_url">
 <span class="sig-name descname"><span class="pre">get_docs_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.get_docs_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.get_docs_url" title="Link to this definition"></a></dt>
 <dd><p>Returns the URL for the Shadify API documentation.</p>
-<p>Args:
-- None</p>
-<p>Returns:
-- string: The URL for the API docs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL for the API docs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nokey.games.shadify.Shadify.load_set_state">
 <span class="sig-name descname"><span class="pre">load_set_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">possible_sets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cards</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nokey/games/shadify.html#Shadify.load_set_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nokey.games.shadify.Shadify.load_set_state" title="Link to this definition"></a></dt>
 <dd><p>Always returns the same array of 81 objects. Each object corresponds to one of the cards.</p>
-<p>Args:
-- A string of hyphenated, no spaced numbers representing the state of the cards.
-- possible_sets (bool): A true/false string that enables/disables the search for possible sets in the current layout. The list of possible sets is not necessary for the game and acts only as a hint and evidence that sets exist in the current layout.
-- action (str): Optional. The add/remove string, which allows you to perform the appropriate action with the current game state. The add string adds 3 random cards from the current freeCards array to the current layout (available only if the layout size does not exceed 20 cards). The remove string removes the specified combination of three cards from the current layout. To do this you must use the cards parameter. Default is None.
-- cards (str): Required if action=remove. A string of the form 1-2-3, where each number corresponds to the unique identifier of one of the cards that make up the set. Default is None.</p>
-<p>Returns:
-- dict: A dictionary containing</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<em>str</em>) – A string of hyphenated, no spaced numbers representing the state of the cards.</p></li>
+<li><p><strong>possible_sets</strong> (<em>bool</em>) – A true/false string that enables/disables the search for possible sets in the current layout. The list of possible sets is not necessary for the game and acts only as a hint and evidence that sets exist in the current layout.</p></li>
+<li><p><strong>action</strong> (<em>str</em>) – Optional. The add/remove string, which allows you to perform the appropriate action with the current game state. The add string adds 3 random cards from the current freeCards array to the current layout (available only if the layout size does not exceed 20 cards). The remove string removes the specified combination of three cards from the current layout. To do this you must use the cards parameter. Default is None.</p></li>
+<li><p><strong>cards</strong> (<em>str</em>) – Required if action=remove. A string of the form 1-2-3, where each number corresponds to the unique identifier of one of the cards that make up the set. Default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

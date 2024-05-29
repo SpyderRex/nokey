@@ -6,10 +6,10 @@ def get_api_list():
     and the individual APIs under the respective headings.
 
     Args:
-    - None
+        None
     
     Returns:
-    - string: A list of the apis supported by the nokey package.
+        string: A list of the apis supported by the nokey package.
     """
 
     # ANSI escape codes for colors

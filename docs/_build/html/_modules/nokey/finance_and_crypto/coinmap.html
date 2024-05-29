@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.finance_and_crypto.coinmap &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.finance_and_crypto.coinmap &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=c98573da"></script>
+        <script src="../../../_static/documentation_options.js?v=020ce317"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -83,8 +83,8 @@
 <span class="sd">    A class for interacting with the Coinmap API.</span>
 <span class="sd">    </span>
 <span class="sd">    Attributes:</span>
-<span class="sd">    - base_url: The base URL of the Coinmap API.</span>
-<span class="sd">    - about: A short description of the API.</span>
+<span class="sd">        base_url: The base URL of the Coinmap API.</span>
+<span class="sd">        about: A short description of the API.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">use_caching</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cache_name</span><span class="o">=</span><span class="s2">&quot;coinmap_cache&quot;</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;sqlite&quot;</span><span class="p">,</span> <span class="n">expire_after</span><span class="o">=</span><span class="mi">3600</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://coinmap.org/api/v1/&quot;</span>
@@ -100,41 +100,49 @@
 <span class="sd">        Returns the URL for the Coinmap API documentation.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - string: The URL for the API docs.</span>
+<span class="sd">            string: The URL for the API docs.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;https://coinmap.org/api/&quot;</span></div>
 
         
 <div class="viewcode-block" id="Coinmap.get_venues">
 <a class="viewcode-back" href="../../../nokey.finance_and_crypto.html#nokey.finance_and_crypto.coinmap.Coinmap.get_venues">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_venues</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_lat</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_lat</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">min_lon</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                   <span class="n">max_lon</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">category</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                   <span class="n">owner</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">upvoter</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">before</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">date</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                   <span class="n">after</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">date</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">promoted</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                   <span class="n">offset</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_venues</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_lat</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+                        <span class="n">max_lat</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+                        <span class="n">min_lon</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                        <span class="n">max_lon</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+                        <span class="n">query</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+                        <span class="n">category</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                        <span class="n">owner</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+                        <span class="n">upvoter</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+                        <span class="n">before</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">date</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                        <span class="n">after</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">date</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+                        <span class="n">promoted</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+                        <span class="n">limit</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                        <span class="n">offset</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a list of venues with crypto ATMs.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - min_lat (float): Minimum latitude (&gt;=)</span>
-<span class="sd">        - max_lat (float): Maximum latitude (&lt;=)</span>
-<span class="sd">        - min_lon (float): Minimum longitude (&gt;=)</span>
-<span class="sd">        - max_lon (float): Maximum longitude (&lt;=)</span>
-<span class="sd">        - query (str): Substring search in venue names</span>
-<span class="sd">        - category (str): Filter category</span>
-<span class="sd">        - owner (str): Venue owner (userhash)</span>
-<span class="sd">        - upvoter (str): User who upvoted the venue (userhash)</span>
-<span class="sd">        - before (date): Only show venues created before YYYY-MM-DD</span>
-<span class="sd">        - after (date): Only show venues created after YYYY-MM-DD</span>
-<span class="sd">        - promoted (bool): Show promoted venues (unset = both)</span>
-<span class="sd">        - limit (int): Limit number of results</span>
-<span class="sd">        - offset (int): Skip first N results</span>
+<span class="sd">            min_lat (float): Minimum latitude (&gt;=)</span>
+<span class="sd">            max_lat (float): Maximum latitude (&lt;=)</span>
+<span class="sd">            min_lon (float): Minimum longitude (&gt;=)</span>
+<span class="sd">            max_lon (float): Maximum longitude (&lt;=)</span>
+<span class="sd">            query (str): Substring search in venue names</span>
+<span class="sd">            category (str): Filter category</span>
+<span class="sd">            owner (str): Venue owner (userhash)</span>
+<span class="sd">            upvoter (str): User who upvoted the venue (userhash)</span>
+<span class="sd">            before (date): Only show venues created before YYYY-MM-DD</span>
+<span class="sd">            after (date): Only show venues created after YYYY-MM-DD</span>
+<span class="sd">            promoted (bool): Show promoted venues (unset = both)</span>
+<span class="sd">            limit (int): Limit number of results</span>
+<span class="sd">            offset (int): Skip first N results</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a list of venues with crypto ATMs.</span>
+<span class="sd">            dict: A dictionary containing a list of venues with crypto ATMs.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;venues&quot;</span>
         <span class="n">params</span> <span class="o">=</span> <span class="p">{}</span>
@@ -176,10 +184,10 @@
 <span class="sd">        Returns a venue matching the given id.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - venue_id (str): A unique number identifying a specific venue.</span>
+<span class="sd">            venue_id (str): A unique number identifying a specific venue.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing information about the venue matching the given id.</span>
+<span class="sd">            dict: A dictionary containing information about the venue matching the given id.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;venues/</span><span class="si">{</span><span class="n">venue_id</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -192,10 +200,10 @@
 <span class="sd">        Returns a list of comments about the venue matching the given id.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - venue_id (str): A unique number identifying a specific venue.</span>
+<span class="sd">            venue_id (str): A unique number identifying a specific venue.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a list of comments about the venue matching the given id.</span>
+<span class="sd">            dict: A dictionary containing a list of comments about the venue matching the given id.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;venues/</span><span class="si">{</span><span class="n">venue_id</span><span class="si">}</span><span class="s2">/comments&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -208,10 +216,10 @@
 <span class="sd">        Returns ratings about the venue matching the given id.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - venue_id (str): A unique number identifying a specific venue.</span>
+<span class="sd">            venue_id (str): A unique number identifying a specific venue.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing ratings about the venue matching the given id.</span>
+<span class="sd">            dict: A dictionary containing ratings about the venue matching the given id.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;venues/</span><span class="si">{</span><span class="n">venue_id</span><span class="si">}</span><span class="s2">/ratings&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -224,10 +232,10 @@
 <span class="sd">        Returns a list of ATM operators.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a list of ATM operators.</span>
+<span class="sd">            dict: A dictionary containing a list of ATM operators.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;atm-operators&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -240,10 +248,10 @@
 <span class="sd">        Returns a list of coins.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing a list of coins.</span>
+<span class="sd">            dict: A dictionary containing a list of coins.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;coins&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -256,10 +264,10 @@
 <span class="c1">#        Returns a list of ATM providers.</span>
 <span class="c1">#        </span>
 <span class="c1">#        Args:</span>
-<span class="c1">#        - None</span>
+<span class="c1">#            None</span>
 <span class="c1">#        </span>
 <span class="c1">#        Returns:</span>
-<span class="c1">#        - dict: A dictionary containing a list of ATM providers.</span>
+<span class="c1">#            dict: A dictionary containing a list of ATM providers.</span>
 <span class="c1">#        &quot;&quot;&quot;</span>
 <span class="c1">#        endpoint = &quot;providers&quot;</span>
 <span class="c1">#        return mr.make_request(self.base_url+endpoint)</span>

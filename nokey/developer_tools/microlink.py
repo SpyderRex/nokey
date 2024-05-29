@@ -6,8 +6,8 @@ class Microlink:
     A class for interacting with the Microlink API.
     
     Attributes:
-    - base_url: The base URL of the API.
-    - about: A short description of the API.
+        base_url: The base URL of the API.
+        about: A short description of the API.
     """
     
     def __init__(self, use_caching=False, cache_name="microlink_cache", backend="sqlite", expire_after=3600):
@@ -22,10 +22,10 @@ class Microlink:
         Returns the URL for the Microlink API documentation.
         
         Args:
-        - None
+            None
         
         Returns:
-        - string: The URL for the API docs.
+            string: The URL for the API docs.
         """
         return "https://microlink.io/docs/api/getting-started/overview"
         
@@ -34,10 +34,10 @@ class Microlink:
         Returns metadata for the target URL.
         
         Args:
-        - url (str): The target URL.
+            url (str): The target URL.
         
         Returns:
-        - dict: A dictionary containing metadata for the target URL.
+            dict: A dictionary containing metadata for the target URL.
         """
         params = {'url': url}
         return mr.make_request_with_params(self.base_url, params)
@@ -47,10 +47,10 @@ class Microlink:
         Returns the URL for a screenshot of the target URL.
         
         Args:
-        - url (str): The target URL.
+            url (str): The target URL.
         
         Returns:
-        - string: The URL for the screenshot of the target URL.
+            string: The URL for the screenshot of the target URL.
         """
         params = {'url': url, "screenshot": True}
         metadata = mr.make_request_with_params(self.base_url, params)
@@ -61,10 +61,10 @@ class Microlink:
         Returns the URL for a pdf of the target URL.
         
         Args:
-        - url (str): The target URL.
+            url (str): The target URL.
         
         Returns:
-        - string: The URL for the pdf of the target URL.
+            string: The URL for the pdf of the target URL.
         """
         params = {'url': url, "pdf": True}
         metadata = mr.make_request_with_params(self.base_url, params)
@@ -75,10 +75,10 @@ class Microlink:
         Returns metadata containing the predominant color pallette for each image detected over the target URL.
         
         Args:
-        - url (str): The target URL.
+            url (str): The target URL.
         
         Returns:
-        - dict: A dictionary of metadata containing the predominant color pallette for each image detected over the target URL.
+            dict: A dictionary of metadata containing the predominant color pallette for each image detected over the target URL.
         """
         params = {'url': url, "palette": True}
         metadata = mr.make_request_with_params(self.base_url, params)

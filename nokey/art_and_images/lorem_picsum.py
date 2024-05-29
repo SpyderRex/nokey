@@ -7,8 +7,8 @@ class LoremPicsum:
     A class for interacting with the Lorem Picsum API.
     
     Attributes:
-    - base_url: The base URL of the API.
-    - about: A short description of the API.
+        base_url: The base URL of the API.
+        about: A short description of the API.
     """
     def __init__(self, use_caching=False, cache_name="lorem_picsum_cache", backend="sqlite", expire_after=3600):
         self.base_url = "https://picsum.photos/"
@@ -22,10 +22,10 @@ class LoremPicsum:
         Returns the URL for the Lorem Picsum API documentation.
         
         Args:
-        - None
+            None
         
         Returns:
-        - string: The URL for the API docs.
+            string: The URL for the API docs.
         """
         return "https://picsum.photos/"
         
@@ -34,13 +34,13 @@ class LoremPicsum:
         Returns the URL for to a random placeholder image with the given dimensions.
         
         Args:
-        - width (int): The width of the image.
-        - height (int): The height of the image. Defaults to None in which case the image is square.
-        - grayscale (boolean): Optional argument for returning a grayscale picture. The default value is False.
-        - blur (int): An option to return a blurred photo. Values range from 1 to 10.
+            width (int): The width of the image.
+            height (int): The height of the image. Defaults to None in which case the image is square.
+            grayscale (bool): Optional argument for returning a grayscale picture. The default value is False.
+            blur (int): An option to return a blurred photo. Values range from 1 to 10.
         
         Returns:
-        string: The URL of the placeholder image.
+            string: The URL of the placeholder image.
         """
         if height is not None:
             if grayscale:
@@ -78,12 +78,12 @@ class LoremPicsum:
         Returns the URL for a specific image matching the given id number.
         
         Args:
-        - image_id (int): A unique numerical id matching a specific image.
-        - width (int): The width of the image.
-        - height (int): The height of the image. Defaults to None in which case the image is square.
+            image_id (int): A unique numerical id matching a specific image.
+            width (int): The width of the image.
+            height (int): The height of the image. Defaults to None in which case the image is square.
         
         Returns:
-        - string: The URL to the image matching the given parameters.
+            string: The URL to the image matching the given parameters.
         """
         if height is not None:
             if grayscale:
@@ -122,12 +122,12 @@ class LoremPicsum:
         Returns the URL for to a random placeholder image with the given dimensions.
         
         Args:
-        - seed (str): A seed term to ensure the same random image is returned each time.
-        - width (int): The width of the image.
-        - height (int): The height of the image. Defaults to None in which case the image is square.
+            seed (str): A seed term to ensure the same random image is returned each time.
+            width (int): The width of the image.
+            height (int): The height of the image. Defaults to None in which case the image is square.
         
         Returns:
-        string: The URL of the placeholder image.
+            string: The URL of the placeholder image.
         """
         if height is not None:
             if grayscale:
@@ -165,11 +165,11 @@ class LoremPicsum:
         Returns a list of images in the Lorem Picsum API.
         
         Args:
-        - page (int): The page of images to return. Default is the first page.
-        - limit (int): The number of items per page. Default is 30.
+            page (int): The page of images to return. Default is the first page.
+            limit (int): The number of items per page. Default is 30.
         
         Returns:
-        - list: A list of images in the Lorem Picsum API.
+            list: A list of images in the Lorem Picsum API.
         """
         endpoint = f"v2/list?page={page}&limit={limit}"
         content = requests.get(self.base_url+endpoint)
@@ -180,10 +180,10 @@ class LoremPicsum:
         Returns info about a specific image matching the given id.
         
         Args:
-        - image_id (int): A number matching a specific image.
+            image_id (int): A number matching a specific image.
         
         Returns:
-        - dict: A dictionary containing info about a specific image.
+            dict: A dictionary containing info about a specific image.
         """
         endpoint = f"id/{image_id}/info"
         return mr.make_request(self.base_url+endpoint)
@@ -193,10 +193,10 @@ class LoremPicsum:
         Returns info about a specific image matching the given seed.
         
         Args:
-        - seed (str): The seed matching a specific image.
+            seed (str): The seed matching a specific image.
         
         Returns:
-        - dict: A dictionary containing info about a specific image.
+            dict: A dictionary containing info about a specific image.
         """
         endpoint = f"seed/{seed}/info"
         return mr.make_request(self.base_url+endpoint)

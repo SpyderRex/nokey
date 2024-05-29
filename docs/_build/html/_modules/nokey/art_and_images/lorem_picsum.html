@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nokey.art_and_images.lorem_picsum &mdash; nokey 0.7.3 documentation</title>
+  <title>nokey.art_and_images.lorem_picsum &mdash; nokey 0.7.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -14,7 +14,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=c98573da"></script>
+        <script src="../../../_static/documentation_options.js?v=020ce317"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -82,8 +82,8 @@
 <span class="sd">    A class for interacting with the Lorem Picsum API.</span>
 <span class="sd">    </span>
 <span class="sd">    Attributes:</span>
-<span class="sd">    - base_url: The base URL of the API.</span>
-<span class="sd">    - about: A short description of the API.</span>
+<span class="sd">        base_url: The base URL of the API.</span>
+<span class="sd">        about: A short description of the API.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">use_caching</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cache_name</span><span class="o">=</span><span class="s2">&quot;lorem_picsum_cache&quot;</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;sqlite&quot;</span><span class="p">,</span> <span class="n">expire_after</span><span class="o">=</span><span class="mi">3600</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://picsum.photos/&quot;</span>
@@ -99,10 +99,10 @@
 <span class="sd">        Returns the URL for the Lorem Picsum API documentation.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - None</span>
+<span class="sd">            None</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - string: The URL for the API docs.</span>
+<span class="sd">            string: The URL for the API docs.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;https://picsum.photos/&quot;</span></div>
 
@@ -114,13 +114,13 @@
 <span class="sd">        Returns the URL for to a random placeholder image with the given dimensions.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - width (int): The width of the image.</span>
-<span class="sd">        - height (int): The height of the image. Defaults to None in which case the image is square.</span>
-<span class="sd">        - grayscale (boolean): Optional argument for returning a grayscale picture. The default value is False.</span>
-<span class="sd">        - blur (int): An option to return a blurred photo. Values range from 1 to 10.</span>
+<span class="sd">            width (int): The width of the image.</span>
+<span class="sd">            height (int): The height of the image. Defaults to None in which case the image is square.</span>
+<span class="sd">            grayscale (bool): Optional argument for returning a grayscale picture. The default value is False.</span>
+<span class="sd">            blur (int): An option to return a blurred photo. Values range from 1 to 10.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        string: The URL of the placeholder image.</span>
+<span class="sd">            string: The URL of the placeholder image.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">height</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">grayscale</span><span class="p">:</span>
@@ -161,12 +161,12 @@
 <span class="sd">        Returns the URL for a specific image matching the given id number.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - image_id (int): A unique numerical id matching a specific image.</span>
-<span class="sd">        - width (int): The width of the image.</span>
-<span class="sd">        - height (int): The height of the image. Defaults to None in which case the image is square.</span>
+<span class="sd">            image_id (int): A unique numerical id matching a specific image.</span>
+<span class="sd">            width (int): The width of the image.</span>
+<span class="sd">            height (int): The height of the image. Defaults to None in which case the image is square.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - string: The URL to the image matching the given parameters.</span>
+<span class="sd">            string: The URL to the image matching the given parameters.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">height</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">grayscale</span><span class="p">:</span>
@@ -208,12 +208,12 @@
 <span class="sd">        Returns the URL for to a random placeholder image with the given dimensions.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - seed (str): A seed term to ensure the same random image is returned each time.</span>
-<span class="sd">        - width (int): The width of the image.</span>
-<span class="sd">        - height (int): The height of the image. Defaults to None in which case the image is square.</span>
+<span class="sd">            seed (str): A seed term to ensure the same random image is returned each time.</span>
+<span class="sd">            width (int): The width of the image.</span>
+<span class="sd">            height (int): The height of the image. Defaults to None in which case the image is square.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        string: The URL of the placeholder image.</span>
+<span class="sd">            string: The URL of the placeholder image.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">height</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">grayscale</span><span class="p">:</span>
@@ -254,11 +254,11 @@
 <span class="sd">        Returns a list of images in the Lorem Picsum API.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - page (int): The page of images to return. Default is the first page.</span>
-<span class="sd">        - limit (int): The number of items per page. Default is 30.</span>
+<span class="sd">            page (int): The page of images to return. Default is the first page.</span>
+<span class="sd">            limit (int): The number of items per page. Default is 30.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - list: A list of images in the Lorem Picsum API.</span>
+<span class="sd">            list: A list of images in the Lorem Picsum API.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;v2/list?page=</span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s2">&amp;limit=</span><span class="si">{</span><span class="n">limit</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">content</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span>
@@ -272,10 +272,10 @@
 <span class="sd">        Returns info about a specific image matching the given id.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - image_id (int): A number matching a specific image.</span>
+<span class="sd">            image_id (int): A number matching a specific image.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing info about a specific image.</span>
+<span class="sd">            dict: A dictionary containing info about a specific image.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;id/</span><span class="si">{</span><span class="n">image_id</span><span class="si">}</span><span class="s2">/info&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
@@ -288,10 +288,10 @@
 <span class="sd">        Returns info about a specific image matching the given seed.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
-<span class="sd">        - seed (str): The seed matching a specific image.</span>
+<span class="sd">            seed (str): The seed matching a specific image.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">        - dict: A dictionary containing info about a specific image.</span>
+<span class="sd">            dict: A dictionary containing info about a specific image.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;seed/</span><span class="si">{</span><span class="n">seed</span><span class="si">}</span><span class="s2">/info&quot;</span>
         <span class="k">return</span> <span class="n">mr</span><span class="o">.</span><span class="n">make_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="o">+</span><span class="n">endpoint</span><span class="p">)</span></div>
