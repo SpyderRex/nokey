@@ -144,6 +144,11 @@ Open Disease
 # Future Roadmap
 As the project grows, we envision expanding the collection of keyless APIs to cover a wide range of categories. Your feedback and contributions will play a crucial role in shaping the future of nokey.
 
+# Donating$$$
+If you find this project helpful and would like to support it, consider donating.
+
+[Donate via Paypal](https://www.paypal.com/donate/?hosted_button_id=N8HR4SN2J6FPG)
+
 # License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
